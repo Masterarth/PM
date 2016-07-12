@@ -1,6 +1,34 @@
-# Turn rewriting on
-Options +FollowSymLinks
-RewriteEngine On
-# Redirect requests to index.php
-RewriteCond %{REQUEST_URI} !=/index.php
-RewriteRule .* /index.php
+<IfModule rewrite_module>
+#OR<IfModule mod_rewrite.c>
+#OR<IfModule mod_rewrite.so>
+    # according to apache-documentation, followsymlinks is needed for mod_rewrite
+    #Options +FollowSymLinks
+    # Enable the RewriteEngine
+    RewriteEngine ON
+
+    DirectoryIndex index.php
+
+    # if needed add(/uncomment) the following:
+    RewriteBase /pm/
+    # check if the request is not an existing file
+    RewriteCond %{SCRIPT_FILENAME} !-f
+    # check if the request is not an existing directory
+    RewriteCond %{SCRIPT_FILENAME} !-d
+    # check if the request is not an existing symlink
+    RewriteCond %{SCRIPT_FILENAME} !-s
+    # rewrite all requests that passed the conditions to the file index.php
+    RewriteRule .* index.php
+</IfModule>
+# provide fallback if rewrite module is unavailable
+#( will by default generate 404-status code to client)
+<IfModule !rewrite_module>
+#OR<IfModule !mod_rewrite.c>
+#OR<IfModule !mod_rewrite.so>
+    # if needed the index.php might need to be prefixed with a path.
+    ErrorDocument 404 index.php
+</IfModule>
+
+# Remember to config the following for the location handled by this .htaccess :
+#AllowOverride FileInfo
+#or you could do:
+#AllowOverride All

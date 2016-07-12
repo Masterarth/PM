@@ -18,8 +18,8 @@ class request_handler {
     public function getController() {
         $request = explode('/', $_SERVER['REQUEST_URI']);
         $request = array_merge(array_filter($request));
-        if (isset($request[0])) {
-            return $request[0];
+        if (isset($request[1])) {
+            return $request[1];
         } else {
             return core()->config()->getdefaultpage();
         }

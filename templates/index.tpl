@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Zeiterfassung</title>
+        <title>PAMS</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="x-ua-compatible" content="IE=10">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta charset='utf-8' />
-        {* -------  Favicon Start  ------- *}
-        {* -------  Favicon End  ------- *}
-        {* -------  CSS Start  ------- *}
-        <link href="/bin/custom/css/main.css" type="text/css">
+        {* -------  Fonts Start ------ *}
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {* -------  Fonts End  ------- *}
+        {* -------  CSS Start  ------- *}        
+        <link type="text/css" rel="stylesheet" href="/pm/bin/materialize/css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/pm/bin/custom/css/main.css">
         {* -------  CSS End  ------- *}
         {* -------  JS Start  ------- *}
-        <script src="/bin/custom/js/main.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/pm/bin/jquery/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/pm/bin/materialize/js/materialize.min.js"></script>
+        <script type="text/javascript" src="/pm/bin/custom/js/main.js"></script>
         {* -------  JS End  ------- *}
     </head>
 
     <body>
-        <div class="container" id="frame">
-            <!-- Header -->       
-            <div class="row container">
-                <div class="page-header">
-                    {include file="header.tpl"}
-                </div>
-            </div>
+        <!-- Header -->       
+        {*include file="header.tpl"*}
 
-            <!-- Navigation -->
-            <div class="row container">
-                {include file="navigation.tpl"}
-            </div>
+        <!-- Navigation -->
+        <nav class="white" role="navigation">
+            {include file="navigation.tpl"}
+        </nav>
 
-            <!-- Inhalt -->
-            <div class="row container" id="inhalt">
-                {include file=$page}
-            </div>
-
-            <!-- Footer -->
-            <div class="row container" id="footer">
-                {include file="footer.tpl"}
-            </div>
+        <!-- Inhalt -->
+        <div class="container">
+            {include file=$page}
         </div>
+        <!-- Footer -->
+        {*include file="footer.tpl"*}
+
+        {include file="fixed_menu_button.tpl"}
+
     </body>
