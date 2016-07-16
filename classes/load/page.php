@@ -23,10 +23,15 @@ class load_page {
         $page_path = realpath($page_path);
 
         if (!file_exists($page_path)) {
-            $page = "404";
+            $controller_path = BASEPATH . 'controller/' . $page . '.php';
+            $controller_path = realpath($controller_path);
+            if (!file_exists($controller_path)) {
+                $page = "404";
+            }
         }
 
         core()->smarty()->assign('page', $page . '.tpl');
+        core()->smarty()->assign("showNavbar", TRUE);
 
         if ($page) {
             $_SESSION["page"] = $page;
