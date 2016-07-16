@@ -33,11 +33,15 @@
                     <div class="col s8">
                         <h5 class="text-light-blue">{$projekt->getTitle()}</h5>
                         <div class="previewInfo">
-                            <div class="discription">Funktionsbereich: ist noch nicht verfügbar</div>
-                            <span class="discription">Standort: ist noch nicht verfügbar</span>
-                        </div>
-                        <div class="previewInfo">
-                            <div class="discription">Kurzbeschreibung:</div>
+                            <div class="discription"><strong>Funktionsbereich:</strong> ist noch nicht verfügbar</div>
+                            <div class="discription"><strong>Standort:</strong> ist noch nicht verfügbar</div>
+                            <div class="section"></div>
+                            <div class="discription"><strong>Mitarbeiteranzahl:</strong> {$projekt->getMitarbeiteranzahl()}</div>
+                            <div class="discription"><strong>Starttermin:</strong> {$projekt->getStarttermin()|date_format:"%A, %B %e, %Y"}</div>
+                            <div class="discription"><strong>Endtermin:</strong> {$projekt->getEndtermin()|date_format:"%A, %B %e, %Y"}</div>
+                            <div class="discription"><strong>Budget:</strong> {$projekt->getBudget()|number_format:2:",":"."}€</div>
+                            <div class="section"></div>
+                            <div class="discription"><strong>Kurzbeschreibung:</strong></div>
                             <div class="discription">{$projekt->getBeschreibung()}</div>
                         </div>
                     </div>

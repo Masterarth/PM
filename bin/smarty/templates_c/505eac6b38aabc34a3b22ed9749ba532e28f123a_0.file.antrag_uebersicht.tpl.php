@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-16 18:04:19
+/* Smarty version 3.1.29, created on 2016-07-16 18:43:04
   from "E:\Programme\xampp\htdocs\PM\templates\antrag_uebersicht.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578a5b039f52a2_12154187',
+  'unifunc' => 'content_578a64186b7677_40479835',
   'file_dependency' => 
   array (
     '505eac6b38aabc34a3b22ed9749ba532e28f123a' => 
     array (
       0 => 'E:\\Programme\\xampp\\htdocs\\PM\\templates\\antrag_uebersicht.tpl',
-      1 => 1468685057,
+      1 => 1468687382,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,8 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_578a5b039f52a2_12154187 ($_smarty_tpl) {
+function content_578a64186b7677_40479835 ($_smarty_tpl) {
+if (!is_callable('smarty_modifier_date_format')) require_once 'E:\\Programme\\xampp\\htdocs\\PM/bin/smarty/libs/plugins\\modifier.date_format.php';
 ?>
 <div class="row">
     <div class="col s3">
@@ -68,11 +69,19 @@ $__foreach_projekt_0_saved_local_item = $_smarty_tpl->tpl_vars['projekt'];
                         <h5 class="text-light-blue"><?php echo $_smarty_tpl->tpl_vars['projekt']->value->getTitle();?>
 </h5>
                         <div class="previewInfo">
-                            <div class="discription">Funktionsbereich: ist noch nicht verfügbar</div>
-                            <span class="discription">Standort: ist noch nicht verfügbar</span>
-                        </div>
-                        <div class="previewInfo">
-                            <div class="discription">Kurzbeschreibung:</div>
+                            <div class="discription"><strong>Funktionsbereich:</strong> ist noch nicht verfügbar</div>
+                            <div class="discription"><strong>Standort:</strong> ist noch nicht verfügbar</div>
+                            <div class="section"></div>
+                            <div class="discription"><strong>Mitarbeiteranzahl:</strong> <?php echo $_smarty_tpl->tpl_vars['projekt']->value->getMitarbeiteranzahl();?>
+</div>
+                            <div class="discription"><strong>Starttermin:</strong> <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['projekt']->value->getStarttermin(),"%A, %B %e, %Y");?>
+</div>
+                            <div class="discription"><strong>Endtermin:</strong> <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['projekt']->value->getEndtermin(),"%A, %B %e, %Y");?>
+</div>
+                            <div class="discription"><strong>Budget:</strong> <?php echo number_format($_smarty_tpl->tpl_vars['projekt']->value->getBudget(),2,",",".");?>
+€</div>
+                            <div class="section"></div>
+                            <div class="discription"><strong>Kurzbeschreibung:</strong></div>
                             <div class="discription"><?php echo $_smarty_tpl->tpl_vars['projekt']->value->getBeschreibung();?>
 </div>
                         </div>
