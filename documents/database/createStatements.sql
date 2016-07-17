@@ -90,9 +90,11 @@ CREATE TABLE IF NOT EXISTS ProjStatus(
 CREATE TABLE IF NOT EXISTS Projekt(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   titel VARCHAR(40) NOT NULL,
-  ersteller_id INT(6) NOT NULL,
-  FOREIGN KEY(creator_id) REFERENCES Mitarbeiter(id),
-  erstell_datum TIMESTAMP
+  e_id INT(6) NOT NULL,
+  FOREIGN KEY(b_id) REFERENCES Mitarbeiter(id),
+  b_id INT(6) NOT NULL,
+  FOREIGN KEY(b_id) REFERENCES Bereich(id),
+  erstell_datum TIMESTAMP,
   mitarb_anz INT(6),
   budget INT(20),
   vor_sta_term DATE,
