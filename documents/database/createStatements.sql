@@ -93,6 +93,9 @@ CREATE TABLE IF NOT EXISTS Projekt(
   ersteller_id INT(6) NOT NULL,
   FOREIGN KEY(creator_id) REFERENCES Mitarbeiter(id),
   erstell_datum TIMESTAMP
+  genehmigung_E1 BOOLEAN NOT NULL DEFAULT 0,
+  genehmigung_E2 BOOLEAN NOT NULL DEFAULT 0,
+  genehmigung_E3 BOOLEAN NOT NULL DEFAULT 0,
   mitarb_anz INT(6),
   budget INT(20),
   vor_sta_term DATE,
