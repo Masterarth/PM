@@ -9,7 +9,7 @@
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         {* -------  Fonts End  ------- *}
         {* -------  CSS Start  ------- *}        
-        <link type="text/css" rel="stylesheet" href="/pm/bin/materialize/css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/pm/bin/materialize/css/materialize.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="/pm/bin/custom/css/main.css">
         {* -------  CSS End  ------- *}
         {* -------  JS Start  ------- *}
@@ -20,20 +20,14 @@
     </head>
 
     <body>
-        <!-- Header -->       
-        {*include file="header.tpl"*}
 
         <!-- Navigation -->
-        <nav class="white" role="navigation">
-            {include file="navigation.tpl"}
-        </nav>
+        {include file="navigation.tpl"}
 
         <!-- Inhalt -->
         <div class="container">
             {include file=$page}
         </div>
-        <!-- Footer -->
-        {*include file="footer.tpl"*}
 
         {include file="fixed_menu_button.tpl"}
 

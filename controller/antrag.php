@@ -8,5 +8,6 @@ switch ($request[2]) {
         break;
     case "uebersicht":
         core()->page()->loadPage("antrag_uebersicht");
+        core()->page()->loadController("antrag_uebersicht");
         break;
 }
