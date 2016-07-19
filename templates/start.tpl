@@ -27,6 +27,9 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div id="chart_div"></div>
+</div>
 
 <ul class="collection">
     <li class="collection-item avatar">
