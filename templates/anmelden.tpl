@@ -7,7 +7,7 @@
         <div class="section"></div>
 
         <div class="container">
-            <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+            <div class="z-depth-1 grey lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
                 <form class="col s12" method="post" action="/pm/start">
                     <div class='row'>
                         <div class='col s12'>
@@ -17,8 +17,8 @@
                     <div class='row'>
                         <div class='input-field col s12'>
                             <i class="material-icons prefix">account_circle</i>
-                            <input class='validate' type='email' name='email' id='email' />
-                            <label class="left-align" for='email'>E-Mail Adresse</label>
+                            <input class='validate' type='text' name='account_name' id='account_name' />
+                            <label class="left-align" for='account_name'>Account Name</label>
                         </div>
                     </div>
 
@@ -42,7 +42,7 @@
                 </form>
             </div>
         </div>
-        <a href="#!">Account erstellen</a>
+        <a href="/pm/registrierung">Account erstellen</a>
     </center>
 
     <div class="section"></div>
