@@ -15,9 +15,7 @@ CREATE TABLE IF NOT EXISTS Mitarbeiter(
   FOREIGN KEY(u_id) REFERENCES Users(id),
   nachname VARCHAR(30) NOT NULL,
   vorname VARCHAR(30) NOT NULL,
-  abteil INT(6) NOT NULL,
-  FOREIGN KEY(abteil) REFERENCES Abteilung(id),
-  b_id INT(6) NOT NULL,
+  b_id INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(b_id) REFERENCES Berechtigung(id)
 );
 CREATE TABLE IF NOT EXISTS Firma(
@@ -34,19 +32,19 @@ CREATE TABLE IF NOT EXISTS Standort(
 );
 CREATE TABLE IF NOT EXISTS Bereich(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  s_id INT(6) UNSIGNED,
+  s_id INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(s_id) REFERENCES Standort(id),
   b_name VARCHAR(30) NOT NULL,
-  b_leitung INT(6) NOT NULL,
+  b_leitung INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(b_leitung) REFERENCES Mitarbeiter(id),
   budget INT(20) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS Abteilung(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  b_id INT(6) UNSIGNED,
+  b_id INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(b_id) REFERENCES Bereich(id),
   a_name VARCHAR(30) NOT NULL,
-  a_leitung INT(6) NOT NULL,
+  a_leitung INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(a_leitung) REFERENCES Mitarbeiter(id),
   budget INT(20) NOT NULL
 );
@@ -82,3 +80,5 @@ CREATE TABLE IF NOT EXISTS ProjMitarb(
   p_id INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(p_id) REFERENCES Projekt(id)
 );
+ALTER TABLE Mitarbeiter ADD abteil INT(6) UNSIGNED NOT NULL;
+ALTER TABLE Mitarbeiter ADD FOREIGN KEY(abteil) REFERENCES Abteilung(id);
