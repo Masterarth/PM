@@ -1,6 +1,5 @@
 <center>
     <h3 class="blue-grey-text darken-3">PAMS</h3>
-    <div class="section"></div>
     <div class="container">
         <div class="z-depth-1 grey lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
             <form method="post" action="/pm/#">

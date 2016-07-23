@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-19 09:29:11
+/* Smarty version 3.1.29, created on 2016-07-19 10:10:18
   from "C:\xampp\htdocs\pm\templates\registrierung.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578dd6c778eff5_94698670',
+  'unifunc' => 'content_578de06ac65046_15863720',
   'file_dependency' => 
   array (
     '9f5e8c4c68a07394f8266b228d26e3fdea73baff' => 
     array (
       0 => 'C:\\xampp\\htdocs\\pm\\templates\\registrierung.tpl',
-      1 => 1468913348,
+      1 => 1468915816,
       2 => 'file',
     ),
   ),
@@ -19,11 +19,10 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_578dd6c778eff5_94698670 ($_smarty_tpl) {
+function content_578de06ac65046_15863720 ($_smarty_tpl) {
 ?>
 <center>
     <h3 class="blue-grey-text darken-3">PAMS</h3>
-    <div class="section"></div>
     <div class="container">
         <div class="z-depth-1 grey lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
             <form method="post" action="/pm/#">

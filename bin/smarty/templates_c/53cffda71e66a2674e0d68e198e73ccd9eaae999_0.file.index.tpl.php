@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-18 09:06:55
+/* Smarty version 3.1.29, created on 2016-07-19 10:10:18
   from "C:\xampp\htdocs\pm\templates\index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578c800f6d3460_26754990',
+  'unifunc' => 'content_578de06ac064a2_89016585',
   'file_dependency' => 
   array (
     '53cffda71e66a2674e0d68e198e73ccd9eaae999' => 
     array (
       0 => 'C:\\xampp\\htdocs\\pm\\templates\\index.tpl',
-      1 => 1468825570,
+      1 => 1468914585,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:fixed_menu_button.tpl' => 1,
   ),
 ),false)) {
-function content_578c800f6d3460_26754990 ($_smarty_tpl) {
+function content_578de06ac064a2_89016585 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,6 +46,12 @@ function content_578c800f6d3460_26754990 ($_smarty_tpl) {
 >
         <?php echo '<script'; ?>
  type="text/javascript" src="/pm/bin/custom/js/main.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="/pm/bin/custom/js/loader.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="/pm/bin/custom/js/GanttPM.js"><?php echo '</script'; ?>
 >
         
     </head>

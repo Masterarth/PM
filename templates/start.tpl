@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-        <div class="col s12 m4">
+    <div class="col s12 m4">
         <div class="card blue-grey darken-3">
             <div class="card-content white-text">
                 <span class="card-title">Diagramm 3</span>
@@ -27,9 +27,8 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div id="chart_div"></div>
-</div>
+
+<div id="chart_div"></div>
 
 <ul class="collection">
     <li class="collection-item avatar">
