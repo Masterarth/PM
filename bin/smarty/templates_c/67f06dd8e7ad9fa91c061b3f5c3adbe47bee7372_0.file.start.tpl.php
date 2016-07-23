@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-16 17:34:13
+/* Smarty version 3.1.29, created on 2016-07-23 13:54:08
   from "E:\Programme\xampp\htdocs\PM\templates\start.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578a53f5a1fd07_84842997',
+  'unifunc' => 'content_57935ae0958cd7_95436538',
   'file_dependency' => 
   array (
     '67f06dd8e7ad9fa91c061b3f5c3adbe47bee7372' => 
     array (
       0 => 'E:\\Programme\\xampp\\htdocs\\PM\\templates\\start.tpl',
-      1 => 1468683252,
+      1 => 1469274833,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_578a53f5a1fd07_84842997 ($_smarty_tpl) {
+function content_57935ae0958cd7_95436538 ($_smarty_tpl) {
 ?>
 <div class="row">
     <div class="col s12 m4">
@@ -40,7 +40,7 @@ function content_578a53f5a1fd07_84842997 ($_smarty_tpl) {
             </div>
         </div>
     </div>
-        <div class="col s12 m4">
+    <div class="col s12 m4">
         <div class="card blue-grey darken-3">
             <div class="card-content white-text">
                 <span class="card-title">Diagramm 3</span>
@@ -50,6 +50,8 @@ function content_578a53f5a1fd07_84842997 ($_smarty_tpl) {
         </div>
     </div>
 </div>
+
+<div id="chart_div"></div>
 
 <ul class="collection">
     <li class="collection-item avatar">

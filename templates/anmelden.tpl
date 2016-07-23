@@ -8,7 +8,7 @@
 
         <div class="container">
             <div class="z-depth-1 grey lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
-                <form class="col s12" method="post" action="/pm/start">
+                <form class="col s12" method="post" action="/pm/anmelden">
                     <div class='row'>
                         <div class='col s12'>
                         </div>
@@ -17,7 +17,7 @@
                     <div class='row'>
                         <div class='input-field col s12'>
                             <i class="material-icons prefix">account_circle</i>
-                            <input class='validate' type='text' name='account_name' id='account_name' />
+                            <input class='validate' type='text' name='reg[account_name]' id='account_name' required="" aria-required="true"/>
                             <label class="left-align" for='account_name'>Account Name</label>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                     <div class='row'>
                         <div class='input-field col s12'>
                             <i class="material-icons prefix">lock</i>
-                            <input class='validate' type='password' name='password' id='password' />
+                            <input class='validate' type='password' name='reg[password]' id='password' required="" aria-required="true"/>
                             <label class="left-align" for='password'>Passwort</label>
                         </div>
                         <label style='float: right;'>
