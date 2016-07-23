@@ -46,3 +46,7 @@
     </div>
     <a href="/pm/anmelden">Registrierung abbrechen</a>
 </center>
+
+{if isset($toast)}
+    {$toast}
+{/if}

@@ -20,6 +20,7 @@ if (isset($_POST["reg"])) {
         core()->db()->update("insert into mitarbeiter (u_id, nachname, vorname) values (:uid, :nachname, :vorname)", $mitarbeiter);
     } else {
         //TODO: ERROR Meldung ausgeben... das der username nicht verwendet werden kann da schon vorhanden.
+        core()->smarty()->assign("toast", "<script type=\"text/javascript\">Materialize.toast('Accountname ist schon vergeben!', 4000, 'rounded');</script>");
     }
 }
 
