@@ -12,23 +12,24 @@ class db_base extends PDO {
         unset($this);
     }
 
-    public function selectQuery($statement, $fetchMethode = 'fetchAll', $method = PDO::FETCH_OBJ) {
+    public function select($statement, $fetchMethode = 'fetchAll', $method = PDO::FETCH_OBJ) {
         $stmt = $this->query($statement);
         return $stmt->$fetchMethode($method);
     }
 
-    public function select($what, $from, $where = null, $fetchMethode = 'fetchAll', $method = PDO::FETCH_OBJ) {
-        if ($where) {
-            $stmt = $this->query("SELECT " . $what . " FROM " . $from . " WHERE " . $where);
-        } else {
-            $stmt = $this->query("SELECT " . $what . " FROM " . $from);
-        }
-        return $stmt->$fetchMethode($method);
-    }
+//    public function select($what, $from, $where = null, $fetchMethode = 'fetchAll', $method = PDO::FETCH_OBJ) {
+//        if ($where) {
+//            $stmt = $this->query("SELECT " . $what . " FROM " . $from . " WHERE " . $where);
+//        } else {
+//            $stmt = $this->query("SELECT " . $what . " FROM " . $from);
+//        }
+//        return $stmt->$fetchMethode($method);
+//    }
 
     public function update($statement, $data) {
         $stmt = $this->prepare($statement);
         $stmt->execute($data);
+        return $this->lastInsertId();
     }
 
     public function delete($statement) {

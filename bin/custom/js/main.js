@@ -7,4 +7,8 @@ $(document).ready(function () {
     $('.parallax').parallax();
 
     $(".button-collapse").sideNav();
+
+    $('.tabs-wrapper').pushpin({top: $('.tabs-wrapper').offset().top});
+
 });
+
