@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Mitarbeiter(
   FOREIGN KEY(u_id) REFERENCES Users(id),
   nachname VARCHAR(30) NOT NULL,
   vorname VARCHAR(30) NOT NULL,
-  b_id INT(6) UNSIGNED NOT NULL,
+  b_id INT(6) UNSIGNED,
   FOREIGN KEY(b_id) REFERENCES Berechtigung(id)
 );
 CREATE TABLE IF NOT EXISTS Firma(
@@ -84,5 +84,5 @@ CREATE TABLE IF NOT EXISTS ProjMitarb(
   p_id INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(p_id) REFERENCES Projekt(id)
 );
-ALTER TABLE Mitarbeiter ADD abteil INT(6) UNSIGNED NOT NULL;
+ALTER TABLE Mitarbeiter ADD abteil INT(6) UNSIGNED;
 ALTER TABLE Mitarbeiter ADD FOREIGN KEY(abteil) REFERENCES Abteilung(id);
