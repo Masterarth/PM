@@ -9,6 +9,13 @@ CREATE TABLE IF NOT EXISTS Berechtigung(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   berechtigung VARCHAR(30) UNIQUE
 );
+CREATE TABLE IF NOT EXISTS Budget(
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  betrag DOUBLE,
+  sta_periode date,
+  end_periode date,
+  aktiv BOOLEAN DEFAULT 0
+);
 CREATE TABLE IF NOT EXISTS Mitarbeiter(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   u_id INT(6) UNSIGNED,
@@ -41,7 +48,8 @@ CREATE TABLE IF NOT EXISTS Bereich(
   b_name VARCHAR(30) NOT NULL,
   b_leitung INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(b_leitung) REFERENCES Mitarbeiter(id),
-  budget INT(20) NOT NULL
+  budget_id INT(6) UNSIGNED,
+  FOREIGN KEY(budget_id) REFERENCES Budget(id)
 );
 CREATE TABLE IF NOT EXISTS Abteilung(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -50,7 +58,8 @@ CREATE TABLE IF NOT EXISTS Abteilung(
   a_name VARCHAR(30) NOT NULL,
   a_leitung INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(a_leitung) REFERENCES Mitarbeiter(id),
-  budget INT(20) NOT NULL
+  budget_id INT(6) UNSIGNED,
+  FOREIGN KEY(budget_id) REFERENCES Budget(id)
 );
 CREATE TABLE IF NOT EXISTS ProjStatus(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -69,7 +78,8 @@ CREATE TABLE IF NOT EXISTS Projekt(
   FOREIGN KEY(b_id) REFERENCES Bereich(id),
   l_id INT(6) UNSIGNED,
   FOREIGN KEY(l_id) REFERENCES Mitarbeiter(id),
-  budget INT(20),
+  budget_id INT(6) UNSIGNED,
+  FOREIGN KEY(budget_id) REFERENCES Budget(id),
   vor_sta_term DATE,
   vor_end_term DATE,
   tat_sta_term DATE,
