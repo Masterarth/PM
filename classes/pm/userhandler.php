@@ -15,19 +15,22 @@ class pm_userhandler {
         
     }
 
-    private function createUser($id) {
+    public function createUser($id) {
         $result = core()->db()->select("select u.l_name,u.reg_datum,u.aktiv,m.id,m.u_id,m.nachname,m.vorname,m.b_id,m.abteil from users u, mitarbeiter m where u.id =" . $id . " and m.u_id = u.id", "fetch");
-        $user = new pm_user();
-        $user->setId($result->id);
-        $user->setB_id($result->b_id);
-        $user->setU_id($result->u_id);
-        $user->setL_name($result->l_name);
-        $user->setVorname($result->vorname);
-        $user->setNachname($result->nachname);
-        $user->setAbteil($result->abteil);
-        $user->setReg_datum($result->reg_datum);
-        $user->setAktiv($result->aktiv);
-        return $user;
+        if ($result) {
+            $user = new pm_user();
+            $user->setId($result->id);
+            $user->setB_id($result->b_id);
+            $user->setU_id($result->u_id);
+            $user->setL_name($result->l_name);
+            $user->setVorname($result->vorname);
+            $user->setNachname($result->nachname);
+            $user->setAbteil($result->abteil);
+            $user->setReg_datum($result->reg_datum);
+            $user->setAktiv($result->aktiv);
+            return $user;
+        }
+        return false;
     }
 
     public function getUser() {

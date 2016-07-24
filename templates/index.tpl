@@ -27,7 +27,7 @@
         {include file="navigation.tpl"}
 
         <!-- Inhalt -->
-        <div class="container">
+        <div class="container content">
             {include file=$page}
         </div>
 

@@ -6,7 +6,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Mitarbeiter<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="/pm/mitarbeiter">Öffnen</a></p>
+                <p><a class="btn btn-block" href="/pm/mitarbeiter/suche">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Mitarbeiter<i class="material-icons right">close</i></span>

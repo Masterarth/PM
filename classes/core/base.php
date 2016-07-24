@@ -62,7 +62,7 @@ class core_base {
         return pm_userhandler::getInstance();
     }
 
-    public function materilize() {
+    public function materialize() {
         return materializecss_handler::getInstance();
     }
 

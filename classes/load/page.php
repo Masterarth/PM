@@ -37,6 +37,7 @@ class load_page {
         core()->smarty()->assign('page', $page . '.tpl');
         core()->smarty()->assign("showNavbar", TRUE);
         core()->smarty()->assign("showNavButton", TRUE);
+        core()->materialize()->clearFixedNavElements();
 
         if ($page) {
             $_SESSION["page"] = $page;

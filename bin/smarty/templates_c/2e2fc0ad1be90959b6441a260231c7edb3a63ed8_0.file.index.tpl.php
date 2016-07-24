@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-23 13:06:41
+/* Smarty version 3.1.29, created on 2016-07-24 21:42:49
   from "E:\Programme\xampp\htdocs\PM\templates\index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57934fc173fd27_54280641',
+  'unifunc' => 'content_57951a3954f223_19007905',
   'file_dependency' => 
   array (
     '2e2fc0ad1be90959b6441a260231c7edb3a63ed8' => 
     array (
       0 => 'E:\\Programme\\xampp\\htdocs\\PM\\templates\\index.tpl',
-      1 => 1469271998,
+      1 => 1469379742,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:fixed_menu_button.tpl' => 1,
   ),
 ),false)) {
-function content_57934fc173fd27_54280641 ($_smarty_tpl) {
+function content_57951a3954f223_19007905 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,7 +64,7 @@ function content_57934fc173fd27_54280641 ($_smarty_tpl) {
 
 
         <!-- Inhalt -->
-        <div class="container">
+        <div class="container content">
             <?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, $_smarty_tpl->tpl_vars['page']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
 
