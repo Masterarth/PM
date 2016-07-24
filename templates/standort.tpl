@@ -1,18 +1,17 @@
 <div class="section"></div>
 <main>
     <center>
-        <h3 class="blue-grey-text darken-3">Mitarbeiter</h3>
+        <h3 class="blue-grey-text darken-3">Standort</h3>
         <div class="section"></div>
 
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a href="#neue">Neuer Mitarbeiter</a></li>
-                    <li class="tab col s3"><a href="#bearbeiten">Mitarbeiter zuweisen</a></li>
-                    <li class="tab col s3"><a href="#loeschen">Mitarbeiter löschen</a></li>
+                    <li class="tab col s3"><a href="#neue">Neuer Standort</a></li>
+                    <li class="tab col s3"><a href="#loeschen">Standort löschen</a></li>
                 </ul>
             </div>
-            <!-- Neuer Mitarbeiter anlegen -->
+            <!-- Neuer Standort anlegen -->
             <div id="neue" class="col s12">
                 </br>
                 </br>
@@ -55,53 +54,8 @@
                 </div>
             </div>
 
-            <!-- Mitarbeiter zuweisen -->
-            <div id="bearbeiten" class="col s12">
-                </br>
-                </br>
-                <div class="container">
-                    <div class="z-depth-1 grey lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
-                        <center>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>Username</td>
-                                        <td>Name</td>
-                                        <td>Vorname</td>
-                                        <td>Aktiv</td>
-                                        <td>Team</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>adlerlu</td>
-                                        <td>Adler</td>
-                                        <td>Lukas</td>
-                                        <td>
-                                            <select>
-                                                <option value="" disabled selected>Team</option>
-                                                <option value="1">IT</option>
-                                                <option value="2">HR</option>
-                                                <option value="3">Marketing</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" id="test5" />
-                                            <label for="test5"></label>
-                                        </td>
 
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </center>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Mitarbeiter löschen -->
+            <!-- Standort löschen -->
             <div id="loeschen" class="col s12">
                 
                 </br>
