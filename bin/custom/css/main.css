@@ -1,6 +1,6 @@
 .pin-top {
     position: relative;
-    
+
 }
 
 .pin-bottom {
@@ -10,4 +10,12 @@
 .pinned {
     position: fixed !important;
     margin-top: 65px;
+}
+
+.card-image{
+    padding: 15px;
+}
+
+.content{
+    margin-top: 20px;
 }
