@@ -11,7 +11,7 @@
  * @author Artur
  *
  * Add the specific Coding Guidelines
- * @since version v.01
+ * @since 24.07.2016
  * @author Lukas
  */
 class abteilung {
