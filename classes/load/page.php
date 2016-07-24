@@ -19,6 +19,10 @@ class load_page {
 
         $page = core()->request()->getController();
 
+        if (!core()->userhandler()->checkUser() and $page != "registrierung") {
+            $page = "anmelden";
+        }
+
         $page_path = BASEPATH . 'templates/' . $page . '.tpl';
         $page_path = realpath($page_path);
 
@@ -32,7 +36,7 @@ class load_page {
 
         core()->smarty()->assign('page', $page . '.tpl');
         core()->smarty()->assign("showNavbar", TRUE);
-        core()->smarty()->assign("showNavButton",TRUE);
+        core()->smarty()->assign("showNavButton", TRUE);
 
         if ($page) {
             $_SESSION["page"] = $page;

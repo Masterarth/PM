@@ -185,5 +185,4 @@ class log_handler {
         }
         return $file;
     }
-
 }

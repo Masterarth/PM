@@ -57,4 +57,13 @@ class core_base {
     public function log() {
         return log_handler::getInstance();
     }
+
+    public function userhandler() {
+        return pm_userhandler::getInstance();
+    }
+
+    public function materilize() {
+        return materializecss_handler::getInstance();
+    }
+
 }
