@@ -2,6 +2,7 @@
 
 $request = core()->request()->getParams();
 
+core()->materialize()->addFixedNavElement("/pm/mitarbeiter/dashboard", "Mitarbeiter Übersicht", "list");
 core()->materialize()->addFixedNavElement("/pm/mitarbeiter/suche", "Mitarbeiter suchen", "search");
 core()->materialize()->addFixedNavElement("/pm/mitarbeiter/neu", "Mitarbeiter anlegen", "mode_edit");
 core()->materialize()->showFixedNavElement();
@@ -13,8 +14,12 @@ if (isset($request[2])) {
             core()->page()->loadController("mitarbeiter_neu");
             break;
         case "suche":
-            core()->page()->loadPage("mitarbeiter_uebersicht");
-            core()->page()->loadController("mitarbeiter_uebersicht");
+            core()->page()->loadPage("mitarbeiter_suche");
+            core()->page()->loadController("mitarbeiter_suche");
+            break;
+        case "dashboard":
+            core()->page()->loadPage("mitarbeiter_dashboard");
+            core()->page()->loadController("mitarbeiter_dashboard");
             break;
         case "update":
             switch ($request[3]) {

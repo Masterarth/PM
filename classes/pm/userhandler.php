@@ -59,4 +59,9 @@ class pm_userhandler {
         return false;
     }
 
+    public function getAllUser() {
+        $result = core()->db()->select("select * from users u, mitarbeiter m where m.u_id = u.id");
+        return $result;
+    }
+
 }
