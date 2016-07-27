@@ -35,7 +35,7 @@
                         <p><strong>Bereich:</strong> IT</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">Öffnen</a>
+                        <a href="antrag">Öffnen</a>
                     </div>
                 </div>
             </div>
