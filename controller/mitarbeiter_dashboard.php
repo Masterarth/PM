@@ -11,4 +11,6 @@ if (isset($_POST["ma_search"])) {
     $users = core()->userhandler()->getAllUser();
 }
 
+core()->materialize()->addFixedNavElement("/pm/mitarbeiter/neu", "Mitarbeiter anlegen", "mode_edit");
+core()->materialize()->showFixedNavElement();
 core()->smarty()->assign("users", $users);

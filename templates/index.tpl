@@ -28,6 +28,13 @@
 
         <!-- Inhalt -->
         <div class="container content">
+            {if isset($pageTitle)}
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">{$pageTitle}</span>
+                    </div>
+                </div>
+            {/if}
             {include file=$page}
         </div>
 

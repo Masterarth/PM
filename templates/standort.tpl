@@ -4,10 +4,6 @@
         <div class="card-content">
             <span class="card-title">{$standort->s_name}</span>
         </div>
-        <div class="card-action">
-            <a href="#">bearbeiten</a>
-            <a href="#">löschen</a>
-        </div>
     </div> 
 
     <div class="card">
