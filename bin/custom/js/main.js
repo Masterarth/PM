@@ -8,14 +8,6 @@ $(document).ready(function () {
 
     $(".button-collapse").sideNav();
 
-    $('input.autocomplete').autocomplete({
-        data: {
-            "Apple": null,
-            "Microsoft": null,
-            "Google": null
-        }
-    });
-
     $('ul.tabs').tabs();
     $('select').material_select();
     $('.datepicker').pickadate({
@@ -33,6 +25,21 @@ $(document).ready(function () {
         selectYears: 15, // Creates a dropdown of 15 years to control year
     });
 
+
+    $('#autocomplete').on('input', function () {
+        var searchKeyword = $(this).val();
+        if (searchKeyword.length >= 3) {
+            $.post('/pm/test/data', {name: searchKeyword}, function (data) {
+                $('ul#content').empty()
+                console.log(data);
+                $.each(data, function () {
+                    $('ul#content').append('<li><p>' + this.vorname + " " + this.nachname + '</p></li>');
+                });
+            }, "json");
+        } else {
+            $('ul#content').empty()
+        }
+    });
 
 
 });
