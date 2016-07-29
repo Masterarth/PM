@@ -2,18 +2,15 @@
 
 $request = core()->request()->getParams();
 
-
 if (isset($request[2])) {
     switch ($request[2]) {
         case "neu":
-            core()->page()->loadPage("standort_neu");
-            core()->page()->loadController("standort_neu");
+            core()->page()->loadPage("bereich_neu");
+            core()->page()->loadController("bereich_neu");
             break;
         case "dashboard":
-            core()->materialize()->addFixedNavElement("/pm/standort/neu", "Standort anlegen", "mode_edit");
-            core()->materialize()->showFixedNavElement();
-            core()->page()->loadPage("standort_dashboard");
-            core()->page()->loadController("standort_dashboard");
+            core()->page()->loadPage("bereich_dashboard");
+            core()->page()->loadController("bereich_dashboard");
             break;
         case "update":
 //            switch ($request[3]) {
@@ -28,7 +25,7 @@ if (isset($request[2])) {
         core()->materialize()->addFixedNavElement("#", "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
 
-        $standort = core()->db()->select("select * from standort where id = " . $request[2], "fetch");
+        $standort = core()->db()->select("select * from bereich where id = " . $request[2], "fetch");
 
         if ($standort) {
             core()->smarty()->assign("standort", $standort);

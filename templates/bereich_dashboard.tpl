@@ -1,15 +1,15 @@
 <div class="card">
     <div class="card-content">
-        <span class="card-title">Mitarbeiter</span>
+        <span class="card-title">Bereiche</span>
     </div>
 </div>
 <div class="row">
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">
-            <form action="/pm/mitarbeiter/dashboard" method="post">
+            <form action="/pm/bereich/dashboard" method="post">
                 <div class="input-field search white">
-                    <input id="search" class="sickblue" type="text" name="ma_search">
-                    <label for="search">nach Mitarbeiter suchen</label>
+                    <input id="search" class="sickblue" type="text" name="bereich_search">
+                    <label for="search">nach Bereich suchen</label>
                 </div>
             </form>
             <li>
@@ -19,25 +19,24 @@
                 </div>
             </li>
             <li>
-                <div class="collapsible-header">Abteilungen</div>
-                <div class="collapsible-body"><p>hier sind abteilungen aufgelistet</p></div>
+                <div class="collapsible-header">irgendwas</div>
+                <div class="collapsible-body"></div>
             </li>
         </ul>
     </div>
     <div class="col s12 l9">
-        {foreach from=$users item=user}
+        {foreach from=$bereiche item=bereich}
             <div class="card horizontal hoverable valign-wrapper">
                 <div class="card-image valign">
                     <img src="/pm/bin/custom/images/projekt_2.jpg">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                        <span class="card-title">{$user->vorname} {$user->nachname}</span>
-                        <p><strong>Accountname:</strong> {$user->reg_datum}</p>
-                        <p><strong>Registriert seit:</strong> {$user->l_name}</p>
+                        <span class="card-title">{$bereich->b_name}</span>
+                        <p><strong>Leiter:</strong> {$bereich->b_leiter}</p>
                     </div>
                     <div class="card-action">
-                        <a href="/pm/mitarbeiter/{$user->id}">Öffnen</a>
+                        <a href="/pm/bereich/{$bereich->id}">Öffnen</a>
                     </div>
                 </div>
             </div>
