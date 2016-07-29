@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-24 21:57:20
+/* Smarty version 3.1.29, created on 2016-07-29 19:37:51
   from "E:\Programme\xampp\htdocs\PM\templates\start.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57951da07c7612_38072430',
+  'unifunc' => 'content_579b946f3fd352_71308245',
   'file_dependency' => 
   array (
     '67f06dd8e7ad9fa91c061b3f5c3adbe47bee7372' => 
     array (
       0 => 'E:\\Programme\\xampp\\htdocs\\PM\\templates\\start.tpl',
-      1 => 1469274833,
+      1 => 1469813582,
       2 => 'file',
     ),
   ),
@@ -19,8 +19,13 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57951da07c7612_38072430 ($_smarty_tpl) {
+function content_579b946f3fd352_71308245 ($_smarty_tpl) {
 ?>
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Dashboard</span>
+    </div>
+</div>
 <div class="row">
     <div class="col s12 m4">
         <div class="card blue-grey darken-3">

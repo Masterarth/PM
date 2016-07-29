@@ -3,11 +3,8 @@ $(document).ready(function () {
     $('.collapsible').collapsible({
         accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
-
     $('.parallax').parallax();
-
     $(".button-collapse").sideNav();
-
     $('ul.tabs').tabs();
     $('select').material_select();
     $('.datepicker').pickadate({
@@ -25,22 +22,24 @@ $(document).ready(function () {
         selectYears: 15, // Creates a dropdown of 15 years to control year
     });
 
-
     $('#autocomplete').on('input', function () {
         var searchKeyword = $(this).val();
         if (searchKeyword.length >= 3) {
             $.post('/pm/test/data', {name: searchKeyword}, function (data) {
-                $('ul#content').empty()
-                console.log(data);
+                $('.autocomplete-content').empty()
                 $.each(data, function () {
-                    $('ul#content').append('<li><p>' + this.vorname + " " + this.nachname + '</p></li>');
+                    $('.autocomplete-content').append('<li class="test-content"><span>' + this.vorname + " " + this.nachname + '</span></li>');
                 });
             }, "json");
         } else {
-            $('ul#content').empty()
+            $('.autocomplete-content').empty()
         }
     });
 
-
+    $('.autocomplete-content').on('click', 'li', function () {
+        var bla = $(this).text();
+        console.log(bla);
+        $("#autocomplete").val(bla);
+        $('.autocomplete-content').empty();
+    });
 });
-
