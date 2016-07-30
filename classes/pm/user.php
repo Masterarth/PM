@@ -10,12 +10,20 @@
  * Description of user
  *
  * @author Arth
+ * 
+ * Changeing Structe
+ * @since 30.07.2016
+ * @author Lukas
  */
 class pm_user {
 
-    private $id;
-    private $u_id;
-    private $l_name;
+    /**
+     * ID of the User
+     * @var int 
+     */
+    private $i_id;
+    private $i_u_id;
+    private $s_l_name;
     private $vorname;
     private $nachname;
     private $b_id;
@@ -23,75 +31,76 @@ class pm_user {
     private $reg_datum;
     private $aktiv;
 
-    function getId() {
-        return $this->id;
+    
+    public function getId() {
+        return $this->i_id;
     }
 
-    function getU_id() {
-        return $this->u_id;
+    public function getU_id() {
+        return $this->i_u_id;
     }
 
-    function getL_name() {
-        return $this->l_name;
+    public function getL_name() {
+        return $this->s_l_name;
     }
 
-    function getVorname() {
+    public function getVorname() {
         return $this->vorname;
     }
 
-    function getNachname() {
+    public function getNachname() {
         return $this->nachname;
     }
 
-    function getB_id() {
+    public function getB_id() {
         return $this->b_id;
     }
 
-    function getAbteil() {
+    public function getAbteil() {
         return $this->abteil;
     }
 
-    function getReg_datum() {
+    public function getReg_datum() {
         return $this->reg_datum;
     }
 
-    function getAktiv() {
+    public function getAktiv() {
         return $this->aktiv;
     }
 
-    function setId($id) {
-        $this->id = $id;
+    public function setId($id) {
+        $this->i_id = $id;
     }
 
-    function setU_id($u_id) {
-        $this->u_id = $u_id;
+    public function setU_id($u_id) {
+        $this->i_u_id = $u_id;
     }
 
-    function setL_name($l_name) {
-        $this->l_name = $l_name;
+    public function setL_name($l_name) {
+        $this->s_l_name = $l_name;
     }
 
-    function setVorname($vorname) {
+    public function setVorname($vorname) {
         $this->vorname = $vorname;
     }
 
-    function setNachname($nachname) {
+    public function setNachname($nachname) {
         $this->nachname = $nachname;
     }
 
-    function setB_id($b_id) {
+    public function setB_id($b_id) {
         $this->b_id = $b_id;
     }
 
-    function setAbteil($abteil) {
+    public function setAbteil($abteil) {
         $this->abteil = $abteil;
     }
 
-    function setReg_datum($reg_datum) {
+    public function setReg_datum($reg_datum) {
         $this->reg_datum = $reg_datum;
     }
 
-    function setAktiv($aktiv) {
+    public function setAktiv($aktiv) {
         $this->aktiv = $aktiv;
     }
 

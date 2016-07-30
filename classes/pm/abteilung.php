@@ -1,23 +1,54 @@
 <?php
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
- * Description of "Abteilung"
- * @author Artur
+ * Description of bereich
  *
+ * @author Arth
+ * 
  * Add the specific Coding Guidelines
  * @since 24.07.2016
  * @author Lukas
  */
+class pm_abteilung {
 
-class abteilung {
-
+    /**
+     * ID of the Section
+     * @var int 
+     */
     private $i_id;
-    private $i_mitarbeiteranzahl;
-    private $s_name;
-    private $i_bereich_id;
     
     /**
-     * Setzen der AbteilungsId
+     * Number of Employees
+     * @var ing 
+     */
+    private $i_mitarbeiteranzahl;
+    
+    /**
+     * Budget of the Section
+     * @var double 
+     */
+    private $d_budget;
+    
+    /**
+     * Name of the Section
+     * @var string 
+     */
+    private $s_name;
+    
+    /**
+     * ID of the Location of the Section
+     * @var int 
+     */
+    private $i_standort_id;
+    
+    /**
+     * Sets the ID of the Section
      * @param int ID
      */
     public function setId($i_id)
@@ -26,16 +57,16 @@ class abteilung {
     }
     
     /**
-     * Setzen der Mitarbeiteranzahl
+     * Sets the Number of Employees of the Section
      * @param int Anzahl Mitarbeiter
      */
-    public function setMitarbeiterZahl($i_zahl)
+    public function setEmployeeNumber($i_zahl)
     {
         $this->i_mitarbeiteranzahl = $i_zahl;
     }
     
     /**
-     * Setzen des Abteilungsnamen
+     * Sets the Name of the Section
      * @param string Name
      */
     public function setName($s_abteilungsName)
@@ -44,16 +75,25 @@ class abteilung {
     }
     
     /**
-     * Setzen der BereichsId
-     * @param int BereichsID
+     * Sets the Budget of a Section
+     * @param double $d_budget
      */
-    public function setBereichsId($i_bereichsID)
+    public function setBudget($d_budget)
     {
-        $this->i_bereich_id = $i_bereichsID;
+        $this->d_budget = $d_budget;
     }
     
     /**
-     * Rückgabe AbteilungsId
+     * Sets the ID of the Location of the Section
+     * @param int BereichsID
+     */
+    public function setLocationId($i_standortID)
+    {
+        $this->i_standort_id = $i_standortID;
+    }
+    
+    /**
+     * Returns the Section ID
      * @return int ID
      */
     public function getId()
@@ -62,8 +102,17 @@ class abteilung {
     }
     
     /**
-     * Rückgabe Mitarbeiterzahl
-     * @return int Anzahl
+     * Returns the Budget Values
+     * @return double Budget
+     */
+    public function getBudget()
+    {
+        return $this->d_budget;
+    }
+    
+    /**
+     * Returns Number of Employees
+     * @return int Number of Employees
      */
     public function getMitarbeiterZahl()
     {
@@ -71,7 +120,7 @@ class abteilung {
     }
     
     /**
-     * Rückgabe Abteilungsname
+     * Returns the Name of the Section
      * @return string Name
      */
     public function getName()
@@ -80,11 +129,12 @@ class abteilung {
     }
     
     /**
-     * Rückgabe BereichsId
-     * @return int BereichsID
+     * Returns the Location ID of the Section
+     * @return int Location ID
      */
-    public function getBereichsId()
+    public function getLocationId()
     {
-        return $this->i_bereich_id;
+        return $this->i_standort_id;
     }
+
 }

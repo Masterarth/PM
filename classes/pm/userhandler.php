@@ -1,9 +1,22 @@
 <?php
 
+/**
+ * Changeing some Logical Stuff + Adding Coding Guidelines
+ * @since 30.07.2016
+ * @author Lukas
+ */
 class pm_userhandler {
 
+    /**
+     * Important for the Singelton Pattern
+     * @var Instace Userhandler 
+     */
     static private $instance = null;
 
+    /**
+     * Implementing the Singelton Pattern to the Class
+     * @return Instance
+     */
     static public function getInstance() {
         if (null === self::$instance) {
             self::$instance = new self;
@@ -11,10 +24,18 @@ class pm_userhandler {
         return self::$instance;
     }
 
+    /**
+     * Constructor of the Class
+     */
     private function __construct() {
         
     }
 
+    /**
+     * Creates a new User in the Database
+     * @param type $id
+     * @return boolean|\pm_user
+     */
     public function createUser($id) {
         $result = core()->db()->select("select u.l_name,u.reg_datum,u.aktiv,m.id,m.u_id,m.nachname,m.vorname,m.b_id,m.abteil from users u, mitarbeiter m where u.id =" . $id . " and m.u_id = u.id", "fetch");
         if ($result) {
@@ -33,10 +54,20 @@ class pm_userhandler {
         return false;
     }
 
+    /**
+     * Returns the User from the Session
+     * @return User
+     */
     public function getUser() {
         return $_SESSION["user"];
     }
 
+    /**
+     * Checks if the User is allowed to access the System
+     * @param string $username
+     * @param string $password
+     * @return boolean 
+     */
     public function verfiyUser($username, $password) {
         if (!$this->checkUser()) {
             $result = core()->db()->select("select passwort,id from users where l_name ='" . $username . "'", "fetch");
@@ -52,6 +83,10 @@ class pm_userhandler {
         return false;
     }
 
+    /**
+     * Checks if a User exists
+     * @return boolean
+     */
     public function checkUser() {
         if (isset($_SESSION["user"])) {
             return true;
@@ -59,6 +94,10 @@ class pm_userhandler {
         return false;
     }
 
+    /**
+     * Returns all possible Users from the Database
+     * @return ResultSet Users
+     */
     public function getAllUser() {
         $result = core()->db()->select("select * from users u, mitarbeiter m where m.u_id = u.id");
         return $result;
