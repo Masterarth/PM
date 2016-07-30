@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-29 20:08:33
+/* Smarty version 3.1.29, created on 2016-07-30 21:26:03
   from "E:\Programme\xampp\htdocs\PM\templates\index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_579b9ba1718e88_99823182',
+  'unifunc' => 'content_579cff4b3bea23_87445316',
   'file_dependency' => 
   array (
     '2e2fc0ad1be90959b6441a260231c7edb3a63ed8' => 
     array (
       0 => 'E:\\Programme\\xampp\\htdocs\\PM\\templates\\index.tpl',
-      1 => 1469815661,
+      1 => 1469906762,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:fixed_menu_button.tpl' => 1,
   ),
 ),false)) {
-function content_579b9ba1718e88_99823182 ($_smarty_tpl) {
+function content_579cff4b3bea23_87445316 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -69,12 +69,14 @@ function content_579b9ba1718e88_99823182 ($_smarty_tpl) {
         <!-- Inhalt -->
         <div class="container content">
             <?php if (isset($_smarty_tpl->tpl_vars['pageTitle']->value)) {?>
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title"><?php echo $_smarty_tpl->tpl_vars['pageTitle']->value;?>
+                <?php if ($_smarty_tpl->tpl_vars['pageTitle']->value != '') {?>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title"><?php echo $_smarty_tpl->tpl_vars['pageTitle']->value;?>
 </span>
+                        </div>
                     </div>
-                </div>
+                <?php }?>
             <?php }?>
             <?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, $_smarty_tpl->tpl_vars['page']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>

@@ -1,6 +1,5 @@
 <div class="card">
     <div class="card-content">
-        <span class="card-title">Bereich anlegen</span>
         <form method="post" action="/pm/bereich/neu">
             <div class='row'>
                 <div class='input-field col s12'>

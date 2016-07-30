@@ -1,4 +1,3 @@
-
 {if isset($standort)}
     <div class="card">
         <div class="card-content">

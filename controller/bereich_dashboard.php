@@ -14,3 +14,4 @@ if (isset($_POST["bereich_search"])) {
 core()->materialize()->addFixedNavElement("/pm/bereich/neu", "Bereich anlegen", "mode_edit");
 core()->materialize()->showFixedNavElement();
 core()->smarty()->assign("bereiche", $bereiche);
+core()->smarty()->assign("pageTitle", "Bereiche");

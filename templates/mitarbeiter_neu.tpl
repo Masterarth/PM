@@ -1,6 +1,5 @@
 <div class="card">
     <div class="card-content">
-        <span class="card-title">Mitarbeiter anlegen</span>
         <form method="post" action="/pm/mitarbeiter/neu">
             <div class='row'>
                 <div class='input-field col s12'>

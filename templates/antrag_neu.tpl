@@ -1,20 +1,3 @@
-{*<div class="row">
-<div class="col s12">
-<nav>
-<div class="nav-wrapper">
-<div class="col s12">
-<a href="#!" class="breadcrumb">Anlage</a>
-<a href="#!" class="breadcrumb">Kennzahlen</a>
-</div>
-</div>
-</nav>
-</div>
-</div>*}
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">Neuen Antrag anlegen</span>
-    </div>
-</div>
 <div class="card">
     <div class="card-content">
         <span class="card-title">Projekt Nr: {*neue Projektnummer aus db holen und anzeigen*}</span>

@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-29 19:37:55
+/* Smarty version 3.1.29, created on 2016-07-30 21:17:21
   from "E:\Programme\xampp\htdocs\PM\templates\antrag_neu.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_579b94737c8d69_99358165',
+  'unifunc' => 'content_579cfd413d1534_91590582',
   'file_dependency' => 
   array (
     'a7a640815272a71011f673ae2dbec029aa82bfa5' => 
     array (
       0 => 'E:\\Programme\\xampp\\htdocs\\PM\\templates\\antrag_neu.tpl',
-      1 => 1469813582,
+      1 => 1469906239,
       2 => 'file',
     ),
   ),
@@ -19,14 +19,8 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_579b94737c8d69_99358165 ($_smarty_tpl) {
+function content_579cfd413d1534_91590582 ($_smarty_tpl) {
 ?>
-
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">Neuen Antrag anlegen</span>
-    </div>
-</div>
 <div class="card">
     <div class="card-content">
         <span class="card-title">Projekt Nr: </span>

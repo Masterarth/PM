@@ -12,6 +12,7 @@ if (isset($request[2])) {
         case "dashboard":
             core()->materialize()->addFixedNavElement("/pm/standort/neu", "Standort anlegen", "mode_edit");
             core()->materialize()->showFixedNavElement();
+            core()->smarty()->assign("pageTitle","Standorte");
             core()->page()->loadPage("standort_dashboard");
             core()->page()->loadController("standort_dashboard");
             break;
