@@ -1,4 +1,5 @@
 <?php
+core()->smarty()->assign("pageTitle","Neuen Standort anlegen");
 
 if (isset($_POST["reg"])) {
 

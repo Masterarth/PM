@@ -1,8 +1,3 @@
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">Dashboard</span>
-    </div>
-</div>
 <div class="row">
     <div class="col s12 m4">
         <div class="card blue-grey darken-3">

@@ -14,4 +14,5 @@ for ($index = 1; $index <= 10; $index++) {
     $projekte[] = $projekt;
 }
 
+core()->smarty()->assign("pageTitle","Anräge");
 core()->smarty()->assign("projekte", $projekte);

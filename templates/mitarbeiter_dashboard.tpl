@@ -1,8 +1,3 @@
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">Mitarbeiter</span>
-    </div>
-</div>
 <div class="row">
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">
@@ -37,7 +32,7 @@
                         <p><strong>Registriert seit:</strong> {$user->l_name}</p>
                     </div>
                     <div class="card-action">
-                        <a href="/pm/mitarbeiter/{$user->id}">Öffnen</a>
+                        <a href="/pm/mitarbeiter/{$user->u_id}">Öffnen</a>
                     </div>
                 </div>
             </div>
