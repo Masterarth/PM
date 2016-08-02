@@ -15,7 +15,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Firma<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <p>Hier kann der Firmenname und das Budget für Projekte geändert werden.</p>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Standorte<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <p>Hier sind die verfügbaren Standorte aufgelistet. Es können neue Standorte angelegt oder bestehende bearbeitet und gelöscht werden.</p>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Abteilung<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <p>Hier sind die verfügbaren Abteilungen aufgelistet. Es können neue Abteilungen angelegt oder bestehende bearbeitet und gelöscht werden.</p>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Teams<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <p>Hier sind die verfügbaren Teams aufgelistet. Es können neue Teams angelegt oder bestehende bearbeitet und gelöscht werden.</p>
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Mitarbeiter<i class="material-icons right">close</i></span>
-                <p>Hier können Sie neue Mitarbeiter erfassen oder löschen.</p>
+                <p>Hier sind die eingestellten Mitarbeiter aufgelistet. Es können neue Mitarbeiter angelegt oder bestehende bearbeitet und gelöscht werden.</p>
             </div>
         </div>
     </div>
@@ -90,7 +90,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Budgetierung<i class="material-icons right">close</i></span>
-                <p>Hier können Sie neue Mitarbeiter erfassen oder löschen.</p>
+                <p>Hier kann das verfügbare Budget eingesehen werden.</p>
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Priorität<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <p>Hier kann ein Blick auf die Prioritäten der Projekte geworfen werden.</p>
             </div>
         </div>
     </div>
