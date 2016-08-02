@@ -1,24 +1,24 @@
 <?php
 
-$var = new inflation(2016);
-
-
 /**
  * Gets the actual inflation rate from an API
  * @author Lukas Adler
  */
-class inflation{
+class pm_inflation{
     
+    /**
+     * Inflation Rate
+     * @var double 
+     */
     private $d_inflationRate;
     
     /**
      * Constructor which sets automatically the inflation rate
      * @param int $i_year
      */
-    function __construct($i_year) {
-        $this->getInflationFromAPI($i_year, 'germany');
+    public function __construct($i_year) {
+        $this->setInflationRate($this->getInflationFromAPI($i_year, 'germany'));
     }
-    
     
     /**
      * Returns the Inflation Rate from an API
@@ -41,10 +41,6 @@ class inflation{
         return 0;
     }
    
-   
-   
-    
-    
     /**
      * Inflation Rate (Procent Value)
      * @param double $d_rate
@@ -62,8 +58,6 @@ class inflation{
     {
         return $this->d_inflationRate;
     }
-    
-    
     
 }
 
