@@ -30,3 +30,7 @@
 .para_content p {
     margin-left: 20px;
 }
+
+nav .brand-logo{
+    color: black;
+}
