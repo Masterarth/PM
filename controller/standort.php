@@ -2,7 +2,6 @@
 
 $request = core()->request()->getParams();
 
-
 if (isset($request[2])) {
     switch ($request[2]) {
         case "neu":
@@ -12,29 +11,46 @@ if (isset($request[2])) {
         case "dashboard":
             core()->materialize()->addFixedNavElement("/pm/standort/neu", "Standort anlegen", "mode_edit");
             core()->materialize()->showFixedNavElement();
-            core()->smarty()->assign("pageTitle","Standorte");
             core()->page()->loadPage("standort_dashboard");
             core()->page()->loadController("standort_dashboard");
             break;
-        case "update":
-//            switch ($request[3]) {
-//                case "aktiv":
-//                    core()->page()->loadController("update_aktiv");
-//                    break;
-//            }
+        case "bearbeiten":
+            core()->materialize()->addFixedNavElement("/pm/standort/" . $request[3], "Zurück", "call_missed");
+            core()->materialize()->showFixedNavElement();
+            core()->page()->loadPage("standort_bearbeiten");
+            if (is_numeric($request[3])) {
+                loadStandort($request[3]);
+            } else {
+                core()->page()->loadController("standort_bearbeiten");
+            }
+            break;
+        case "loeschen":
+            if (is_numeric($request[3])) {
+                $result = core()->db()->select("select * from standort where id ='" . $request[3] . "'", "fetch");
+                if ($result) {
+                    $id = core()->db()->delete("delete from standort where id=" . $request[3]);
+                    header('Location: /pm/standort/dashboard');
+                    exit;
+                }
+            }
+            break;
     }
     if (is_numeric($request[2])) {
 
-        core()->materialize()->addFixedNavElement("#", "Bearbeiten", "mode_edit");
-        core()->materialize()->addFixedNavElement("#", "Löschen", "delete");
+        core()->materialize()->parallax(true);
+        core()->materialize()->addFixedNavElement("/pm/standort/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
+        core()->materialize()->addFixedNavElement("/pm/standort/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
 
-        $standort = core()->db()->select("select * from standort where id = " . $request[2], "fetch");
+        loadStandort($request[2]);
+    }
+}
 
+function loadStandort($id) {
+    if ($id) {
+        $standort = core()->db()->select("select * from standort where id = " . $id, "fetch");
         if ($standort) {
             core()->smarty()->assign("standort", $standort);
         }
     }
 }
-
-

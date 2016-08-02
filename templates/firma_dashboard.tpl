@@ -1,15 +1,15 @@
 <div class="card">
     <div class="card-content">
-        <span class="card-title">Standorte</span>
+        <span class="card-title">Firmen</span>
     </div>
 </div>
 <div class="row">
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">
-            <form action="/pm/standort/dashboard" method="post">
+            <form action="/pm/firma/dashboard" method="post">
                 <div class="input-field search white">
-                    <input id="search" class="sickblue" type="text" name="ma_search">
-                    <label for="search">nach Standort suchen</label>
+                    <input id="search" class="sickblue" type="text" name="firma_search">
+                    <label for="search">nach Firma suchen</label>
                 </div>
             </form>
             <li>
@@ -25,19 +25,18 @@
         </ul>
     </div>
     <div class="col s12 l9">
-        {if isset($standorte)}
-            {foreach from=$standorte item=standort}
+        {if $firmen|count > 0}
+            {foreach from=$firmen item=firma}
                 <div class="card horizontal hoverable valign-wrapper">
                     <div class="card-image valign">
                         <img src="/pm/bin/custom/images/projekt_2.jpg">
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <span class="card-title">{$standort->s_name}</span>
-                            <p><strong>Adresse:</strong> {$standort->strasse} {$standort->hausnummer}, {$standort->plz} {$standort->ort}</p>
+                            <span class="card-title">{$firma->f_name}</span>
                         </div>
                         <div class="card-action">
-                            <a href="/pm/standort/{$standort->id}">Öffnen</a>
+                            <a href="/pm/firma/{$firma->id}">Öffnen</a>
                         </div>
                     </div>
                 </div>
@@ -45,7 +44,7 @@
         {else}
             <div class="card">
                 <div class="card-content">
-                    <p>Es sind keine Standorte vorhanden</p>
+                    <p>Es sind keine Firmen vorhanden</p>
                 </div>
             </div>
         {/if}

@@ -1,15 +1,15 @@
 <div class="card">
     <div class="card-content">
-        <span class="card-title">Standorte</span>
+        <span class="card-title">Abteilungen</span>
     </div>
 </div>
 <div class="row">
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">
-            <form action="/pm/standort/dashboard" method="post">
+            <form action="/pm/abteilung/dashboard" method="post">
                 <div class="input-field search white">
-                    <input id="search" class="sickblue" type="text" name="ma_search">
-                    <label for="search">nach Standort suchen</label>
+                    <input id="search" class="sickblue" type="text" name="abteilung_search">
+                    <label for="search">nach Abteilung suchen</label>
                 </div>
             </form>
             <li>
@@ -19,25 +19,25 @@
                 </div>
             </li>
             <li>
-                <div class="collapsible-header">Abteilungen</div>
-                <div class="collapsible-body"><p>hier sind abteilungen aufgelistet</p></div>
+                <div class="collapsible-header">irgendwas</div>
+                <div class="collapsible-body"></div>
             </li>
         </ul>
     </div>
     <div class="col s12 l9">
-        {if isset($standorte)}
-            {foreach from=$standorte item=standort}
+        {if isset($abteilungen)}
+            {foreach from=$abteilungen item=abteilung}
                 <div class="card horizontal hoverable valign-wrapper">
                     <div class="card-image valign">
                         <img src="/pm/bin/custom/images/projekt_2.jpg">
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <span class="card-title">{$standort->s_name}</span>
-                            <p><strong>Adresse:</strong> {$standort->strasse} {$standort->hausnummer}, {$standort->plz} {$standort->ort}</p>
+                            <span class="card-title">{$abteilung->a_name}</span>
+                            <p><strong>Leiter:</strong> {$abteilung->vorname} {$abteilung->nachname}</p>
                         </div>
                         <div class="card-action">
-                            <a href="/pm/standort/{$standort->id}">Öffnen</a>
+                            <a href="/pm/abteilung/{$abteilung->id}">Öffnen</a>
                         </div>
                     </div>
                 </div>
@@ -45,9 +45,9 @@
         {else}
             <div class="card">
                 <div class="card-content">
-                    <p>Es sind keine Standorte vorhanden</p>
+                    <p>Es sind keine Abteilungen angelegt</p>
                 </div>
             </div>
-        {/if}
+        {/if} 
     </div>
 </div>

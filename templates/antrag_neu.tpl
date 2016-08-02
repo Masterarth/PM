@@ -1,5 +1,10 @@
 <div class="card">
     <div class="card-content">
+        <span class="card-title">Neuen Antrag anlegen</span>
+    </div>
+</div>
+<div class="card">
+    <div class="card-content">
         <span class="card-title">Projekt Nr: {*neue Projektnummer aus db holen und anzeigen*}</span>
         <div class="row">
             <div class="input-field col s12">

@@ -34,11 +34,11 @@ class load_page {
             }
         }
 
-        core()->smarty()->assign("pageTitle", ucfirst($page));
         core()->smarty()->assign('page', $page . '.tpl');
         core()->smarty()->assign("showNavbar", TRUE);
         core()->smarty()->assign("showNavButton", TRUE);
         core()->materialize()->clearFixedNavElements();
+        core()->materialize()->parallax(false);
 
         if ($page) {
             $_SESSION["page"] = $page;

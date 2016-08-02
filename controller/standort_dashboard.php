@@ -9,6 +9,9 @@ if (isset($_POST["standort_search"])) {
     }
 } else {
     $standorte = core()->db()->select("select * from standort");
+    if (count($standorte) > 0) {
+        core()->smarty()->assign("standorte", $standorte);
+    }
 }
 
-core()->smarty()->assign("standorte", $standorte);
+

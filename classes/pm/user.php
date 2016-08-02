@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of user
  *
@@ -27,11 +21,10 @@ class pm_user {
     private $vorname;
     private $nachname;
     private $b_id;
-    private $abteil;
+    private $t_id;
     private $reg_datum;
     private $aktiv;
 
-    
     public function getId() {
         return $this->i_id;
     }
@@ -56,8 +49,8 @@ class pm_user {
         return $this->b_id;
     }
 
-    public function getAbteil() {
-        return $this->abteil;
+    public function getT_id() {
+        return $this->t_id;
     }
 
     public function getReg_datum() {
@@ -92,8 +85,8 @@ class pm_user {
         $this->b_id = $b_id;
     }
 
-    public function setAbteil($abteil) {
-        $this->abteil = $abteil;
+    public function setT_id($t_id) {
+        $this->t_id = $t_id;
     }
 
     public function setReg_datum($reg_datum) {

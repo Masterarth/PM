@@ -1,5 +1,10 @@
 <div class="card">
     <div class="card-content">
+        <span class="card-title">Neuen Mitarbeiter anlegen</span>
+    </div>
+</div>
+<div class="card">
+    <div class="card-content">
         <form method="post" action="/pm/mitarbeiter/neu">
             <div class='row'>
                 <div class='input-field col s12'>
@@ -32,8 +37,4 @@
             </center>
         </form>
     </div>
-</div> 
-
-{if isset($toast)}
-    {$toast}
-{/if}
+</div>

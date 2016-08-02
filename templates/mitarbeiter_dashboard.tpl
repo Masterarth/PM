@@ -1,3 +1,8 @@
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Mitarbeiter</span>
+    </div>
+</div>
 <div class="row">
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">
@@ -20,22 +25,30 @@
         </ul>
     </div>
     <div class="col s12 l9">
-        {foreach from=$users item=user}
-            <div class="card horizontal hoverable valign-wrapper">
-                <div class="card-image valign">
-                    <img src="/pm/bin/custom/images/projekt_2.jpg">
+        {if isset($users)}
+            {foreach from=$users item=user}
+                <div class="card horizontal hoverable valign-wrapper">
+                    <div class="card-image valign">
+                        <img src="/pm/bin/custom/images/projekt_2.jpg">
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <span class="card-title">{$user->vorname} {$user->nachname}</span>
+                            <p><strong>Accountname:</strong> {$user->l_name}</p>
+                            <p><strong>Mitglied seit:</strong> {$user->reg_datum}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="/pm/mitarbeiter/{$user->u_id}">Öffnen</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <span class="card-title">{$user->vorname} {$user->nachname}</span>
-                        <p><strong>Accountname:</strong> {$user->reg_datum}</p>
-                        <p><strong>Registriert seit:</strong> {$user->l_name}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="/pm/mitarbeiter/{$user->u_id}">Öffnen</a>
-                    </div>
+            {/foreach}
+        {else}
+            <div class="card">
+                <div class="card-content">
+                    <p>Es sind keine Mitarbeiter vorhanden</p>
                 </div>
             </div>
-        {/foreach}
+        {/if}
     </div>
 </div>

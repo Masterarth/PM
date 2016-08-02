@@ -28,9 +28,9 @@
                             <input class='validate' type='password' name='reg[password]' id='password' required="" aria-required="true"/>
                             <label class="left-align" for='password'>Passwort</label>
                         </div>
-                        <label style='float: right;'>
-                            <a class='pink-text' href='#!'><b>Passwort vergessen?</b></a>
-                        </label>
+                        {*<label style='float: right;'>
+                        <a class='pink-text' href='#!'><b>Passwort vergessen?</b></a>
+                        </label>*}
                     </div>
 
                     <br />

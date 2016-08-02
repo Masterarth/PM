@@ -2,10 +2,9 @@
 
 core()->smarty()->assign("showNavbar", FALSE);
 core()->smarty()->assign("showNavButton", FALSE);
-core()->smarty()->assign("pageTitle", FALSE);
 
 if (core()->userhandler()->checkUser()) {
-    header('Location: /pm/start');
+    header('Location: /pm/dashboard');
     exit;
 }
 

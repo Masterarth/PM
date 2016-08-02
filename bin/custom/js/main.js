@@ -22,7 +22,7 @@ $(document).ready(function () {
         selectYears: 15, // Creates a dropdown of 15 years to control year
     });
 
-    $('#autocomplete').on('input', function () {
+    $('#leiter').on('input', function () {
         var searchKeyword = $(this).val();
         if (searchKeyword.length >= 3) {
             $.post('/pm/test/data', {name: searchKeyword}, function (data) {
@@ -37,9 +37,8 @@ $(document).ready(function () {
     });
 
     $('.autocomplete-content').on('click', 'li', function () {
-        var bla = $(this).text();
-        console.log(bla);
-        $("#autocomplete").val(bla);
+        var text = $(this).text();
+        $("#leiter").val(text);
         $('.autocomplete-content').empty();
     });
 });

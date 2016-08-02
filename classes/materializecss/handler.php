@@ -32,4 +32,12 @@ class materializecss_handler {
         $this->fixed_nav_elements = array();
     }
 
+    public function parallax($bool) {
+        if ($bool) {
+            core()->smarty()->assign("parallax", true);
+        } else {
+            core()->smarty()->assign("parallax", false);
+        }
+    }
+
 }

@@ -28,18 +28,17 @@
         {include file="navigation.tpl"}
 
         <!-- Inhalt -->
-        <div class="container content">
-            {if isset($pageTitle)}
-                {if $pageTitle != ""}
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title">{$pageTitle}</span>
-                        </div>
-                    </div>
-                {/if}
-            {/if}
+        {if !$parallax}
+            <div class="container content">
+                {include file=$page}
+            </div>
+        {else}
             {include file=$page}
-        </div>
+        {/if}
+
+        {if isset($toast)}
+            {$toast}
+        {/if}
 
         {include file="fixed_menu_button.tpl"}
 

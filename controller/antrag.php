@@ -5,7 +5,6 @@ $request = core()->request()->getParams();
 if (isset($request[2])) {
     switch ($request[2]) {
         case "neu":
-            core()->smarty()->assign("pageTitle","Neuen Antrag anlegen");
             core()->page()->loadPage("antrag_neu");
             break;
         case "uebersicht":

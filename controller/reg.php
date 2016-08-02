@@ -7,8 +7,9 @@ if (isset($_POST["reg"])) {
 
         $user["hash"] = password_hash($_POST["reg"]["password"], PASSWORD_DEFAULT);
         $user["name"] = $_POST["reg"]["account_name"];
+        $user["timestamp"] = date("c");
 
-        $uid = core()->db()->update("insert into users (l_name, passwort) values (:name,:hash)", $user);
+        $uid = core()->db()->update("insert into users (l_name, passwort,reg_datum) values (:name,:hash,:timestamp)", $user);
 
         $mitarbeiter["vorname"] = $_POST["reg"]["vorname"];
         $mitarbeiter["nachname"] = $_POST["reg"]["nachname"];

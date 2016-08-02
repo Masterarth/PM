@@ -1,14 +1,16 @@
 
 {if isset($user)}
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{$user->getVorname()} {$user->getNachname()} ({$user->getL_name()})</span>
-            <p><strong>Mitglied seid:</strong> {$user->getReg_datum()}</p>
+    <div class="parallax-container">
+        <div class="parallax">
+            <img class="backgroundImage" src="/pm/bin/custom/images/mitarbeiter_lang.jpg" style="display: block; transform: translate3d(-50%, 328px, 0px);">
         </div>
-    </div> 
-
-    <div class="card">
-        <div class="card-content">
+    </div>
+    <div class="section white">
+        <div class="row container">
+            <h2 class="header">{$user->getVorname()} {$user->getNachname()} ({$user->getL_name()})</h2>
+            <h4 class="light">Mitglied seit</h4>
+            <p>{$user->getReg_datum()}</p>
+            <h4 class="light">Status</h4>
             <form action="/pm/mitarbeiter/update/aktiv" method="post">
                 <p> 
                     <input type="hidden" name="id" value="{$user->getU_id()}"/>
@@ -17,7 +19,7 @@
                 </p>
             </form>
         </div>
-    </div>
+    </div> 
 {else}
     <div class="center">
         <h4>Der Benutzer konnte nicht gefunden werden</h4>

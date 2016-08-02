@@ -1,3 +1,8 @@
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Stammdaten</span>
+    </div>
+</div>
 <div class="row">
     <div class="col s12 m4">
         <div class="card small">
@@ -6,7 +11,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Firma<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="#">Öffnen</a></p>
+                <p><a class="btn btn-block" href="/pm/firma/dashboard">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Firma<i class="material-icons right">close</i></span>
@@ -36,7 +41,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Abteilung<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="/pm/bereich/dashboard">Öffnen</a></p>
+                <p><a class="btn btn-block" href="/pm/abteilung/dashboard">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Abteilung<i class="material-icons right">close</i></span>
@@ -100,6 +105,21 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Priorität<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4">
+        <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/pm/bin/custom/images/settings.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Berechtigungen<i class="material-icons right">more_vert</i></span>
+                <p><a class="btn btn-block" href="#">Öffnen</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Berechtigungen<i class="material-icons right">close</i></span>
                 <p>Here is some more information about this product that is only revealed once clicked on.</p>
             </div>
         </div>

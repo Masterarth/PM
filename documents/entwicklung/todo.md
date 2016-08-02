@@ -3,9 +3,10 @@
 ## Frontend
 
 [ ] Responsive Suche bei allen Übersichten (suchbox + anzeige) fehlt!
+    - test ist fertig gestellt es muss nur noch darüber entschieden werden...
 
-[ ] Paralax
-    [ ] test
+[x] Paralax
+    [x] test
 
 ## Backend
 
@@ -43,17 +44,17 @@
 
 [ ] stammdaten
 
-    [ ] firma
-        [ ] dashboard: anzeigen + suche
-        [ ] anlegen
-        [ ] bearbeiten
-        [ ] löschen
-
-    [ ] standort
-        [ ] dashboard: anzeigen + suche
+    [x] firma
+        [x] dashboard: anzeigen + suche
         [x] anlegen
-        [ ] löschen
-        [ ] bearbeiten
+        [x] bearbeiten
+        [x] löschen
+
+    [x] standort
+        [x] dashboard: anzeigen + suche
+        [x] anlegen
+        [x] löschen
+        [x] bearbeiten
 
     [ ] abteilung
         [ ] bereich in abteilung umbennen
@@ -73,11 +74,11 @@
             [x] funktioniert schon
             [ ] bestimmte felder fehlen noch
         [ ] dashboard 
-            [ ] suche
+            [x] suche
             [x] anzeige
         [x] anlegen
-        [ ] löschen
-        [ ] bearbeiten
+        [x] löschen
+        [x] bearbeiten
 
     [ ] budgetierung
         [ ] Anzeigen

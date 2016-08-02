@@ -1,5 +1,7 @@
 <?php
-core()->smarty()->assign("pageTitle","Neuen Standort anlegen");
+
+core()->materialize()->addFixedNavElement("/pm/standort/dashboard", "Zurück", "call_missed");
+core()->materialize()->showFixedNavElement();
 
 if (isset($_POST["reg"])) {
 
