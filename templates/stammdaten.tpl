@@ -25,7 +25,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Standorte<i class="material-icons right">close</i></span>
-                <p>Hier können Standorte verwaltet werden.</p>
+                <p>Hier sind die verfügbaren Standorte aufgelistet. Es können neue Standorte angelegt oder bestehende bearbeitet und gelöscht werden.</p>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Abteilung<i class="material-icons right">close</i></span>
-                <p>Hier können Abteilungen verwaltet werden.</p>
+                <p>Hier sind die verfügbaren Abteilungen aufgelistet. Es können neue Abteilungen angelegt oder bestehende bearbeitet und gelöscht werden.</p>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Teams<i class="material-icons right">close</i></span>
-                <p>Hier können die Teams verwaltet werden.</p>
+                <p>Hier sind die verfügbaren Teams aufgelistet. Es können neue Teams angelegt oder bestehende bearbeitet und gelöscht werden.</p>
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Mitarbeiter<i class="material-icons right">close</i></span>
-                <p>Hier können neue Mitarbeiter erfasst oder gelöscht werden.</p>
+                <p>Hier sind die eingestellten Mitarbeiter aufgelistet. Es können neue Mitarbeiter angelegt oder bestehende bearbeitet und gelöscht werden.</p>
             </div>
         </div>
     </div>
