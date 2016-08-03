@@ -29,8 +29,6 @@ class pm_capitalvaluemethod {
         $this->i_riskZins = $i_riskZins;
         $this->o_capitalflows = $o_arrayCapitalflow;
         
-        var_dump($o_arrayCapitalflow);
-        
     }
     
     /**
@@ -39,14 +37,13 @@ class pm_capitalvaluemethod {
     public function calculateCapitalValue()
     {
         $this->d_capitalValue = (-1)*$this->d_payingOut;
-        $d_zins = 1+$this->o_inflation+$this->i_emptyRiskZins+$this->i_riskZins;
+        $d_zins = 1+$this->o_inflation->getInflationRate()+$this->i_emptyRiskZins+$this->i_riskZins;
         foreach ($this->o_capitalflows as $arrElem)
         {
-            if(is_a($arrElem, capitalflow::class)){
-                $val = ($arrElem->d_inputCash-$arrElem->d_outputCash)/(($d_zins)^$arrElem->i_year);
-                $this->d_capitalValue += $val;
+            echo "\nda";
+            if(is_a($arrElem, pm_capitalflow::class)){
+                $this->d_capitalValue += $this->yearsCapitalValues($arrElem,$d_zins);
             }
-            $this->yearsCapitalValues($arrElem);
         }
     }
     
@@ -55,11 +52,12 @@ class pm_capitalvaluemethod {
      * @param CapitalFlow $arrElem
      * @return int Capital Value for a Year
      */
-    public function yearsCapitalValues($arrElem)
+    public function yearsCapitalValues($arrElem,$d_zins)
     {
-        if(is_a($arrElem, capitalflow::class))
+        if(is_a($arrElem, pm_capitalflow::class))
         {
-            
+            $val = ($arrElem->getInputCash()-$arrElem->getOutputCash())/(pow($d_zins,$arrElem->getYear()));
+            return $val;    
         }
         return 0;
     }
