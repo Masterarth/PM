@@ -1,10 +1,12 @@
 <?php
 
+core()->materialize()->pageTitle("Abteilung");
+
 $standorte = core()->db()->select("select * from standort");
+core()->smarty()->assign("standorte", $standorte);
 
 core()->materialize()->addFixedNavElement("/pm/abteilung/dashboard", "Zurück", "call_missed");
 core()->materialize()->showFixedNavElement();
-core()->smarty()->assign("standorte", $standorte);
 
 if (isset($_POST["reg"])) {
 

@@ -40,4 +40,8 @@ class materializecss_handler {
         }
     }
 
+    public function pageTitle($title) {
+        core()->smarty()->assign("pageTitle", strtoupper($title));
+    }
+
 }

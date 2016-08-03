@@ -1,10 +1,10 @@
 #TODO´s 
 
 ##CHEFS ÄNDERUNGSANTRAG AN ARTI DEN LURCHUS BAKTERIULUS
-[ ] Änderung der Cards in Top - Navigation
+[x] Änderung der Cards in Top - Navigation
 [ ] Implementierung von Budget in Firma
 [ ] Implementierung von Leistungsstunden pro Abteilung
-[ ] Budget Ansicht aus Stammdaten löschen
+[x] Budget Ansicht aus Stammdaten löschen
 [ ] Berechtigungsstruktur --> Ansicht Stammdaten nur für Admins
 [ ] Berechtigung --> Sollte Standardmäßig schon vorhanden sein!
 [ ] Rollen --> Umsetzung --> Projektleiter etc
@@ -41,58 +41,42 @@
     [ ] gantt diagramm
 
 [ ] Anträge
-
     [ ] dashboard
         [ ] suche
         [x] anzeige
-
     [ ] Antrag ansicht
     [ ] anlegen
     [ ] bearbeiten
     [ ] löschen
 
 [ ] stammdaten
-
     [x] firma
         [x] dashboard: anzeigen + suche
         [x] anlegen
         [x] bearbeiten
         [x] löschen
-
     [x] standort
         [x] dashboard: anzeigen + suche
         [x] anlegen
         [x] löschen
         [x] bearbeiten
-
-    [ ] abteilung
-        [ ] bereich in abteilung umbennen
-        [ ] dashboard
+    [x] abteilung
+        [x] bereich in abteilung umbennen
+        [x] dashboard
         [x] anlegen
-        [ ] löschen
-        [ ] bearbeiten
-
+        [x] löschen
+        [x] bearbeiten
     [ ] teams
         [ ] dashboard
         [ ] anlegen
         [ ] löschen
         [ ] bearbeiten
-
-    [ ] mitarbeiter
-        [ ] anzeige
-            [x] funktioniert schon
-            [ ] bestimmte felder fehlen noch
-        [ ] dashboard 
-            [x] suche
-            [x] anzeige
+    [x] mitarbeiter
+        [x] anzeige
+        [x] dashboard 
         [x] anlegen
         [x] löschen
         [x] bearbeiten
-
-    [ ] budgetierung
-        [ ] Anzeigen
-        [ ] budget vergen für ein bestimmtes jahr
-
     [ ] Prioritäten
         [ ] anzeigen
         [ ] für ein projekt vergeben

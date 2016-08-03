@@ -25,7 +25,8 @@ $(document).ready(function () {
     $('#leiter').on('input', function () {
         var searchKeyword = $(this).val();
         if (searchKeyword.length >= 3) {
-            $.post('/pm/test/data', {name: searchKeyword}, function (data) {
+            $.post('/pm/api/mitarbeiter', {name: searchKeyword}, function (data) {
+                console.log(data);
                 $('.autocomplete-content').empty()
                 $.each(data, function () {
                     $('.autocomplete-content').append('<li class="test-content"><span>' + this.vorname + " " + this.nachname + '</span></li>');

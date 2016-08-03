@@ -42,5 +42,5 @@
         {/if}
 
         {include file="fixed_menu_button.tpl"}
-
+        {*include file="footer.tpl"*}
     </body>

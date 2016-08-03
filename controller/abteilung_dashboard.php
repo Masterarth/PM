@@ -1,5 +1,7 @@
 <?php
 
+core()->materialize()->pageTitle("Abetilungen");
+
 if (isset($_POST["abteilung_search"])) {
     if (is_numeric($_POST["abteilung_search"])) {
         header('Location: /pm/abteilung/' . $_POST["abteilung_search"]);

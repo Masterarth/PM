@@ -3,8 +3,12 @@
         <div class="navbar-fixed ">
             <nav class="white">
                 <div class="nav-wrapper container">
-                    <a href="/pm/dashboard" class="brand-logo">PAMS</a>
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <div class="brand-logo">
+                        <a href="/pm/" class="black-text"><i class="material-icons">polymer</i></a>
+                        <a href="/pm/" class="black-text hide-on-med-and-down">PAMS</a>
+                        {if isset($pageTitle)}<span> | {$pageTitle}</span>{/if}
+                    </div>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse black-text"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down grey-text">
                         {include file="nav_elements.tpl"}
                     </ul>

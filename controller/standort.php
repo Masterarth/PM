@@ -5,16 +5,19 @@ $request = core()->request()->getParams();
 if (isset($request[2])) {
     switch ($request[2]) {
         case "neu":
+            core()->materialize()->pageTitle("standort");
             core()->page()->loadPage("standort_neu");
             core()->page()->loadController("standort_neu");
             break;
         case "dashboard":
+            core()->materialize()->pageTitle("standorte");
             core()->materialize()->addFixedNavElement("/pm/standort/neu", "Standort anlegen", "mode_edit");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("standort_dashboard");
             core()->page()->loadController("standort_dashboard");
             break;
         case "bearbeiten":
+            core()->materialize()->pageTitle("standort");
             core()->materialize()->addFixedNavElement("/pm/standort/" . $request[3], "Zurück", "call_missed");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("standort_bearbeiten");
@@ -38,6 +41,7 @@ if (isset($request[2])) {
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
+        core()->materialize()->pageTitle("Standort");
         core()->materialize()->addFixedNavElement("/pm/standort/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
         core()->materialize()->addFixedNavElement("/pm/standort/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();

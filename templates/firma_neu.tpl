@@ -1,10 +1,5 @@
 <div class="card">
     <div class="card-content">
-        <span class="card-title">Neue Firma anlegen</span>
-    </div>
-</div>
-<div class="card">
-    <div class="card-content">
         <form method="post" action="/pm/firma/neu">
             <div class='row'>
                 <div class='input-field col s12'>

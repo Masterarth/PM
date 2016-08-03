@@ -1,8 +1,3 @@
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">Projekte</span>
-    </div>
-</div>
 <div class="row">
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">

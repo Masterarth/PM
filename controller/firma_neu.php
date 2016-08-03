@@ -1,5 +1,7 @@
 <?php
 
+core()->materialize()->pageTitle("Firma");
+
 core()->materialize()->addFixedNavElement("/pm/firma/dashboard", "Zurück", "call_missed");
 core()->materialize()->showFixedNavElement();
 

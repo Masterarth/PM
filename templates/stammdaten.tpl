@@ -1,8 +1,3 @@
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">Stammdaten</span>
-    </div>
-</div>
 <div class="row">
     <div class="col s12 m4">
         <div class="card small">
@@ -76,21 +71,6 @@
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Mitarbeiter<i class="material-icons right">close</i></span>
                 <p>Hier sind die eingestellten Mitarbeiter aufgelistet. Es können neue Mitarbeiter angelegt oder bestehende bearbeitet und gelöscht werden.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4">
-        <div class="card small">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/pm/bin/custom/images/geld_uebersicht.jpg">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Budgetierung<i class="material-icons right">more_vert</i></span> 
-                <p><a class="btn btn-block blue-grey" href="/pm/budget">Öffnen</a></p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Budgetierung<i class="material-icons right">close</i></span>
-                <p>Hier kann das verfügbare Budget eingesehen werden.</p>
             </div>
         </div>
     </div>

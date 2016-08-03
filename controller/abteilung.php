@@ -12,25 +12,45 @@ if (isset($request[2])) {
             core()->page()->loadPage("abteilung_dashboard");
             core()->page()->loadController("abteilung_dashboard");
             break;
-        case "update":
-//            switch ($request[3]) {
-//                case "aktiv":
-//                    core()->page()->loadController("update_aktiv");
-//                    break;
-//            }
+        case "bearbeiten":
+            core()->materialize()->pageTitle("abteilung");
+            core()->materialize()->addFixedNavElement("/pm/abteilung/" . $request[3], "Zurück", "call_missed");
+            core()->materialize()->showFixedNavElement();
+            core()->page()->loadPage("abteilung_bearbeiten");
+            if (is_numeric($request[3])) {
+                $standorte = core()->db()->select("select * from standort");
+                core()->smarty()->assign("standorte", $standorte);
+                loadAbteilung($request[3]);
+            } else {
+                core()->page()->loadController("abteilung_bearbeiten");
+            }
+            break;
+        case "loeschen":
+            if (is_numeric($request[3])) {
+                $result = core()->db()->select("select * from abteilung where id ='" . $request[3] . "'", "fetch");
+                if ($result) {
+                    $fid = core()->db()->delete("delete from abteilung where id=" . $request[3]);
+                    header('Location: /pm/abteilung/dashboard');
+                    exit;
+                }
+            }
+            break;
     }
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
-        core()->materialize()->addFixedNavElement("#", "Bearbeiten", "mode_edit");
-        core()->materialize()->addFixedNavElement("#", "Löschen", "delete");
+        core()->materialize()->pageTitle("abteilung");
+        core()->materialize()->addFixedNavElement("/pm/abteilung/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
+        core()->materialize()->addFixedNavElement("/pm/abteilung/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
-        $abteilung = core()->db()->select("select a.*, m.vorname, m.nachname, s.s_name from abteilung a, mitarbeiter m, standort s where a.id = " . $request[2] . " and a.a_leitung = m.id and a.s_id = s.id", "fetch");
-
-        if ($abteilung) {
-            core()->smarty()->assign("abteilung", $abteilung);
-        }
+        loadAbteilung($request[2]);
     }
 }
 
+function loadAbteilung($id) {
+    $abteilung = core()->db()->select("select a.*, m.vorname, m.nachname, s.s_name from abteilung a, mitarbeiter m, standort s where a.id = " . $id . " and a.a_leitung = m.id and a.s_id = s.id", "fetch");
 
+    if ($abteilung) {
+        core()->smarty()->assign("abteilung", $abteilung);
+    }
+}

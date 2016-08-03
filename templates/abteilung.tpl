@@ -8,9 +8,13 @@
         <div class="row container">
             <h2 class="header">{$abteilung->a_name}</h2>
             <h4 class="light">Leitung</h4>
-            <p>{$abteilung->vorname} {$abteilung->nachname}</p>
+            <div class="para_content">
+                <p>{$abteilung->vorname} {$abteilung->nachname}</p>
+            </div>
             <h4 class="light">Standort</h4>
-            <p><a href="/pm/standort/{$abteilung->s_id}">{$abteilung->s_name}</a></p>
+            <div class="para_content">
+                <p><a href="/pm/standort/{$abteilung->s_id}">{$abteilung->s_name}</a></p>
+            </div>
         </div>
     </div> 
 {else}

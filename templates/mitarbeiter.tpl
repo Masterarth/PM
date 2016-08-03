@@ -9,15 +9,19 @@
         <div class="row container">
             <h2 class="header">{$user->getVorname()} {$user->getNachname()} ({$user->getL_name()})</h2>
             <h4 class="light">Mitglied seit</h4>
-            <p>{$user->getReg_datum()}</p>
+            <div class="para_content">
+                <p>{$user->getReg_datum()}</p>
+            </div>
             <h4 class="light">Status</h4>
-            <form action="/pm/mitarbeiter/update/aktiv" method="post">
-                <p> 
-                    <input type="hidden" name="id" value="{$user->getU_id()}"/>
-                    <input onchange="this.form.submit()" name="aktiv" type="checkbox" id="aktiv" {$user->getAktiv()|checked}/>
-                    <label for="aktiv">Aktiv</label>
-                </p>
-            </form>
+            <div class="para_content">
+                <form action="/pm/mitarbeiter/update/aktiv" method="post">
+                    <p> 
+                        <input type="hidden" name="id" value="{$user->getU_id()}"/>
+                        <input onchange="this.form.submit()" name="aktiv" type="checkbox" id="aktiv" {$user->getAktiv()|checked}/>
+                        <label for="aktiv">Aktiv</label>
+                    </p>
+                </form>
+            </div>
         </div>
     </div> 
 {else}

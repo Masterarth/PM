@@ -14,3 +14,4 @@ if (isset($_POST["firma_search"])) {
 core()->materialize()->addFixedNavElement("/pm/firma/neu", "Firma anlegen", "mode_edit");
 core()->materialize()->showFixedNavElement();
 core()->smarty()->assign("firmen", $firmen);
+core()->materialize()->pageTitle("Firmen");

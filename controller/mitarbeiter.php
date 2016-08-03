@@ -5,14 +5,17 @@ $request = core()->request()->getParams();
 if (isset($request[2])) {
     switch ($request[2]) {
         case "neu":
+            core()->materialize()->pageTitle("mitarbeiter");
             core()->page()->loadPage("mitarbeiter_neu");
             core()->page()->loadController("mitarbeiter_neu");
             break;
         case "dashboard":
+            core()->materialize()->pageTitle("mitarbeiter");
             core()->page()->loadPage("mitarbeiter_dashboard");
             core()->page()->loadController("mitarbeiter_dashboard");
             break;
         case "bearbeiten":
+            core()->materialize()->pageTitle("mitarbeiter");
             core()->materialize()->addFixedNavElement("/pm/mitarbeiter/" . $request[3], "Zurück", "call_missed");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("mitarbeiter_bearbeiten");
@@ -46,6 +49,7 @@ if (isset($request[2])) {
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
+        core()->materialize()->pageTitle("mitarbeiter");
         core()->materialize()->addFixedNavElement("/pm/mitarbeiter/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
         core()->materialize()->addFixedNavElement("/pm/mitarbeiter/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();

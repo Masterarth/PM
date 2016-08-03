@@ -13,6 +13,7 @@ if (isset($request[2])) {
             core()->page()->loadController("firma_dashboard");
             break;
         case "bearbeiten":
+            core()->materialize()->pageTitle("Firma");
             core()->materialize()->addFixedNavElement("/pm/firma/" . $request[3], "Zurück", "call_missed");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("firma_bearbeiten");
@@ -36,6 +37,7 @@ if (isset($request[2])) {
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
+        core()->materialize()->pageTitle("Firma");
         core()->materialize()->addFixedNavElement("/pm/firma/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
         core()->materialize()->addFixedNavElement("/pm/firma/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
