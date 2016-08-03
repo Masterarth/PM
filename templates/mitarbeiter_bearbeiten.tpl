@@ -9,11 +9,11 @@
             <div class='row'>
                 <div class='input-field col s12'>
                     <input type="hidden" value="{$user->getId()}" name="reg[id]"/>
-                    <input class="validate" type='text' name='reg[vorname]' id='vorname' required="" aria-required="true" value="{$user->getVorname()}"/>
+                    <input class="validate" type='text' name='reg[vorname]' id='vorname' required="" aria-required="true" value="{$user->getVorname()}" autocomplete="off"/>
                     <label class="left-align" for='vorname'>Vorname</label>
                 </div>
                 <div class='input-field col s12'>
-                    <input class="validate" type='text' name='reg[nachname]' id='nachname' required="" aria-required="true" value="{$user->getNachname()}"/>
+                    <input class="validate" type='text' name='reg[nachname]' id='nachname' required="" aria-required="true" value="{$user->getNachname()}" autocomplete="off"/>
                     <label class="left-align" for='nachname'>Nachname</label>
                 </div>
             </div>

@@ -9,7 +9,7 @@
             <div class='row'>
                 <div class='input-field col s12'>
                     <input type="hidden" value="{$firma->id}" name="reg[f_id]"/>
-                    <input class='validate' type='text' name='reg[name]' id='name' required="" aria-required="true" value="{$firma->f_name}"/>
+                    <input class='validate' type='text' name='reg[name]' id='name' required="" aria-required="true" value="{$firma->f_name}" autocomplete="off"/>
                     <label class="left-align" for='name'>Firmenname</label>
                 </div>
             </div>

@@ -3,7 +3,7 @@
         <form method="post" action="/pm/abteilung/neu">
             <div class='row'>
                 <div class='input-field col s12'>
-                    <input class='validate' type='text' name='reg[name]' id='name' required="" aria-required="true" />
+                    <input class='validate' type='text' name='reg[name]' id='name' required="" aria-required="true" autocomplete="off"/>
                     <label class="left-align" for='name'>Abteilungsname</label>
                 </div>
                 <div class="input-field col s12">
@@ -20,7 +20,7 @@
                 <div class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" id="leiter" name="reg[leiter]"/>
+                            <input type="text" id="leiter" name="reg[leiter]" autocomplete="off"/>
                             <label for="leiter">Leiter</label>
                             <ul id="testzeug" class="autocomplete-content dropdown-content"></ul>
                         </div>
