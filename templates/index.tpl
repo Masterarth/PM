@@ -16,9 +16,10 @@
         <script type="text/javascript" src="/pm/bin/jquery/jquery-2.1.1.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
         <script type="text/javascript" src="/pm/bin/materialize/js/materialize.min.js"></script>
-        <script type="text/javascript" src="/pm/bin/custom/js/main.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/loader.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/GanttPM.js"></script>
+        <script type="text/javascript" src="/pm/bin/custom/js/jquery.sticky-kit.min.js"></script>
+        <script type="text/javascript" src="/pm/bin/custom/js/main.js"></script>
         {* -------  JS End  ------- *}
     </head>
 

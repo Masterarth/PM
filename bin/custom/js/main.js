@@ -41,4 +41,6 @@ $(document).ready(function () {
         $("#leiter").val(text);
         $('.autocomplete-content').empty();
     });
+
+    $(".sticky").stick_in_parent({offset_top: 58});
 });

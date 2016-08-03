@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card sticky">
     <div class="card-content">
         <span class="card-title">Dashboard</span>
     </div>
