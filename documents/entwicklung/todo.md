@@ -1,5 +1,14 @@
 #TODO´s 
 
+##CHEFS ÄNDERUNGSANTRAG AN ARTI DEN LURCHUS BAKTERIULUS
+[ ] Änderung der Cards in Top - Navigation
+[ ] Implementierung von Budget in Firma
+[ ] Implementierung von Leistungsstunden pro Abteilung
+[ ] Budget Ansicht aus Stammdaten löschen
+[ ] Berechtigungsstruktur --> Ansicht Stammdaten nur für Admins
+[ ] Berechtigung --> Sollte Standardmäßig schon vorhanden sein!
+[ ] Rollen --> Umsetzung --> Projektleiter etc
+
 ## Frontend
 
 [ ] Responsive Suche bei allen Übersichten (suchbox + anzeige) fehlt!
