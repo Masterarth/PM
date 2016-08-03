@@ -11,7 +11,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Firma<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="/pm/firma/dashboard">Öffnen</a></p>
+                <p><a class="btn btn-block blue-grey" href="/pm/firma/dashboard">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Firma<i class="material-icons right">close</i></span>
@@ -26,7 +26,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Standorte<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="/pm/standort/dashboard">Öffnen</a></p>
+                <p><a class="btn btn-block blue-grey" href="/pm/standort/dashboard">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Standorte<i class="material-icons right">close</i></span>
@@ -41,7 +41,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Abteilung<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="/pm/abteilung/dashboard">Öffnen</a></p>
+                <p><a class="btn btn-block blue-grey" href="/pm/abteilung/dashboard">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Abteilung<i class="material-icons right">close</i></span>
@@ -56,7 +56,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Teams<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="#">Öffnen</a></p>
+                <p><a class="btn btn-block blue-grey" href="#">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Teams<i class="material-icons right">close</i></span>
@@ -71,7 +71,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Mitarbeiter<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="/pm/mitarbeiter/dashboard">Öffnen</a></p>
+                <p><a class="btn btn-block blue-grey" href="/pm/mitarbeiter/dashboard">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Mitarbeiter<i class="material-icons right">close</i></span>
@@ -86,7 +86,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Budgetierung<i class="material-icons right">more_vert</i></span> 
-                <p><a class="btn btn-block" href="/pm/budget">Öffnen</a></p>
+                <p><a class="btn btn-block blue-grey" href="/pm/budget">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Budgetierung<i class="material-icons right">close</i></span>
@@ -101,7 +101,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Prioritäten<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="#">Öffnen</a></p>
+                <p><a class="btn btn-block blue-grey" href="#">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Priorität<i class="material-icons right">close</i></span>
@@ -116,7 +116,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Berechtigungen<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block" href="#">Öffnen</a></p>
+                <p><a class="btn btn-block blue-grey" href="#">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Berechtigungen<i class="material-icons right">close</i></span>
