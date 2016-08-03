@@ -22,7 +22,7 @@ class pm_capitalvaluemethod {
      * @param double $d_payoutMoney
      */
     function __construct($i_years,$i_emptyRiskZins, $i_riskZins, $d_payoutMoney, $o_arrayCapitalflow) {
-        $this->o_inflation = new inflation(2016);
+        $this->o_inflation = new pm_inflation(2016);
         $this->i_years = $i_years;
         $this->d_payingOut = $d_payoutMoney;
         $this->i_emptyRiskZins = $i_emptyRiskZins;

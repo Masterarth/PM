@@ -1,23 +1,5 @@
 <?php
 
-$c1 = new pm_capitalflow(2, 200, 100);
-var_dump($c1);
-
-echo "\n\n <h1>--------------------</h1>";
-
-$c2 = new pm_capitalflow(1, 200, 100);
-var_dump($c2);
-
-echo "\n\n <h1>--------------------</h1>";
-
-$arr = array();
-$arr[0] = $c1;
-$arr[1] = $c2;
-
-var_dump($arr);
- $capitalvalmeth = new pm_capitalvaluemethod(2,0.01,0.01,200,$arr);
-
-
 /**
  * Capitalflow for the Capital Value Method
  * Its the Capitalflow for 1 Year
