@@ -7,7 +7,7 @@
                     <label class="left-align" for='name'>Teamname</label>
                 </div>
                 <div class="input-field col s12">
-                    <select name='reg[a_id]' id='s_id' required="" aria-required="true">
+                    <select name='reg[a_id]' id='a_id' required="" aria-required="true">
                         <option value="" disabled selected>Wählen sie die Abteilung des Teams</option>
                         {if isset($abteilungen)}
                             {foreach from=$abteilungen item=abteilung}
@@ -39,7 +39,3 @@
         </form>
     </div>
 </div> 
-
-{if isset($toast)}
-    {$toast}
-{/if}
