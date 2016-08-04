@@ -38,9 +38,9 @@ class pm_capitalvaluemethod {
     {
         $this->d_capitalValue = (-1)*$this->d_payingOut;
         $d_zins = 1+$this->o_inflation->getInflationRate()+$this->i_emptyRiskZins+$this->i_riskZins;
+        
         foreach ($this->o_capitalflows as $arrElem)
         {
-            echo "\nda";
             if(is_a($arrElem, pm_capitalflow::class)){
                 $this->d_capitalValue += $this->yearsCapitalValues($arrElem,$d_zins);
             }
@@ -56,7 +56,7 @@ class pm_capitalvaluemethod {
     {
         if(is_a($arrElem, pm_capitalflow::class))
         {
-            $val = ($arrElem->getInputCash()-$arrElem->getOutputCash())/(pow($d_zins,$arrElem->getYear()));
+            $val = ($arrElem->getInputCash()-$arrElem->getOutputCash())/(pow($d_zins,$arrElem->getYear()+1));
             return $val;    
         }
         return 0;

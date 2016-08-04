@@ -31,6 +31,7 @@
                             <span class="card-title">{$team->t_name}</span>
                             <p><strong>Standort:</strong>soon</p>
                             <p><strong>Abteilung:</strong>soon</p>
+                            <p><strong>Leitung:</strong>soon</p>
                         </div>
                         <div class="card-action">
                             <a href="/pm/team/{$team->id}">Öffnen</a>
