@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col s12 m4">
+    <div class="col s12 m6 l4 l4">
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="/pm/bin/custom/images/unternehmen.jpg">
@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-    <div class="col s12 m4">
+    <div class="col s12 m6 l4">
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="/pm/bin/custom/images/standort.jpg">
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <div class="col s12 m4">
+    <div class="col s12 m6 l4">
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="/pm/bin/custom/images/positionen.jpg">
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-    <div class="col s12 m4">
+    <div class="col s12 m6 l4">
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="/pm/bin/custom/images/team.jpg">
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="col s12 m4">
+    <div class="col s12 m6 l4">
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="/pm/bin/custom/images/mitarbeiter.jpg">
@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-    <div class="col s12 m4">
+    <div class="col s12 m6 l4">
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="/pm/bin/custom/images/prio.jpg">
@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-    <div class="col s12 m4">
+    <div class="col s12 m6 l4">
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="/pm/bin/custom/images/settings.jpg">

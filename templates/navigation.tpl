@@ -15,7 +15,7 @@
                     <ul class="side-nav" id="mobile-demo">
                         <li>
                             <div class="userView">
-                                <img class="background" src="/pm/bin/custom/images/office.jpg">
+                                <img class="background" src="/pm/bin/custom/images/projekt_1.jpg">
                                 <div class="section"></div>
                                 <div class="section"></div>
                                 <a href="/pm/mitarbeiter/{$smarty.session.user->getU_id()}" class="hoverable">
