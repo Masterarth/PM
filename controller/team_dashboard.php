@@ -1,8 +1,23 @@
 <?php
+/**
+* Dashboard
+* @author Lukas Adler
+* @since 04.08.2016
+*/
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+if (isset($_POST["team_search"])) {
+    if (is_numeric($_POST["team_search"])) {
+        header('Location: /pm/team/' . $_POST["team_search"]);
+        exit;
+    } else {
+        $teams = core()->db()->select("select * from team where concat_ws(' ',a_name,id) like '%" . $_POST["team_search"] . "%'");
+    }
+} else {
+    $teams = core()->db()->select("select * from team");
+    if (count($teams) > 0) {
+        core()->smarty()->assign("teams", $teams);
+    }
+}
+
 

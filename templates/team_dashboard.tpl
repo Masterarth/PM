@@ -3,7 +3,7 @@
         <ul class="collapsible" data-collapsible="accordion">
             <form action="/pm/team/dashboard" method="post">
                 <div class="input-field search white">
-                    <input id="search" class="sickblue" type="text" name="ma_search">
+                    <input id="search" class="sickblue" type="text" name="team_search">
                     <label for="search">nach Team suchen</label>
                 </div>
             </form>
@@ -20,19 +20,20 @@
         </ul>
     </div>
     <div class="col s12 l9">
-        {if isset($team)}
-            {foreach from=$team item=standort}
+        {if isset($teams)}
+            {foreach from=$teams item=team}
                 <div class="card horizontal hoverable valign-wrapper">
                     <div class="card-image valign">
-                        <img src="/pm/bin/custom/images/projekt_2.jpg">
+                        <img src="/pm/bin/custom/images/team.jpg">
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <span class="card-title">{$team->s_name}</span>
-                            <p><strong>Mitarbeiteranzahl:</strong> {$standort->strasse} {$standort->hausnummer}, {$standort->plz} {$standort->ort}</p>
+                            <span class="card-title">{$team->t_name}</span>
+                            <p><strong>Standort:</strong>soon</p>
+                            <p><strong>Abteilung:</strong>soon</p>
                         </div>
                         <div class="card-action">
-                            <a href="/pm/standort/{$standort->id}">Öffnen</a>
+                            <a href="/pm/team/{$team->id}">Öffnen</a>
                         </div>
                     </div>
                 </div>

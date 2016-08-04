@@ -1,32 +1,21 @@
 <div class="card">
     <div class="card-content">
-        <form method="post" action="/pm/abteilung/neu">
+        <form method="post" action="/pm/team/neu">
             <div class='row'>
                 <div class='input-field col s12'>
-                    <input class='validate' type='text' name='reg[name]' id='name' required="" aria-required="true" autocomplete="off"/>
+                    <input class='validate' type='text' name='reg[t_name]' id='name' required="" aria-required="true" autocomplete="off"/>
                     <label class="left-align" for='name'>Teamname</label>
                 </div>
                 <div class="input-field col s12">
-                    <select name='reg[s_id]' id='s_id' required="" aria-required="true">
-                        <option value="" disabled selected>Wählen sie den Standort der Abteilung</option>
-                        {if isset($standorte)}
-                            {foreach from=$standorte item=standort}
-                                <option value="{$standort->id}">{$standort->s_name}</option>
-                            {/foreach}
-                        {/if}
-                    </select>
-                    <label>Standort</label>
-                </div>
-                    <div class="input-field col s12">
-                    <select name='reg[s_id]' id='s_id' required="" aria-required="true">
+                    <select name='reg[a_id]' id='s_id' required="" aria-required="true">
                         <option value="" disabled selected>Wählen sie die Abteilung des Teams</option>
-                        {if isset($standorte)}
-                            {foreach from=$standorte item=standort}
-                                <option value="{$standort->id}">{$standort->s_name}</option>
+                        {if isset($abteilungen)}
+                            {foreach from=$abteilungen item=abteilung}
+                                <option value="{$abteilung->id}">{$abteilung->s_name} | {$abteilung->a_name}</option>
                             {/foreach}
                         {/if}
                     </select>
-                    <label>Abteilung</label>
+                    <label>Standort | Abteilung</label>
                 </div>
                 <div class="col s12">
                     <div class="row">
