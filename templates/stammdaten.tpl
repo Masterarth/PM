@@ -51,7 +51,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">Teams<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block blue-grey" href="#">Öffnen</a></p>
+                <p><a class="btn btn-block blue-grey" href="/pm/team/dashboard">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Teams<i class="material-icons right">close</i></span>
