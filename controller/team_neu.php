@@ -13,8 +13,7 @@ core()->materialize()->showFixedNavElement();
 
 if (isset($_POST["reg"])) {
 
-    $result = core()->db()->select("select * from team where "
-            . "t_name ='" . $_POST["reg"]["t_name"]);
+    $result = core()->db()->select("select * from team where t_name ='" . $_POST["reg"]["t_name"]."'");
     
     if (count($result) <= 0) {
 
