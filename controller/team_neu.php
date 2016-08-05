@@ -13,8 +13,8 @@ core()->materialize()->showFixedNavElement();
 
 if (isset($_POST["reg"])) {
 
-    $result = core()->db()->select("select * from team where t_name ='" . $_POST["reg"]["t_name"] . "'");
-
+    $result = core()->db()->select("select * from team where t_name ='" . $_POST["reg"]["t_name"] . "'","fetch");
+    var_dump($_POST);
     if (count($result) <= 0) {
         $mitarbeiter = core()->db()->select("select * from mitarbeiter where concat_ws(' ',vorname,nachname) like '%" . $_POST["reg"]["leiter"] . "%'", "fetch");
         if (isset($mitarbeiter)) {
