@@ -1,20 +1,3 @@
-.pin-top {
-    position: relative;
-}
-
-.pin-bottom {
-    position: relative;
-}
-
-.pinned {
-    position: fixed !important;
-    margin-top: 65px;
-}
-
-.card-image{
-    padding: 0px;
-}
-
 .content{
     margin-top: 20px;
 }
@@ -31,6 +14,7 @@
     margin-left: 20px;
 }
 
+/*override*/
 nav .brand-logo{
     color: black;
 }
@@ -38,3 +22,26 @@ nav .brand-logo{
 .sticky{
     z-index: 10000;
 }
+
+.search-margin{
+    margin: 1rem 1rem 0 1rem;
+}
+
+.radioRow{
+    padding: 0 10.5px;
+}
+
+/*override*/
+nav{
+    background-color: white;
+}
+
+/*override*/
+/*.container{
+    margin: 0 auto;
+    width: 90%;
+    max-width: 2000px;
+}*/
+
+
+

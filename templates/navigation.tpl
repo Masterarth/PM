@@ -1,5 +1,5 @@
 {if $showNavbar == TRUE}
-    <nav class="white" role="navigation">
+    <nav role="navigation">
         <div class="navbar-fixed ">
             <nav class="white">
                 <div class="nav-wrapper container">

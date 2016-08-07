@@ -33,11 +33,35 @@ if (isset($request[2])) {
                 }
             }
             break;
+        case "budget":
+            core()->materialize()->pageTitle("budget");
+            if (is_numeric($request[3])) {
+                core()->smarty()->assign("f_id", $request[3]);
+                core()->materialize()->addFixedNavElement("/pm/firma/" . $request[3], "Zurück", "call_missed");
+                $firma = core()->db()->select("select * from firma where id = " . $request[3], "fetch");
+                if (!isset($firma->budget_id)) {
+                    core()->page()->loadPage("budget_neu");
+                    if (isset($_POST["reg"])) {
+                        core()->page()->loadController("budget_neu");
+                    }
+                } else {
+                    $budget = core()->db()->select("select * from budget where id = " . $firma->budget_id, "fetch");
+                    core()->page()->loadPage("budget_bearbeiten");
+                    core()->smarty()->assign("firma", $firma);
+                    core()->smarty()->assign("budget", $budget);
+                    if (isset($_POST["reg"])) {
+                        core()->page()->loadController("budget_bearbeiten");
+                    }
+                }
+            }
+            break;
     }
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
         core()->materialize()->pageTitle("Firma");
+        core()->materialize()->addFixedNavElement("/pm/firma/dashboard", "Zurück", "call_missed");
+        core()->materialize()->addFixedNavElement("/pm/firma/budget/" . $request[2], "Budget", "library_add");
         core()->materialize()->addFixedNavElement("/pm/firma/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
         core()->materialize()->addFixedNavElement("/pm/firma/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();

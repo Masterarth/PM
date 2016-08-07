@@ -2,7 +2,7 @@
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">
             <form action="/pm/standort/dashboard" method="post">
-                <div class="input-field search white">
+                <div class="input-field search search-margin">
                     <input id="search" class="sickblue" type="text" name="ma_search">
                     <label for="search">nach Standort suchen</label>
                 </div>

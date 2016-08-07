@@ -1,6 +1,17 @@
-#TODO´s 
+s#TODO´s 
 
-##CHEFS ÄNDERUNGSANTRAG AN ARTI DEN LURCHUS BAKTERIULUS
+## ArthToDos
+ [x] von allen ParallaxViews einen zurückbutton implementieren
+ [ ] Budget ist fast fertig nur noch bearbeiten
+ [ ] Leistungsstunden pro abetilung -> budget firma
+ [ ] Wenn Firma gelöscht wird budget mit löschen ??? 
+    - da mann budgets immer ändern kann ? 
+    - wie soll ein neues budget hinterlegt werden? 
+    - soll man überhaupt budgets ändern können? 
+    - bei mehreren Budgets macht es nur sinn wenn nur 1 aktiv ist DB problem ? 
+    - BUDGET HISTORY ist nicht möglich !!!
+
+## CHEFS ÄNDERUNGSANTRAG AN ARTI DEN LURCHUS BAKTERIULUS
 [x] Änderung der Cards in Top - Navigation
 [ ] Implementierung von Budget in Firma
 [ ] Implementierung von Leistungsstunden pro Abteilung
@@ -11,7 +22,7 @@
 
 ## Frontend
 
-[ ] Responsive Suche bei allen Übersichten (suchbox + anzeige) fehlt!
+[x] Responsive Suche bei allen Übersichten (suchbox + anzeige) fehlt!
     - test ist fertig gestellt es muss nur noch darüber entschieden werden...
 
 [x] Paralax
@@ -19,7 +30,7 @@
 
 ## Backend
 
-[ ] AJAX funktionalität anschauen und implementieren
+[x] AJAX funktionalität anschauen und implementieren
     - Teamleiter / Bereichsleiter -> siehe test.tpl / .php
 
 [x] Login
@@ -66,11 +77,11 @@
         [x] anlegen
         [x] löschen
         [x] bearbeiten
-    [ ] teams
-        [ ] dashboard
-        [ ] anlegen
-        [ ] löschen
-        [ ] bearbeiten
+    [x] teams
+        [x] dashboard
+        [x] anlegen
+        [x] löschen
+        [x] bearbeiten
     [x] mitarbeiter
         [x] anzeige
         [x] dashboard 
