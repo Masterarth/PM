@@ -9,12 +9,12 @@
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">query_builder</i>
-                <input id="sollstartdatum" type="text" class=" datepicker">
+                <input id="sollstartdatum" type="text" class="datepicker">
                 <label for="sollstartdatum">Startdatum</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">query_builder</i>
-                <input id="sollenddatum" type="text" class=" datepicker">
+                <input id="sollenddatum" type="text" class="datepicker">
                 <label for="sollenddatum">Enddatum</label>
             </div>
             <div class="input-field col s4">

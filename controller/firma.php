@@ -33,11 +33,30 @@ if (isset($request[2])) {
                 }
             }
             break;
+        case "budget":
+            core()->materialize()->pageTitle("budget");
+            if (is_numeric($request[3])) {
+                $firma = core()->db()->select("select * from firma where id = " . $request[3], "fetch");
+                if (!isset($firma->budget_id)) {
+                    core()->smarty()->assign("f_id", $request[3]);
+                    core()->page()->loadPage("budget_neu");
+                    if (isset($_POST["reg"])) {
+                        core()->page()->loadController("budget_neu");
+                    }
+                } else {
+                    core()->page()->loadPage("budget_bearbeiten");
+                    if (isset($_POST["reg"])) {
+                        core()->page()->loadController("budget_neu");
+                    }
+                }
+            }
+            break;
     }
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
         core()->materialize()->pageTitle("Firma");
+        core()->materialize()->addFixedNavElement("/pm/firma/budget/" . $request[2], "Budget", "library_add");
         core()->materialize()->addFixedNavElement("/pm/firma/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
         core()->materialize()->addFixedNavElement("/pm/firma/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();

@@ -66,11 +66,11 @@
         [x] anlegen
         [x] löschen
         [x] bearbeiten
-    [ ] teams
-        [ ] dashboard
-        [ ] anlegen
-        [ ] löschen
-        [ ] bearbeiten
+    [x] teams
+        [x] dashboard
+        [x] anlegen
+        [x] löschen
+        [x] bearbeiten
     [x] mitarbeiter
         [x] anzeige
         [x] dashboard 

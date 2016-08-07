@@ -12,7 +12,7 @@
                         <option value="" disabled selected>Wählen sie den Standort der Abteilung</option>
                         {if isset($standorte)}
                             {foreach from=$standorte item=standort}
-                                <option value="{$standort->id}"{if $standort->s_name == $abteilung->s_name}selected{/if}>{$standort->s_name}</option>
+                                <option value="{$standort->id}"{if $standort->id == $abteilung->s_id}selected{/if}>{$standort->s_name}</option>
                             {/foreach}
                         {/if}
                     </select>
