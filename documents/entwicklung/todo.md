@@ -5,15 +5,16 @@ s#TODO´s
  [ ] Budget ist fast fertig nur noch bearbeiten
  [ ] Leistungsstunden pro abetilung -> budget firma
  [ ] Wenn Firma gelöscht wird budget mit löschen ??? 
+    - Firma kann nicht gelöscht werden, weil sonst alle anderen Gegebenheiten (Abteilung, Teams etc auch weg wären)
     - da mann budgets immer ändern kann ? 
-    - wie soll ein neues budget hinterlegt werden? 
+    - wie soll ein neues budget hinterlegt werden?
     - soll man überhaupt budgets ändern können? 
     - bei mehreren Budgets macht es nur sinn wenn nur 1 aktiv ist DB problem ? 
     - BUDGET HISTORY ist nicht möglich !!!
 
 ## CHEFS ÄNDERUNGSANTRAG AN ARTI DEN LURCHUS BAKTERIULUS
 [x] Änderung der Cards in Top - Navigation
-[ ] Implementierung von Budget in Firma
+[x] Implementierung von Budget in Firma -> wenn das fertig ist das leistungsstunden ding für abteilungen auch fertig
 [ ] Implementierung von Leistungsstunden pro Abteilung
 [x] Budget Ansicht aus Stammdaten löschen
 [ ] Berechtigungsstruktur --> Ansicht Stammdaten nur für Admins
