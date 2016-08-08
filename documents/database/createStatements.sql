@@ -9,7 +9,12 @@ CREATE TABLE IF NOT EXISTS Berechtigung(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   berechtigung VARCHAR(30) UNIQUE
 );
-CREATE TABLE IF NOT EXISTS Budget(
+CREATE TABLE IF NOT EXISTS ProBudget(
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  betrag DOUBLE,
+  aktiv BOOLEAN DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS FirBudget(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   betrag DOUBLE,
   sta_periode DATE,
@@ -31,7 +36,7 @@ CREATE TABLE IF NOT EXISTS Firma(
   f_leitung INT(6) UNSIGNED ,
   FOREIGN KEY(f_leitung) REFERENCES Mitarbeiter(id),
   budget_id INT(6) UNSIGNED,
-  FOREIGN KEY(budget_id) REFERENCES Budget(id)
+  FOREIGN KEY(budget_id) REFERENCES FirBudget(id)
 );
 CREATE TABLE IF NOT EXISTS Standort(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -79,9 +84,9 @@ CREATE TABLE IF NOT EXISTS Projekt(
   l_id INT(6) UNSIGNED,
   FOREIGN KEY(l_id) REFERENCES Mitarbeiter(id),
   tat_budget_id INT(6) UNSIGNED,
-  FOREIGN KEY(tat_budget_id) REFERENCES Budget(id),
+  FOREIGN KEY(tat_budget_id) REFERENCES ProBudget(id),
   plan_budget_id INT(6) UNSIGNED,
-  FOREIGN KEY(plan_budget_id) REFERENCES Budget(id),
+  FOREIGN KEY(plan_budget_id) REFERENCES ProBudget(id),
   vor_sta_term DATE,
   vor_end_term DATE,
   tat_sta_term DATE,
@@ -115,5 +120,3 @@ CREATE TABLE IF NOT EXISTS Kapitalwerte(
   einzahlung DOUBLE,
   auszahlung DOUBLE
 );
-ALTER TABLE Mitarbeiter ADD t_id INT(6) UNSIGNED;
-ALTER TABLE Mitarbeiter ADD FOREIGN KEY(t_id) REFERENCES Team(id);
