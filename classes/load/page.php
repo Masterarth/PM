@@ -19,7 +19,7 @@ class load_page {
 
         $page = core()->request()->getController();
 
-        if (!core()->userhandler()->checkUser() and $page != "registrierung") {
+        if (!core()->userhandler()->checkUser() and !$this->defaultPage($page)) {
             $page = "anmelden";
         }
 
@@ -39,6 +39,13 @@ class load_page {
         core()->smarty()->assign("showNavButton", TRUE);
         core()->materialize()->clearFixedNavElements();
         core()->materialize()->parallax(false);
+
+        if ($this->defaultPage($page)) {
+            core()->smarty()->assign("showNavbar", false);
+            core()->smarty()->assign("showNavButton", false);
+        }
+
+        core()->materialize()->pageTitle($page);
 
         if ($page) {
             $_SESSION["page"] = $page;
@@ -69,6 +76,14 @@ class load_page {
             $page = "404";
         }
         core()->smarty()->assign('page', $page . '.tpl');
+    }
+
+    private function defaultPage($page) {
+        $defaultPages = include 'config/default_pages.php';
+        if (in_array($page, $defaultPages)) {
+            return true;
+        }
+        return false;
     }
 
 }

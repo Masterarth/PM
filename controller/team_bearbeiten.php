@@ -20,6 +20,6 @@ if (isset($_POST["reg"])) {
     }
 }
 
-core()->materialize()->pageTitle("team");
+
 core()->materialize()->addFixedNavElement("/pm/team/" . $request[3], "Zurück", "call_missed");
 core()->materialize()->showFixedNavElement();

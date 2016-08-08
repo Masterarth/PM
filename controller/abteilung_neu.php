@@ -1,6 +1,6 @@
 <?php
 
-core()->materialize()->pageTitle("Abteilung");
+
 
 $standorte = core()->db()->select("select * from standort");
 core()->smarty()->assign("standorte", $standorte);

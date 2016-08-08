@@ -15,3 +15,6 @@ if (isset($_POST["standort_search"])) {
 }
 
 
+core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed");
+core()->materialize()->addFixedNavElement("/pm/standort/neu", "Standort anlegen", "mode_edit");
+core()->materialize()->showFixedNavElement();

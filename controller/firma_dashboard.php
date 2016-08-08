@@ -11,7 +11,8 @@ if (isset($_POST["firma_search"])) {
     $firmen = core()->db()->select("select * from firma");
 }
 
+core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed");
 core()->materialize()->addFixedNavElement("/pm/firma/neu", "Firma anlegen", "mode_edit");
 core()->materialize()->showFixedNavElement();
 core()->smarty()->assign("firmen", $firmen);
-core()->materialize()->pageTitle("Firmen");
+

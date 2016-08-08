@@ -13,7 +13,7 @@ if (isset($request[2])) {
             core()->page()->loadController("firma_dashboard");
             break;
         case "bearbeiten":
-            core()->materialize()->pageTitle("Firma");
+            
             core()->materialize()->addFixedNavElement("/pm/firma/" . $request[3], "Zurück", "call_missed");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("firma_bearbeiten");
@@ -34,7 +34,7 @@ if (isset($request[2])) {
             }
             break;
         case "budget":
-            core()->materialize()->pageTitle("budget");
+            
             if (is_numeric($request[3])) {
                 core()->smarty()->assign("f_id", $request[3]);
                 core()->materialize()->addFixedNavElement("/pm/firma/" . $request[3], "Zurück", "call_missed");
@@ -59,7 +59,7 @@ if (isset($request[2])) {
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
-        core()->materialize()->pageTitle("Firma");
+        
         core()->materialize()->addFixedNavElement("/pm/firma/dashboard", "Zurück", "call_missed");
         core()->materialize()->addFixedNavElement("/pm/firma/budget/" . $request[2], "Budget", "library_add");
         core()->materialize()->addFixedNavElement("/pm/firma/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");

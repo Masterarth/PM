@@ -33,7 +33,3 @@
         </form>
     </div>
 </div> 
-
-{if isset($toast)}
-    {$toast}
-{/if}

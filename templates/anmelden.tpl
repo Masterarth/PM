@@ -1,8 +1,6 @@
 <div class="section"></div>
 <main>
     <center>
-        <h3 class="blue-grey-text darken-3">PAMS</h3>
-
         <h5 class="blue-grey-text darken-3">Bitte melden Sie sich mit ihrem Account an</h5>
         <div class="section"></div>
 

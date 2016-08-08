@@ -17,3 +17,6 @@ if (isset($_POST["reg"])) {
     }
 }
 
+
+core()->materialize()->addFixedNavElement("/pm/standort/" . $request[3], "Zurück", "call_missed");
+core()->materialize()->showFixedNavElement();

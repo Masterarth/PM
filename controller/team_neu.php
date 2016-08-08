@@ -22,6 +22,6 @@ if (isset($_POST["reg"])) {
     }
 }
 
-core()->materialize()->pageTitle("team");
+
 core()->materialize()->addFixedNavElement("/pm/team/dashboard", "Zurück", "call_missed");
 core()->materialize()->showFixedNavElement();

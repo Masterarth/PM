@@ -10,7 +10,7 @@ if (isset($_POST["ma_search"])) {
 } else {
     $users = core()->userhandler()->getAllUser();
 }
-
+core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed");
 core()->materialize()->addFixedNavElement("/pm/mitarbeiter/neu", "Mitarbeiter anlegen", "mode_edit");
 core()->materialize()->showFixedNavElement();
 

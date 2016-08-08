@@ -1,7 +1,6 @@
 <?php
 
-core()->smarty()->assign("showNavbar", FALSE);
-core()->smarty()->assign("showNavButton", FALSE);
+
 
 if (core()->userhandler()->checkUser()) {
     header('Location: /pm/dashboard');

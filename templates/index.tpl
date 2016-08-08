@@ -25,8 +25,12 @@
 
     <body>
 
-        <!-- Navigation -->
-        {include file="navigation.tpl"}
+        {if isset($smarty.session.user)}
+            <!-- Navigation -->
+            {include file="navigation.tpl"}
+        {else}
+            {include file="navigation_default.tpl"}            
+        {/if}
 
         <!-- Inhalt -->
         {if !$parallax}
@@ -36,6 +40,7 @@
         {else}
             {include file=$page}
         {/if}
+
 
         {if isset($toast)}
             {$toast}

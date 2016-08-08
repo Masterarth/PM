@@ -2,7 +2,7 @@
 
 core()->smarty()->assign("showNavbar", FALSE);
 core()->smarty()->assign("showNavButton", FALSE);
-core()->smarty()->assign("pageTitle", FALSE);
+core()->smarty()->assign("", FALSE);
 
 core()->page()->loadController("reg");
 
