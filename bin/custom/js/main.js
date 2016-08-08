@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('.collapsible').collapsible({
         accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
+    $('.slider').slider({full_width: true});
     $('.parallax').parallax();
     $(".button-collapse").sideNav();
     $('ul.tabs').tabs();
@@ -44,4 +45,8 @@ $(document).ready(function () {
     });
 
     $(".sticky").stick_in_parent({offset_top: 58});
+     $('.carousel.carousel-slider').carousel({full_width: true});
+        $('.carousel').carousel();
+        $('ul.tabs').tabs();
+    
 });

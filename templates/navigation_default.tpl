@@ -3,9 +3,9 @@
         <nav class="white">
             <div class="nav-wrapper container">
                 <div class="brand-logo">
-                    <a href="/pm/" class="black-text"><i class="material-icons">polymer</i></a>
-                    <a href="/pm/" class="black-text hide-on-med-and-down">PAMS</a>
-                    {if isset($pageTitle)}<span> | {$pageTitle}</span>{/if}
+                    <a href="/pm/" class="teal-text"><i class="material-icons">polymer</i></a>
+                    <a href="/pm/" class="teal-text hide-on-med-and-down">PAMS</a>
+                    {if isset($pageTitle)}<span class="teal-text"> | {$pageTitle}</span>{/if}
                 </div>
                 <a href="#" data-activates="mobile-demo" class="button-collapse black-text"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down grey-text">

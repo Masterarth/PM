@@ -29,12 +29,12 @@
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                        <span class="card-title">{$projekt->getTitle()}</span>
-                        <p><strong>Standort:</strong> Lörrach</p>
-                        <p><strong>Bereich:</strong> IT</p>
+                        <span class="card-title teal-text">{$projekt->getTitle()}</span>
+                        <p><strong class="teal-text">Standort:</strong> Lörrach</p>
+                        <p><strong class="teal-text">Bereich:</strong> IT</p>
                     </div>
                     <div class="card-action">
-                        <a href="antrag">Öffnen</a>
+                        <a class="grey-text" href="antrag">Öffnen</a>
                     </div>
                 </div>
             </div>
