@@ -28,11 +28,11 @@
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <span class="card-title">{$abteilung->a_name}</span>
-                            <p><strong>Leiter:</strong> {$abteilung->vorname} {$abteilung->nachname}</p>
+                            <span class="card-title teal-text">{$abteilung->a_name}</span>
+                            <p><strong class="teal-text">Leiter:</strong> {$abteilung->vorname} {$abteilung->nachname}</p>
                         </div>
                         <div class="card-action">
-                            <a href="/pm/abteilung/{$abteilung->id}">Öffnen</a>
+                            <a class="grey-text" href="/pm/abteilung/{$abteilung->id}">Öffnen</a>
                         </div>
                     </div>
                 </div>

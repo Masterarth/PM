@@ -59,10 +59,10 @@
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <span class="card-title">{$team->t_name}</span>
+                            <span class="card-title teal-text">{$team->t_name}</span>
                         </div>
                         <div class="card-action">
-                            <a href="/pm/team/{$team->id}">Öffnen</a>
+                            <a class="grey-text" href="/pm/team/{$team->id}">Öffnen</a>
                         </div>
                     </div>
                 </div>

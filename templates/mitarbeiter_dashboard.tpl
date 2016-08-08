@@ -28,12 +28,12 @@
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <span class="card-title">{$user->vorname} {$user->nachname}</span>
-                            <p><strong>Accountname:</strong> {$user->l_name}</p>
-                            <p><strong>Mitglied seit:</strong> {$user->reg_datum}</p>
+                            <span class="card-title teal-text">{$user->vorname} {$user->nachname}</span>
+                            <p><strong class="teal-text">Accountname:</strong> {$user->l_name}</p>
+                            <p><strong class="teal-text">Mitglied seit:</strong> {$user->reg_datum}</p>
                         </div>
                         <div class="card-action">
-                            <a href="/pm/mitarbeiter/{$user->u_id}">Öffnen</a>
+                            <a class="grey-text" href="/pm/mitarbeiter/{$user->u_id}">Öffnen</a>
                         </div>
                     </div>
                 </div>

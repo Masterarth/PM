@@ -28,10 +28,10 @@
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <span class="card-title">{$firma->f_name}</span>
+                            <span class="card-title teal-text">{$firma->f_name}</span>
                         </div>
                         <div class="card-action">
-                            <a href="/pm/firma/{$firma->id}">Öffnen</a>
+                            <a href="/pm/firma/{$firma->id}" class="grey-text">Öffnen</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
         {else}
             <div class="card">
                 <div class="card-content">
-                    <p>Es sind keine Firmen vorhanden</p>
+                    <p class="teal-text">Es sind keine Firmen vorhanden</p>
                 </div>
             </div>
         {/if}
