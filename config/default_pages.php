@@ -5,5 +5,6 @@ return array(
     "impressum",
     "funktionen",
     "start",
-    "anmelden"
+    "anmelden",
+    "about"
  );
