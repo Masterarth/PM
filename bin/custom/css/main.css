@@ -44,4 +44,11 @@ nav{
 }*/
 
 
+.carousel .indicators .indicator-item{
+    background-color: lightgray;
+}
+
+.carousel .indicators .indicator-item.active{
+    background-color: black;
+}
 

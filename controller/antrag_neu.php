@@ -3,6 +3,7 @@
 
 if (isset($_POST["reg"])) {
     
+    var_dump($_POST["reg"]["kapitalwertfelder"]);
     var_dump($_POST["reg"]);
     
     //Standard Informationen
@@ -13,14 +14,18 @@ if (isset($_POST["reg"])) {
     $project_rahmenbedingungen = $_POST["reg"]["rahmenbedingungen"];
     $project_kommunikation = $_POST["reg"]["kommunikation"];
     
-    //Zusatz Informationen
-//    $zielkreuz_wozu
-//    $zielkreuz_was
-//            $zielkreuz_wiegut
-//            $zielkreuz_wen
+    //Zielkreuzmethode
+    $zielkreuz_wozu = $_POST["reg"]["kreuzwozu"];
+    $zielkreuz_was = $_POST["reg"]["kreuzwas"];
+    $zielkreuz_wiegut = $_POST["reg"]["kreuzwiegut"];
+    $zielkreuz_wen = $_POST["reg"]["kreuzfuerwen"];
     
     
-    header('Location: /pm/abteilung/dashboard');
-    exit;
+    
+    //Zusatzinformationen
+    
+    
+    //header('Location: /pm/abteilung/dashboard');
+    //exit;
     
 }
