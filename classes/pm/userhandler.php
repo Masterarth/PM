@@ -37,7 +37,7 @@ class pm_userhandler {
      * @return boolean|\pm_user
      */
     public function createUser($id) {
-        $result = core()->db()->select("select u.l_name,u.reg_datum,u.aktiv,m.id,m.u_id,m.nachname,m.vorname,m.b_id,m.t_id from users u, mitarbeiter m where u.id =" . $id . " and m.u_id = u.id", "fetch");
+        $result = core()->db()->select("select u.l_name,u.reg_datum,u.aktiv,m.id,m.u_id,m.nachname,m.vorname,m.b_id from users u, mitarbeiter m where u.id =" . $id . " and m.u_id = u.id", "fetch");
         if ($result) {
             $user = new pm_user();
             $user->setId($result->id);
