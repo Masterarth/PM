@@ -3,8 +3,9 @@
 if (isset($_POST["reg"])) {
 
     $projectAntragArray = array(
+        'p_auftraggeber'=>null,
         'p_nummer'=>null,
-        'titel' => null,
+        'p_titel' => null,
         'bemerkung' => null,
         'p_nummer' => null,
         'auftraggeber' => null,
@@ -27,7 +28,9 @@ if (isset($_POST["reg"])) {
         'vor_end_datum' => null,
         'aufwand' => null,
         'risiko' => null,
-        'komm_konz' => null
+        'komm_konz' => null,
+        'p_erstellDatum' =>null,
+        'p_system'=>null
     );
 
 
@@ -70,7 +73,14 @@ if (isset($_POST["reg"])) {
     //Meilensteine
     $tableMeilensteine = $_POST["reg"]["meilensteine"];
 
-    $uid = core()->db()->update("insert into team (t_name, a_id, t_leitung) values (:t_name,:a_id,:leiter)", $team);
+    $uid = core()->db()->update(
+            "insert into projekt ("
+            . "titel, p_nummer, auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2, genehmigung_E3, "
+            . "p_ziel1, p_ziel2, p_ziel3, p_ziel4, nicht_ziel,rahmbeding, p_system, aufwand, komm_konz,risiko,e_id,a_id,l_id,b_id,tat_budget_id,plan_budget_id,"
+            . "vor_sta_term, vor_end_term,tat_sta_term,tat_end_term,beschreibung,nutzen,amorti_zeit,bemerkung) "
+            . "values (:p_titel,:p_nummer,:p_auftraggeber, :p_ertellDatum, :genehm_E1, :genehm_E2, :genehm_E3"
+            . ":p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:aufwand,:komm_konz,:risiko,null,null,null,null,null,null"
+            . ":vor_sta_datum,:vor_end_datum,:tat_sta_datum,:tat_end_datum,:beschreibung,:nutzen,:amorti_zeit,:bemerkung)", $projectAntragArray);
 
 
     header('Location: /pm/antrag/dashboard');
