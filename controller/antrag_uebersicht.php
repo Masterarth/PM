@@ -9,8 +9,6 @@ for ($index = 1; $index <= 10; $index++) {
     $projekt->setBudget(rand(500, 100000));
     $projekt->setStarttermin(date("c"));
     $projekt->setEndtermin(date("c", strtotime("+" . rand(1, 10) . "day")));
-    $projekt->setMitarbeiteranzahl(rand(1, 10));
-    $projekt->setNutzen("gibt keinen ...");
     $projekte[] = $projekt;
 }
 
