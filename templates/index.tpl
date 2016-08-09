@@ -10,6 +10,7 @@
         {* -------  Fonts End  ------- *}
         {* -------  CSS Start  ------- *}        
         <link type="text/css" rel="stylesheet" href="/pm/bin/materialize/css/materialize.css"  media="screen,projection"/>
+	<link rel="stylesheet" href="/pm/bin/timeline/css/style.css"> <!-- timeline -->
         <link type="text/css" rel="stylesheet" href="/pm/bin/custom/css/main.css">
         {* -------  CSS End  ------- *}
         {* -------  JS Start  ------- *}
@@ -19,6 +20,8 @@
         <script type="text/javascript" src="/pm/bin/custom/js/loader.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/GanttPM.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/jquery.sticky-kit.min.js"></script>
+        <script type="text/javascript" src="/pm/bin/timeline/js/modernizr.js"></script> <!-- timeline -->
+        <script type="text/javascript" src="/pm/bin/timeline/js/main.js"></script> <!-- timeline -->
         <script type="text/javascript" src="/pm/bin/custom/js/main.js"></script>
         {* -------  JS End  ------- *}
     </head>
