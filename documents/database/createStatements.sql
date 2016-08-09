@@ -79,16 +79,30 @@ CREATE TABLE IF NOT EXISTS ProjStatus(
 CREATE TABLE IF NOT EXISTS Projekt(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   titel VARCHAR(40) NOT NULL,
+  p_nummer INT(6) UNSIGNED NOT NULL,
+  auftraggeber VARCHAR(40),
   erstell_datum DATE,
   genehmigung_E1 BOOLEAN NOT NULL DEFAULT 0,
   genehmigung_E2 BOOLEAN NOT NULL DEFAULT 0,
   genehmigung_E3 BOOLEAN NOT NULL DEFAULT 0,
+  p_ziel1 VARCHAR(100),
+  p_ziel2 VARCHAR(100),
+  p_ziel3 VARCHAR(100),
+  p_ziel4 VARCHAR(100),
+  nicht_ziel VARCHAR(255),
+  rahmbeding VARCHAR(255),
+  p_system VARCHAR(255),
+  aufwand DOUBLE,
+  komm_konz VARCHAR(255),
+  risiko VARCHAR(255),
   e_id INT(6) UNSIGNED,
   FOREIGN KEY(e_id) REFERENCES Mitarbeiter(id),
   a_id INT(6) UNSIGNED,
   FOREIGN KEY(a_id) REFERENCES Abteilung(id),
   l_id INT(6) UNSIGNED,
   FOREIGN KEY(l_id) REFERENCES Mitarbeiter(id),
+  b_id INT(6) UNSIGNED,
+  FOREIGN KEY(b_id) REFERENCES Mitarbeiter(id),
   tat_budget_id INT(6) UNSIGNED,
   FOREIGN KEY(tat_budget_id) REFERENCES ProBudget(id),
   plan_budget_id INT(6) UNSIGNED,
@@ -99,7 +113,22 @@ CREATE TABLE IF NOT EXISTS Projekt(
   tat_end_term DATE,
   beschreibung TEXT,
   nutzen VARCHAR(255),
-  amorti_zeit VARCHAR(255)
+  amorti_zeit VARCHAR(255),
+  bemerkung VARCHAR(255)
+);
+CREATE TABLE IF NOT EXISTS Arbeitspakete(
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  arbeitspaket VARCHAR(255),
+  p_id INT(6) UNSIGNED NOT NULL,
+  FOREIGN KEY(p_id) REFERENCES Projekt(id)
+);
+CREATE TABLE IF NOT EXISTS Meilensteine(
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  p_id INT(6) UNSIGNED NOT NULL,
+  FOREIGN KEY(p_id) REFERENCES Projekt(id),
+  ms_nummer INT(6),
+  meilenstein VARCHAR(255),
+  erfüllt BOOLEAN DEFAULT 0
 );
 CREATE TABLE IF NOT EXISTS ProjTeam(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
