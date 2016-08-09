@@ -91,7 +91,6 @@ CREATE TABLE IF NOT EXISTS Projekt(
   nicht_ziel VARCHAR(255),
   rahmbeding VARCHAR(255),
   p_system VARCHAR(255),
-  aufwand DOUBLE,
   komm_konz VARCHAR(255),
   risiko VARCHAR(255),
   e_id INT(6) UNSIGNED,
