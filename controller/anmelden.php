@@ -1,7 +1,5 @@
 <?php
 
-
-
 if (core()->userhandler()->checkUser()) {
     header('Location: /pm/dashboard');
     exit;
