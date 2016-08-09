@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Changeing the Controlling Structur and adding new Controller Classes to
  * handle the project request
@@ -7,8 +8,6 @@
  * @since 08.08.2016
  * 
  */
-
-
 $request = core()->request()->getParams();
 
 if (isset($request[2])) {
@@ -22,6 +21,9 @@ if (isset($request[2])) {
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("antrag_uebersicht");
             core()->page()->loadController("antrag_uebersicht");
+            break;
+        default:
+            core()->materialize()->parallax(true);
             break;
     }
 }
