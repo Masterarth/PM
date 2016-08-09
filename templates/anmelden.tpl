@@ -1,11 +1,11 @@
 <div class="section"></div>
 <main>
     <center>
-        <h5 class="blue-grey-text darken-3">Bitte melden Sie sich mit ihrem Account an</h5>
+        <h5 class="teal-text">Bitte melden Sie sich mit ihrem Account an</h5>
         <div class="section"></div>
 
         <div class="container">
-            <div class="z-depth-1 grey lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+            <div class="z-depth-1  lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
                 <form class="col s12" method="post" action="/pm/anmelden">
                     <div class='row'>
                         <div class='col s12'>
@@ -34,15 +34,13 @@
                     <br />
                     <center>
                         <div class='row'>
-                            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect blue-grey darken-3'>Login</button>
+                            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect teal'>Login</button>
                         </div>
                     </center>
                 </form>
             </div>
         </div>
-        <a href="/pm/registrierung">Account erstellen</a>
+        <a class="teal-text" href="/pm/registrierung">Account erstellen</a>
     </center>
-
-    <div class="section"></div>
-    <div class="section"></div>
 </main>
+                    
