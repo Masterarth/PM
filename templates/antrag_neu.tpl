@@ -144,18 +144,25 @@
                     </table>
                 </div>
                 <br/>
-
-
+                
                 <span class="teal-text"><a id="btnLeistungsverrechnung" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>  Leistungsverrechnung</span>
                 <hr class="teal">
                 <br/>
                 <div class="row">
-                    <table class="highlight" id="tblLeistungsverrechnung" name="reg[leistungsverrechnung" contenteditable="true">
+                    <table class="highlight" id="tblLeistungsverrechnung" name="reg[leistungsverrechnung]" contenteditable="true">
                         
                     </table>
                 </div>
-
-
+                
+                <span class="teal-text"><a id="btnMeilensteine" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a> Meilensteine</span>
+                <hr class="teal">
+                <br/>
+                <div class="row">
+                    <table class="highlight" id="tblMeilensteine" name="reg[meilensteine]" contenteditable="true">
+                        
+                    </table>
+                </div>
+                
             </div>
         </div>
         <div id="IstZahl" class="col s12">
@@ -204,6 +211,23 @@
         var structure = "<tr><td>"+tableLeistungsverrechnungVal+"</td><td></td><td></td></tr>"
         $('#tblLeistungsverrechnung').append(structure);
         tableLeistungsverrechnungVal++;
+    });
+    
+    var tableMeilensteine = 0;
+    
+    
+    //Adds Dynamic Content to the Table
+    $('#btnMeilensteine').click(function ()
+    {
+        if(tableMeilensteine==0)
+        {
+            var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
+            $('#tblMeilensteine').append(structureHeader);
+        }
+        var structure = "<tr><td>"+tableMeilensteine+"</td><td></td><td><input type='checkbox' id='chkBx"+tableMeilensteine+"' checked='checked'  /></td></tr>"
+        $('#tblMeilensteine').append(structure);
+        tableMeilensteine++;
+        Materialize.updateTextFields();
     });
     
 </script>
