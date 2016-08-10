@@ -29,7 +29,7 @@
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                        <span class="card-title teal-text">{$projekt->getTitle()}</span>
+                        <span class="card-title teal-text">{$projekt->titel}</span>
                         <p><strong class="teal-text">Standort:</strong> Lörrach</p>
                         <p><strong class="teal-text">Bereich:</strong> IT</p>
                     </div>
