@@ -20,7 +20,7 @@ if (isset($_POST["team_search"])) {
 }
 
 
-core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "missed_call");
+core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed");
 core()->materialize()->addFixedNavElement("/pm/team/neu", "Team anlegen", "mode_edit");
 core()->materialize()->addFixedNavElement("#", "Suche", "search", "button-collapse hide-on-large-only", "data-activates='slide-out'");
 core()->materialize()->showFixedNavElement();

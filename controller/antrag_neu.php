@@ -3,43 +3,43 @@
 if (isset($_POST["reg"])) {
 
     $projectAntragArray = array(
-        'p_auftraggeber'=>null,
-        'p_nummer'=>null,
+        'p_auftraggeber' => null,
+        'p_nummer' => null,
         'p_titel' => null,
-        'bemerkung' => null, 
+        'bemerkung' => null,
         'p_ziel1' => null,
         'p_ziel2' => null,
         'p_ziel3' => null,
         'p_ziel4' => null,
         'nicht_ziel' => null,
-        'amorti_zeit' => null, 
-        'genehm_E1' => null, 
-        'genehm_E2' => null,
-        'genehm_E3' => null,
+        'amorti_zeit' => null,
+        'genehm_E1' => 0,
+        'genehm_E2' => 0,
+        'genehm_E3' => 0,
         'rahmbeding' => null,
         'beschreibung' => null,
-        'nutzen' => null, 
+        'nutzen' => null,
         'tat_sta_datum' => null,
         'tat_end_datum' => null,
         'vor_sta_datum' => null,
-        'vor_end_datum' => null, 
+        'vor_end_datum' => null,
         'aufwand' => null,
         'risiko' => null,
         'komm_konz' => null,
-        'p_system'=>null,
-        'p_erstelldatum'=>null
+        'p_system' => null,
+        'p_erstelldatum' => null
     );
 
 
-    $projectMeilensteinArray = array(    
-        'ms_nummer'=>null,
-        'meilenstein'=>null,
-        'erfuellt'=>null
+    $projectMeilensteinArray = array(
+        'ms_nummer' => null,
+        'meilenstein' => null,
+        'erfuellt' => null
     );
 
-    
+
     $projectStatusArray = array(
-      'status'=>null
+        'status' => null
     );
 
     //Standard Informationen
@@ -62,20 +62,68 @@ if (isset($_POST["reg"])) {
     $soll_nutzen = $_POST["reg"]["sollnutzen"];
 
     var_dump($projectAntragArray);
-    
+
     //Kapitalwert
     //$kostenKapitalwert = $_POST["reg"]["kostenKapitalwert"];
     //$tableKapitalwert = $_POST["reg"]["kapitalwertfelder"];
-
     //Leistungsverrechnung
     //$tableLeistungsverrechnung = $_POST["reg"]["leistungsverrechnung"];
-
     //Meilensteine
     //$tableMeilensteine = $_POST["reg"]["meilensteine"];
 
     $uid = core()->db()->update(
-            "insert into projekt (titel,p_nummer,auftraggeber,erstell_datum,genehmigung_e1,genehmigung_e2,genehmigung_e3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,aufwand,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_termin,vor_end_termin,nutzen,amorti_zeit,bemerkung) "
-            . "values(:p_titel,:p_nummer,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:aufwand,:komm_konz,:risikio,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung)", $projectAntragArray);
+            "insert into projekt ("
+            . "titel,"
+            . "p_nummer,"
+            . "auftraggeber,"
+            . "erstell_datum,"
+            . "genehmigung_e1,"
+            . "genehmigung_e2,"
+            . "genehmigung_e3,"
+            . "p_ziel1,"
+            . "p_ziel2,"
+            . "p_ziel3,"
+            . "p_ziel4,"
+            . "nicht_ziel,"
+            . "rahmbeding,"
+            . "p_system,"
+            . "aufwand,"
+            . "komm_konz,"
+            . "risiko,"
+            . "beschreibung,"
+            . "tat_sta_term,"
+            . "tat_end_term,"
+            . "vor_sta_termin,"
+            . "vor_end_termin,"
+            . "nutzen,"
+            . "amorti_zeit,"
+            . "bemerkung) "
+            . "values("
+            . ":p_titel,"
+            . ":p_nummer,"
+            . ":p_auftraggeber,"
+            . ":p_erstelldatum,"
+            . ":genehm_E1,"
+            . ":genehm_E2,"
+            . ":genehm_E3,"
+            . ":p_ziel1,"
+            . ":p_ziel2,"
+            . ":p_ziel3,"
+            . ":p_ziel4,"
+            . ":nicht_ziel,"
+            . ":rahmbeding,"
+            . ":p_system,"
+            . ":aufwand,"
+            . ":komm_konz,"
+            . ":risiko,"
+            . ":beschreibung,"
+            . ":tat_sta_datum,"
+            . ":tat_end_datum,"
+            . ":vor_sta_datum,"
+            . ":vor_end_datum,"
+            . ":nutzen,"
+            . ":amorti_zeit,"
+            . ":bemerkung)", $projectAntragArray);
     var_dump($uid);
 
     //header('Location: /pm/antrag/uebersicht');
