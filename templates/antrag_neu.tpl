@@ -139,7 +139,7 @@
                         <input id="kostenKapitalwert" name="reg[kostenKapitalwert]" type="number" placeholder="-I (Kosten)"/>
                         <label for="kostenKapitalwert">Kosten (I)</label>
                     </div>
-                    <table class="highlight" id="tblKapitalwert" name="reg[kapitalwertfelder]" contenteditable="true">
+                    <table class="highlight" id="tblKapitalwert" name="reg[kapitalwertfelder]">
 
                     </table>
                 </div>
@@ -189,10 +189,10 @@
     {
         if(tableKapitalwertVal==0)
         {
-            var structureHeader = "<thead><tr><th>Jahr</th><th>Einnahmen</th><th>Ausgaben</th></tr></thead>";
+            var structureHeader = "<thead><tr><th>Jahr</th><th>Ausgaben</th><th>Einnahmen</th></tr></thead>";
             $('#tblKapitalwert').append(structureHeader);
         }
-        var structure = "<tr><td>"+tableKapitalwertVal+"</td><td></td><td></td></tr>"
+        var structure = "<tr><td><input disabled name='reg[kwJahr"+tableKapitalwertVal+"]' value='"+tableKapitalwertVal+"' /></td><td><input type='number' placeholder='Ausgaben' name='reg[kwAusg"+tableKapitalwertVal+"]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kwEin"+tableKapitalwertVal+"]'</td></tr>"
         $('#tblKapitalwert').append(structure);
         tableKapitalwertVal++;
     });
@@ -224,10 +224,10 @@
             var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
             $('#tblMeilensteine').append(structureHeader);
         }
-        var structure = "<tr><td>"+tableMeilensteine+"</td><td></td><td><input type='checkbox' id='chkBx"+tableMeilensteine+"' checked='checked'  /></td></tr>"
+        var structure = "<tr><td><input disabled type='number' name='reg[msNr"+tableMeilensteine+"]' value='"+tableMeilensteine+"'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[msBezeichner"+tableMeilensteine+"]'/></td><td><input type='checkbox' id='chkBx"+tableMeilensteine+"' checked='checked'  /></td></tr>"
         $('#tblMeilensteine').append(structure);
         tableMeilensteine++;
-        Materialize.updateTextFields();
+        
     });
     
 </script>
