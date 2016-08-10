@@ -4,7 +4,7 @@ if (isset($_POST["reg"])) {
 
     $projectAntragArray = array(
         'p_auftraggeber'=>null,
-        'p_nummer'=>null,
+        'p_nummer'=>"N/A",
         'p_titel' => null,
         'bemerkung' => null, 
         'p_ziel1' => null,
@@ -13,9 +13,9 @@ if (isset($_POST["reg"])) {
         'p_ziel4' => null,
         'nicht_ziel' => null,
         'amorti_zeit' => null, 
-        'genehm_E1' => null, 
-        'genehm_E2' => null,
-        'genehm_E3' => null,
+        'genehm_E1' => 0, 
+        'genehm_E2' => 0,
+        'genehm_E3' => 0,
         'rahmbeding' => null,
         'beschreibung' => null,
         'nutzen' => null, 
