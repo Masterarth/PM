@@ -74,7 +74,7 @@ if (isset($_POST["reg"])) {
     //$tableMeilensteine = $_POST["reg"]["meilensteine"];
 
     $uid = core()->db()->update(
-            "insert into projekt (titel,p_nummer,auftraggeber,erstell_datum,genehmigung_e1,genehmigung_e2,genehmigung_e3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,aufwand,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_termin,vor_end_termin,nutzen,amorti_zeit,bemerkung) "
+            "insert into projekt (titel,p_nummer,auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2,genehmigung_E3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,aufwand,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_term,vor_end_term,nutzen,amorti_zeit,bemerkung) "
             . "values(:p_titel,:p_nummer,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:aufwand,:komm_konz,:risikio,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung)", $projectAntragArray);
     var_dump($uid);
 
