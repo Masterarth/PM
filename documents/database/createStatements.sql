@@ -112,7 +112,10 @@ CREATE TABLE IF NOT EXISTS Projekt(
   beschreibung TEXT,
   nutzen VARCHAR(255),
   amorti_zeit VARCHAR(255),
-  bemerkung VARCHAR(255)
+  bemerkung VARCHAR(255),
+  mon_kosten DOUBLE,
+  mon_nutzen DOUBLE,
+  kap_kosten DOUBLE
 );
 CREATE TABLE IF NOT EXISTS Arbeitspakete(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
