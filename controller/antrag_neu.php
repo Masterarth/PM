@@ -91,7 +91,7 @@ if (isset($_POST["reg"])) {
     
     foreach ($P_POST["reg"]["meilensteine"] as $value){
         var_dump($value);
-        $mid = core()->db()->update("insert into ")
+        $mid = core()->db()->update("insert into ");
     }
 
 //    while ($looper) {
