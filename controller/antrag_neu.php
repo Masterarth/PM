@@ -4,7 +4,6 @@ if (isset($_POST["reg"])) {
 
     $projectAntragArray = array(
         'p_auftraggeber' => null,
-        'p_nummer' => null,
         'p_titel' => null,
         'bemerkung' => null,
         'p_ziel1' => null,
@@ -71,61 +70,55 @@ if (isset($_POST["reg"])) {
     //Meilensteine
     //$tableMeilensteine = $_POST["reg"]["meilensteine"];
 
-    $uid = core()->db()->update(
-            "insert into projekt ("
-            . "titel,"
-            . "p_nummer,"
-            . "auftraggeber,"
-            . "erstell_datum,"
-            . "genehmigung_e1,"
-            . "genehmigung_e2,"
-            . "genehmigung_e3,"
-            . "p_ziel1,"
-            . "p_ziel2,"
-            . "p_ziel3,"
-            . "p_ziel4,"
-            . "nicht_ziel,"
-            . "rahmbeding,"
-            . "p_system,"
-            . "aufwand,"
-            . "komm_konz,"
-            . "risiko,"
-            . "beschreibung,"
-            . "tat_sta_term,"
-            . "tat_end_term,"
-            . "vor_sta_termin,"
-            . "vor_end_termin,"
-            . "nutzen,"
-            . "amorti_zeit,"
-            . "bemerkung) "
-            . "values("
-            . ":p_titel,"
-            . ":p_nummer,"
-            . ":p_auftraggeber,"
-            . ":p_erstelldatum,"
-            . ":genehm_E1,"
-            . ":genehm_E2,"
-            . ":genehm_E3,"
-            . ":p_ziel1,"
-            . ":p_ziel2,"
-            . ":p_ziel3,"
-            . ":p_ziel4,"
-            . ":nicht_ziel,"
-            . ":rahmbeding,"
-            . ":p_system,"
-            . ":aufwand,"
-            . ":komm_konz,"
-            . ":risiko,"
-            . ":beschreibung,"
-            . ":tat_sta_datum,"
-            . ":tat_end_datum,"
-            . ":vor_sta_datum,"
-            . ":vor_end_datum,"
-            . ":nutzen,"
-            . ":amorti_zeit,"
-            . ":bemerkung)", $projectAntragArray);
-    var_dump($uid);
+    $pid = core()->db()->update(
+            "insert into projekt (titel,auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2,genehmigung_E3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,aufwand,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_term,vor_end_term,nutzen,amorti_zeit,bemerkung) "
+            . "values(:p_titel,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:aufwand,:komm_konz,:risiko,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung)", $projectAntragArray);
+    var_dump($pid);
 
+    //Kapitalwert
+    //$kostenKapitalwert = $_POST["reg"]["kostenKapitalwert"];
+    //$tableKapitalwert = $_POST["reg"]["kapitalwertfelder"];
+    //Kapitalwert Loop
+    $looper = true;
+    $counter = 0;
+
+    while ($looper) {
+        $string1 = "kwEin" . $counter;
+        $string2 = "kwAusg" . $counter;
+        $string3 = "kwJahr" . $counter;
+        var_dump($string1);
+        echo $string2;
+        echo $string3;
+        $einnahme = $_POST["reg"][$string1];
+        $ausgabe = $_POST["reg"][$string2];
+        $jahr = $_POST["reg"][$string3];
+        echo $counter;
+        if (isset($einnahme)) {
+            $counter++;
+        } else {
+            $looper = false;
+        }
+    }
+
+    //Meilensteine Loop
+    $looper = true;
+    $counter = 0;
+//    while ($looper) {
+//        try {
+//            $nr = $_POST["reg"]["msNr" + $counter];
+//            $meilenstein = $_POST["reg"]["msBezeichner" + $counter];
+//            echo $counter;
+//            $counter++;
+//        } catch (Exception $ex) {
+//            $looper = false;
+//            $break;
+//        }
+//    }
+    //Loop über die Meilensteine
+//     $mid = core()->db()->update("insert into meilensteine (p_id,ms_nummer,meilenstein,erfüllt) "
+//             . "values(:p_id,:msnr,:meilenstein,:erledigt)",$meilensteinarray);
+    //Loop über Arbeitspakete
+//        $apid = core()->db()->update("insert into arbeitspakete (arbeitspaket,p_id) values(:p_arbeitspaket,:p_id");
     //header('Location: /pm/antrag/uebersicht');
     //exit;
 }
