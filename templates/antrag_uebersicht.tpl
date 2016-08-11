@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">
+            <form action="/pm/antrag/uebersicht" method="post">
             <div class="input-field search white">
-                <input id="search" class="sickblue" type="text" name="search" value="">
+                <input id="search" class="sickblue" type="text" name="search" value="" name="antrag_search">
                 <label for="search" >Suche</label>
             </div>
             <li>
@@ -19,9 +20,11 @@
                 <div class="collapsible-header">Third</div>
                 <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
             </li>
+            </form>
         </ul>
     </div>
     <div class="col s12 l9">
+        {if isset($projekte)}
         {foreach from=$projekte item=projekt}
             <div class="card horizontal hoverable valign-wrapper">
                 <div class="card-image valign">
@@ -39,5 +42,12 @@
                 </div>
             </div>
         {/foreach}
+        {else}
+            <div class="card">
+                <div class="card-content">
+                    <p>Es sind keine Projekte angelegt</p>
+                </div>
+            </div>
+        {/if}
     </div>
 </div>

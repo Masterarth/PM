@@ -1,5 +1,5 @@
 <div class="parallax-container">
-    <img class="backgroundImage" src="/pm/bin/custom/images/projekte.jpg">
+    <img class="backgroundImage" src="/pm/bin/custom/images/projekt1.jpg">
 </div>
 <div class="section white">
     <div class="row">

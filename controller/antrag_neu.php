@@ -62,77 +62,26 @@ if (isset($_POST["reg"])) {
 
     var_dump($projectAntragArray);
 
-    //Kapitalwert
-    //$kostenKapitalwert = $_POST["reg"]["kostenKapitalwert"];
-    //$tableKapitalwert = $_POST["reg"]["kapitalwertfelder"];
-    //Leistungsverrechnung
-    //$tableLeistungsverrechnung = $_POST["reg"]["leistungsverrechnung"];
-    //Meilensteine
-    //$tableMeilensteine = $_POST["reg"]["meilensteine"];
 
     $pid = core()->db()->update(
             "insert into projekt (titel,auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2,genehmigung_E3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,aufwand,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_term,vor_end_term,nutzen,amorti_zeit,bemerkung) "
             . "values(:p_titel,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:aufwand,:komm_konz,:risiko,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung)", $projectAntragArray);
-    var_dump($pid);
-
-    //Kapitalwert
-    //$kostenKapitalwert = $_POST["reg"]["kostenKapitalwert"];
-    //$tableKapitalwert = $_POST["reg"]["kapitalwertfelder"];
-    //Kapitalwert Loop
-    $looper = true;
-    $counter = 0;
     
-    echo "<h1>Hier</h1>";
-    foreach ($_POST["reg"]["kapitalwert"] as $value) {    
-        var_dump($value);
-        $kid = core()->db()->update("insert into kapitalwerte (p_id,jahr,zinssatz,einzahlung,auszahlung)"
-                . "values (".$pid.",".$value[0].",0,".$value[1].",".$value[2].")");
+    if (isset($_POST["reg"]["kapitalwert"])) {
+        foreach ($_POST["reg"]["kapitalwert"] as $value) {
+            $kid = core()->db()->update("insert into kapitalwerte (p_id,jahr,zinssatz,einzahlung,auszahlung)"
+                    . "values (" . $pid . "," . $value[0] . ",0," . $value[1] . "," . $value[2] . ")", null);
+        }
     }
     
-    foreach ($P_POST["reg"]["meilensteine"] as $value){
-        var_dump($value);
-        $mid = core()->db()->update("insert into ");
+    if (isset($_POST["reg"]["meilensteine"])) {
+        foreach ($_POST["reg"]["meilensteine"] as $value) {
+            $mid = core()->db()->update("insert into meilensteine (p_id,ms_nummer,meilenstein,erfüllt)"
+                    . "values(" . $pid . "," . $value[0] . "," . $value[1] . ",0)", null);
+        }
     }
 
-//    while ($looper) {
-//        try {
-//            $string1 = "kwEin" . $counter;
-//            $string2 = "kwAusg" . $counter;
-//            $string3 = "kwJahr" . $counter;
-//
-//            var_dump($string1);
-//            echo $string2;
-//            echo $string3;
-//            $einnahme = $_POST["reg"][$string1];
-//            $ausgabe = $_POST["reg"][$string2];
-//            $jahr = $_POST["reg"][$string3];
-//            echo $counter;
-//            $counter++;
-//        } catch (Exception $ex) {
-//            $looper = false;
-//            break;
-//        }
-//    }
 
-    //Meilensteine Loop
-    $looper = true;
-    $counter = 0;
-//    while ($looper) {
-//        try {
-//            $nr = $_POST["reg"]["msNr" + $counter];
-//            $meilenstein = $_POST["reg"]["msBezeichner" + $counter];
-//            echo $counter;
-//            $counter++;
-//        } catch (Exception $ex) {
-//            $looper = false;
-//            $break;
-//        }
-//    }
-    //Loop über die Meilensteine
-//     $mid = core()->db()->update("insert into meilensteine (p_id,ms_nummer,meilenstein,erfüllt) "
-//             . "values(:p_id,:msnr,:meilenstein,:erledigt)",$meilensteinarray);
-    //Loop über Arbeitspakete
-//        $apid = core()->db()->update("insert into arbeitspakete (arbeitspaket,p_id) values(:p_arbeitspaket,:p_id");
     //header('Location: /pm/antrag/uebersicht');
     //exit;
 }

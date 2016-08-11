@@ -14,7 +14,19 @@
 //    
 //}
 
+if (isset($_POST["antrag_search"])) {
+    if (is_numeric($_POST["antrag_search"])) {
+        header('Location: /pm/antrag/' . $_POST["antrag_search"]);
+        exit;
+    } else {
+        $projekte = core()->db()->select("select * from projekt where concat_ws(' ',titel,p_nummer) like '%" . $_POST["antrag_search"] . "%'");
+    }
+}else {
+    $projekte = core()->db()->select("select * from projekt");
+}
+
 $projekte = core()->db()->select("select * from projekt");
+
 if($projekte!=null){
     core()->smarty()->assign("projekte", $projekte);
 }
