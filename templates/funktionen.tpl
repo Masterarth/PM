@@ -1,16 +1,24 @@
-<img class="backgroundImage" src="/pm/bin/custom/images/funktionen.jpg">
-<div class="section"></div>
-<main>
-    <center>
-        <h5 class="teal-text">Funktionen</h5>
-        <div class="section"></div>
+<center>
 
-        <div class="container">
-            <div class="z-depth-1  lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
-                
-            </div>
+    <div class="row">
+        <div class="col s3">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+            </span>
         </div>
-        
-    </center>
-</main>
-                    
+               
+        <div class="col s12">
+
+        </div>
+
+
+    </div>
+
+    
+    <i class="fa fa-question">
+            
+        </i> 
+
+</center>
+

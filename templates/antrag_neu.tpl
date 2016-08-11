@@ -192,7 +192,7 @@
             var structureHeader = "<thead><tr><th>Jahr</th><th>Ausgaben</th><th>Einnahmen</th></tr></thead>";
             $('#tblKapitalwert').append(structureHeader);
         }
-        var structure = "<tr><td><input disabled name='reg[kwJahr"+tableKapitalwertVal+"]' value='"+tableKapitalwertVal+"' /></td><td><input type='number' placeholder='Ausgaben' name='reg[kwAusg"+tableKapitalwertVal+"]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kwEin"+tableKapitalwertVal+"]'</td></tr>"
+        var structure = "<tr><td><input disabled name='reg[kapitalwert][kwJahr"+tableKapitalwertVal+"]' value='"+tableKapitalwertVal+"' /></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][kwAusg"+tableKapitalwertVal+"]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][kwEin"+tableKapitalwertVal+"]'</td></tr>"
         $('#tblKapitalwert').append(structure);
         tableKapitalwertVal++;
     });
@@ -224,7 +224,7 @@
             var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
             $('#tblMeilensteine').append(structureHeader);
         }
-        var structure = "<tr><td><input disabled type='number' name='reg[msNr"+tableMeilensteine+"]' value='"+tableMeilensteine+"'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[msBezeichner"+tableMeilensteine+"]'/></td><td><input type='checkbox' id='chkBx"+tableMeilensteine+"' checked='checked'  /></td></tr>"
+        var structure = "<tr><td><input disabled type='number' name='reg[meilensteine][msNr"+tableMeilensteine+"]' value='"+tableMeilensteine+"'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[meilensteine][msBezeichner"+tableMeilensteine+"]'/></td><td><p><input type='checkbox' class='filled-in' name='reg[meilensteine][chkBx"+tableMeilensteine+"]' checked='checked'  /></p></td></tr>"
         $('#tblMeilensteine').append(structure);
         tableMeilensteine++;
         

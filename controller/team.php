@@ -33,11 +33,42 @@ if (isset($request[2])) {
                 }
             }
             break;
+        case "leistung":
+            switch ($request[3]) {
+                case "update":
+                    if (isset($_POST["reg"])) {
+                        if (!isset($_POST["reg"]["aktiv"])) {
+                            $aktiv = 0;
+                        } else {
+                            $aktiv = 1;
+                        }
+                        $data["aktiv"] = $aktiv;
+                        core()->db()->update("update firbudget set aktiv=:aktiv where id=" . $_POST["reg"]["id"], $data);
+                        header('Location: /pm/firma/' . $_POST["reg"]["f_id"]);
+                        exit;
+                    }
+                    break;
+                case "loeschen":
+                    if (isset($_POST["reg"])) {
+                        core()->db()->delete("delete from firbudget where id=" . $_POST["reg"]["id"]);
+                        header('Location: /pm/firma/dashboard');
+                        exit;
+                    }
+                    break;
+            }
+            if (is_numeric($request[3])) {
+                core()->smarty()->assign("t_id", $request[3]);
+                core()->materialize()->addFixedNavElement("/pm/team/" . $request[3], "Zurück", "call_missed");
+                core()->page()->loadPage("leistung_neu");
+                core()->page()->loadController("leistung_neu");
+            }
+            break;
     }
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
-        
+
+        core()->materialize()->addFixedNavElement("/pm/team/leistung/" . $request[2], "Budget", "library_add");
         core()->materialize()->addFixedNavElement("/pm/team/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
         core()->materialize()->addFixedNavElement("/pm/team/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();

@@ -33,31 +33,40 @@ if (isset($request[2])) {
             }
             break;
         case "budget":
+            switch ($request[3]) {
+                case "update":
+                    if (isset($_POST["reg"])) {
+                        if (!isset($_POST["reg"]["aktiv"])) {
+                            $aktiv = 0;
+                        } else {
+                            $aktiv = 1;
+                        }
+                        $data["aktiv"] = $aktiv;
+                        core()->db()->update("update firbudget set aktiv=:aktiv where id=" . $_POST["reg"]["id"], $data);
+                        header('Location: /pm/firma/' . $_POST["reg"]["f_id"]);
+                        exit;
+                    }
+                    break;
+                case "loeschen":
+                    if (isset($_POST["reg"])) {
+                        core()->db()->delete("delete from firbudget where id=" . $_POST["reg"]["id"]);
+                        header('Location: /pm/firma/dashboard');
+                        exit;
+                    }
+                    break;
+            }
             if (is_numeric($request[3])) {
                 core()->smarty()->assign("f_id", $request[3]);
                 core()->materialize()->addFixedNavElement("/pm/firma/" . $request[3], "Zurück", "call_missed");
-                $firma = core()->db()->select("select * from firma where id = " . $request[3], "fetch");
-                if (!isset($firma->budget_id)) {
-                    core()->page()->loadPage("budget_neu");
-                    if (isset($_POST["reg"])) {
-                        core()->page()->loadController("budget_neu");
-                    }
-                } else {
-                    $budget = core()->db()->select("select * from budget where id = " . $firma->budget_id, "fetch");
-                    core()->page()->loadPage("budget_bearbeiten");
-                    core()->smarty()->assign("firma", $firma);
-                    core()->smarty()->assign("budget", $budget);
-                    if (isset($_POST["reg"])) {
-                        core()->page()->loadController("budget_bearbeiten");
-                    }
-                }
+                core()->page()->loadPage("budget_neu");
+                core()->page()->loadController("budget_neu");
             }
             break;
     }
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
-        
+
         core()->materialize()->addFixedNavElement("/pm/firma/dashboard", "Zurück", "call_missed");
         core()->materialize()->addFixedNavElement("/pm/firma/budget/" . $request[2], "Budget", "library_add");
         core()->materialize()->addFixedNavElement("/pm/firma/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
@@ -71,6 +80,10 @@ function loadCompany($id) {
     if ($id) {
         $firma = core()->db()->select("select * from firma where id = " . $id, "fetch");
         if ($firma) {
+            $budgets = core()->db()->select("select * from firbudget where f_id = " . $firma->id);
+            if (count($budgets) > 0) {
+                core()->smarty()->assign("budgets", $budgets);
+            }
             core()->smarty()->assign("firma", $firma);
         }
     }
