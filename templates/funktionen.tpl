@@ -1,3 +1,4 @@
+<img class="backgroundImage" src="/pm/bin/custom/images/funktionen.jpg">
 <div class="section"></div>
 <main>
     <center>
