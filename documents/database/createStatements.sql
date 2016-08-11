@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS Leistung(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   t_id INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(t_id) REFERENCES Team(id),
-  jahr Date NOT NULL,
+  jahr INT(4) NOT NULL,
   ist_stunden INT(20) UNSIGNED,
   max_stunden INT(20) UNSIGNED
 );
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS Kapitalwerte(
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   p_id INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(p_id) REFERENCES Projekt(id),
-  jahr Date NOT NULL,
+  jahr INT(4) NOT NULL,
   zinssatz INT(10),
   einzahlung DOUBLE,
   auszahlung DOUBLE
