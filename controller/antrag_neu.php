@@ -76,26 +76,38 @@ if (isset($_POST["reg"])) {
     //Kapitalwert Loop
     $looper = true;
     $counter = 0;
-
-    while ($looper) {
-        try {
-            $string1 = "kwEin" . $counter;
-            $string2 = "kwAusg" . $counter;
-            $string3 = "kwJahr" . $counter;
-
-            var_dump($string1);
-            echo $string2;
-            echo $string3;
-            $einnahme = $_POST["reg"][$string1];
-            $ausgabe = $_POST["reg"][$string2];
-            $jahr = $_POST["reg"][$string3];
-            echo $counter;
-            $counter++;
-        } catch (Exception $ex) {
-            $looper = false;
-            break;
-        }
+    
+    echo "<h1>Hier</h1>";
+    foreach ($_POST["reg"]["kapitalwert"] as $value) {    
+        var_dump($value);
+        $kid = core()->db()->update("insert into kapitalwerte (p_id,jahr,zinssatz,einzahlung,auszahlung)"
+                . "values (".$pid.",".$value[0].",0,".$value[1].",".$value[2].")");
     }
+    
+    foreach ($P_POST["reg"]["meilensteine"] as $value){
+        var_dump($value);
+        $mid = core()->db()->update("insert into ")
+    }
+
+//    while ($looper) {
+//        try {
+//            $string1 = "kwEin" . $counter;
+//            $string2 = "kwAusg" . $counter;
+//            $string3 = "kwJahr" . $counter;
+//
+//            var_dump($string1);
+//            echo $string2;
+//            echo $string3;
+//            $einnahme = $_POST["reg"][$string1];
+//            $ausgabe = $_POST["reg"][$string2];
+//            $jahr = $_POST["reg"][$string3];
+//            echo $counter;
+//            $counter++;
+//        } catch (Exception $ex) {
+//            $looper = false;
+//            break;
+//        }
+//    }
 
     //Meilensteine Loop
     $looper = true;
