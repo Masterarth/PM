@@ -46,7 +46,6 @@ class pm_userhandler {
             $user->setL_name($result->l_name);
             $user->setVorname($result->vorname);
             $user->setNachname($result->nachname);
-            $user->setT_id($result->t_id);
             $user->setReg_datum($result->reg_datum);
             $user->setAktiv($result->aktiv);
             return $user;

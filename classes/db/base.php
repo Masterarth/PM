@@ -45,7 +45,11 @@ class db_base extends PDO {
      */
     public function update($statement, $data) {
         $stmt = $this->prepare($statement);
-        $stmt->execute($data);
+        if ($data != null) {
+            $stmt->execute($data);
+        } else {
+            $stmt->execute();
+        }
         return $this->lastInsertId();
     }
     

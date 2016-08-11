@@ -1,5 +1,15 @@
 <?php
 
+$firmen = core()->db()->select("select * from firma");
+
+if (count($firmen) == 1) {
+    header('Location: /pm/firma/' . $firmen[0]->id);
+    exit;
+} else {
+    header('Location: /pm/firma/neu');
+    exit;
+}
+
 if (isset($_POST["firma_search"])) {
     if (is_numeric($_POST["firma_search"])) {
         header('Location: /pm/firma/' . $_POST["firma_search"]);

@@ -62,6 +62,11 @@ if (isset($_POST["reg"])) {
 
     var_dump($projectAntragArray);
 
+    //Kapitalwert
+    //$kostenKapitalwert = $_POST["reg"]["kostenKapitalwert"];
+    //$tableKapitalwert = $_POST["reg"]["kapitalwertfelder"];
+    //Leistungsverrechnung
+    //$tableLeistungsverrechnung = $_POST["reg"]["leistungsverrechnung"];
     //Meilensteine
     //$tableMeilensteine = $_POST["reg"]["meilensteine"];
 
