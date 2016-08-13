@@ -40,14 +40,20 @@
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <textarea id="rahmenbedingungen" name="reg[rahmenbedingungen]" required="" class="materialize-textarea validate" type="text" length="320" placeholder="Bitte geben Sie die Rahmenbedingungen an..."></textarea>
+                        <textarea id="rahmenbedingungen" name="reg[rahmenbedingungen]" required="" class="materialize-textarea validate" type="text" length="255" placeholder="Bitte geben Sie die Rahmenbedingungen an..."></textarea>
                         <label for="rahmenbedingungen">Rahmenbedingungen</label>
                     </div>
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">ring_volume</i>
-                        <textarea id="Kommunikation" name="reg[kommunikation]" required="" class="materialize-textarea" length="320" placeholder="Bitte geben Sie das Kommunikationskonzept an..."></textarea>
+                        <textarea id="Kommunikation" name="reg[kommunikation]" required="" class="materialize-textarea" length="255" placeholder="Bitte geben Sie das Kommunikationskonzept an..."></textarea>
                         <label for="Kommunikation">Kommunikation</label>
+                    </div>
+                    
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix"></i>
+                        <textarea id="NichtZiele" name="reg[nichtZiele]" required="" class="materialize-textarea" length="255" placeholder="Bitte geben Sie an welche Dinge nicht realisiert werden solle..."></textarea>
+                        <label for="NichtZiele">Nicht Ziele</label>
                     </div>
                 </div>
             </div>
@@ -135,9 +141,13 @@
                 <hr class="teal">
                 <br/>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <input id="kostenKapitalwert" name="reg[kostenKapitalwert]" type="number" placeholder="-I (Kosten)"/>
                         <label for="kostenKapitalwert">Kosten (I)</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="kapitalwertZins" name="reg[zinsKapitalwert]" type="number" placeholder="Zinssatz Kapitalwert"/>
+                        <label for="kapitalwertZins">Zins(Risikolos + untern. Risiko)</label>
                     </div>
                     <table class="highlight" id="tblKapitalwert" name="reg[kapitalwertfelder]">
 
