@@ -5,7 +5,7 @@
                 <li class="tab col s3"><a class="active teal-text" href="#basis">Basis</a></li>
                 <li class="tab col s3"><a class="teal-text" href="#zusatz">Zusatz</a></li>
                 <li class="tab col s3"><a class="teal-text" href="#kennzahl">Kennzahl</a></li>
-                <li class="tab col s3 disabled"><a class="teal-text" href="#IstZahl">Ist-Werte</a></li>
+                <li class="tab col s3 disabled"><a class="grey-text" href="#IstZahl">Ist-Werte</a></li>
             </ul>
         </div>
     </div>
@@ -77,9 +77,11 @@
                     <div class="input-field col s12">
                         <select>
                             <option value="" disabled selected>Auswählen</option>
-                            <option value="1">Projektleiter 1</option>
-                            <option value="2">Projektleiter 2</option>
-                            <option value="3">Projektleiter 3</option>
+                            {if isset($mitarbeiters)}
+                            {foreach from=$mitarbeiters item=mitarbeiter}
+                                <option value="{$mitarbeiters->id}">{$mitarbeiters->nachname} . {$mitarbeiters->vorname}</option>
+                            {/foreach}
+                        {/if}
                         </select>
                         <label>Wählen Sie einen zuständigen Projektleiter aus...</label>
                     </div>
@@ -177,9 +179,23 @@
         </div>
         <div id="IstZahl" class="col s12">
             <div class="card-content">
-                <span class="card-title teal-text">Ist-Werte</span>
+                <span class="card-title teal-text">Nachkalkulation</span>
                 <hr>
                 <br/>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">query_builder</i>
+                        <input id="iststartdatum" name="reg[iststartdatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
+                        <label for="iststartdatum">Ist - Startdatum</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">query_builder</i>
+                        <input id="istenddatum" name="reg[istenddatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
+                        <label for="istenddatum">Ist - Enddatum</label>
+                    </div>
+                </div>
+                
+                
             </div>
         </div>
     </div>

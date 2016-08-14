@@ -1,5 +1,8 @@
 <?php
 
+$mitarbeiters = core()->db()->select("select * from users");
+core()->smarty()->assign("mitarbeiter", $mitarbeiters);
+
 if (isset($_POST["reg"])) {
 
     $projectAntragArray = array(
@@ -28,7 +31,8 @@ if (isset($_POST["reg"])) {
         'p_erstelldatum' => null,
         'mon_kosten'=>null,
         'mon_nutzen'=>null,
-        'kap_kosten'=>null
+        'kap_kosten'=>null,
+        'b_id'=>null
     );
 
     //Standard Informationen
@@ -52,11 +56,16 @@ if (isset($_POST["reg"])) {
     $projectAntragArray["mon_nutzen"] = $_POST["reg"]["sollnutzen"];
     $projectAntragArray["kap_kosten"] = $_POST["reg"]["kostenKapitalwert"];
     var_dump($projectAntragArray);
+    
+    
+    //Nachkalkulation / IstWerte
+    $projectAntragArray["tat_sta_datum"] = $_POST["reg"]["iststartdatum"];
+    $projectAntragArray["tat_end_datum"] = $_POST["reg"]["istenddatum"];
 
 
     $pid = core()->db()->update(
-            "insert into projekt (titel,auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2,genehmigung_E3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_term,vor_end_term,nutzen,amorti_zeit,bemerkung,mon_kosten,mon_nutzen,kap_kosten) "
-            . "values(:p_titel,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:komm_konz,:risiko,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung,:mon_kosten,:mon_nutzen,:kap_kosten)", $projectAntragArray);
+            "insert into projekt (titel,auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2,genehmigung_E3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_term,vor_end_term,nutzen,amorti_zeit,bemerkung,mon_kosten,mon_nutzen,kap_kosten,b_id) "
+            . "values(:p_titel,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:komm_konz,:risiko,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung,:mon_kosten,:mon_nutzen,:kap_kosten,:b_id)", $projectAntragArray);
     
     
     if (isset($_POST["reg"]["kapitalwert"])) {
@@ -78,3 +87,6 @@ if (isset($_POST["reg"])) {
     //header('Location: /pm/antrag/uebersicht');
     //exit;
 }
+
+core()->materialize()->addFixedNavElement("/pm/antrag/uebersicht", "Zurück", "call_missed");
+core()->materialize()->showFixedNavElement();
