@@ -16,7 +16,7 @@
                 <form action="/pm/mitarbeiter/update/aktiv" method="post">
                     <p> 
                         <input type="hidden" name="id" value="{$user->getU_id()}"/>
-                        <input onchange="this.form.submit()" name="aktiv" type="checkbox" id="aktiv" {$user->getAktiv()|checked}/>
+                        <input onchange="this.form.submit()" name="aktiv" type="checkbox" id="aktiv" {$user->isAktiv()|checked}/>
                         <label for="aktiv">Aktiv</label>
                     </p>
                 </form>
