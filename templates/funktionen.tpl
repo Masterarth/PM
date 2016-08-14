@@ -1,24 +1,17 @@
-<center>
+<body background="/pm/bin/custom/images/funktionen.jpg">
 
-    <div class="row">
-        <div class="col s3">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
-            </span>
-        </div>
-               
-        <div class="col s12">
+<div style="background-color:white;">
+        <h1>Listenüberschrift</h1>
+        <p>Ich bin ein Beispiel-Test</p>
+</div>
+<div style="background-color:white;">
+        <h1>Listenüberschrift 2</h1>
+        <p>Ich bin ein Beispiel-Test</p>
+</div>
+<div style="background-color:white;">
+        <h1>Listenüberschrift 3</h1>
+        <p>Ich bin ein Beispiel-Test</p>
+</div>
 
-        </div>
 
-
-    </div>
-
-    
-    <i class="fa fa-question">
-            
-        </i> 
-
-</center>
-
+</body>
