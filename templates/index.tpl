@@ -11,7 +11,7 @@
         {* -------  CSS Start  ------- *}        
         <link type="text/css" rel="stylesheet" href="/pm/bin/materialize/css/materialize.css"  media="screen,projection"/>
 	<link rel="stylesheet" href="/pm/bin/timeline/css/style.css"> <!-- timeline -->      
-        <link type="text/css" rel="stylesheet" href="/pm/bin/custom/css/font-awesome.min.css"> <!-- ICONS -->
+        <link type="text/css" rel="stylesheet" href="/pm/bin/custom/font-awesome-4.6.3/css/font-awesome.css"> <!-- ICONS -->
         <link type="text/css" rel="stylesheet" href="/pm/bin/custom/css/main.css">
         {* -------  CSS End  ------- *}
         {* -------  JS Start  ------- *}
