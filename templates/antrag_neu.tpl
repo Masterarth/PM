@@ -24,12 +24,12 @@
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">query_builder</i>
-                        <input id="sollstartdatum" name="reg[sollstartdatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
+                        <input id="sollstartdatum" name="reg[sollstartdatum]" type="date" required="" class="datepicker" placeholder="TT.MM.YYYY">
                         <label for="sollstartdatum">Startdatum</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">query_builder</i>
-                        <input id="sollenddatum" name="reg[sollenddatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
+                        <input id="sollenddatum" name="reg[sollenddatum]" type="date" required="" class="datepicker" placeholder="TT.MM.YYYY">
                         <label for="sollenddatum">Enddatum</label>
                     </div>
                     <div class="input-field col s12">
@@ -46,13 +46,13 @@
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">ring_volume</i>
-                        <textarea id="Kommunikation" name="reg[kommunikation]" required="" class="materialize-textarea" length="255" placeholder="Bitte geben Sie das Kommunikationskonzept an..."></textarea>
+                        <textarea id="Kommunikation" name="reg[kommunikation]" required="" class="materialize-textarea validate" length="255" placeholder="Bitte geben Sie das Kommunikationskonzept an..."></textarea>
                         <label for="Kommunikation">Kommunikation</label>
                     </div>
-                    
+
                     <div class="input-field col s12">
                         <i class="material-icons prefix"></i>
-                        <textarea id="NichtZiele" name="reg[nichtZiele]" required="" class="materialize-textarea" length="255" placeholder="Bitte geben Sie an welche Dinge nicht realisiert werden solle..."></textarea>
+                        <textarea id="NichtZiele" name="reg[nichtZiele]" required="" class="materialize-textarea validate" length="255" placeholder="Bitte geben Sie an welche Dinge nicht realisiert werden solle..."></textarea>
                         <label for="NichtZiele">Nicht Ziele</label>
                     </div>
                 </div>
@@ -66,20 +66,20 @@
                 <br/>
                 <div class="row">
                     <div class="input-field col s12">
-                        <select>
+                        <select name="reg[abteilung]">
                             <option value="" disabled selected>Auswählen</option>
-                            <option value="1">Standort | Abteilung 1</option>
-                            <option value="2">Standort | Abteilung 2</option>
-                            <option value="3">Standort | Abteilung 3</option>
+                            {foreach from=$abteilungen item=abteilung key=key}
+                                <option value="{$abteilung->id}">{$abteilung->s_name} | {$abteilung->a_name}</option>
+                            {/foreach}
                         </select>
                         <label>Wählen Sie eine Abteilung aus, für welches das Projekt durchgeführt wird...</label>
                     </div>
                     <div class="input-field col s12">
-                        <select>
+                        <select name="reg[leiter]">
                             <option value="" disabled selected>Auswählen</option>
-                            <option value="1">Projektleiter 1</option>
-                            <option value="2">Projektleiter 2</option>
-                            <option value="3">Projektleiter 3</option>
+                            {foreach from=$mitarbeiter item=arbeiter key=key}
+                                <option value="{$arbeiter->id}">{$arbeiter->vorname} {$arbeiter->nachname}</option>
+                            {/foreach}
                         </select>
                         <label>Wählen Sie einen zuständigen Projektleiter aus...</label>
                     </div>
@@ -154,25 +154,25 @@
                     </table>
                 </div>
                 <br/>
-                
+
                 <span class="teal-text"><a id="btnLeistungsverrechnung" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>  Leistungsverrechnung</span>
                 <hr class="teal">
                 <br/>
                 <div class="row">
                     <table class="highlight" id="tblLeistungsverrechnung" name="reg[leistungsverrechnung]" contenteditable="true">
-                        
+
                     </table>
                 </div>
-                
+
                 <span class="teal-text"><a id="btnMeilensteine" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a> Meilensteine</span>
                 <hr class="teal">
                 <br/>
                 <div class="row">
                     <table class="highlight" id="tblMeilensteine" name="reg[meilensteine]" contenteditable="true">
-                        
+
                     </table>
                 </div>
-                
+
             </div>
         </div>
         <div id="IstZahl" class="col s12">
@@ -184,60 +184,62 @@
         </div>
     </div>
 
-    <div class='row'>
-        <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect teal'>Anlegen</button>
+    <div class="row">
+        <div class="col s12">
+            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect teal'>Anlegen</button>
+        </div>
     </div>
 </form>
 
 
 <script type="text/javascript">
     var tableKapitalwertVal = 0;
-    
-    
+
+
     //Adds Dynamic Content to the Table
     $('#btnKapitalwert').click(function ()
     {
-        if(tableKapitalwertVal==0)
+        if (tableKapitalwertVal == 0)
         {
             var structureHeader = "<thead><tr><th>Jahr</th><th>Ausgaben</th><th>Einnahmen</th></tr></thead>";
             $('#tblKapitalwert').append(structureHeader);
         }
-        var structure = "<tr><td><input disabled name='reg[kapitalwert][kwJahr"+tableKapitalwertVal+"]' value='"+tableKapitalwertVal+"' /></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][kwAusg"+tableKapitalwertVal+"]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][kwEin"+tableKapitalwertVal+"]'</td></tr>"
+        var structure = "<tr><td><input disabled name='reg[kapitalwert][kwJahr" + tableKapitalwertVal + "]' value='" + tableKapitalwertVal + "' /></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][kwAusg" + tableKapitalwertVal + "]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][kwEin" + tableKapitalwertVal + "]'</td></tr>"
         $('#tblKapitalwert').append(structure);
         tableKapitalwertVal++;
     });
-    
+
     var tableLeistungsverrechnungVal = 0;
-    
-    
+
+
     //Adds Dynamic Content to the Table
     $('#btnLeistungsverrechnung').click(function ()
     {
-        if(tableLeistungsverrechnungVal==0)
+        if (tableLeistungsverrechnungVal == 0)
         {
             var structureHeader = "<thead><tr><th>Nr</th><th>Abteilung</th><th>Wert</th></tr></thead>";
             $('#tblLeistungsverrechnung').append(structureHeader);
         }
-        var structure = "<tr><td>"+tableLeistungsverrechnungVal+"</td><td></td><td></td></tr>"
+        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td></td><td></td></tr>"
         $('#tblLeistungsverrechnung').append(structure);
         tableLeistungsverrechnungVal++;
     });
-    
+
     var tableMeilensteine = 0;
-    
-    
+
+
     //Adds Dynamic Content to the Table
     $('#btnMeilensteine').click(function ()
     {
-        if(tableMeilensteine==0)
+        if (tableMeilensteine == 0)
         {
             var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
             $('#tblMeilensteine').append(structureHeader);
         }
-        var structure = "<tr><td><input disabled type='number' name='reg[meilensteine][msNr"+tableMeilensteine+"]' value='"+tableMeilensteine+"'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[meilensteine][msBezeichner"+tableMeilensteine+"]'/></td><td><p><input type='checkbox' class='filled-in' name='reg[meilensteine][chkBx"+tableMeilensteine+"]' checked='checked'  /></p></td></tr>"
+        var structure = "<tr><td><input disabled type='number' name='reg[meilensteine][msNr" + tableMeilensteine + "]' value='" + tableMeilensteine + "'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[meilensteine][msBezeichner" + tableMeilensteine + "]'/></td><td><p><input type='checkbox' class='filled-in' name='reg[meilensteine][chkBx" + tableMeilensteine + "]' checked='checked'  /></p></td></tr>"
         $('#tblMeilensteine').append(structure);
         tableMeilensteine++;
-        
+
     });
-    
+
 </script>

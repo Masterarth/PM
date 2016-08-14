@@ -88,8 +88,12 @@ class pm_userhandler {
      */
     public function checkUser() {
         if (isset($_SESSION["user"])) {
-            return true;
+            if ($_SESSION["user"]->isAktiv() == 1) {
+                core()->smarty()->assign("userCheck", true);
+                return true;
+            }
         }
+        core()->smarty()->assign("userCheck", false);
         return false;
     }
 

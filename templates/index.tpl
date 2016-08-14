@@ -6,12 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta charset='utf-8' />
         {* -------  Fonts Start ------ *}
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="/pm/bin/custom/css/icons.css" rel="stylesheet">
         {* -------  Fonts End  ------- *}
         {* -------  CSS Start  ------- *}        
         <link type="text/css" rel="stylesheet" href="/pm/bin/materialize/css/materialize.css"  media="screen,projection"/>
-	<link rel="stylesheet" href="/pm/bin/timeline/css/style.css"> <!-- timeline -->      
-        <link type="text/css" rel="stylesheet" href="/pm/bin/custom/css/font-awesome.min.css"> <!-- ICONS -->
+        <link rel="stylesheet" href="/pm/bin/timeline/css/style.css"> <!-- timeline -->      
         <link type="text/css" rel="stylesheet" href="/pm/bin/custom/css/main.css">
         {* -------  CSS End  ------- *}
         {* -------  JS Start  ------- *}
@@ -29,7 +28,7 @@
 
     <body>
 
-        {if isset($smarty.session.user)}
+        {if $userCheck == true}
             <!-- Navigation -->
             {include file="navigation.tpl"}
         {else}

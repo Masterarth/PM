@@ -2,7 +2,7 @@ s#TODO´s
 
 ## ArthToDos
  [x] von allen ParallaxViews einen zurückbutton implementieren
- [ ] Budget ist fast fertig nur noch bearbeiten
+ [x] Budget ist fast fertig nur noch bearbeiten
  [ ] Leistungsstunden pro abetilung -> budget firma
  [ ] Wenn Firma gelöscht wird budget mit löschen ??? 
     - Firma kann nicht gelöscht werden, weil sonst alle anderen Gegebenheiten (Abteilung, Teams etc auch weg wären)
@@ -25,26 +25,20 @@ s#TODO´s
 
 [x] Responsive Suche bei allen Übersichten (suchbox + anzeige) fehlt!
     - test ist fertig gestellt es muss nur noch darüber entschieden werden...
-
+[ ] Stammdaten -> Berechtigung Kachel -> Beschreibungstext fehlt
+[x] Button bei Projektantrag neu anlage layout fixen
 [x] Paralax
-    [x] test
 
 ## Backend
 
 [x] AJAX funktionalität anschauen und implementieren
     - Teamleiter / Bereichsleiter -> siehe test.tpl / .php
-
 [x] Login
-
 [x] Registrierung
-
 [x] Logout
-
 [x] 404 Fehlerhandling
-
 [x] Fixed-Button
     [x] dynamic nav elements
-
 [x] navigation
     [x] responsive navi
 
@@ -57,7 +51,22 @@ s#TODO´s
         [ ] suche
         [x] anzeige
     [ ] Antrag ansicht
+        [x] Basis
+        [ ] Zusatz 
+            - Abteilung fehlt
+        [ ] Kennzahlen
+            - kapitalwertmethode fehlt
+            - leistungsverrechnung fehlt
+            - meilensteine fehlt
+        [ ] Ist-Werte
     [ ] anlegen
+        [x] Basis
+        [x] Zusatz
+        [ ] Kennzahlen
+            - kapitalwertmethode fehlt
+            - leistungsverrechnung fehlt
+            - meilensteine fehlt
+        [ ] Ist-Werte
     [ ] bearbeiten
     [ ] löschen
 

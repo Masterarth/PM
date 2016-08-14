@@ -57,7 +57,7 @@ class pm_user {
         return $this->reg_datum;
     }
 
-    public function getAktiv() {
+    public function isAktiv() {
         return $this->aktiv;
     }
 

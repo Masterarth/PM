@@ -2,7 +2,7 @@
 {if isset($firma)}
     <div class="parallax-container">
         <div class="parallax">
-            <img class="backgroundImage" src="/pm/bin/custom/images/unternehmen_lang.jpg" style="display: block; transform: translate3d(-50%, 328px, 0px);">
+            <div class="parallax"><img src="/pm/bin/custom/images/unternehmen_lang.jpg" style="display: block; transform: translate3d(-50%, 328px, 0px);"></div>
         </div>
     </div>
     <div class="section white">

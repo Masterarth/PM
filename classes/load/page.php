@@ -19,7 +19,7 @@ class load_page {
 
         $page = core()->request()->getController();
 
-        if (!core()->userhandler()->checkUser() and !$this->defaultPage($page)) {
+        if (!core()->userhandler()->checkUser() && !$this->defaultPage($page)) {
             $page = "anmelden";
         }
 

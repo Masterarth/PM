@@ -45,8 +45,11 @@ $(document).ready(function () {
     });
 
     $(".sticky").stick_in_parent({offset_top: 58});
-     $('.carousel.carousel-slider').carousel({full_width: true});
-        $('.carousel').carousel();
-        $('ul.tabs').tabs();
-    
+
+    $('.carousel.carousel-slider').carousel({full_width: true});
+
+    $('.carousel').carousel();
+
+    $('ul.tabs').tabs();
+
 });

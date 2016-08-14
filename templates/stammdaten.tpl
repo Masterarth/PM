@@ -96,7 +96,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator teal-text">Berechtigungen<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block teal" href="#">Öffnen</a></p>
+                <p><a class="btn btn-block teal" href="/pm/berechtigung">Öffnen</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title teal-text">Berechtigungen<i class="material-icons right">close</i></span>

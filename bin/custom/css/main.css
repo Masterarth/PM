@@ -2,9 +2,9 @@
     margin-top: 20px;
 }
 
-.parallax-container {
+/*.parallax-container {
     height: 500px;
-}
+}*/
 
 .para_content{
     border-left: 10px lightblue solid;
@@ -52,3 +52,7 @@ nav{
     background-color: black;
 }
 
+/*override*/
+.carousel.carousel-slider{
+    height: 550px;
+}
