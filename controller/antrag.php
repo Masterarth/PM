@@ -1,8 +1,8 @@
 <?php
-
 /**
- * Changeing the Controlling Structur and adding new Controller Classes to
- * handle the project request
+ * Distribute Controller for the Proposal
+ * It's needed becouse of the clean URL
+ * Redirect to new, dashboard, look up Proposals
  * 
  * @author Lukas Adler
  * @since 08.08.2016

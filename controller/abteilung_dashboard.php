@@ -1,4 +1,12 @@
 <?php
+/**
+ * Dashboard for the Departments
+ * 1. Shows Up all departments from the Database
+ * 2. Search in Database for Departments
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 
 if (isset($_POST["abteilung_search"])) {
     if (is_numeric($_POST["abteilung_search"])) {

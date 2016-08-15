@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Creates a new Department and saves it into the Database
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 
 
 $standorte = core()->db()->select("select * from standort");
