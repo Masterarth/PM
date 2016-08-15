@@ -44,6 +44,10 @@ class load_page {
         core()->materialize()->clearFixedNavElements();
         core()->materialize()->parallax(false);
 
+        if ($this->defaultPage($page)) {
+            core()->smarty()->assign("showNavButton", FALSE);
+        }
+
         core()->materialize()->pageTitle($page);
 
         if ($page) {
