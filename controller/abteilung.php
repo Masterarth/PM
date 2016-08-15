@@ -1,4 +1,13 @@
 <?php
+/**
+ * Distribute Controller for "Department"
+ * It's neeeded becouse of the clean URL
+ * Redirect to new, dashboard, edit or delete functionality
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
+
 
 $request = core()->request()->getParams();
 
