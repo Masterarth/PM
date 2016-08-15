@@ -51,5 +51,6 @@ $(document).ready(function () {
     $('.carousel').carousel();
 
     $('ul.tabs').tabs();
+    $('.modal-trigger').leanModal();
 
 });
