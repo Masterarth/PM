@@ -74,6 +74,11 @@ i.max{
     margin-right: auto;
 }
 
+.slides img{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
 /* ============================================================
   EFFECT 1 - SLIDE IN BOTTOM
 ============================================================ */
