@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Reads the Permissions from the Config File
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
+
 $permissions = include 'config/permission.php';
 
 core()->smarty()->assign("permissions", $permissions);

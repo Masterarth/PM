@@ -1,4 +1,15 @@
 <?php
+/**
+ * Saves a Budget to a Company
+ * It holds the following Informations:
+ * 1. Value of the Budget
+ * 2. Start Date from where the Budget is relevant
+ * 3. End Date where the Budget finishs
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
+
 
 $request = core()->request()->getParams();
 

@@ -1,4 +1,15 @@
 <?php
+/**
+ * Creates a new Proposal and saves it into the Database
+ * Following Functions are included:
+ * 1. Auto Complete for "Department" and "Project Manager"
+ * 2. Save the Basis Informations
+ * 3. Save Indicators (if they are defined)
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
+
 
 $abteilungen = core()->db()->select("select * from abteilung,standort where abteilung.s_id=standort.id");
 core()->smarty()->assign("abteilungen", $abteilungen);
