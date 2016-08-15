@@ -1,4 +1,11 @@
 <?php
+/**
+ * Registers an User if the User doesn't exists
+ * Inserts the new User into the Database if the Username doesn't exists
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 
 if (isset($_POST["reg"])) {
 

@@ -1,4 +1,13 @@
 <?php
+/**
+ * Distribute Controller for the Company
+ * It's needed becouse of the clean URL
+ * Redirect to new,delete, dashboard, look up company
+ * 
+ * @author Lukas Adler
+ * @since 08.08.2016
+ */
+
 
 $request = core()->request()->getParams();
 

@@ -1,4 +1,11 @@
 <?php
+/**
+ * Edits the current Company and Updates the Company
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
+
 
 if (isset($_POST["reg"])) {
 

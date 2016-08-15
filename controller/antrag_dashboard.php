@@ -1,4 +1,12 @@
 <?php
+/**
+ * 1. Shows up all Proposals from the Database
+ * 2. Search in the Database for Proposals (Filter Functions)
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
+
 
 if (isset($_POST["antrag_search"])) {
     if (is_numeric($_POST["antrag_search"])) {
