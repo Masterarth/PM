@@ -6,6 +6,8 @@
  * @since 15.08.2016
  */
 
+$c = new pm_pdfcreator(1);
+echo $c->o_project["id"];
 
 //core()->smarty()->assign("showNavbar", FALSE);
 //core()->smarty()->assign("showNavButton", FALSE);

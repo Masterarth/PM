@@ -9,6 +9,7 @@
 
 
 return array(
+    "test" =>array('admin'),
     "abmelden" => array('all'),
     "abteilung" => array('admin'),
     "abteilung_bearbeiten" => array('admin'),
