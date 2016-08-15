@@ -17,6 +17,9 @@ class load_page {
 
     public function autoload() {
 
+        core()->smarty()->assign("showNavbar", true);
+        core()->smarty()->assign("showNavButton", true);
+        
         $page = core()->request()->getController();
 
         if (!core()->userhandler()->checkUser() && !$this->defaultPage($page)) {
@@ -39,15 +42,8 @@ class load_page {
         }
 
         core()->smarty()->assign('page', $page . '.tpl');
-        core()->smarty()->assign("showNavbar", TRUE);
-        core()->smarty()->assign("showNavButton", TRUE);
         core()->materialize()->clearFixedNavElements();
         core()->materialize()->parallax(false);
-
-        if ($this->defaultPage($page)) {
-            core()->smarty()->assign("showNavButton", FALSE);
-        }
-
         core()->materialize()->pageTitle($page);
 
         if ($page) {
@@ -90,6 +86,8 @@ class load_page {
     private function defaultPage($page) {
         $defaultPages = include 'config/default_pages.php';
         if (in_array($page, $defaultPages)) {
+            core()->smarty()->assign("showNavbar", false);
+            core()->smarty()->assign("showNavButton", false);
             return true;
         }
         return false;
