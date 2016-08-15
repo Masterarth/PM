@@ -100,7 +100,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title teal-text">Berechtigungen<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <p>Hier können die Berechtigungen für jeden Mitarbeiter einzeln angepasst und verwaltet werden.</p>
             </div>
         </div>
     </div>
