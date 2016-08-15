@@ -22,6 +22,7 @@
         <script type="text/javascript" src="/pm/bin/custom/js/jquery.sticky-kit.min.js"></script>
         <script type="text/javascript" src="/pm/bin/timeline/js/modernizr.js"></script> <!-- timeline -->
         <script type="text/javascript" src="/pm/bin/timeline/js/main.js"></script> <!-- timeline -->
+        <script type="text/javascript" src="/pm/bin/custom/js/modernizr.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/main.js"></script>
         {* -------  JS End  ------- *}
     </head>
