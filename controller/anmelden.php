@@ -1,4 +1,13 @@
 <?php
+/**
+ * Log In into the PAMS System
+ * 1. Look Up
+ * 2. Checks if the User is active
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
+
 
 if (core()->userhandler()->checkUser()) {
     header('Location: /pm/dashboard');

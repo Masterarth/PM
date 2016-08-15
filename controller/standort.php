@@ -1,4 +1,13 @@
 <?php
+/**
+ * Distribution Controller for the Location
+ * It's needed becouse of the clean URL
+ * Redirect to new, dashboard, edit, delete of locations
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
+
 
 $request = core()->request()->getParams();
 

@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * Creates a new Company
+ * 1. If the Company exists --> Output a Toast
+ * 2. If the Company doesn't exists --> Inserts a Company
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
 
 
 core()->materialize()->addFixedNavElement("/pm/firma/dashboard", "Zurück", "call_missed");

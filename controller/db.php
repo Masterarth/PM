@@ -1,4 +1,11 @@
 <?php
+/**
+ * Drops the existing Tables from the Database and loads the new 
+ * defined SQL Statements
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
 
 if (isset($_POST["reg"]["refresh"]) && $_POST["reg"]["refresh"] == true) {
     $result = core()->db()->select("SHOW TABLES");

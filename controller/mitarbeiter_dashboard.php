@@ -1,4 +1,12 @@
 <?php
+/**
+ * Shows up all Employees
+ * 1. Load all Employee from the Database
+ * 2. Search into the Database for the String
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 
 if (isset($_POST["ma_search"])) {
     if (is_numeric($_POST["ma_search"])) {

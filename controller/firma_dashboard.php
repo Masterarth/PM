@@ -1,4 +1,12 @@
 <?php
+/**
+ * There is no Dashboard becouse its only 1 Company Allowed
+ * 1. If no Company exists --> Create a new one
+ * 2. If a Company exists --> Shows it up
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
 
 // --- es soll kein dashboard für firmen angezeigt werden, da es nur eine firma
 //     gibt. deshalb die direkte umleitung auf die firma die angelegt wurde.

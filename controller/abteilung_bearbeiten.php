@@ -1,4 +1,9 @@
 <?php
+/**
+ * Edits the selected "Department"
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 
 if (isset($_POST["reg"])) {
 

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Updates the Active Field of the selected Employee
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
+
 
 if (!isset($_POST["aktiv"])) {
     $aktiv = 0;
