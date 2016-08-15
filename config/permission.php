@@ -1,6 +1,15 @@
 <?php
+/**
+ * Permission Array
+ * Defines which Employee could access the the Pages
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
+
 
 return array(
+    "test" =>array('admin'),
     "abmelden" => array('all'),
     "abteilung" => array('admin'),
     "abteilung_bearbeiten" => array('admin'),

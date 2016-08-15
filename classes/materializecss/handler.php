@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Handels all the Materialize CSS Stuff
+ * 1. Sets Page Titels
+ * 2. Sets Parallax Functions
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
 class materializecss_handler {
 
     static private $instance = null;

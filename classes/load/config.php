@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Load Configuration
+ * Setzt und Lädt eine neue Konfiguration
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 class load_config {
 
     private $configFile;

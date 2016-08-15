@@ -1,14 +1,6 @@
 <?php
 
 /**
- * Diese Datei enthält die Loghandlerklasse
- * @package ReservixInterface
- * @category loghandler
- * @version loghandler 1.0
- * @author Artur Stalbaum <stalbaum@medianet.freinet.de>
- */
-
-/**
  * Loghandlerklasse
  * Enthält folgende Funktionen:
  * - Zeitpunkt aufnehmen
@@ -16,10 +8,8 @@
  * - Dauer prüfen
  * - log schreiben
  * - logdatei größe prüfen
- * @package ReservixInterface
- * @category loghandler
- * @version loghandler 1.0
- * @author Artur Stalbaum <stalbaum@medianet.freinet.de>
+ * @author Artur Stalbaum
+ * @since 15.08.2016
  */
 class log_handler {
 

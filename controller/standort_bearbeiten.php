@@ -1,4 +1,14 @@
 <?php
+/**
+ * Edit for a Location
+ * 1. Get the Location from the Database
+ * 2. Reads the Update Values
+ * 3. Update the Location 
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
+
 
 if (isset($_POST["reg"])) {
 

@@ -8,7 +8,6 @@
  * @since 24.07.2016
  * @author Lukas
  */
-
 class team {
 
     /**

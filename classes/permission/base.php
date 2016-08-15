@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Permission Base Class
+ * Checks the Groups for the Permissions
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 class permission_base {
 
     static private $instance = null;

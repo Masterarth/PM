@@ -1,4 +1,11 @@
 <?php
+/**
+ * Setups the Smart Bibliothek
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
+
 
 define('SMARTY_DIR', BASEPATH . 'bin/smarty/libs/');
 require(SMARTY_DIR . 'Smarty.class.php');

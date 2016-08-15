@@ -1,4 +1,13 @@
 <?php
+/**
+ * Creates a new Location for a Company
+ * 1. Checks if an Locations exists
+ * 2. If there is no Location with the same Values, create a new one
+ * 3. Insert into the Database
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
 
 if (isset($_POST["reg"])) {
 

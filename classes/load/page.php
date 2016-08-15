@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * Class handels the Loading Stuff
+ * 1. Loading Controllers
+ * 2. Loading Pages
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 class load_page {
 
     static private $instance = null;

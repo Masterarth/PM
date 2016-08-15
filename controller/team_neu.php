@@ -1,4 +1,11 @@
 <?php
+/**
+ * Creates a new Team
+ * 1. If there is no Team with this name => Create a new one
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
 
 $abteilungen = core()->db()->select("select * from abteilung,standort where abteilung.s_id=standort.id");
 core()->smarty()->assign("abteilungen", $abteilungen);

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Controller for the Dashboard of the Locations
+ * 1. Read all Locations from the Database
+ * 2. Search a Location in the Database (String)
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
 
 if (isset($_POST["standort_search"])) {
     if (is_numeric($_POST["standort_search"])) {

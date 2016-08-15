@@ -1,7 +1,9 @@
 <?php
-
 /**
- * Dashboard
+ * Dashboard for the teams
+ * 1. Read all teams from the Database
+ * 2. Checks if there was a search request => Shows up the  
+ * 
  * @author Lukas Adler
  * @since 04.08.2016
  */

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Request Handler for Controllers and Parameters
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 class request_handler {
 
     static private $instance = null;
