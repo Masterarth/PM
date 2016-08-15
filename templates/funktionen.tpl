@@ -6,7 +6,7 @@
         <br>
         <br>
         </center>
-        <div class="row">
+        <div class="row hoverable">
             <div class="col s3">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">euro_symbol</i></div>
             </div>
@@ -15,7 +15,7 @@
                 <p>Diese hochskallierbare Software gibt es derzeit kostenlos. Schlagen Sie jetzt zu.</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row hoverable">
             <div class="col s3">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">supervisor_account</i></div>
             </div>
@@ -24,7 +24,7 @@
                 <p>Sie können ihr System selbst verwalten.</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row hoverable">
             <div class="col s3">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">devices_other</i></div>
             </div>
@@ -33,7 +33,7 @@
                 <p>Sie können ihr System selbst verwalten.</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row hoverable">
             <div class="col s3">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">timeline</i></div>
             </div>
@@ -42,7 +42,7 @@
                 <p>Erleben und überwachen Sie ihre Projekte in einer neuen Art.</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row hoverable">
             <div class="col s3">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">airplanemode_active</i></div>
             </div>
