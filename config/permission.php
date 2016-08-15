@@ -1,4 +1,12 @@
 <?php
+/**
+ * Permission Array
+ * Defines which Employee could access the the Pages
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
+
 
 return array(
     "abmelden" => array('all'),

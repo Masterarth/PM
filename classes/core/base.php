@@ -1,4 +1,10 @@
 <?php
+/**
+ * The Base - Core for the complete Project
+ * Delegetion Class
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 
 $path = pathinfo(dirname(__DIR__));
 
