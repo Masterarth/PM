@@ -1,4 +1,14 @@
 <?php
+/**
+ * Distribution Controller for the Team
+ * It's needed becouse of the clean URL
+ * Redirects to new, dashboad, edit, delete Team
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
+
+
 
 $request = core()->request()->getParams();
 

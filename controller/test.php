@@ -1,4 +1,11 @@
 <?php
+/**
+ * Page for tests
+ * 
+ * @author Lukas Adler
+ * @since 15.08.2016
+ */
+
 
 //core()->smarty()->assign("showNavbar", FALSE);
 //core()->smarty()->assign("showNavButton", FALSE);

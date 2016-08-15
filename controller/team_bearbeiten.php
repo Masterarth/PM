@@ -1,4 +1,10 @@
 <?php
+/**
+ * Edits an existing team and updates the changes into the database
+ * 
+ * @author Artur Stalbaum
+ * @since 15.08.2016
+ */
 
 if (isset($_POST["reg"])) {
 
