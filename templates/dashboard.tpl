@@ -1,58 +1,16 @@
 <div class="row">
     <div class="col s12 m4">
-        <div class="card blue-grey darken-3">
-            <div class="card-content white-text">
-                <span class="card-title">Diagramm 1</span>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-        </div>
+        <h4 class="teal-text">Mitarbeiter</h4>
+        <div id="pie_chart"></div>
     </div>
     <div class="col s12 m4">
-        <div class="card blue-grey darken-3">
-            <div class="card-content white-text">
-                <span class="card-title">Diagramm 2</span>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-        </div>
+        <h4 class="teal-text">Projekte</h4>
+        <div id="pie_chart"></div>
     </div>
     <div class="col s12 m4">
-        <div class="card blue-grey darken-3">
-            <div class="card-content white-text">
-                <span class="card-title">Diagramm 3</span>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-        </div>
+        <h4 class="teal-text">Ressourcen    </h4>
+        <div id="pie_chart"></div>
     </div>
 </div>
 
 <div id="chart_div"></div>
-
-<ul class="collection">
-    <li class="collection-item avatar">
-        <i class="material-icons circle">folder</i>
-        <span class="title">Title</span>
-        <p>First Line <br>
-            Second Line
-        </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-        <i class="material-icons circle green">insert_chart</i>
-        <span class="title">Title</span>
-        <p>First Line <br>
-            Second Line
-        </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-        <i class="material-icons circle red">play_arrow</i>
-        <span class="title">Title</span>
-        <p>First Line <br>
-            Second Line
-        </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-</ul>
