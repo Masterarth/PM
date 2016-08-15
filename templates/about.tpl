@@ -2,14 +2,8 @@
 <div class="row">
     <h4 class="teal-text">Das Team</h4>
     <hr>
-    <div class="row">
-        <div class="col s4">
-            <img class="materialboxed" data-caption="A picture of some deer and tons of trees" width="250" height="300" src="/pm/documents/pics/pams_team/adler.jpg">
-        </div>
-    </div>
-
-<h1 class="center">Unser Team</h1>
-
+    <br>
+    <br>
   <div class="slider">
     <ul class="slides">
       <li>
@@ -50,8 +44,9 @@
     </ul>
   </div>
       
-
-<h1 class="center">Timeline</h1>
+<br>
+<h4 class="teal-text">Timeline</h4>
+<hr>
 
 <section id="cd-timeline" class="cd-container">
        <!-- block 1 -->
