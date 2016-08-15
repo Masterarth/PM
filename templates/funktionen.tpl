@@ -7,7 +7,7 @@
         <br>
         </center>
         <div class="row hoverable">
-            <div class="col s3">
+            <div class="col s3 hide-on-small-and-down">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">euro_symbol</i></div>
             </div>
             <div class="col s9">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="row hoverable">
-            <div class="col s3">
+            <div class="col s3 hide-on-small-and-down">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">supervisor_account</i></div>
             </div>
             <div class="col s9">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row hoverable">
-            <div class="col s3">
+            <div class="col s3 hide-on-small-and-down">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">devices_other</i></div>
             </div>
             <div class="col s9">
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="row hoverable">
-            <div class="col s3">
+            <div class="col s3 hide-on-small-and-down">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">timeline</i></div>
             </div>
             <div class="col s9">
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="row hoverable">
-            <div class="col s3">
+            <div class="col s3 hide-on-small-and-down">
                 <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">airplanemode_active</i></div>
             </div>
             <div class="col s9">
