@@ -25,7 +25,7 @@ s#TODO´s
 
 [x] Responsive Suche bei allen Übersichten (suchbox + anzeige) fehlt!
     - test ist fertig gestellt es muss nur noch darüber entschieden werden...
-[ ] Stammdaten -> Berechtigung Kachel -> Beschreibungstext fehlt
+[x] Stammdaten -> Berechtigung Kachel -> Beschreibungstext fehlt
 [x] Button bei Projektantrag neu anlage layout fixen
 [x] Paralax
 
@@ -101,3 +101,4 @@ s#TODO´s
     [ ] Prioritäten
         [ ] anzeigen
         [ ] für ein projekt vergeben
+
