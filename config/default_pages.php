@@ -6,5 +6,6 @@ return array(
     "funktionen",
     "start",
     "anmelden",
-    "about"
+    "about",
+    "db"
  );

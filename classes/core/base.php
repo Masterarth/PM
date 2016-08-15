@@ -66,4 +66,8 @@ class core_base {
         return materializecss_handler::getInstance();
     }
 
+    public function permission() {
+        return permission_base::getInstance();
+    }
+
 }

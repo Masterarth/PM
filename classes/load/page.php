@@ -23,6 +23,10 @@ class load_page {
             $page = "anmelden";
         }
 
+        if (isset($_SESSION["user"]) && !core()->permission()->checkGrp($_SESSION["user"], $page) && !$this->defaultPage($page)) {
+            $page = "401";
+        }
+
         $page_path = BASEPATH . 'templates/' . $page . '.tpl';
         $page_path = realpath($page_path);
 
@@ -40,11 +44,6 @@ class load_page {
         core()->materialize()->clearFixedNavElements();
         core()->materialize()->parallax(false);
 
-        if ($this->defaultPage($page)) {
-            core()->smarty()->assign("showNavbar", false);
-            core()->smarty()->assign("showNavButton", false);
-        }
-
         core()->materialize()->pageTitle($page);
 
         if ($page) {
@@ -60,6 +59,9 @@ class load_page {
 
     public function loadController($controller) {
         if ($controller) {
+            if (isset($_SESSION["user"]) && !core()->permission()->checkGrp($_SESSION["user"], $controller) && !$this->defaultPage($controller)) {
+                $page = "401";
+            }
             $_SESSION["page"] = $controller;
             $controllerpath = BASEPATH . 'controller/' . $controller . '.php';
             $controller = realpath($controllerpath);
@@ -70,6 +72,9 @@ class load_page {
     }
 
     public function loadPage($page) {
+        if (isset($_SESSION["user"]) && !core()->permission()->checkGrp($_SESSION["user"], $page) && !$this->defaultPage($page)) {
+            $page = "401";
+        }
         $page_path = BASEPATH . 'templates/' . $page . '.tpl';
         $page_path = realpath($page_path);
         if (!file_exists($page_path)) {

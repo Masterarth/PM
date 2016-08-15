@@ -17,9 +17,9 @@ s#TODO´s
 [x] Implementierung von Budget in Firma -> wenn das fertig ist das leistungsstunden ding für abteilungen auch fertig
 [ ] Implementierung von Leistungsstunden pro Abteilung
 [x] Budget Ansicht aus Stammdaten löschen
-[ ] Berechtigungsstruktur --> Ansicht Stammdaten nur für Admins
-[ ] Berechtigung --> Sollte Standardmäßig schon vorhanden sein!
-[ ] Rollen --> Umsetzung --> Projektleiter etc
+[x] Berechtigungsstruktur --> Ansicht Stammdaten nur für Admins
+[x] Berechtigung --> Sollte Standardmäßig schon vorhanden sein!
+[x] Rollen --> Umsetzung --> Projektleiter etc
 
 ## Frontend
 

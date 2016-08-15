@@ -38,14 +38,25 @@
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-
-$filme = array("pets", "tarzan", "ninja", "bourne", "CONJURING");
-
-for ($index = 0; $index <= rand(1, count($filme)); $index++) {
-    $zahl = array_rand($filme);
-}
-
-echo "<hr><center><h1>" . $filme[$zahl] . "</h1></center><hr>";
-
+//$filme = array("pets", "tarzan", "ninja", "bourne", "CONJURING");
+//
+//for ($index = 0; $index <= rand(1, count($filme)); $index++) {
+//    $zahl = array_rand($filme);
+//}
+//
+//echo "<hr><center><h1>" . $filme[$zahl] . "</h1></center><hr>";
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
+//$dir = "controller";
+//
+//if (file_exists(realpath($dir))) {
+//    $files = scandir($dir);
+//
+//    if (count($files) > 0) {
+//        foreach ($files as $file) {
+//            if ($file != "." && $file != "..") {
+//                echo '"' . pathinfo($file, PATHINFO_FILENAME) . '"' . " => array('Admin'),<br/>";
+//            }
+//        }
+//    }
+//}

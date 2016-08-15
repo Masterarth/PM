@@ -43,7 +43,7 @@ class db_base extends PDO {
      * @param array $data
      * @return int ID
      */
-    public function update($statement, $data) {
+    public function update($statement, $data = null) {
         $stmt = $this->prepare($statement);
         if ($data != null) {
             $stmt->execute($data);
@@ -52,13 +52,13 @@ class db_base extends PDO {
         }
         return $this->lastInsertId();
     }
-    
+
     /**
      * Updates direct without "Prepared Statements"
      * @param string $statement
      * @return int ID
      */
-    public function update_direct($statement){
+    public function update_direct($statement) {
         $stmt = $this->prepare($statement);
         $stmt->execute();
         return $this->lastInsertId();

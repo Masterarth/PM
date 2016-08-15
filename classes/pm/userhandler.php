@@ -37,17 +37,19 @@ class pm_userhandler {
      * @return boolean|\pm_user
      */
     public function createUser($id) {
-        $result = core()->db()->select("select u.l_name,u.reg_datum,u.aktiv,m.id,m.u_id,m.nachname,m.vorname,m.b_id from users u, mitarbeiter m where u.id =" . $id . " and m.u_id = u.id", "fetch");
+        $result = core()->db()->select("select u.l_name,u.reg_datum,u.aktiv,m.id,m.u_id,m.nachname,m.vorname,m.b_id,r.id as r_id,r.rolle from users u, mitarbeiter m, rolle r where u.id =" . $id . " and m.u_id = u.id and r.id = m.r_id", "fetch");
         if ($result) {
             $user = new pm_user();
             $user->setId($result->id);
             $user->setB_id($result->b_id);
             $user->setU_id($result->u_id);
+            $user->setR_id($result->r_id);
             $user->setL_name($result->l_name);
             $user->setVorname($result->vorname);
             $user->setNachname($result->nachname);
             $user->setReg_datum($result->reg_datum);
             $user->setAktiv($result->aktiv);
+            $user->setRolle($result->rolle);
             return $user;
         }
         return false;

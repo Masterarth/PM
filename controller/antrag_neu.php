@@ -5,11 +5,8 @@ core()->smarty()->assign("abteilungen", $abteilungen);
 
 //where bedinungen muss noch ausprogrammiert werden:
 //where rolle = teamleiter bzw. höher ? 
-$mitarbeiter = core()->db()->select("select * from mitarbeiter");
+$mitarbeiter = core()->db()->select("select * from mitarbeiter where r_id = 3");
 core()->smarty()->assign("mitarbeiter", $mitarbeiter);
-
-$mitarbeiters = core()->db()->select("select * from users");
-core()->smarty()->assign("mitarbeiter", $mitarbeiters);
 
 if (isset($_POST["reg"])) {
 
