@@ -8,7 +8,7 @@
         </center>
         <div class="row">
             <div class="col s3">
-                <div class="icon-wrapper"><i class="fa fa-eur small custom-icon"></i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">euro_symbol</i></div>
             </div>
             <div class="col s9">
                 <p class="teal-text big">Kostenlos</p>
@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="col s3">
-                <div class="icon-wrapper"><i class="fa fa-user small custom-icon"></i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">supervisor_account</i></div>
             </div>
             <div class="col s9">
                 <p class="teal-text big">Userverwaltung</p>
@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             <div class="col s3">
-                <div class="icon-wrapper"><i class="fa fa-tablet small custom-icon"></i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">devices_other</i></div>
             </div>
             <div class="col s9">
                 <p class="teal-text big">Responsive Design</p>
@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <div class="col s3">
-                <div class="icon-wrapper"><i class="fa fa-bar-chart small custom-icon"></i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">timeline</i></div>
             </div>
             <div class="col s9">
                 <p class="teal-text big">Statistiken</p>
@@ -44,7 +44,7 @@
         </div>
         <div class="row">
             <div class="col s3">
-                <div class="icon-wrapper"><i class="fa fa-tablet small custom-icon"></i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">airplanemode_active</i></div>
             </div>
             <div class="col s9">
                 <p class="teal-text big">1 Software - Viele Möglichkeiten</p>
