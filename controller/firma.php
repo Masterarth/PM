@@ -77,7 +77,7 @@ if (isset($request[2])) {
         core()->materialize()->parallax(true);
 
         core()->materialize()->addFixedNavElement("/pm/firma/dashboard", "Zurück", "call_missed");
-        core()->materialize()->addFixedNavElement("/pm/firma/budget/" . $request[2], "Budget", "library_add");
+        core()->materialize()->addFixedNavElement("/pm/firma/budget/" . $request[2], "Budget", "euro_symbol");
         core()->materialize()->addFixedNavElement("/pm/firma/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
         core()->materialize()->addFixedNavElement("/pm/firma/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Saves a Budget to a Company
  * It holds the following Informations:
@@ -9,8 +10,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
-
 $request = core()->request()->getParams();
 
 $data = array("betrag" => null, "startdatum" => null, "enddatum" => null, "aktiv" => null);

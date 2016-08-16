@@ -1,4 +1,4 @@
-google.charts.load('current', {'packages': ['gantt']});
+google.charts.load('current', {'packages': ['gantt', 'corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
@@ -52,9 +52,8 @@ function drawChart() {
     chart.draw(data, options);
 }
 
-google.charts.load('current', {'packages': ['corechart']});
-google.charts.setOnLoadCallback(drawPieChart);
-function drawPieChart() {
+google.charts.setOnLoadCallback(drawChart2);
+function drawChart2() {
 
     var data = google.visualization.arrayToDataTable([
         ['Task', 'Hours per Day'],
@@ -66,11 +65,57 @@ function drawPieChart() {
     ]);
 
     var options = {
-        title: 'My Daily Activities'
+        title: 'My Daily Activities',
+        'width': 500,
+        'height': 400
     };
 
-    var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+    var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
 
     chart.draw(data, options);
 }
 
+google.charts.setOnLoadCallback(drawChart4);
+function drawChart4() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work', 11],
+        ['Eat', 2],
+        ['Commute', 2],
+        ['Watch TV', 2],
+        ['Sleep', 7]
+    ]);
+
+    var options = {
+        title: 'My Daily Activities',
+        'width': 500,
+        'height': 400
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+    chart.draw(data, options);
+}
+google.charts.setOnLoadCallback(drawChart3);
+function drawChart3() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work', 11],
+        ['Eat', 2],
+        ['Commute', 2],
+        ['Watch TV', 2],
+        ['Sleep', 7]
+    ]);
+
+    var options = {
+        title: 'My Daily Activities',
+        'width': 500,
+        'height': 400
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+    chart.draw(data, options);
+}

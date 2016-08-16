@@ -3,7 +3,10 @@ $(document).ready(function () {
     $('.collapsible').collapsible({
         accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
-    $('.slider').slider({full_width: true, indicators: false});
+
+    $('#about_slider').slider({full_width: true});
+    $('#start_slider').slider({full_width: true, indicators: false});
+
     $('.parallax').parallax();
     $(".button-collapse").sideNav();
     $('ul.tabs').tabs();
@@ -15,7 +18,7 @@ $(document).ready(function () {
         weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
         today: 'Heute',
         clear: 'Löschen',
-        close: 'Schließen',
+        close: 'X',
         firstDay: 1,
         format: 'dddd, dd. mmmm yyyy',
         formatSubmit: 'yyyy/mm/dd',
@@ -44,41 +47,10 @@ $(document).ready(function () {
         $('.autocomplete-content').empty();
     });
 
-    $(".sticky").stick_in_parent({offset_top: 58});
-
     $('.carousel.carousel-slider').carousel({full_width: true});
 
     $('.carousel').carousel();
 
     $('ul.tabs').tabs();
     $('.modal-trigger').leanModal();
-
-    if (Modernizr.touch) {
-        // show the close overlay button
-        $(".close-overlay").removeClass("hidden");
-        // handle the adding of hover class when clicked
-        $(".img").click(function (e) {
-            if (!$(this).hasClass("hover")) {
-                $(this).addClass("hover");
-            }
-        });
-        // handle the closing of the overlay
-        $(".close-overlay").click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if ($(this).closest(".img").hasClass("hover")) {
-                $(this).closest(".img").removeClass("hover");
-            }
-        });
-    } else {
-        // handle the mouseenter functionality
-        $(".img").mouseenter(function () {
-            $(this).addClass("hover");
-        })
-                // handle the mouseleave functionality
-                .mouseleave(function () {
-                    $(this).removeClass("hover");
-                });
-    }
-
 });

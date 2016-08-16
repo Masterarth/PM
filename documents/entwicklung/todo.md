@@ -1,9 +1,28 @@
-s#TODO´s 
+#TODO´s 
+
+## 15/16 August 2016
+[x] mitarbeiterrolle ändern über mitarbeiter
+[x] antrag über fixedbutton als pdf exportieren
+[x] leistungsstunden bei team
+    [x] anlegen
+    [x] ändern
+[ ] im Projektantrag sollte projektleiter und standort als pflichtfeld gepflegt werden!!
+[ ] API für Dashboard (https://developers.google.com/chart/)
+[x] kleinere fixes hier und da ... 
+
+### Bemerkung:
+- sollten wir nicht irgendwo anzeigen wieviele Anträge im system sind?
+- wer wieviele anträge am start hat?
+- wieviele genehmigt wurden? 
+- wieviele unter 10k € oder unter 100k € sind?
+- in welchem Zeitraum die meisten projekte durchgeführt werden sollten ? 
+### Antwort:
+
 
 ## ArthToDos
  [x] von allen ParallaxViews einen zurückbutton implementieren
  [x] Budget ist fast fertig nur noch bearbeiten
- [ ] Leistungsstunden pro abetilung -> budget firma
+ [x] Leistungsstunden pro abetilung -> budget firma
  [ ] Wenn Firma gelöscht wird budget mit löschen ??? 
     - Firma kann nicht gelöscht werden, weil sonst alle anderen Gegebenheiten (Abteilung, Teams etc auch weg wären)
     - da mann budgets immer ändern kann ? 
@@ -15,7 +34,7 @@ s#TODO´s
 ## CHEFS ÄNDERUNGSANTRAG AN ARTI DEN LURCHUS BAKTERIULUS
 [x] Änderung der Cards in Top - Navigation
 [x] Implementierung von Budget in Firma -> wenn das fertig ist das leistungsstunden ding für abteilungen auch fertig
-[ ] Implementierung von Leistungsstunden pro Abteilung
+[x] Implementierung von Leistungsstunden pro Abteilung
 [x] Budget Ansicht aus Stammdaten löschen
 [x] Berechtigungsstruktur --> Ansicht Stammdaten nur für Admins
 [x] Berechtigung --> Sollte Standardmäßig schon vorhanden sein!

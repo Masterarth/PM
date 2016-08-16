@@ -8,4 +8,4 @@ return array(
     "anmelden",
     "about",
     "db"
- );
+);

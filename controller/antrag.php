@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Distribute Controller for the Proposal
  * It's needed becouse of the clean URL
@@ -22,6 +23,12 @@ if (isset($request[2])) {
             core()->page()->loadPage("antrag_dashboard");
             core()->page()->loadController("antrag_dashboard");
             break;
+        case "pdf":
+            if (is_numeric($request[3])) {
+                $pdf = new pm_pdfcreator($request[3]);
+                $pdf->createPdf();
+            }
+            break;
     }
 
     if (is_numeric($request[2])) {
@@ -29,6 +36,7 @@ if (isset($request[2])) {
         core()->materialize()->parallax(true);
 
         core()->materialize()->addFixedNavElement("/pm/antrag/dashboard/", "Zurück", "call_missed");
+        core()->materialize()->addFixedNavElement("/pm/antrag/pdf/" . $request[2], "PDF export", "picture_as_pdf", null, "target='_blank'");
         core()->materialize()->addFixedNavElement("/pm/antrag/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
         core()->materialize()->addFixedNavElement("/pm/antrag/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission Array
  * Defines which Employee could access the the Pages
@@ -6,10 +7,8 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
-
 return array(
-    "test" =>array('admin'),
+    "test" => array('admin'),
     "abmelden" => array('all'),
     "abteilung" => array('admin'),
     "abteilung_bearbeiten" => array('admin'),
@@ -47,4 +46,7 @@ return array(
     "team_dashboard" => array('admin'),
     "team_neu" => array('admin'),
     "test" => array('admin'),
+    "leistung" => array("admin"),
+    "leistung_neu" => array("admin"),
+    "leistung_bearbeiten" => array("admin")
 );

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Distribute Controller for the Employee
  * Redirect to new, dashboard, edit, delete Employees
@@ -6,7 +7,6 @@
  * @author Lukas Adler
  * @since 15.08.2016
  */
-
 $request = core()->request()->getParams();
 
 if (isset($request[2])) {
@@ -48,6 +48,9 @@ if (isset($request[2])) {
                 case "aktiv":
                     core()->page()->loadController("mitarbeiter_update_aktiv");
                     break;
+                case "rolle":
+                    core()->page()->loadController("mitarbeiter_update_rolle");
+                    break;
             }
     }
     if (is_numeric($request[2])) {
@@ -62,6 +65,8 @@ if (isset($request[2])) {
 
         if ($user) {
             core()->smarty()->assign("user", $user);
+            $rollen = core()->db()->select("select * from rolle");
+            core()->smarty()->assign("rollen", $rollen);
         }
     }
 }
