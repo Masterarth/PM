@@ -7,6 +7,7 @@
     [x] anlegen
     [x] ändern
 [ ] im Projektantrag sollte projektleiter und standort als pflichtfeld gepflegt werden!!
+    [ ] Bemerkung LA --> NEIN SOLLTE ES NICHT! Der Ersteller weiß oft nicht wen er nehmen kann
 [ ] API für Dashboard (https://developers.google.com/chart/)
 [x] kleinere fixes hier und da ... 
 
@@ -17,7 +18,16 @@
 - wieviele unter 10k € oder unter 100k € sind?
 - in welchem Zeitraum die meisten projekte durchgeführt werden sollten ? 
 ### Antwort:
-
+- Ja denke das ist dann auch ein Stammdaten - Thema. Dann machen wir dort noch eine 
+  Kachel mit Statistik hin oder sowas
+- Das soll ja zukünftig (personalisiert) auf die Startseite
+    - Mitarbeiter sieht seine eingereichten Anträge
+    - Abteilungsleiter sieht Anträge die für Abteilung eingegangen sidn
+    - Projektleiter sieht Anträge in denen er arbeitet
+    - Ich will eine allgemeine Übersicht in der man ablesen kann (Pie Chart) wie viele Anträge es gibt
+      --> Also Status mäßig (50 Abgelehnt, 10 Offen, 100 Genehmigt etc)
+    - Das mit dem Geld würde ich weglassen, macht erstmal keinen Sinn
+    - Zeitraum ist auch erstmal sekundär
 
 ## ArthToDos
  [x] von allen ParallaxViews einen zurückbutton implementieren
@@ -64,6 +74,7 @@
 [ ] dashboard / startseite
     [ ] diagramme
     [ ] gantt diagramm
+    [ ] pie chart
 
 [ ] Anträge
     [ ] dashboard
@@ -117,7 +128,7 @@
         [x] anlegen
         [x] löschen
         [x] bearbeiten
-    [ ] Prioritäten
+    [ ] Prioritäten -> Bemerkung LA: Prioritäten sind glaube ich einfach nur hoch, mittel, niedrig?
         [ ] anzeigen
         [ ] für ein projekt vergeben
 
