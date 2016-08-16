@@ -116,7 +116,7 @@
                             <div class="col s6">
                                 <h4 class="light">Nutzen</h4>
                                 <div class="para_content">
-                                    <p>{$projekt->mon_nutzen}</p>
+                                    <p>{$projekt->mon_nutzen|number_format:2:",":"."} €</p>
                                 </div>
                             </div>
                         </div>

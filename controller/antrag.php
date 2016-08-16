@@ -23,6 +23,16 @@ if (isset($request[2])) {
             core()->page()->loadPage("antrag_dashboard");
             core()->page()->loadController("antrag_dashboard");
             break;
+        case "loeschen":
+            if (is_numeric($request[3])) {
+                $result = core()->db()->select("select * from projekt where id=" . $request[3], "fetch");
+                if ($result) {
+                    core()->db()->delete("delete from projekt where id=" . $request[3]);
+                    header('Location: /pm/antrag/dashboard');
+                    exit;
+                }
+            }
+            break;
         case "pdf":
             if (is_numeric($request[3])) {
                 $pdf = new pm_pdfcreator($request[3]);

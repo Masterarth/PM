@@ -1,80 +1,21 @@
 #TODO´s 
 
-## 15/16 August 2016
-[x] mitarbeiterrolle ändern über mitarbeiter
-[x] antrag über fixedbutton als pdf exportieren
-[x] leistungsstunden bei team
-    [x] anlegen
-    [x] ändern
+[ ] Filter bei allen dashboards...
+    - sollen wir die wirklich einbauen ? 
+    - und wenn ja wie ? fertige statements ? 
 [ ] im Projektantrag sollte projektleiter und standort als pflichtfeld gepflegt werden!!
-    [ ] Bemerkung LA --> NEIN SOLLTE ES NICHT! Der Ersteller weiß oft nicht wen er nehmen kann
+    - Bemerkung LA --> NEIN SOLLTE ES NICHT! Der Ersteller weiß oft nicht wen er nehmen kann
 [ ] API für Dashboard (https://developers.google.com/chart/)
-[x] kleinere fixes hier und da ... 
-
-### Bemerkung:
-- sollten wir nicht irgendwo anzeigen wieviele Anträge im system sind?
-- wer wieviele anträge am start hat?
-- wieviele genehmigt wurden? 
-- wieviele unter 10k € oder unter 100k € sind?
-- in welchem Zeitraum die meisten projekte durchgeführt werden sollten ? 
-### Antwort:
-- Ja denke das ist dann auch ein Stammdaten - Thema. Dann machen wir dort noch eine 
-  Kachel mit Statistik hin oder sowas
-- Das soll ja zukünftig (personalisiert) auf die Startseite
-    - Mitarbeiter sieht seine eingereichten Anträge
-    - Abteilungsleiter sieht Anträge die für Abteilung eingegangen sidn
-    - Projektleiter sieht Anträge in denen er arbeitet
-    - Ich will eine allgemeine Übersicht in der man ablesen kann (Pie Chart) wie viele Anträge es gibt
-      --> Also Status mäßig (50 Abgelehnt, 10 Offen, 100 Genehmigt etc)
-    - Das mit dem Geld würde ich weglassen, macht erstmal keinen Sinn
-    - Zeitraum ist auch erstmal sekundär
-
-## ArthToDos
- [x] von allen ParallaxViews einen zurückbutton implementieren
- [x] Budget ist fast fertig nur noch bearbeiten
- [x] Leistungsstunden pro abetilung -> budget firma
- [ ] Wenn Firma gelöscht wird budget mit löschen ??? 
-    - Firma kann nicht gelöscht werden, weil sonst alle anderen Gegebenheiten (Abteilung, Teams etc auch weg wären)
-    - da mann budgets immer ändern kann ? 
-    - wie soll ein neues budget hinterlegt werden?
-    - soll man überhaupt budgets ändern können? 
-    - bei mehreren Budgets macht es nur sinn wenn nur 1 aktiv ist DB problem ? 
-    - BUDGET HISTORY ist nicht möglich !!!
-
-## CHEFS ÄNDERUNGSANTRAG AN ARTI DEN LURCHUS BAKTERIULUS
-[x] Änderung der Cards in Top - Navigation
-[x] Implementierung von Budget in Firma -> wenn das fertig ist das leistungsstunden ding für abteilungen auch fertig
-[x] Implementierung von Leistungsstunden pro Abteilung
-[x] Budget Ansicht aus Stammdaten löschen
-[x] Berechtigungsstruktur --> Ansicht Stammdaten nur für Admins
-[x] Berechtigung --> Sollte Standardmäßig schon vorhanden sein!
-[x] Rollen --> Umsetzung --> Projektleiter etc
-
-## Frontend
-
-[x] Responsive Suche bei allen Übersichten (suchbox + anzeige) fehlt!
-    - test ist fertig gestellt es muss nur noch darüber entschieden werden...
-[x] Stammdaten -> Berechtigung Kachel -> Beschreibungstext fehlt
-[x] Button bei Projektantrag neu anlage layout fixen
-[x] Paralax
-
-## Backend
-
-[x] AJAX funktionalität anschauen und implementieren
-    - Teamleiter / Bereichsleiter -> siehe test.tpl / .php
-[x] Login
-[x] Registrierung
-[x] Logout
-[x] 404 Fehlerhandling
-[x] Fixed-Button
-    [x] dynamic nav elements
-[x] navigation
-    [x] responsive navi
 
 [ ] dashboard / startseite
     [ ] diagramme
     [ ] gantt diagramm
     [ ] pie chart
+    [ ] Personalisierte Ansicht
+        [ ] Eingereichte Anträge und deren Status
+        [ ] Falls Rolle zulässt
+            [ ] Anträge genehmigen / Ablehnen
+            [ ] Absprung in Projektansicht
 
 [ ] Anträge
     [ ] dashboard
@@ -98,36 +39,10 @@
             - meilensteine fehlt
         [ ] Ist-Werte
     [ ] bearbeiten
-    [ ] löschen
+    [x] löschen
+    [ ] Status setzen
 
 [ ] stammdaten
-    [x] firma
-        [x] dashboard: anzeigen + suche
-        [x] anlegen
-        [x] bearbeiten
-        [x] löschen
-    [x] standort
-        [x] dashboard: anzeigen + suche
-        [x] anlegen
-        [x] löschen
-        [x] bearbeiten
-    [x] abteilung
-        [x] bereich in abteilung umbennen
-        [x] dashboard
-        [x] anlegen
-        [x] löschen
-        [x] bearbeiten
-    [x] teams
-        [x] dashboard
-        [x] anlegen
-        [x] löschen
-        [x] bearbeiten
-    [x] mitarbeiter
-        [x] anzeige
-        [x] dashboard 
-        [x] anlegen
-        [x] löschen
-        [x] bearbeiten
     [ ] Prioritäten -> Bemerkung LA: Prioritäten sind glaube ich einfach nur hoch, mittel, niedrig?
         [ ] anzeigen
         [ ] für ein projekt vergeben
