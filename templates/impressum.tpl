@@ -2,8 +2,8 @@
 <h4 class="teal-text">Red Stag GmbH</h4>
 <p>IT-Dienstleister der Supernova AG</p>
 
-<p>ABC-Straße 123 <br>
-   01805 Musterhausen <br>
+<p>Platz des roten Hirsches 42 <br>
+   07621 Lörrach <br>
    serivce@redstag.de
 </p>
 <br>
