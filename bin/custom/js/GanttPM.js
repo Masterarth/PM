@@ -111,7 +111,7 @@ function drawChart() {
 
     $.each(jsonData, function (i, jsonData)
     {
-        data.addRows([[jsonData.taskId, jsonData.taskName, jsonData.resource, new Date(jsonData.startDate), new Date(jsonData.endDate), null, null, null]]);
+        data.addRows([[jsonData.taskId, jsonData.taskName, jsonData.resource, new Date(jsonData.startDate), new Date(jsonData.endDate), null, jsonData.complete, null]]);
     });
 
     var options = {
@@ -125,3 +125,10 @@ function drawChart() {
 
     chart.draw(data, options);
 }
+
+$(window).resize(function () {
+    drawChart();
+    mitarbeiterChart();
+    projekteChart();
+    ressourcenChart();
+});
