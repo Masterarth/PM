@@ -6,11 +6,21 @@
 [ ] im Projektantrag sollte projektleiter und standort als pflichtfeld gepflegt werden!!
     - Bemerkung LA --> NEIN SOLLTE ES NICHT! Der Ersteller weiß oft nicht wen er nehmen kann
 [ ] API für Dashboard (https://developers.google.com/chart/)
+    [x] API für mitarbeiter 
+    [ ] API für Projekte -> was soll ich da anzeigen ? 
+    [x] API für GANTT 
+
+
+### BEMERKUNG!!!
+- ich weis nicht wie sich aktuell das dashboard verhält wenn keine daten vorhanden sind ...!!!
+
+
+[ ] Statistik über Projektanträge
 
 [ ] dashboard / startseite
     [ ] diagramme
-    [ ] gantt diagramm
-    [ ] pie chart
+    [x] gantt diagramm
+    [x] pie chart
     [ ] Personalisierte Ansicht
         [ ] Eingereichte Anträge und deren Status
         [ ] Falls Rolle zulässt
@@ -47,3 +57,5 @@
         [ ] anzeigen
         [ ] für ein projekt vergeben
 
+- für PPT:
+    - bsp aus bibliothek und core und zusammen hang anhand von bsp erläutern
