@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS Abteilung(
   s_id INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(s_id) REFERENCES Standort(id),
   a_name VARCHAR(30) NOT NULL,
-  a_leitung INT(6) UNSIGNED NOT NULL,
+  a_leitung INT(6) UNSIGNED,
   FOREIGN KEY(a_leitung) REFERENCES Mitarbeiter(id)
 );
 CREATE TABLE IF NOT EXISTS Team(
@@ -159,3 +159,4 @@ CREATE TABLE IF NOT EXISTS Kapitalwerte(
   auszahlung DOUBLE
 );
 INSERT INTO ProjStatus (status) VALUES ('Offen'), ('Genehmigt'), ('Abgelehnt'), ('In Bearbeitung'), ('Geschlossen');
+INSERT INTO Rolle (rolle) VALUES ('Admin'), ('Mitarbeiter'), ('Projektleiter'), ('Teamleiter'), ('Abteilungsleiter'), ('Standortleiter'), ('Geschäftsführer');
