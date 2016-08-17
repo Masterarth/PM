@@ -1,7 +1,102 @@
-google.charts.load('current', {'packages': ['gantt']});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.load('current', {'packages': ['gantt', 'corechart']});
 
+google.charts.setOnLoadCallback(mitarbeiterChart);
+function mitarbeiterChart() {
+
+    var jsonData = $.ajax({
+        url: "/pm/api/stats_mitarbeiter",
+        dataType: "json",
+        async: false
+    }).responseJSON;
+
+    var options = {
+        is3D: true,
+    };
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Rolle');
+    data.addColumn('number', 'Anzahl');
+
+    $.each(jsonData, function (i, jsonData)
+    {
+        var rolle = jsonData.rolle;
+        var anzahl = jsonData.anzahl;
+        data.addRows([[rolle, anzahl]]);
+    });
+
+    var chart = new google.visualization.PieChart(document.getElementById('mitarbeiterChart'));
+
+    chart.draw(data, options);
+}
+
+google.charts.setOnLoadCallback(projekteChart);
+function projekteChart() {
+
+    var jsonData = $.ajax({
+        url: "/pm/api/stats_mitarbeiter",
+        dataType: "json",
+        async: false
+    }).responseJSON;
+
+    var options = {
+        pieHole: 0.4,
+        legend: 'none'
+    };
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Rolle');
+    data.addColumn('number', 'Anzahl');
+
+    $.each(jsonData, function (i, jsonData)
+    {
+        var rolle = jsonData.rolle;
+        var anzahl = jsonData.anzahl;
+        data.addRows([[rolle, anzahl]]);
+    });
+
+    var chart = new google.visualization.PieChart(document.getElementById('projekteChart'));
+
+    chart.draw(data, options);
+}
+
+google.charts.setOnLoadCallback(ressourcenChart);
+function ressourcenChart() {
+
+    var jsonData = $.ajax({
+        url: "/pm/api/stats_ressourcen",
+        dataType: "json",
+        async: false
+    }).responseJSON;
+
+    var options = {
+        pieStartAngle: 100,
+        sliceVisibilityThreshold: 0
+    };
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Name');
+    data.addColumn('number', 'Anzahl');
+
+    $.each(jsonData, function (i, jsonData)
+    {
+        var name = jsonData.name;
+        var anzahl = jsonData.anzahl;
+        data.addRows([[name, anzahl]]);
+    });
+
+    var chart = new google.visualization.PieChart(document.getElementById('ressourcenChart'));
+
+    chart.draw(data, options);
+}
+
+google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
+
+    var jsonData = $.ajax({
+        url: "/pm/api/gantt_projekte",
+        dataType: "json",
+        async: false
+    }).responseJSON;
 
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Task ID');
@@ -13,32 +108,11 @@ function drawChart() {
     data.addColumn('number', 'Percent Complete');
     data.addColumn('string', 'Dependencies');
 
-    data.addRows([
-        ['2014Spring', 'Spring 2014', 'spring',
-            new Date(2014, 2, 22), new Date(2014, 5, 20), null, 100, null],
-        ['2014Summer', 'Summer 2014', 'summer',
-            new Date(2014, 5, 21), new Date(2014, 8, 20), null, 100, null],
-        ['2014Autumn', 'Autumn 2014', 'autumn',
-            new Date(2014, 8, 21), new Date(2014, 11, 20), null, 100, null],
-        ['2014Winter', 'Winter 2014', 'winter',
-            new Date(2014, 11, 21), new Date(2015, 2, 21), null, 100, null],
-        ['2015Spring', 'Spring 2015', 'spring',
-            new Date(2015, 2, 22), new Date(2015, 5, 20), null, 50, null],
-        ['2015Summer', 'Summer 2015', 'summer',
-            new Date(2015, 5, 21), new Date(2015, 8, 20), null, 0, null],
-        ['2015Autumn', 'Autumn 2015', 'autumn',
-            new Date(2015, 8, 21), new Date(2015, 11, 20), null, 0, null],
-        ['2015Winter', 'Winter 2015', 'winter',
-            new Date(2015, 11, 21), new Date(2016, 2, 21), null, 0, null],
-        ['Football', 'Football Season', 'sports',
-            new Date(2014, 8, 4), new Date(2015, 1, 1), null, 100, null],
-        ['Baseball', 'Baseball Season', 'sports',
-            new Date(2015, 2, 31), new Date(2015, 9, 20), null, 14, null],
-        ['Basketball', 'Basketball Season', 'sports',
-            new Date(2014, 9, 28), new Date(2015, 5, 20), null, 86, null],
-        ['Hockey', 'Hockey Season', 'sports',
-            new Date(2014, 9, 8), new Date(2015, 5, 21), null, 89, null]
-    ]);
+
+    $.each(jsonData, function (i, jsonData)
+    {
+        data.addRows([[jsonData.taskId, jsonData.taskName, jsonData.resource, new Date(jsonData.startDate), new Date(jsonData.endDate), null, null, null]]);
+    });
 
     var options = {
         height: 400,
@@ -51,26 +125,3 @@ function drawChart() {
 
     chart.draw(data, options);
 }
-
-google.charts.load('current', {'packages': ['corechart']});
-google.charts.setOnLoadCallback(drawPieChart);
-function drawPieChart() {
-
-    var data = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['Work', 11],
-        ['Eat', 2],
-        ['Commute', 2],
-        ['Watch TV', 2],
-        ['Sleep', 7]
-    ]);
-
-    var options = {
-        title: 'My Daily Activities'
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
-
-    chart.draw(data, options);
-}
-

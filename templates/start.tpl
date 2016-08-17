@@ -1,4 +1,4 @@
-<div class="slider fullscreen" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+<div class="slider fullscreen" id="start_slider" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
     <ul class="slides">
         <li class="active" style="opacity: 1; transform: translateX(0px) translateY(0px);">
             <img src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-image: url(/pm/bin/custom/images/steg.jpg);">

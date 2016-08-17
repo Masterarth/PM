@@ -11,15 +11,35 @@
             <div class="para_content">
                 <p>{$user->getReg_datum()}</p>
             </div>
-            <h4 class="light">Status</h4>
-            <div class="para_content">
-                <form action="/pm/mitarbeiter/update/aktiv" method="post">
-                    <p> 
-                        <input type="hidden" name="id" value="{$user->getU_id()}"/>
-                        <input onchange="this.form.submit()" name="aktiv" type="checkbox" id="aktiv" {$user->isAktiv()|checked}/>
-                        <label for="aktiv">Aktiv</label>
-                    </p>
-                </form>
+            <div class="row">
+                <div class="col s6">
+                    <h4 class="light">Status</h4>
+                    <div class="para_content">
+                        <form action="/pm/mitarbeiter/update/aktiv" method="post">
+                            <p> 
+                                <input type="hidden" name="id" value="{$user->getU_id()}"/>
+                                <input onchange="this.form.submit()" name="aktiv" type="checkbox" id="aktiv" {$user->isAktiv()|checked}/>
+                                <label for="aktiv">Aktiv</label>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <h4 class="light">Rolle</h4>
+                    <div class="para_content">
+                        <form action="/pm/mitarbeiter/update/rolle" method="post">
+                            <p> 
+                                <input type="hidden" name="id" value="{$user->getU_id()}"/>
+                                <select onchange="this.form.submit()" name="rolle">
+                                    <option value="" disabled selected>Wählen sie die Rolle der Benutzers</option>
+                                    {foreach from=$rollen item=rolle}
+                                        <option value="{$rolle->id}" {if $rolle->id == $user->getR_id()}selected{/if}>{$rolle->rolle}</option>
+                                    {/foreach}
+                                </select>
+                            </p>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div> 

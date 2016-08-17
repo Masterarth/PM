@@ -9,20 +9,14 @@
         <link href="/pm/bin/custom/css/icons.css" rel="stylesheet">
         {* -------  Fonts End  ------- *}
         {* -------  CSS Start  ------- *}        
-        <link type="text/css" rel="stylesheet" href="/pm/bin/materialize/css/materialize.css"  media="screen,projection"/>
-        <link rel="stylesheet" href="/pm/bin/timeline/css/style.css"> <!-- timeline -->      
+        <link type="text/css" rel="stylesheet" href="/pm/bin/materialize/css/materialize.css"  media="screen,projection"/> 
         <link type="text/css" rel="stylesheet" href="/pm/bin/custom/css/main.css">
         {* -------  CSS End  ------- *}
         {* -------  JS Start  ------- *}
         <script type="text/javascript" src="/pm/bin/jquery/jquery-2.1.1.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
         <script type="text/javascript" src="/pm/bin/materialize/js/materialize.min.js"></script>
-        <script type="text/javascript" src="/pm/bin/custom/js/loader.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/GanttPM.js"></script>
-        <script type="text/javascript" src="/pm/bin/custom/js/jquery.sticky-kit.min.js"></script>
-        <script type="text/javascript" src="/pm/bin/timeline/js/modernizr.js"></script> <!-- timeline -->
-        <script type="text/javascript" src="/pm/bin/timeline/js/main.js"></script> <!-- timeline -->
-        <script type="text/javascript" src="/pm/bin/custom/js/modernizr.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/main.js"></script>
         {* -------  JS End  ------- *}
     </head>
@@ -52,4 +46,5 @@
 
         {include file="fixed_menu_button.tpl"}
         {*include file="footer.tpl"*}
+
     </body>

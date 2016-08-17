@@ -24,7 +24,7 @@ class materializecss_handler {
         
     }
 
-    public function toast($outputText, $outputVar = "toast", $time = 4000, $style = "rounded") {
+    public function toast($outputText, $outputVar = "toast", $time = 4000, $style = null) {
         core()->smarty()->assign($outputVar, "<script type=\"text/javascript\">Materialize.toast('" . $outputText . "', " . $time . ", '" . $style . "');</script>");
     }
 
