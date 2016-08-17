@@ -158,3 +158,4 @@ CREATE TABLE IF NOT EXISTS Kapitalwerte(
   einzahlung DOUBLE,
   auszahlung DOUBLE
 );
+INSERT INTO ProjStatus (status) VALUES ('Offen'), ('Genehmigt'), ('Abgelehnt'), ('In Bearbeitung'), ('Geschlossen');
