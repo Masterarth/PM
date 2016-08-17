@@ -105,6 +105,8 @@ CREATE TABLE IF NOT EXISTS Projekt(
   FOREIGN KEY(tat_budget_id) REFERENCES ProBudget(id),
   plan_budget_id INT(6) UNSIGNED,
   FOREIGN KEY(plan_budget_id) REFERENCES ProBudget(id),
+  s_id INT(6) UNSIGNED,
+  FOREIGN KEY(s_id) REFERENCES ProjStatus(id),
   vor_sta_term DATE,
   vor_end_term DATE,
   tat_sta_term DATE,
