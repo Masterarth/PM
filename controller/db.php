@@ -31,6 +31,8 @@ if (isset($_POST["reg"]["refresh"]) && $_POST["reg"]["refresh"] == true) {
             }
         }
 
+        core()->db()->update(file_get_contents("documents/database/testingStatements.sql"));
+
         core()->materialize()->toast("Datenbank wurde refresht");
     } else {
         core()->materialize()->toast("FAIL");
