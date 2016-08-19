@@ -13,11 +13,11 @@
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header">Second</div>
+                    <div class="collapsible-header">Standort</div>
                     <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
                 </li>
                 <li>
-                    <div class="collapsible-header">Third</div>
+                    <div class="collapsible-header">Zeitraum</div>
                     <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
                 </li>
             </form>
