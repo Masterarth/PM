@@ -3,7 +3,7 @@
 /**
  * Handels the Datebase Connection and gives the Possibility to
  * Update, Select, Delete, Insert Data 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 11.08.2016
  */
 class db_base extends PDO {

@@ -4,9 +4,15 @@
  * Drops the existing Tables from the Database and loads the new 
  * defined SQL Statements
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
+if (isset($_SESSION["user"]) && !isset($_POST["reg"]["refresh"])) {
+    session_destroy();
+    header('Location: /pm/db');
+    exit;
+}
+
 if (isset($_POST["reg"]["refresh"]) && $_POST["reg"]["refresh"] == true) {
     $result = core()->db()->select("SHOW TABLES");
     while (count($result) > 0) {

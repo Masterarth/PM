@@ -4,7 +4,7 @@
  * 1. If no Company exists --> Create a new one
  * 2. If a Company exists --> Shows it up
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

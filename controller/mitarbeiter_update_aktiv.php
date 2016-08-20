@@ -1,7 +1,7 @@
 <?php
 /**
  * Updates the Active Field of the selected Employee
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

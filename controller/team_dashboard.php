@@ -4,7 +4,7 @@
  * 1. Read all teams from the Database
  * 2. Checks if there was a search request => Shows up the  
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 04.08.2016
  */
 if (isset($_POST["team_search"])) {

@@ -5,7 +5,7 @@
  * 1. Sets Page Titels
  * 2. Sets Parallax Functions
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 class materializecss_handler {

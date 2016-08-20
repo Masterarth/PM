@@ -5,7 +5,7 @@
  * 2. If there is no Location with the same Values, create a new one
  * 3. Insert into the Database
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

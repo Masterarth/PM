@@ -6,7 +6,7 @@
  * 2. Save the Basis Informations
  * 3. Save Indicators (if they are defined)
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

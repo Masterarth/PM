@@ -4,7 +4,7 @@
  * Distribute Controller for the Employee
  * Redirect to new, dashboard, edit, delete Employees
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 $request = core()->request()->getParams();

@@ -4,7 +4,7 @@
  * 1. Read all Locations from the Database
  * 2. Search a Location in the Database (String)
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

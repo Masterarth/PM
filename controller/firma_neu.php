@@ -4,7 +4,7 @@
  * 1. If the Company exists --> Output a Toast
  * 2. If the Company doesn't exists --> Inserts a Company
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

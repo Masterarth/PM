@@ -4,7 +4,7 @@
  * 1. Get the Employee with an ID
  * 2. Updates an Employee
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

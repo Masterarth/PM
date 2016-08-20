@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Distribution Controller for the Location
  * It's needed becouse of the clean URL
@@ -7,8 +8,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
-
 $request = core()->request()->getParams();
 
 if (isset($request[2])) {
@@ -43,7 +42,7 @@ if (isset($request[2])) {
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
-        
+
         core()->materialize()->addFixedNavElement("/pm/standort/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
         core()->materialize()->addFixedNavElement("/pm/standort/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
@@ -54,7 +53,7 @@ if (isset($request[2])) {
 
 function loadStandort($id) {
     if ($id) {
-        $standort = core()->db()->select("select * from standort where id = " . $id, "fetch");
+        $standort = core()->db()->select("select * from standort s left join mitarbeiter m on m.id = s.s_leitung where s.id = " . $id, "fetch");
         if ($standort) {
             core()->smarty()->assign("standort", $standort);
         }

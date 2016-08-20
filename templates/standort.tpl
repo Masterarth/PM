@@ -7,7 +7,7 @@
         <div class="row container">
             <h2 class="header">{$standort->s_name}</h2>
             <h4 class="light">Leiter</h4>
-            <p class="para_content">{$standort->s_leitung}</p>
+            <div class="para_content"><p><a href="/pm/mitarbeiter/{$standort->s_leitung}">{$standort->vorname} {$standort->nachname}</a></p></div>
             <h4 class="light">Adresse</h4>
             <div class="para_content">
                 <p>{$standort->plz} {$standort->ort}</p>

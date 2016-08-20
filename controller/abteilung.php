@@ -4,7 +4,7 @@
  * It's neeeded becouse of the clean URL
  * Redirect to new, dashboard, edit or delete functionality
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

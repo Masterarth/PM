@@ -3,7 +3,7 @@
  * Creates a new Team
  * 1. If there is no Team with this name => Create a new one
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

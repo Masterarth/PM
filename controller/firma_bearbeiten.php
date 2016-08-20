@@ -2,7 +2,7 @@
 /**
  * Edits the current Company and Updates the Company
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 

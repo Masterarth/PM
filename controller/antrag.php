@@ -5,7 +5,7 @@
  * It's needed becouse of the clean URL
  * Redirect to new, dashboard, look up Proposals
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 08.08.2016
  * 
  */

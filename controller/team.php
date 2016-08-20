@@ -5,7 +5,7 @@
  * It's needed becouse of the clean URL
  * Redirects to new, dashboad, edit, delete Team
  * 
- * @author Lukas Adler
+ * @author Artur Stalbaum
  * @since 15.08.2016
  */
 $request = core()->request()->getParams();
