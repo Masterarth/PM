@@ -28,8 +28,8 @@ class materializecss_handler {
         core()->smarty()->assign($outputVar, "<script type=\"text/javascript\">Materialize.toast('" . $outputText . "', " . $time . ", '" . $style . "');</script>");
     }
 
-    public function addFixedNavElement($url, $tooltip, $iconname, $classes = null, $other = null) {
-        $this->fixed_nav_elements[] = array("url" => $url, "tooltip" => $tooltip, "iconname" => $iconname, "classes" => $classes, "other" => $other);
+    public function addFixedNavElement($url, $tooltip, $iconname, $color = "red", $classes = null, $other = null) {
+        $this->fixed_nav_elements[] = array("url" => $url, "tooltip" => $tooltip, "iconname" => $iconname, "color" => $color, "classes" => $classes, "other" => $other);
     }
 
     public function showFixedNavElement() {

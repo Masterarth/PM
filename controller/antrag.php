@@ -18,7 +18,7 @@ if (isset($request[2])) {
             core()->page()->loadController("antrag_neu");
             break;
         case "dashboard":
-            core()->materialize()->addFixedNavElement("/pm/antrag/neu", "Antrag anlegen", "mode_edit");
+            core()->materialize()->addFixedNavElement("/pm/antrag/neu", "Antrag anlegen", "mode_edit", "green");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("antrag_dashboard");
             core()->page()->loadController("antrag_dashboard");
@@ -45,9 +45,9 @@ if (isset($request[2])) {
 
         core()->materialize()->parallax(true);
 
-        core()->materialize()->addFixedNavElement("/pm/antrag/dashboard/", "Zurück", "call_missed");
-        core()->materialize()->addFixedNavElement("/pm/antrag/pdf/" . $request[2], "PDF export", "picture_as_pdf", null, "target='_blank'");
-        core()->materialize()->addFixedNavElement("/pm/antrag/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
+        core()->materialize()->addFixedNavElement("/pm/antrag/dashboard/", "Zurück", "call_missed", "black");
+        core()->materialize()->addFixedNavElement("/pm/antrag/pdf/" . $request[2], "PDF export", "picture_as_pdf", "blue", null, "target='_blank'");
+        core()->materialize()->addFixedNavElement("/pm/antrag/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit", "green");
         core()->materialize()->addFixedNavElement("/pm/antrag/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
 

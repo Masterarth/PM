@@ -17,7 +17,20 @@
         </div>
     </div>
 </div>
-<div class="divider"></div>
+<h4 class="teal-text">zu genehmigende Projekte</h4>
+<div class="section">
+    {if isset($zu_genehmigen)}
+        <div class="collection">
+            {foreach from=$zu_genehmigen item=projekt}
+                <a href="/pm/antrag/{$projekt->id}" class="collection-item">
+                    {$projekt->titel}
+                    <span class="secondary-content"><i class="material-icons">send</i></span>
+                </a>
+
+            {/foreach}
+        </div> 
+    {/if}
+</div>
 {*<div class="row">
 <div class="col s12 m4">
 <h4 class="teal-text">Mitarbeiter</h4>
@@ -32,54 +45,30 @@
 <div id="ressourcenChart"></div>
 </div>
 </div>*}
-<div class="divider"></div>
-<div class="row">
-    <div class="col s12">
-        <h4 class="teal-text">Meine Projekte - Ganttplan</h4>
-        <div id="chart_div"></div>
-    </div>
+<h4 class="teal-text">Meine Projekte - Ganttplan</h4>
+<div class="section">
+    <div id="chart_div"></div>
 </div>
-{if isset($zu_genehmigen)}
-    <div class="divider"></div>
-    <h4 class="teal-text">zu genehmigende Projekte</h4>
-    <div class="row">
-        {foreach from=$zu_genehmigen item=projekt}
-            <div class="col s12 m6 l4">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="/pm/bin/custom/images/projekt_2.jpg">-
-                        <span class="card-title">{$projekt->titel}</span>
-                    </div>
-                    <div class="card-content">
-                        <p>{$projekt->beschreibung}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="/pm/antrag/{$projekt->id}" class="teal-text">Öffnen</a>
-                    </div>
-                </div> 
-            </div>
-        {/foreach}
-    </div>
-{/if}
 {if isset($meine_projekte)}
-    <div class="divider"></div>
     <h4 class="teal-text">Meine Projekte</h4>
-    <div class="row">
-        {foreach from=$meine_projekte item=projekt}
-            <div class="col s12 m6 l4">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="/pm/bin/custom/images/projekt_2.jpg">
-                        <span class="card-title">{$projekt->titel}</span>
-                    </div>
-                    <div class="card-content">
-                        <p>{$projekt->beschreibung}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="/pm/antrag/{$projekt->id}" class="teal-text">Öffnen</a>
-                    </div>
-                </div> 
-            </div>
-        {/foreach}
+    <div class="section">
+        <div class="row">
+            {foreach from=$meine_projekte item=projekt}
+                <div class="col s12 m6 l4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/pm/bin/custom/images/projekt_2.jpg">
+                            <span class="card-title">{$projekt->titel}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{$projekt->beschreibung}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="/pm/antrag/{$projekt->id}" class="teal-text">Öffnen</a>
+                        </div>
+                    </div> 
+                </div>
+            {/foreach}
+        </div>
     </div>
 {/if}
