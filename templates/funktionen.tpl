@@ -8,7 +8,7 @@
         </center>-->
         <div class="row hoverable">
             <div class="col s3 hide-on-small-and-down">
-                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">euro_symbol</i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="big material-icons white-text valign">euro_symbol</i></div>
             </div>
             <div class="col s9">
                 <h4 class="teal-text big">Kontrolle</h4>
@@ -17,7 +17,7 @@
         </div>
         <div class="row hoverable">
             <div class="col s3 hide-on-small-and-down">
-                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">supervisor_account</i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="big material-icons white-text valign">supervisor_account</i></div>
             </div>
             <div class="col s9">
                 <h4 class="teal-text big">Selbstmanagement</h4>
@@ -26,7 +26,7 @@
         </div>
         <div class="row hoverable">
             <div class="col s3 hide-on-small-and-down">
-                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">devices_other</i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="big material-icons white-text valign">devices_other</i></div>
             </div>
             <div class="col s9">
                 <h4 class="teal-text big">Responsive Design</h4>
@@ -35,7 +35,7 @@
         </div>
         <div class="row hoverable">
             <div class="col s3 hide-on-small-and-down">
-                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">timeline</i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="big material-icons white-text valign">timeline</i></div>
             </div>
             <div class="col s9">
                 <h4 class="teal-text big">Statistik</h4>
@@ -44,7 +44,7 @@
         </div>
         <div class="row hoverable">
             <div class="col s3 hide-on-small-and-down">
-                <div class="icon-wrapper valign-wrapper"><i class="max material-icons white-text valign">airplanemode_active</i></div>
+                <div class="icon-wrapper valign-wrapper"><i class="big material-icons white-text valign">airplanemode_active</i></div>
             </div>
             <div class="col s9">
                 <h4 class="teal-text big">Frei</h4>

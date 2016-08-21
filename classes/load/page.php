@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class handels the Loading Stuff
  * 1. Loading Controllers
@@ -26,7 +27,7 @@ class load_page {
 
         core()->smarty()->assign("showNavbar", true);
         core()->smarty()->assign("showNavButton", true);
-        
+
         $page = core()->request()->getController();
 
         if (!core()->userhandler()->checkUser() && !$this->defaultPage($page)) {
@@ -48,6 +49,11 @@ class load_page {
             }
         }
 
+        if ($this->defaultPage($page)) {
+            core()->smarty()->assign("showNavbar", false);
+            core()->smarty()->assign("showNavButton", false);
+        }
+
         core()->smarty()->assign('page', $page . '.tpl');
         core()->materialize()->clearFixedNavElements();
         core()->materialize()->parallax(false);
@@ -67,7 +73,7 @@ class load_page {
     public function loadController($controller) {
         if ($controller) {
             if (isset($_SESSION["user"]) && !core()->permission()->checkGrp($_SESSION["user"], $controller) && !$this->defaultPage($controller)) {
-                $page = "401";
+                $controller = "401";
             }
             $_SESSION["page"] = $controller;
             $controllerpath = BASEPATH . 'controller/' . $controller . '.php';
@@ -93,8 +99,6 @@ class load_page {
     private function defaultPage($page) {
         $defaultPages = include 'config/default_pages.php';
         if (in_array($page, $defaultPages)) {
-            core()->smarty()->assign("showNavbar", false);
-            core()->smarty()->assign("showNavButton", false);
             return true;
         }
         return false;

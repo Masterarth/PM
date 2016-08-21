@@ -1,96 +1,7 @@
 google.charts.load('current', {'packages': ['gantt', 'corechart']});
 
-google.charts.setOnLoadCallback(mitarbeiterChart);
-function mitarbeiterChart() {
-
-    var jsonData = $.ajax({
-        url: "/pm/api/stats_mitarbeiter",
-        dataType: "json",
-        async: false
-    }).responseJSON;
-
-    var options = {
-        is3D: true,
-    };
-
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Rolle');
-    data.addColumn('number', 'Anzahl');
-
-    $.each(jsonData, function (i, jsonData)
-    {
-        var rolle = jsonData.rolle;
-        var anzahl = jsonData.anzahl;
-        data.addRows([[rolle, anzahl]]);
-    });
-
-    var chart = new google.visualization.PieChart(document.getElementById('mitarbeiterChart'));
-
-    chart.draw(data, options);
-}
-
-google.charts.setOnLoadCallback(projekteChart);
-function projekteChart() {
-
-    var jsonData = $.ajax({
-        url: "/pm/api/stats_mitarbeiter",
-        dataType: "json",
-        async: false
-    }).responseJSON;
-
-    var options = {
-        pieHole: 0.4,
-        legend: 'none'
-    };
-
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Rolle');
-    data.addColumn('number', 'Anzahl');
-
-    $.each(jsonData, function (i, jsonData)
-    {
-        var rolle = jsonData.rolle;
-        var anzahl = jsonData.anzahl;
-        data.addRows([[rolle, anzahl]]);
-    });
-
-    var chart = new google.visualization.PieChart(document.getElementById('projekteChart'));
-
-    chart.draw(data, options);
-}
-
-google.charts.setOnLoadCallback(ressourcenChart);
-function ressourcenChart() {
-
-    var jsonData = $.ajax({
-        url: "/pm/api/stats_ressourcen",
-        dataType: "json",
-        async: false
-    }).responseJSON;
-
-    var options = {
-        pieStartAngle: 100,
-        sliceVisibilityThreshold: 0
-    };
-
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Name');
-    data.addColumn('number', 'Anzahl');
-
-    $.each(jsonData, function (i, jsonData)
-    {
-        var name = jsonData.name;
-        var anzahl = jsonData.anzahl;
-        data.addRows([[name, anzahl]]);
-    });
-
-    var chart = new google.visualization.PieChart(document.getElementById('ressourcenChart'));
-
-    chart.draw(data, options);
-}
-
-google.charts.setOnLoadCallback(drawChart);
-function drawChart() {
+google.charts.setOnLoadCallback(ganttChart);
+function ganttChart() {
 
     var jsonData = $.ajax({
         url: "/pm/api/gantt_projekte",
@@ -115,9 +26,8 @@ function drawChart() {
     });
 
     var options = {
-        height: 400,
         gantt: {
-            trackHeight: 30
+            trackHeight: 35
         }
     };
 
@@ -126,9 +36,98 @@ function drawChart() {
     chart.draw(data, options);
 }
 
+//google.charts.setOnLoadCallback(mitarbeiterChart);
+//function mitarbeiterChart() {
+//
+//    var jsonData = $.ajax({
+//        url: "/pm/api/stats_mitarbeiter",
+//        dataType: "json",
+//        async: false
+//    }).responseJSON;
+//
+//    var options = {
+//        is3D: true,
+//    };
+//
+//    var data = new google.visualization.DataTable();
+//    data.addColumn('string', 'Rolle');
+//    data.addColumn('number', 'Anzahl');
+//
+//    $.each(jsonData, function (i, jsonData)
+//    {
+//        var rolle = jsonData.rolle;
+//        var anzahl = jsonData.anzahl;
+//        data.addRows([[rolle, anzahl]]);
+//    });
+//
+//    var chart = new google.visualization.PieChart(document.getElementById('mitarbeiterChart'));
+//
+//    chart.draw(data, options);
+//}
+//
+//google.charts.setOnLoadCallback(projekteChart);
+//function projekteChart() {
+//
+//    var jsonData = $.ajax({
+//        url: "/pm/api/stats_mitarbeiter",
+//        dataType: "json",
+//        async: false
+//    }).responseJSON;
+//
+//    var options = {
+//        pieHole: 0.4,
+//        legend: 'none'
+//    };
+//
+//    var data = new google.visualization.DataTable();
+//    data.addColumn('string', 'Rolle');
+//    data.addColumn('number', 'Anzahl');
+//
+//    $.each(jsonData, function (i, jsonData)
+//    {
+//        var rolle = jsonData.rolle;
+//        var anzahl = jsonData.anzahl;
+//        data.addRows([[rolle, anzahl]]);
+//    });
+//
+//    var chart = new google.visualization.PieChart(document.getElementById('projekteChart'));
+//
+//    chart.draw(data, options);
+//}
+//
+//google.charts.setOnLoadCallback(ressourcenChart);
+//function ressourcenChart() {
+//
+//    var jsonData = $.ajax({
+//        url: "/pm/api/stats_ressourcen",
+//        dataType: "json",
+//        async: false
+//    }).responseJSON;
+//
+//    var options = {
+//        pieStartAngle: 100,
+//        sliceVisibilityThreshold: 0
+//    };
+//
+//    var data = new google.visualization.DataTable();
+//    data.addColumn('string', 'Name');
+//    data.addColumn('number', 'Anzahl');
+//
+//    $.each(jsonData, function (i, jsonData)
+//    {
+//        var name = jsonData.name;
+//        var anzahl = jsonData.anzahl;
+//        data.addRows([[name, anzahl]]);
+//    });
+//
+//    var chart = new google.visualization.PieChart(document.getElementById('ressourcenChart'));
+//
+//    chart.draw(data, options);
+//}
+
 $(window).resize(function () {
-    drawChart();
-    mitarbeiterChart();
-    projekteChart();
-    ressourcenChart();
+    ganttChart();
+//    mitarbeiterChart();
+//    projekteChart();
+//    ressourcenChart();
 });

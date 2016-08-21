@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Creates a new Proposal and saves it into the Database
  * Following Functions are included:
@@ -9,8 +10,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
-
 $abteilungen = core()->db()->select("select * from abteilung,standort where abteilung.s_id=standort.id");
 core()->smarty()->assign("abteilungen", $abteilungen);
 
@@ -22,8 +21,8 @@ core()->smarty()->assign("mitarbeiter", $mitarbeiter);
 if (isset($_POST["reg"])) {
 
     $projectAntragArray = array(
-        'p_auftraggeber' => null,
         'p_titel' => null,
+        'p_auftraggeber' => null,
         'bemerkung' => null,
         'p_ziel1' => null,
         'p_ziel2' => null,
@@ -54,8 +53,32 @@ if (isset($_POST["reg"])) {
         'mon_kosten' => null,
         'mon_nutzen' => null,
         'kap_kosten' => null,
-        'b_id' => null
+        'b_id' => null,
+        's_id' => null
     );
+
+    if (isset($_POST["reg"]["sollkosten"])) {
+        $kosten = $_POST["reg"]["sollkosten"];
+        switch ($kosten) {
+            case $kosten <= 5000:
+                $projectAntragArray["genehm_E1"] = 0;
+                $projectAntragArray["genehm_E2"] = 1;
+                $projectAntragArray["genehm_E3"] = 1;
+                break;
+            case $kosten <= 25000:
+                $projectAntragArray["genehm_E1"] = 0;
+                $projectAntragArray["genehm_E2"] = 0;
+                $projectAntragArray["genehm_E3"] = 1;
+                break;
+            case $kosten <= 50000:
+                $projectAntragArray["genehm_E1"] = 0;
+                $projectAntragArray["genehm_E2"] = 0;
+                $projectAntragArray["genehm_E3"] = 0;
+                break;
+            //case > 50000?
+            // was soll hier passieren weil in ppt steht >50k = gf 
+        }
+    }
 
 //Standard Informationen
     $projectAntragArray["p_titel"] = $_POST["reg"]["projectname"];
@@ -67,9 +90,11 @@ if (isset($_POST["reg"])) {
     $projectAntragArray["nicht_ziel"] = $_POST["reg"]["nichtZiele"];
     $projectAntragArray["p_erstelldatum"] = date("Y-m-d");
 
+
     $projectAntragArray["e_id"] = $_SESSION["user"]->getId();
     $projectAntragArray["a_id"] = $_POST["reg"]["abteilung"];
     $projectAntragArray["l_id"] = $_POST["reg"]["leiter"];
+    $projectAntragArray["s_id"] = 1;
 
 //Zielkreuzmethode
     $projectAntragArray["p_ziel1"] = $_POST["reg"]["kreuzwozu"];
@@ -88,8 +113,8 @@ if (isset($_POST["reg"])) {
     $projectAntragArray["tat_end_datum"] = $_POST["reg"]["istenddatum"];
 
     $pid = core()->db()->update(
-            "insert into projekt (titel,auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2,genehmigung_E3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_term,vor_end_term,nutzen,amorti_zeit,bemerkung,mon_kosten,mon_nutzen,kap_kosten, e_id, a_id, l_id,b_id) "
-            . "values(:p_titel,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:komm_konz,:risiko,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung,:mon_kosten,:mon_nutzen,:kap_kosten,:e_id, :a_id, :l_id, :b_id)", $projectAntragArray);
+            "insert into projekt (titel,auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2,genehmigung_E3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_term,vor_end_term,nutzen,amorti_zeit,bemerkung,mon_kosten,mon_nutzen,kap_kosten, e_id, a_id, l_id,b_id,s_id) "
+            . "values(:p_titel,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:komm_konz,:risiko,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung,:mon_kosten,:mon_nutzen,:kap_kosten,:e_id, :a_id, :l_id, :b_id,:s_id)", $projectAntragArray);
 
     if (isset($_POST["reg"]["kapitalwert"])) {
         foreach ($_POST["reg"]["kapitalwert"] as $value) {

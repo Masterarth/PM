@@ -10,7 +10,6 @@ if (isset($request[2])) {
         case "mitarbeiter":
             if (isset($_POST["name"])) {
                 $users = core()->db()->select("select * from mitarbeiter where concat_ws(' ',vorname,nachname) like '%" . $_POST["name"] . "%'", 'fetchAll', PDO::FETCH_ASSOC);
-
                 echo json_encode($users);
                 exit;
             }
@@ -40,7 +39,12 @@ if (isset($request[2])) {
             exit;
             break;
         case "gantt_projekte":
-            $projekte = core()->db()->select("select * from projekt");
+            if (isset($_SESSION["user"]) && (!isset($request[3]))) {
+                $user = $_SESSION["user"];
+                $projekte = core()->db()->select("select * from projekt where e_id = " . $user->getId() . " or l_id =" . $user->getId());
+            } elseif ((isset($request[3]) && $request[3] == "all") || !isset($_SESSION["user"])) {
+                $projekte = core()->db()->select("select * from projekt");
+            }
             foreach ($projekte as $projekt) {
                 $data[] = array(
                     "taskId" => "Projekt " . $projekt->id,
