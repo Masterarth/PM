@@ -58,3 +58,8 @@ Stammdaten
         [x] anlegen
         [x] löschen
         [x] bearbeiten
+
+[x] API für Dashboard (https://developers.google.com/chart/)
+    [x] API für mitarbeiter 
+    [x] API für Projekte -> was soll ich da anzeigen ? 
+    [x] API für GANTT 
