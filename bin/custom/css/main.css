@@ -2,15 +2,15 @@
     margin-top: 20px;
 }
 
-/*.parallax-container {
-    height: 500px;
-}*/
-
 .para_content{
     border-left: 10px lightblue solid;
 }
 
 .para_content p {
+    margin-left: 20px;
+}
+
+.para_content span {
     margin-left: 20px;
 }
 

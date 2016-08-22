@@ -10,7 +10,7 @@
         [x] anzeige
     [ ] Antrag ansicht
         [x] Basis
-        [ ] Zusatz 
+        [x] Zusatz 
             - Abteilung fehlt
         [ ] Kennzahlen
             - kapitalwertmethode fehlt
