@@ -4,7 +4,14 @@
     </div>
     <div class="section white">
         <div class="row container">
-            <h2>{$projekt->titel} (#{$projekt->id})</h2>
+            <div class="row">
+                <div class="col s12 m9">
+                    <h2>{$projekt->titel} (#{$projekt->id})</h2>
+                </div>
+                <div class="col s12 m3">
+                    <h3 class="teal-text" style="border-left: 10px solid lightblue; padding-left: 20px;">{$projekt->status}</h3>
+                </div>
+            </div>
             <div class="row">
                 <div class="col s12">
                     <ul class="tabs">
@@ -37,21 +44,73 @@
                                 <div class="col s12 m4">
                                     <h4 class="light">Ersteller</h4>
                                     <div class="para_content">
-                                        {if isset($ersteller)}
-                                            <span><a href="/am/mitarbeiter/{$ersteller->id}">{$ersteller->vorname} {$ersteller->nachname}</a></span>
-                                        {/if}
+                                        <span><a href="/pm/mitarbeiter/{$projekt->e_id}">{$projekt->vorname} {$projekt->nachname}</a></span>
                                     </div>
                                 </div>
                                 <div class="col s12 m4">
                                     <h4 class="light">Standort</h4>
                                     <div class="para_content">
-                                        <span><a href="/am/standort/{$projekt->s_id}">{$projekt->s_name}</a></span>
+                                        <span><a href="/pm/standort/{$projekt->s_id}">{$projekt->s_name}</a></span>
                                     </div>
                                 </div>
                                 <div class="col s12 m4">
                                     <h4 class="light">Abteilung</h4>
                                     <div class="para_content">
-                                        <span><a href="/am/abteilung/{$projekt->a_id}">{$projekt->a_name}</a></span>
+                                        <span><a href="/pm/abteilung/{$projekt->a_id}">{$projekt->a_name}</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <h4 class="light">Kosten</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->mon_kosten|number_format:2:",":"."} €</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h4 class="light">Nutzen</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->mon_nutzen|number_format:2:",":"."} €</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12 m12">
+                                    <h4 class="light">Auftraggeber</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->auftraggeber}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h4 class="light">Wozu?</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->p_ziel1}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h4 class="light">Was?</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->p_ziel2}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h4 class="light">Wie gut?</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->p_ziel3}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h4 class="light">Für wen?</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->p_ziel4}</span>
                                     </div>
                                 </div>
                             </div>
@@ -90,46 +149,10 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="row">
-                                <div class="col s12 m6">
-                                    <h4 class="light">Wozu?</h4>
+                                <div class="col s12">
+                                    <h4 class="light">Bemerkung</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->p_ziel1}</span>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6">
-                                    <h4 class="light">Was?</h4>
-                                    <div class="para_content">
-                                        <span>{$projekt->p_ziel2}</span>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6">
-                                    <h4 class="light">Wie gut?</h4>
-                                    <div class="para_content">
-                                        <span>{$projekt->p_ziel3}</span>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6">
-                                    <h4 class="light">Für wen?</h4>
-                                    <div class="para_content">
-                                        <span>{$projekt->p_ziel4}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="row">
-                                <div class="col s12 m6">
-                                    <h4 class="light">Kosten</h4>
-                                    <div class="para_content">
-                                        <span>{$projekt->mon_kosten|number_format:2:",":"."} €</span>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6">
-                                    <h4 class="light">Nutzen</h4>
-                                    <div class="para_content">
-                                        <span>{$projekt->mon_nutzen|number_format:2:",":"."} €</span>
+                                        <span>{$projekt->bemerkung}</span>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +160,133 @@
                     </div>
                 </div>
                 <div id="addon" class="col s12">
-
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <h4 class="light">Amortisationsdauer</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->amorti_zeit}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h4 class="light">Kapital Kosten</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->kap_kosten}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h4 class="light">Geplantes Budget</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->plan_budget}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h4 class="light">Tatsächliches Budget</h4>
+                                    <div class="para_content">
+                                        <span>{$projekt->tat_budget}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {if isset($projektteam)}
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h4 class="light">Projektteams</h4>
+                                        <div class="para_content">
+                                            <table class="responsive-table highlight">
+                                                {foreach from=$projektteam item=team}
+                                                    <tr onclick="window.document.location = '/pm/team/{$team->id}';" style="cursor: pointer;">
+                                                        <td>{$team->t_name}</td>
+                                                        <td>{$team->stunden|number_format:2:",":"."} h</td>
+                                                    </tr>
+                                                {/foreach}
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
+                    {if isset($arbeitspakete)}
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h4 class="light">Arbeitspakete</h4>
+                                        <div class="para_content">
+                                            <ul>
+                                                {foreach from=$arbeitspakete item=paket}
+                                                    <li>{$paket->arbeitspaket}</li>
+                                                    {/foreach}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
+                    {if isset($meilensteine)}
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h4 class="light">Meilensteine</h4>
+                                        <div class="para_content">
+                                            <table class="responsive-table highlight">
+                                                <thead>
+                                                <th>Meilenstein</th>
+                                                <th>Erfüllt</th>
+                                                </thead>
+                                                <tbody>
+                                                    {foreach from=$meilensteine item=meilenstein}
+                                                        <tr>
+                                                            <td>{$meilenstein->meilenstein}</td>
+                                                            <td>{if $meilenstein->erfuellt == 1}<i class="material-icons green-text">done</i>{else}<i class="material-icons red-text">clear</i>{/if}</td>
+                                                        </tr>
+                                                    {/foreach}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
+                    {if isset($kapitalwerte)}
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h4 class="light">Kapitalwerte</h4>
+                                        <div class="para_content">
+                                            <table class="responsive-table highlight">
+                                                <thead>
+                                                <th>Jahr</th>
+                                                <th>Zinssatz</th>
+                                                <th>Einzahlung</th>
+                                                <th>Auszahlung</th>
+                                                </thead>
+                                                <tbody>
+                                                    {foreach from=$kapitalwerte item=kapitalwert}
+                                                        <tr>
+                                                            <td>{$kapitalwert->jahr}</td>
+                                                            <td>{$kapitalwert->zinssatz}</td>
+                                                            <td>{$kapitalwert->einzahlung}</td>
+                                                            <td>{$kapitalwert->auszahlung}</td>
+                                                        </tr>
+                                                    {/foreach}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
                 </div>
             </div>
         </div>
@@ -145,6 +294,6 @@
 {else}
     <div class="center">
         <h4>Das Projekt konnte nicht gefunden werden</h4>
-        <span><span class="btn btn-flat" href="/am/antrag/dashboard">Zurück zur übersicht</a></a>
+        <span><span class="btn btn-flat" href="/pm/antrag/dashboard">Zurück zur übersicht</a></a>
                 </div>
             {/if}

@@ -14,6 +14,14 @@
     margin-left: 20px;
 }
 
+.para_content ul {
+    margin-left: 20px;
+}
+
+.para_content table {
+    margin-left: 20px;
+}
+
 /*override*/
 nav .brand-logo{
     color: black;
@@ -87,4 +95,8 @@ i.bigger{
 .slides img{
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
+}
+
+.btn-wrapper .btn-floating{
+    margin-right: 20px;
 }

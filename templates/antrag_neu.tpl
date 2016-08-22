@@ -12,10 +12,10 @@
     <div class="card">
         <div id="basis" class="col s12">
             <div class="card-content">
-                <span class="card-title teal-text">Basisinformationen{*neue Projektnummer aus db holen und anzeigen*}</span>
-                <hr>
-                <br/>
-                <br/>
+                <div class="section">
+                    <span class="card-title teal-text">Basisinformationen</span>
+                    <div class="divider"></div>
+                </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">mode_edit</i>
@@ -37,21 +37,18 @@
                         <textarea id="kurzbeschreibung" name="reg[kurzbeschreibung]" required="" type="text"  class="materialize-textarea validate" length="320" placeholder="Bitte geben Sie eine Kurzbeschreibung ein..."></textarea>
                         <label for="kurzbeschreibung">Kurzbeschreibung</label>
                     </div>
-
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
                         <textarea id="rahmenbedingungen" name="reg[rahmenbedingungen]" required="" class="materialize-textarea validate" type="text" length="255" placeholder="Bitte geben Sie die Rahmenbedingungen an..."></textarea>
                         <label for="rahmenbedingungen">Rahmenbedingungen</label>
                     </div>
-
                     <div class="input-field col s12">
                         <i class="material-icons prefix">ring_volume</i>
                         <textarea id="Kommunikation" name="reg[kommunikation]" required="" class="materialize-textarea validate" length="255" placeholder="Bitte geben Sie das Kommunikationskonzept an..."></textarea>
                         <label for="Kommunikation">Kommunikation</label>
                     </div>
-
                     <div class="input-field col s12">
-                        <i class="material-icons prefix"></i>
+                        <i class="material-icons prefix">layers_clear</i>
                         <textarea id="NichtZiele" name="reg[nichtZiele]" required="" class="materialize-textarea validate" length="255" placeholder="Bitte geben Sie an welche Dinge nicht realisiert werden solle..."></textarea>
                         <label for="NichtZiele">Nicht Ziele</label>
                     </div>
@@ -60,10 +57,10 @@
         </div>
         <div id="zusatz" class="col s12">
             <div class="card-content">
-                <span class="card-title teal-text">Zusatzinformationen</span>
-                <hr>
-                <br/>
-                <br/>
+                <div class="section">
+                    <span class="card-title teal-text">Zusatzinformationen</span>
+                    <div class="divider"></div>
+                </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <select name="reg[abteilung]">
@@ -90,37 +87,42 @@
                     </div>
                 </div>
                 <span class="card-title teal-text">Zielkreuzmethode</span>
-                <hr>
-                <br/>
-                <br/>
+                <div class="divider"></div>
                 <div class="row">
                     <div class="col s6">
-                        <div class="card-panel teal">
-                            <span class="white-text">Wozu?<hr>
-                                <input type="text" name="reg[kreuzwozu]" class="validate materialize-textarea" placeholder="Welchem Zweck dient das Ziel?">
-                            </span>
+                        <div class="card-panel teal white-text">
+                            <h6>Wozu?</h6>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <input type="text" name="reg[kreuzwozu]" class="validate" placeholder="Welchem Zweck dient das Ziel?" />
+                            </div>
                         </div>
                     </div>
                     <div class="col s6">
-                        <div class="card-panel teal">
-                            <span class="white-text">Was?<hr>
-                                <input type="text" name="reg[kreuzwas]" class="validate materialize-textarea" placeholder="Welche Leistungen sind zu erbringen?">
-                            </span>
+                        <div class="card-panel teal white-text">
+                            <h6>Was?</h6>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <input type="text" name="reg[kreuzwas]" class="validate" placeholder="Welche Leistungen sind zu erbringen?" />
+                            </div>
                         </div>
                     </div>
                     <div class="col s6">
-                        <div class="card-panel teal">
-                            <span class="white-text">Wie gut?<hr>
-                                <input type="text" name="reg[kreuzwiegut]" class="validate materialize-textarea" placeholder="Was sind die Abnahmekriterien?">
-                            </span>
-
+                        <div class="card-panel teal white-text">
+                            <h6>Wie gut?</h6>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <input type="text" name="reg[kreuzwiegut]" class="validate" placeholder="Was sind die Abnahmekriterien?" />
+                            </div>
                         </div>
                     </div>
                     <div class="col s6">
-                        <div class="card-panel teal">
-                            <span class="white-text">Für wen?<hr>
-                                <input type="text" name="reg[kreuzfuerwen]" class="validate" placeholder="Wer ist die Nutzergruppe?">
-                            </span>
+                        <div class="card-panel teal white-text">
+                            <h6>Für wen?</h6>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <input type="text" name="reg[kreuzfuerwen]" class="validate" placeholder="Wer ist die Nutzergruppe?" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -128,9 +130,10 @@
         </div>
         <div id="kennzahl" class="col s12">
             <div class="card-content">
-                <span class="card-title teal-text">Kennzahlen</span>
-                <hr class="teal">
-                <br/>
+                <div class="section">
+                    <span class="card-title teal-text">Kennzahlen</span>
+                    <div class="divider"></div>
+                </div>
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="kosten" type="number" name="reg[sollkosten]" placeholder="Kosten"/>
@@ -141,10 +144,6 @@
                         <label for="nutzen">Nutzen</label>
                     </div>
                 </div>
-                <br/>
-                <span class="teal-text"><a id="btnKapitalwert" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>  Kapitalwertmethode</span>
-                <hr class="teal">
-                <br/>
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="kostenKapitalwert" name="reg[kostenKapitalwert]" type="number" placeholder="-I (Kosten)"/>
@@ -154,36 +153,55 @@
                         <input id="kapitalwertZins" name="reg[zinsKapitalwert]" type="number" placeholder="Zinssatz Kapitalwert"/>
                         <label for="kapitalwertZins">Zins(Risikolos + untern. Risiko)</label>
                     </div>
-                    <table class="highlight" id="tblKapitalwert" name="reg[kapitalwertfelder]">
-
-                    </table>
                 </div>
-                <br/>
-
-                <span class="teal-text"><a id="btnLeistungsverrechnung" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>  Leistungsverrechnung</span>
-                <hr class="teal">
-                <br/>
                 <div class="row">
-                    <table class="highlight" id="tblLeistungsverrechnung" name="reg[leistungsverrechnung]" contenteditable="true">
-
-                    </table>
+                    <div class="col s10 teal-text valign-wrapper">
+                        <p class="valign">Kapitalwertmethode</p>
+                    </div>
+                    <div class="col s1 teal-text right">
+                        <a id="btnKapitalwert" class="btn-floating teal"><i class="material-icons">add</i></a>
+                    </div>
                 </div>
-
-                <span class="teal-text"><a id="btnMeilensteine" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a> Meilensteine</span>
-                <hr class="teal">
-                <br/>
                 <div class="row">
-                    <table class="highlight" id="tblMeilensteine" name="reg[meilensteine]" contenteditable="true">
-
-                    </table>
+                    <div class="col s12">
+                        <table class="highlight" id="tblKapitalwert" name="reg[kapitalwertfelder]">
+                        </table>
+                    </div>
                 </div>
-
+                <div class="row">
+                    <div class="col s10 teal-text valign-wrapper">
+                        <p class="valign">Leistungsverrechnung</p>
+                    </div>
+                    <div class="col s1 teal-text right">
+                        <a id="btnLeistungsverrechnung" class="btn-floating teal"><i class="material-icons">add</i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <table class="highlight" id="tblLeistungsverrechnung" name="reg[leistungsverrechnung]" contenteditable="true">
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s10 teal-text valign-wrapper">
+                        <p class="valign">Meilensteine</p>
+                    </div>
+                    <div class="col s1 teal-text right">
+                        <a id="btnMeilensteine" class="btn-floating teal"><i class="material-icons">add</i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <table class="highlight" id="tblMeilensteine" name="reg[meilensteine]" contenteditable="true">
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="IstZahl" class="col s12">
             <div class="card-content">
                 <span class="card-title teal-text">Nachkalkulation</span>
-                <hr>
+                <div class="divider"></div>
                 <br/>
                 <div class="row">
                     <div class="input-field col s6">
@@ -197,8 +215,6 @@
                         <label for="istenddatum">Ist - Enddatum</label>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -214,7 +230,6 @@
 <script type="text/javascript">
     var tableKapitalwertVal = 0;
 
-
     //Adds Dynamic Content to the Table
     $('#btnKapitalwert').click(function ()
     {
@@ -223,13 +238,12 @@
             var structureHeader = "<thead><tr><th>Jahr</th><th>Ausgaben</th><th>Einnahmen</th></tr></thead>";
             $('#tblKapitalwert').append(structureHeader);
         }
-        var structure = "<tr><td><input disabled name='reg[kapitalwert][kwJahr" + tableKapitalwertVal + "]' value='" + tableKapitalwertVal + "' /></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][kwAusg" + tableKapitalwertVal + "]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][kwEin" + tableKapitalwertVal + "]'</td></tr>"
+        var structure = "<tr><td>" + tableKapitalwertVal + "<input type='hidden' name='reg[kapitalwert][" + tableKapitalwertVal + "][Jahr]' value='" + tableKapitalwertVal + "'/></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][" + tableKapitalwertVal + "][Ausg]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][" + tableKapitalwertVal + "][Ein]'</td></tr>"
         $('#tblKapitalwert').append(structure);
         tableKapitalwertVal++;
     });
 
     var tableLeistungsverrechnungVal = 0;
-
 
     //Adds Dynamic Content to the Table
     $('#btnLeistungsverrechnung').click(function ()
