@@ -118,8 +118,14 @@ if (isset($_POST["reg"])) {
 
     if (isset($_POST["reg"]["kapitalwert"])) {
         foreach ($_POST["reg"]["kapitalwert"] as $value) {
-            $kid = core()->db()->update("insert into kapitalwerte (p_id,jahr,zinssatz,einzahlung,auszahlung)"
-                    . "values (" . $pid . "," . $value[0] . ",0," . $value[1] . "," . $value[2] . ")", null);
+
+            $data["jahr"] = $value["Jahr"];
+            $data["pid"] = $pid;
+            $data["aus"] = $value["Ausg"];
+            $data["ein"] = $value["Ein"];
+            $data["zins"] = 0;
+
+            $kid = core()->db()->update("insert into kapitalwerte (p_id,jahr,zinssatz,einzahlung,auszahlung) values (:pid,:jahr,:zins,:ein,:aus)", $data);
         }
     }
 
