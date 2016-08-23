@@ -34,19 +34,21 @@
 -> Könnte bitte jmd diese Felder in die anlege maske mit aufnehmen?! 
     @Artur => Welche Felder?
 
--> ! ich bräuchte hilfe bei der Logik also nicht beim programmieren sondern wirklich nur theoretisch:
+ [X] ! ich bräuchte hilfe bei der Logik also nicht beim programmieren sondern wirklich nur theoretisch:
     - wie ich jetzt die genehmigunskacke handeln soll ... 
     - sprich:
         - wie wähle ich am intelligentesten die zu genehmigenden Projekte?
         - wie mache ich das am besten mit den kack stufen? 
         - denn die bisherige auswahl auf dem Dashboard stimmt nicht!!!
+        @Artur = Lösung liegt in Document/Projectmanagement/Planung ==> Genehmigungsumsetzung_Artur
+     
 
 [ ] stammdaten
     [ ] Prioritäten -> Bemerkung LA: Prioritäten sind glaube ich einfach nur hoch, mittel, niedrig?
         [ ] anzeigen
         [ ] für ein projekt vergeben
         - frage: warum ist das prio zeug in den stammdaten ? @Artur => Macht keinen Sinn mehr und kann raus
-    [ ] Statistiken
+    [X] Statistiken
         - kann jmd nur mal definieren (BITTE GENAU!) was wir hier für Diagramme bzw. Statistiken anzeigen wollen?
         - bitte in ein seperates doc und dann bescheid geben
             @Nico => Diagramme ausdenken und hochladen
