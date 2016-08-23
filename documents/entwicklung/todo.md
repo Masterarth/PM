@@ -51,6 +51,6 @@
         - bitte in ein seperates doc und dann bescheid geben
             @Nico => Diagramme ausdenken und hochladen
 
-[ ] @NICO       bitte den Text für die Statistik Kachel in den Stammdaten schreiben!!! danke :) 
+[X] @NICO       bitte den Text für die Statistik Kachel in den Stammdaten schreiben!!! danke :) gerne :)
 [ ] @KARSTEN    bitte mal die ganzen Testfälle wie besprochen fertig machen!!! danke :)
 [ ] @ALL        TESTEN TESTEN TESTEN und Bugs in ein bug.md file hier im ordner schreiben danke :)

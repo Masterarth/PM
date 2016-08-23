@@ -115,7 +115,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title teal-text">Statistiken<i class="material-icons right">close</i></span>
-                <p>Hier können die Berechtigungen für jeden Mitarbeiter einzeln angepasst und verwaltet werden.</p>
+                <p>Hier finden Sie nützliche Statistiken zu Ihren Projekten. Zusätzlich können Diagramme über das Personal und das Budget eingesehen werden.</p>
             </div>
         </div>
     </div>
