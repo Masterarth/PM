@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS Kapitalwerte(
   p_id INT(6) UNSIGNED NOT NULL,
   FOREIGN KEY(p_id) REFERENCES Projekt(id) ON DELETE CASCADE ON UPDATE CASCADE,
   jahr INT(4) NOT NULL,
-  zinssatz INT(10),
+  zinssatz DOUBLE,
   einzahlung DOUBLE,
   auszahlung DOUBLE
 );
