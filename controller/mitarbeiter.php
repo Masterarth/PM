@@ -6,6 +6,11 @@
  * 
  * @author Artur Stalbaum
  * @since 15.08.2016
+ * 
+ * Adding the Edit Function
+ * 
+ * @author Lukas Adler
+ * @since 23.08.2016
  */
 $request = core()->request()->getParams();
 

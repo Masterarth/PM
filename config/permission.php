@@ -48,5 +48,6 @@ return array(
     "test" => array('admin'),
     "leistung" => array("admin"),
     "leistung_neu" => array("admin"),
-    "leistung_bearbeiten" => array("admin")
+    "leistung_bearbeiten" => array("admin"),
+    "antrag_bearbeiten" => array("all")
 );

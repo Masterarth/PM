@@ -144,6 +144,15 @@
                         <label for="nutzen">Nutzen</label>
                     </div>
                 </div>
+                
+                <div class="row">
+                    <div class="col s10 teal-text valign-wrapper">
+                        <p class="valign">Kapitalwertmethode</p>
+                    </div>
+                    <div class="col s1 teal-text right">
+                        <a id="btnKapitalwert" class="btn-floating teal"><i class="material-icons">add</i></a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="kostenKapitalwert" name="reg[kostenKapitalwert]" type="number" placeholder="-I (Kosten)"/>
@@ -152,14 +161,6 @@
                     <div class="input-field col s6">
                         <input id="kapitalwertZins" name="reg[zinsKapitalwert]" type="number" placeholder="Zinssatz Kapitalwert"/>
                         <label for="kapitalwertZins">Zins(Risikolos + untern. Risiko)</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s10 teal-text valign-wrapper">
-                        <p class="valign">Kapitalwertmethode</p>
-                    </div>
-                    <div class="col s1 teal-text right">
-                        <a id="btnKapitalwert" class="btn-floating teal"><i class="material-icons">add</i></a>
                     </div>
                 </div>
                 <div class="row">

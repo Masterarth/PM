@@ -8,6 +8,11 @@
  * @author Artur Stalbaum
  * @since 08.08.2016
  * 
+ * 
+ * Adding the Edit Function
+ * 
+ * @author Lukas Adler
+ * @since 23.08.2016
  */
 $request = core()->request()->getParams();
 
@@ -32,6 +37,20 @@ if (isset($request[2])) {
                     exit;
                 }
             }
+            break;
+        case "bearbeiten":
+            core()->materialize()->addFixedNavElement("/pm/antrag/" . $request[3], "Zurück", "call_missed");
+            core()->materialize()->showFixedNavElement();
+            core()->page()->loadPage("antrag_bearbeiten");
+
+            if (is_numeric($request[3])) {
+                $projekt = core()->db()->select("select * from projekt where projekt.id=" . $request[3], "fetch");
+                core()->smarty()->assign("projekt", $projekt);
+                loadProject($request[3],$projekt);
+            } else {
+                core()->page()->loadController("antrag_bearbeiten");
+            }
+
             break;
         case "pdf":
             if (is_numeric($request[3])) {
@@ -91,6 +110,38 @@ if (isset($request[2])) {
             if (count($projektteam) > 0) {
                 core()->smarty()->assign("projektteam", $projektteam);
             }
+        }
+    }
+}
+
+/**
+ * Load all Project Data Informations
+ * @param int $id
+ */
+function loadProject($id,$projekt) {
+    if (is_numeric($id)) {
+
+        $abteilungen = core()->db()->select("select * from abteilung,standort where abteilung.s_id=standort.id");
+        core()->smarty()->assign("abteilungen", $abteilungen);
+        
+        $aktAbt = core()->db()->select("select * from abteilung, standort where abteilung.s_id=standort.id AND abteilung.id=".$projekt->a_id,"fetch");
+        core()->smarty()->assign("aktAbt",$aktAbt);
+        
+        $mitarbeiter = core()->db()->select("select * from mitarbeiter where r_id = 3");
+        core()->smarty()->assign("mitarbeiter", $mitarbeiter);
+        
+        $prjLeader = core()->db()->select("select * from mitarbeiter where mitarbeiter.id=".$projekt->l_id,"fetch");
+        core()->smarty()->assign("prjLeader",$prjLeader);
+
+        $ms = core()->db()->select("select * from meilensteine where meilensteine.p_id=" . $id);
+        $kw = core()->db()->select("select * from kapitalwerte where kapitalwerte.p_id=" . $id);
+
+        if ($ms != null) {
+            core()->smarty()->assign("ms", $ms);
+        }
+
+        if ($kw != null) {
+            core()->smarty()->assign("kw", $kw);
         }
     }
 }

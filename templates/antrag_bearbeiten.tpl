@@ -19,40 +19,40 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">mode_edit</i>
-                        <input id="projektname" name="reg[projectname]" type="text" required="" class="validate" placeholder="Projektname">
+                        <input id="projektname" name="reg[projectname]" type="text" required="" class="validate" placeholder="Projektname" value="{$projekt->titel}">
                         <label for="projektname">Projektname</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">query_builder</i>
-                        <input id="sollstartdatum" name="reg[sollstartdatum]" type="date" required="" class="datepicker" placeholder="TT.MM.YYYY">
+                        <input id="sollstartdatum" name="reg[sollstartdatum]" type="date" required="" class="datepicker" placeholder="TT.MM.YYYY" value="{$projekt->vor_sta_term}">
                         <label for="sollstartdatum">Startdatum</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">query_builder</i>
-                        <input id="sollenddatum" name="reg[sollenddatum]" type="date" required="" class="datepicker" placeholder="TT.MM.YYYY">
+                        <input id="sollenddatum" name="reg[sollenddatum]" type="date" required="" class="datepicker" placeholder="TT.MM.YYYY" value="{$projekt->vor_end_term}">
                         <label for="sollenddatum">Enddatum</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">chat</i>
-                        <textarea id="kurzbeschreibung" name="reg[kurzbeschreibung]" required="" type="text"  class="materialize-textarea validate" length="320" placeholder="Bitte geben Sie eine Kurzbeschreibung ein..."></textarea>
+                        <textarea id="kurzbeschreibung" name="reg[kurzbeschreibung]" required="" type="text"  class="materialize-textarea validate" length="320" placeholder="Bitte geben Sie eine Kurzbeschreibung ein..." >{$projekt->beschreibung}</textarea>
                         <label for="kurzbeschreibung">Kurzbeschreibung</label>
                     </div>
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <textarea id="rahmenbedingungen" name="reg[rahmenbedingungen]" required="" class="materialize-textarea validate" type="text" length="255" placeholder="Bitte geben Sie die Rahmenbedingungen an..."></textarea>
+                        <textarea id="rahmenbedingungen" name="reg[rahmenbedingungen]" required="" class="materialize-textarea validate" type="text" length="255" placeholder="Bitte geben Sie die Rahmenbedingungen an..." >{$projekt->rahmbeding}</textarea>
                         <label for="rahmenbedingungen">Rahmenbedingungen</label>
                     </div>
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">ring_volume</i>
-                        <textarea id="Kommunikation" name="reg[kommunikation]" required="" class="materialize-textarea validate" length="255" placeholder="Bitte geben Sie das Kommunikationskonzept an..."></textarea>
+                        <textarea id="Kommunikation" name="reg[kommunikation]" required="" class="materialize-textarea validate" length="255" placeholder="Bitte geben Sie das Kommunikationskonzept an...">{$projekt->komm_konz}</textarea>
                         <label for="Kommunikation">Kommunikation</label>
                     </div>
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix"></i>
-                        <textarea id="NichtZiele" name="reg[nichtZiele]" required="" class="materialize-textarea validate" length="255" placeholder="Bitte geben Sie an welche Dinge nicht realisiert werden solle..."></textarea>
+                        <textarea id="NichtZiele" name="reg[nichtZiele]" required="" class="materialize-textarea validate" length="255" placeholder="Bitte geben Sie an welche Dinge nicht realisiert werden solle..." >{$projekt->nicht_ziel}</textarea>
                         <label for="NichtZiele">Nicht Ziele</label>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <select name="reg[abteilung]">
-                            <option value="" disabled selected>Auswählen</option>
+                            <option value="{$aktAbt->id}" disabled selected>{$aktAbt->s_name} | {$aktAbt->a_name}</option>
                             {foreach from=$abteilungen item=abteilung key=key}
                                 <option value="{$abteilung->id}">{$abteilung->s_name} | {$abteilung->a_name}</option>
                             {/foreach}
@@ -76,7 +76,7 @@
                     </div>
                     <div class="input-field col s12">
                         <select name="reg[leiter]">
-                            <option value="" disabled selected>Auswählen</option>
+                            <option value="{$prjLeader->id}" disabled selected>{$prjLeader->vorname} {$prjLeader->nachname}</option>
                             {foreach from=$mitarbeiter item=arbeiter key=key}
                                 <option value="{$arbeiter->id}">{$arbeiter->vorname} {$arbeiter->nachname}</option>
                             {/foreach}
@@ -97,21 +97,21 @@
                     <div class="col s6">
                         <div class="card-panel teal">
                             <span class="white-text">Wozu?<hr>
-                                <input type="text" name="reg[kreuzwozu]" class="validate materialize-textarea" placeholder="Welchem Zweck dient das Ziel?">
+                                <input type="text" name="reg[kreuzwozu]" class="validate materialize-textarea" placeholder="Welchem Zweck dient das Ziel?" value="{$projekt->p_ziel1}">
                             </span>
                         </div>
                     </div>
                     <div class="col s6">
                         <div class="card-panel teal">
                             <span class="white-text">Was?<hr>
-                                <input type="text" name="reg[kreuzwas]" class="validate materialize-textarea" placeholder="Welche Leistungen sind zu erbringen?">
+                                <input type="text" name="reg[kreuzwas]" class="validate materialize-textarea" placeholder="Welche Leistungen sind zu erbringen?" value="{$projekt->p_ziel2}">
                             </span>
                         </div>
                     </div>
                     <div class="col s6">
                         <div class="card-panel teal">
                             <span class="white-text">Wie gut?<hr>
-                                <input type="text" name="reg[kreuzwiegut]" class="validate materialize-textarea" placeholder="Was sind die Abnahmekriterien?">
+                                <input type="text" name="reg[kreuzwiegut]" class="validate materialize-textarea" placeholder="Was sind die Abnahmekriterien?" value="{$projekt->p_ziel3}">
                             </span>
 
                         </div>
@@ -119,7 +119,7 @@
                     <div class="col s6">
                         <div class="card-panel teal">
                             <span class="white-text">Für wen?<hr>
-                                <input type="text" name="reg[kreuzfuerwen]" class="validate" placeholder="Wer ist die Nutzergruppe?">
+                                <input type="text" name="reg[kreuzfuerwen]" class="validate" placeholder="Wer ist die Nutzergruppe?" value="{$projekt->p_ziel4}">
                             </span>
                         </div>
                     </div>
@@ -133,11 +133,11 @@
                 <br/>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="kosten" type="number" name="reg[sollkosten]" placeholder="Kosten"/>
+                        <input id="kosten" type="number" name="reg[sollkosten]" placeholder="Kosten" value="{$projekt->mon_kosten}"/>
                         <label for="kosten">Kosten</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="nutzen" type="number" name="reg[sollnutzen]" placeholder="Nutzen"/>
+                        <input id="nutzen" type="number" name="reg[sollnutzen]" placeholder="Nutzen" value="{$projekt->mon_nutzen}"/>
                         <label for="nutzen">Nutzen</label>
                     </div>
                 </div>
@@ -147,15 +147,29 @@
                 <br/>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="kostenKapitalwert" name="reg[kostenKapitalwert]" type="number" placeholder="-I (Kosten)"/>
+                        <input id="kostenKapitalwert" name="reg[kostenKapitalwert]" type="number" placeholder="-I (Kosten)" value="{$projekt->kap_kosten}"/>
                         <label for="kostenKapitalwert">Kosten (I)</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="kapitalwertZins" name="reg[zinsKapitalwert]" type="number" placeholder="Zinssatz Kapitalwert"/>
+                        <input id="kapitalwertZins" name="reg[zinsKapitalwert]" type="number" placeholder="Zinssatz Kapitalwert" value="{$kw[0]->zinssatz}"/>
                         <label for="kapitalwertZins">Zins(Risikolos + untern. Risiko)</label>
                     </div>
                     <table class="highlight" id="tblKapitalwert" name="reg[kapitalwertfelder]">
+                        {foreach from=$kw item=kww key=key}
+                            <tr>
+                                <td>
+                                    <input disabled type='number'  value="{$kww->jahr}"/>
+                                </td>
+                                <td>
+                                    <input type='text' value="{$kww->einzahlung}"/>
+                                </td>
+                                <td>
+                                    <input type='text' value="{$kww->auszahlung}"/>
 
+                                </td>
+                            </tr>
+
+                        {/foreach}
                     </table>
                 </div>
                 <br/>
@@ -174,7 +188,21 @@
                 <br/>
                 <div class="row">
                     <table class="highlight" id="tblMeilensteine" name="reg[meilensteine]" contenteditable="true">
+                        {foreach from=$ms item=mss key=key}
+                            <tr>
+                                <td>
+                                    <input disabled type='number'  value="{$mss->ms_nummer}"/>
+                                </td>
+                                <td>
+                                    <input type='text' value="{$mss->meilenstein}"/>
+                                </td>
+                                <td>
+                                    <input type='checkbox' id="{$mss->ms_nummer}" checked='{$mss->erfuellt}'  />
 
+                                </td>
+                            </tr>
+
+                        {/foreach}
                     </table>
                 </div>
 
@@ -205,7 +233,7 @@
 
     <div class="row">
         <div class="col s12">
-            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect teal'>Anlegen</button>
+            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect teal'>Update</button>
         </div>
     </div>
 </form>
