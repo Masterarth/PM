@@ -1,5 +1,7 @@
 <?php
 
+echo "hallo";
+
 if (isset($_POST["reg"])) {
 
     $result = core()->db()->select("select * from projekt where id ='" . $_POST["reg"]["id"] . "'", "fetch");
