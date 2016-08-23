@@ -6,6 +6,22 @@
     - BITTE hierzu mal gedanken machen ...
         @Lukas => Mach ich
 
+        //Möglichkeit
+        if ($stationFilter) {
+            $sql[] = " STATION_NETWORK = '$stationFilter' ";
+        }
+        if ($verticalFilter) {
+            $sql[] = " VERTICAL = '$verticalFilter' ";
+        }
+
+        $query = "SELECT * FROM $tableName";
+
+        if (!empty($sql)) {
+            $query .= ' WHERE ' . implode(' AND ', $sql);
+        }
+
+        echo $query;
+
 [ ] Anträge
     [ ] dashboard
         - Der PM Typ will ja ne alternative:

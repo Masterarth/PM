@@ -53,5 +53,6 @@ $(document).ready(function () {
 
     $('ul.tabs').tabs();
     $('.modal-trigger').leanModal();
+    $(".dropdown-button").dropdown();
 
 });

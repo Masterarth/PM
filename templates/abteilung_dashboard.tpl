@@ -10,6 +10,9 @@
             <li>
                 <div class="collapsible-header">Standorte</div>
                 <div class="collapsible-body">
+                    <div class="row">
+                        <input type="text" value="Test">
+                    </div>
                     <input type="checkbox" value="Das ist ein Text">    
                 </div>
             </li>

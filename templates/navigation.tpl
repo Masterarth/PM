@@ -8,6 +8,10 @@
                         <a href="/pm/" class="teal-text hide-on-med-and-down">PAMS</a>
                         {if isset($pageTitle)}<span class="teal-text"> | {$pageTitle}</span>{/if}
                     </div>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="/pm/antrag/dashboard" class="waves-effect waves-light teal-text">Klassisch</a></li>
+                        <li><a href="/pm/antrag/dashboard" class="waves-effect waves-light teal-text">Tabelle</a></li>
+                    </ul>
                     <a href="#" data-activates="mobile-demo" class="button-collapse black-text"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down grey-text">
                         {include file="nav_elements.tpl"}
