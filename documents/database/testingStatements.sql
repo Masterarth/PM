@@ -42,7 +42,7 @@ INSERT INTO Leistung (t_id, jahr, ist_stunden, max_stunden) VALUES (1, 2016, 1, 
                                                                    (3, 2016, 0, 2000), 
                                                                    (4, 2016, 1500, 15000), 
                                                                    (5, 2016, 1000, 2000);
-INSERT INTO Kapitalwerte (p_id, jahr, zinssatz, einzahlung, auszahlung) VALUES (1, 1, 5, 10000.00, 8000.00), 
-                                                                               (2, 1, 5, 30000.00, 25000.00), 
-                                                                               (1, 2, 4, 8000.00, 6000.00), 
-                                                                               (3, 1, 5, 100.00, 80.00);
+INSERT INTO Kapitalwerte (p_id, jahr, zinssatz, einzahlung, auszahlung) VALUES (1, 1, 5.45, 10000.00, 8000.00), 
+                                                                               (2, 1, 5.15, 30000.00, 25000.00), 
+                                                                               (1, 2, 4.00, 8000.00, 6000.00), 
+                                                                               (3, 1, 5.45, 100.00, 80.00);
