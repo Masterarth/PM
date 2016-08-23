@@ -1,3 +1,27 @@
+{*
+<table class="responsive-table highlight">
+<thead>
+<th>Titel</th>
+<th>Standort</th>
+<th>Abteilung</th>
+<th>Aktion</th>
+</thead>
+<tbody>
+{if isset($projekte)}
+{foreach from=$projekte item=projekt}
+<tr>
+<td>{$projekt->titel}</td>
+<td>{$projekt->s_name}</td>
+<td>{$projekt->a_name}</td>
+<td>
+<a href="/pm/antrag/{$projekt->id}" class="btn-flat"><i class="material-icons">open_in_new</i></a>
+</td>
+</tr>
+{/foreach}
+{/if}
+</tbody>
+</table>
+*}
 <div class="row">
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">

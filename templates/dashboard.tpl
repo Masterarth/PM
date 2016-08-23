@@ -29,6 +29,8 @@
 
             {/foreach}
         </div> 
+    {else}
+        <p><strong>Es sind keine zu genehmigenden Anträge vorhanden</strong></p>
     {/if}
 </div>
 {*<div class="row">

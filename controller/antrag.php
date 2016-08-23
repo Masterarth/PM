@@ -51,17 +51,45 @@ if (isset($request[2])) {
         core()->materialize()->addFixedNavElement("/pm/antrag/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
 
-        $projekt = core()->db()->select("select p.*, a.a_name, a.s_id, s.s_name from projekt p "
+        $projekt = core()->db()->select("select "
+                . "p.*,"
+                . "ps.status,"
+                . "b1.betrag as tat_budget,"
+                . "b1.aktiv as tat_aktiv,"
+                . "b2.betrag as plan_budget,"
+                . "b2.aktiv as plan_aktiv,"
+                . "a.a_name,"
+                . "a.s_id,"
+                . "s.s_name,"
+                . "m.vorname, m.nachname "
+                . "from projekt p "
                 . "left join abteilung a on a.id = p.a_id "
-                . "left join standort s on s.id = a.s_id where p.id = " . $request[2], "fetch");
+                . "left join standort s on s.id = a.s_id "
+                . "left join projstatus ps on ps.id = p.s_id "
+                . "left join probudget b1 on b1.id = p.tat_budget_id "
+                . "left join probudget b2 on b2.id = p.plan_budget_id "
+                . "left join mitarbeiter m on m.id = p.e_id "
+                . "where p.id = " . $request[2], "fetch");
 
         if ($projekt) {
             core()->smarty()->assign("projekt", $projekt);
-            if ($projekt->e_id) {
-                $ersteller = core()->db()->select("select * from mitarbeiter where id = " . $projekt->e_id, "fetch");
-                if ($ersteller) {
-                    core()->smarty()->assign("ersteller", $ersteller);
-                }
+            $arbeitspakete = core()->db()->select("select * from arbeitspakete where p_id = " . $projekt->id);
+            if (count($arbeitspakete) > 0) {
+                core()->smarty()->assign("arbeitspakete", $arbeitspakete);
+            }
+            $kapitalwerte = core()->db()->select("select * from kapitalwerte where p_id = " . $projekt->id);
+            if (count($kapitalwerte) > 0) {
+                core()->smarty()->assign("kapitalwerte", $kapitalwerte);
+            }
+            $meilensteine = core()->db()->select("select * from meilensteine where p_id = " . $projekt->id);
+            if (count($meilensteine) > 0) {
+                core()->smarty()->assign("meilensteine", $meilensteine);
+            }
+            $projektteam = core()->db()->select("select * from projteam p "
+                    . "left join team t on t.id = p.t_id "
+                    . "where p.p_id = " . $projekt->id);
+            if (count($projektteam) > 0) {
+                core()->smarty()->assign("projektteam", $projektteam);
             }
         }
     }

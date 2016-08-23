@@ -22,9 +22,9 @@ if (count($meine_projekte) > 0) {
 }
 
 $zu_gehnemigen = core()->db()->select("select p.* from projekt p"
-        . " left join abteilung a on a.id = p.a_id"
-        . " left join standort s on s.id = a.s_id"
-        . " left join firma f on f.id = s.f_id"
+        . " left join abteilung a on a.id = p.a_id and p.genehmigung_E1 = 0"
+        . " left join standort s on s.id = a.s_id and p.genehmigung_E2 = 0"
+        . " left join firma f on f.id = s.f_id and p.genehmigung_E3 = 0"
         . " where f.f_leitung =" . $user->getId() . " and s.s_leitung =" . $user->getId() . " and a.a_leitung = " . $user->getId() . " and p.s_id = 1");
 
 if (count($zu_gehnemigen) > 0) {
