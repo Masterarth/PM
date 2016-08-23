@@ -28,6 +28,12 @@ if (isset($request[2])) {
             core()->page()->loadPage("antrag_dashboard");
             core()->page()->loadController("antrag_dashboard");
             break;
+        case "table":
+            core()->materialize()->addFixedNavElement("/pm/antrag/neu", "Antrag anlegen", "mode_edit", "green");
+            core()->materialize()->showFixedNavElement();
+            core()->page()->loadPage("antrag_table");
+            core()->page()->loadController("antrag_table");
+            break;
         case "loeschen":
             if (is_numeric($request[3])) {
                 $result = core()->db()->select("select * from projekt where id=" . $request[3], "fetch");
