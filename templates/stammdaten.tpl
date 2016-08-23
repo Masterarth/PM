@@ -85,7 +85,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title teal-text">Priorität<i class="material-icons right">close</i></span>
-                <p>Hier kann ein Blick auf die Prioritäten der Projekte geworfen werden.</p>
+                <p>Hier können die Prioritäten eingeshen und geändert werden.</p>
             </div>
         </div>
     </div>
