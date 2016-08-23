@@ -26,7 +26,7 @@
     [ ] bearbeiten
     [ ] Antrag genehmigen / ablehnen
     [ ] Auftraggeber
-
+.
 -> Zum einen Fehlen die Felder auf der Maske zum Teil 
 -> Zum anderen müssen dann die Felder im Backend noch richtig abgefangen werden bsp. aber vorhanden
 -> Könnte bitte jmd diese Felder in die anlege maske mit aufnehmen?! 
