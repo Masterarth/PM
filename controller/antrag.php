@@ -23,13 +23,14 @@ if (isset($request[2])) {
     if (isset($_POST["view"])) {
         switch ($_POST["view"]) {
             case "cards":
-                $page = "dashboard";
+                header('Location: /pm/antrag/dashboard');
+                exit;
                 break;
             case "table";
-                $page = "table";
+                header('Location: /pm/antrag/table');
+                exit;
                 break;
         }
-        core()->smarty()->assign("view", $_POST["view"]);
     }
 
     switch ($page) {
