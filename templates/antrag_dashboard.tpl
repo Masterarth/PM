@@ -1,50 +1,38 @@
-{*
-<table class="responsive-table highlight">
-<thead>
-<th>Titel</th>
-<th>Standort</th>
-<th>Abteilung</th>
-<th>Aktion</th>
-</thead>
-<tbody>
-{if isset($projekte)}
-{foreach from=$projekte item=projekt}
-<tr>
-<td>{$projekt->titel}</td>
-<td>{$projekt->s_name}</td>
-<td>{$projekt->a_name}</td>
-<td>
-<a href="/pm/antrag/{$projekt->id}" class="btn-flat"><i class="material-icons">open_in_new</i></a>
-</td>
-</tr>
-{/foreach}
-{/if}
-</tbody>
-</table>
-*}
 <div class="row">
     <div class="col hide-on-med-and-down l3">
+        <form action="/pm/antrag/dashboard" method="post">
+            <div class="card">
+                <div class="card-content">
+                    <div class="input-field">
+                        <select name="view" onchange="this.form.submit();">
+                            <option value="" disabled selected>Wählen sie ihre Darstellung</option>
+                            <option {if $view == 'cards'}selected{/if} value="cards">Dashboard</option>
+                            <option {if $view == 'table'}selected{/if} value="table">Tabelle</option>
+                        </select>
+                        <label>Ansicht auswählen</label>
+                    </div>
+                </div>
+            </div>
+        </form>
         <ul class="collapsible" data-collapsible="accordion">
-            <form action="/pm/antrag/uebersicht" method="post">
-                <div class="input-field search white">
-                    <input id="search" class="sickblue" type="text" name="search" value="" name="antrag_search">
+            <li>
+                <div class="input-field search radioRow">
+                    <input id="search" type="text" name="search" name="antrag_search">
                     <label for="search" >Suche</label>
                 </div>
-                <li>
-                    <div class="collapsible-header">Abteilungen</div>
-                    <div class="collapsible-body">
-                        <input type="checkbox" value="Das ist ein Text">    
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header">Standort</div>
-                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-                </li>
-                <li>
-                    <div class="collapsible-header">Zeitraum</div>
-                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-                </li>
-            </form>
+            </li>
+            <li>
+                <div class="collapsible-header">Abteilungen</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+            </li>
+            <li>
+                <div class="collapsible-header">Standort</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+            </li>
+            <li>
+                <div class="collapsible-header">Zeitraum</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+            </li>
         </ul>
     </div>
     <div class="col s12 l9">

@@ -17,7 +17,23 @@
 $request = core()->request()->getParams();
 
 if (isset($request[2])) {
-    switch ($request[2]) {
+
+    $page = $request[2];
+
+    if (isset($_POST["view"])) {
+        switch ($_POST["view"]) {
+            case "cards":
+                header('Location: /pm/antrag/dashboard');
+                exit;
+                break;
+            case "table";
+                header('Location: /pm/antrag/table');
+                exit;
+                break;
+        }
+    }
+
+    switch ($page) {
         case "neu":
             core()->page()->loadPage("antrag_neu");
             core()->page()->loadController("antrag_neu");
@@ -25,12 +41,14 @@ if (isset($request[2])) {
         case "dashboard":
             core()->materialize()->addFixedNavElement("/pm/antrag/neu", "Antrag anlegen", "mode_edit", "green");
             core()->materialize()->showFixedNavElement();
+            core()->smarty()->assign("view", "cards");
             core()->page()->loadPage("antrag_dashboard");
             core()->page()->loadController("antrag_dashboard");
             break;
         case "table":
             core()->materialize()->addFixedNavElement("/pm/antrag/neu", "Antrag anlegen", "mode_edit", "green");
             core()->materialize()->showFixedNavElement();
+            core()->smarty()->assign("view", "table");
             core()->page()->loadPage("antrag_table");
             core()->page()->loadController("antrag_table");
             break;
@@ -52,7 +70,7 @@ if (isset($request[2])) {
             if (is_numeric($request[3])) {
                 $projekt = core()->db()->select("select * from projekt where projekt.id=" . $request[3], "fetch");
                 core()->smarty()->assign("projekt", $projekt);
-                loadProject($request[3],$projekt);
+                loadProject($request[3], $projekt);
             } else {
                 core()->page()->loadController("antrag_bearbeiten");
             }
@@ -124,20 +142,20 @@ if (isset($request[2])) {
  * Load all Project Data Informations
  * @param int $id
  */
-function loadProject($id,$projekt) {
+function loadProject($id, $projekt) {
     if (is_numeric($id)) {
 
         $abteilungen = core()->db()->select("select * from abteilung,standort where abteilung.s_id=standort.id");
         core()->smarty()->assign("abteilungen", $abteilungen);
-        
-        $aktAbt = core()->db()->select("select * from abteilung, standort where abteilung.s_id=standort.id AND abteilung.id=".$projekt->a_id,"fetch");
-        core()->smarty()->assign("aktAbt",$aktAbt);
-        
+
+        $aktAbt = core()->db()->select("select * from abteilung, standort where abteilung.s_id=standort.id AND abteilung.id=" . $projekt->a_id, "fetch");
+        core()->smarty()->assign("aktAbt", $aktAbt);
+
         $mitarbeiter = core()->db()->select("select * from mitarbeiter where r_id = 3");
         core()->smarty()->assign("mitarbeiter", $mitarbeiter);
-        
-        $prjLeader = core()->db()->select("select * from mitarbeiter where mitarbeiter.id=".$projekt->l_id,"fetch");
-        core()->smarty()->assign("prjLeader",$prjLeader);
+
+        $prjLeader = core()->db()->select("select * from mitarbeiter where mitarbeiter.id=" . $projekt->l_id, "fetch");
+        core()->smarty()->assign("prjLeader", $prjLeader);
 
         $ms = core()->db()->select("select * from meilensteine where meilensteine.p_id=" . $id);
         $kw = core()->db()->select("select * from kapitalwerte where kapitalwerte.p_id=" . $id);
