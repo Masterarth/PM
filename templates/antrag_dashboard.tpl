@@ -1,19 +1,5 @@
 <div class="row">
     <div class="col hide-on-med-and-down l3">
-        <form action="/pm/antrag/dashboard" method="post">
-            <div class="card">
-                <div class="card-content">
-                    <div class="input-field">
-                        <select name="view" onchange="this.form.submit();">
-                            <option value="" disabled selected>Wählen sie ihre Darstellung</option>
-                            <option {if $view == 'cards'}selected{/if} value="cards">Dashboard</option>
-                            <option {if $view == 'table'}selected{/if} value="table">Tabelle</option>
-                        </select>
-                        <label>Ansicht auswählen</label>
-                    </div>
-                </div>
-            </div>
-        </form>
         <ul class="collapsible" data-collapsible="accordion">
             <li>
                 <div class="input-field search radioRow">

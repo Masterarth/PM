@@ -65,8 +65,12 @@
                     <div class="input-field col s12">
                         <select name="reg[abteilung]">
                             <option value="" disabled selected>Auswählen</option>
-                            {foreach from=$abteilungen item=abteilung key=key}
-                                <option value="{$abteilung->id}">{$abteilung->s_name} | {$abteilung->a_name}</option>
+                            {foreach from=$places item=standort}
+                                <optgroup label="{$standort.standort->s_name}">
+                                    {foreach from=$standort.abteilungen item=abteilung}
+                                        <option value="{$abteilung->id}">{$abteilung->a_name}</option>
+                                    {/foreach}
+                                </optgroup>
                             {/foreach}
                         </select>
                         <label>Wählen Sie eine Abteilung aus, für welches das Projekt durchgeführt wird...</label>
@@ -77,11 +81,6 @@
                             {foreach from=$mitarbeiter item=arbeiter key=key}
                                 <option value="{$arbeiter->id}">{$arbeiter->vorname} {$arbeiter->nachname}</option>
                             {/foreach}
-                            {if isset($mitarbeiters)}
-                                {foreach from=$mitarbeiters item=mitarbeiter}
-                                    <option value="{$mitarbeiters->id}">{$mitarbeiters->nachname} . {$mitarbeiters->vorname}</option>
-                                {/foreach}
-                            {/if}
                         </select>
                         <label>Wählen Sie einen zuständigen Projektleiter aus...</label>
                     </div>
@@ -144,13 +143,13 @@
                         <label for="nutzen">Nutzen</label>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col s10 teal-text valign-wrapper">
                         <p class="valign">Kapitalwertmethode</p>
                     </div>
                     <div class="col s1 teal-text right">
-                        <a id="btnKapitalwert" class="btn-floating teal"><i class="material-icons">add</i></a>
+                        <a id="btnKapitalwert" class="btn-floating teal tooltipped" data-position="left" data-delay="50" data-tooltip="Datensatz hinzufügen"><i class="material-icons">add</i></a>
                     </div>
                 </div>
                 <div class="row">
@@ -174,12 +173,12 @@
                         <p class="valign">Leistungsverrechnung</p>
                     </div>
                     <div class="col s1 teal-text right">
-                        <a id="btnLeistungsverrechnung" class="btn-floating teal"><i class="material-icons">add</i></a>
+                        <a id="btnLeistungsverrechnung" class="btn-floating teal tooltipped" data-position="left" data-delay="50" data-tooltip="Leistung hinzufügen"><i class="material-icons">add</i></a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <table class="highlight" id="tblLeistungsverrechnung" name="reg[leistungsverrechnung]" contenteditable="true">
+                        <table class="highlight" id="tblLeistungsverrechnung" name="reg[leistungsverrechnung]">
                         </table>
                     </div>
                 </div>
@@ -188,12 +187,12 @@
                         <p class="valign">Meilensteine</p>
                     </div>
                     <div class="col s1 teal-text right">
-                        <a id="btnMeilensteine" class="btn-floating teal"><i class="material-icons">add</i></a>
+                        <a id="btnMeilensteine" class="btn-floating teal tooltipped" data-position="left" data-delay="50" data-tooltip="Meilenstein hinzufügen"><i class="material-icons">add</i></a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <table class="highlight" id="tblMeilensteine" name="reg[meilensteine]" contenteditable="true">
+                        <table class="highlight" id="tblMeilensteine" name="reg[meilensteine]">
                         </table>
                     </div>
                 </div>
@@ -226,6 +225,20 @@
         </div>
     </div>
 </form>
+
+<div class="input-field col s12">
+    <select multiple>
+        <optgroup label="team 1">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+        </optgroup>
+        <optgroup label="team 2">
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+        </optgroup>
+    </select>
+    <label>Optgroups</label>
+</div>
 
 
 <script type="text/javascript">
@@ -261,7 +274,6 @@
 
     var tableMeilensteine = 0;
 
-
     //Adds Dynamic Content to the Table
     $('#btnMeilensteine').click(function ()
     {
@@ -270,7 +282,7 @@
             var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
             $('#tblMeilensteine').append(structureHeader);
         }
-        var structure = "<tr><td><input disabled type='number' name='reg[meilensteine][msNr" + tableMeilensteine + "]' value='" + tableMeilensteine + "'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[meilensteine][msBezeichner" + tableMeilensteine + "]'/></td><td><p><input type='checkbox' class='filled-in' name='reg[meilensteine][chkBx" + tableMeilensteine + "]' checked='checked'  /></p></td></tr>"
+        var structure = "<tr><td>" + tableMeilensteine + "<input type='hidden' name='reg[meilensteine][" + tableMeilensteine + "][nr]' value='" + tableMeilensteine + "'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[meilensteine][" + tableMeilensteine + "][beschreibung]'/></td><td><input type='checkbox' id='checkbox" + tableMeilensteine + "' name='reg[meilensteine][" + tableMeilensteine + "][checked]' /><label for='checkbox" + tableMeilensteine + "'></label></td></tr>"
         $('#tblMeilensteine').append(structure);
         tableMeilensteine++;
 

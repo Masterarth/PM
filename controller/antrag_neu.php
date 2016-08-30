@@ -10,8 +10,18 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-$abteilungen = core()->db()->select("select * from abteilung,standort where abteilung.s_id=standort.id");
-core()->smarty()->assign("abteilungen", $abteilungen);
+$abteilungen = core()->db()->select("select * from abteilung");
+$standorte = core()->db()->select("select * from standort");
+
+foreach ($standorte as $standort) {
+    $places[$standort->id]["standort"] = $standort;
+    foreach ($abteilungen as $abteilung) {
+        if ($standort->id == $abteilung->s_id) {
+            $places[$standort->id]["abteilungen"][$abteilung->id] = $abteilung;
+        }
+    }
+}
+core()->smarty()->assign("places", $places);
 
 //where bedinungen muss noch ausprogrammiert werden:
 //where rolle = teamleiter bzw. höher ? 
@@ -143,5 +153,5 @@ if (isset($_POST["reg"])) {
     //var_dump($test);
 }
 
-core()->materialize()->addFixedNavElement("/pm/antrag/uebersicht", "Zurück", "call_missed","black");
+core()->materialize()->addFixedNavElement("/pm/antrag/uebersicht", "Zurück", "call_missed", "black");
 core()->materialize()->showFixedNavElement();

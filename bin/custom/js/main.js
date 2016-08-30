@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    $(".dropdown-button").dropdown({
+        hover: true, // Activate on hover
+        belowOrigin: false, // Displays dropdown below the button
+        alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    });
     $('.collapsible').collapsible({
         accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
@@ -48,11 +53,7 @@ $(document).ready(function () {
     });
 
     $('.carousel.carousel-slider').carousel({full_width: true});
-
     $('.carousel').carousel();
-
     $('ul.tabs').tabs();
-    $('.modal-trigger').leanModal();
-    $(".dropdown-button").dropdown();
 
 });

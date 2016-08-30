@@ -29,6 +29,7 @@ class load_page {
         core()->smarty()->assign("showNavButton", true);
 
         $page = core()->request()->getController();
+        core()->smarty()->assign("controller", core()->request()->getController());
 
         if (!core()->userhandler()->checkUser() && !$this->defaultPage($page)) {
             $page = "anmelden";

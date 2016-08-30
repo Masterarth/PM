@@ -300,6 +300,6 @@
 {else}
     <div class="center">
         <h4>Das Projekt konnte nicht gefunden werden</h4>
-        <span><span class="btn btn-flat" href="/pm/antrag/dashboard">Zurück zur übersicht</a></a>
-                </div>
-            {/if}
+        <span><a class="btn btn-flat" href="/pm/antrag/dashboard">Zurück zur übersicht</a></span>
+    </div>
+{/if}

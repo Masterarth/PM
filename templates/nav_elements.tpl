@@ -1,4 +1,3 @@
-<li><a class="waves-effect waves-light teal-text" href="/pm/dashboard">Dashboard</a></li>
-<!--<li><a class="waves-effect waves-light teal-text" href="/pm/antrag/neu">Neuer Antrag</a></li>-->
-<li><a class="waves-effect waves-light teal-text" href="/pm/antrag/dashboard" data-activates="dropdown1">Anträge</a></li>
-<li><a class="dropdown-button waves-effect waves-light teal-text" href="/pm/stammdaten">Stammdaten</a></li>
+<li class="{if $controller == 'dashboard'}active{/if}"><a class="teal-text waves-effect waves-light" href="/pm/dashboard">Dashboard</a></li>
+<li><a class="dropdown-button teal-text" href="#" data-activates="dropdown1">Anträge<i class="material-icons right">arrow_drop_down</i></a></li>
+<li class="{if $controller == 'stammdaten'}active{/if}"><a class="teal-text waves-effect waves-light" href="/pm/stammdaten">Stammdaten</a></li> 

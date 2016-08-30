@@ -29,7 +29,7 @@ p_id = ID des zugeordneten Projektes
 t_id = Zugeordnetes Team
 p_id = Zugeordnetes Projekt
 
-## Leistung :
+## Leistung:
 t_id = Team ID
 
 ## Kapitalwerte:
