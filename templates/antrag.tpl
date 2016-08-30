@@ -44,7 +44,7 @@
                                 <div class="col s12 m4">
                                     <h4 class="light">Ersteller</h4>
                                     <div class="para_content">
-                                        <span><a href="/pm/mitarbeiter/{$projekt->e_id}">{$projekt->vorname} {$projekt->nachname}</a></span>
+                                        <span><a href="/pm/mitarbeiter/{$projekt->e_id}">{$projekt->e_vorname} {$projekt->e_nachname}</a></span>
                                     </div>
                                 </div>
                                 <div class="col s12 m4">
@@ -83,10 +83,16 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="row">
-                                <div class="col s12 m12">
+                                <div class="col s12 m6">
                                     <h4 class="light">Auftraggeber</h4>
                                     <div class="para_content">
                                         <span>{$projekt->auftraggeber}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h4 class="light">Projektleiter</h4>
+                                    <div class="para_content">
+                                        <span><a href="/pm/mitarbeiter/{$projekt->l_id}">{$projekt->l_vorname} {$projekt->l_nachname}</a></span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
@@ -229,7 +235,7 @@
                             </div>
                         </div>
                     {/if}
-                    {if isset($meilensteine)}
+                    {if isset($ms)}
                         <div class="card">
                             <div class="card-content">
                                 <div class="row">
@@ -242,7 +248,7 @@
                                                 <th>Erfüllt</th>
                                                 </thead>
                                                 <tbody>
-                                                    {foreach from=$meilensteine item=meilenstein}
+                                                    {foreach from=$ms item=meilenstein}
                                                         <tr>
                                                             <td>{$meilenstein->meilenstein}</td>
                                                             <td>{if $meilenstein->erfuellt == 1}<i class="material-icons green-text">done</i>{else}<i class="material-icons red-text">clear</i>{/if}</td>
@@ -256,7 +262,7 @@
                             </div>
                         </div>
                     {/if}
-                    {if isset($kapitalwerte)}
+                    {if isset($kw)}
                         <div class="card">
                             <div class="card-content">
                                 <div class="row">
@@ -271,7 +277,7 @@
                                                 <th>Auszahlung</th>
                                                 </thead>
                                                 <tbody>
-                                                    {foreach from=$kapitalwerte item=kapitalwert}
+                                                    {foreach from=$kw item=kapitalwert}
                                                         <tr>
                                                             <td>{$kapitalwert->jahr}</td>
                                                             <td>{$kapitalwert->zinssatz}</td>

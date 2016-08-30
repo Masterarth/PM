@@ -1,4 +1,4 @@
-<form method="post" action="/pm/antrag/neu">
+<form method="post" action="/pm/antrag/bearbeiten">
     <div class="row">
         <div class="col s12">
             <ul class="tabs">
@@ -66,18 +66,17 @@
                         <select name="reg[abteilung]">
                             <option disabled selected>Auswählen</option>
                             {foreach from=$abteilungen item=abteilung key=key}
-                                <option {if $aktAbt->id == $abteilung->id}selected{/if} value="{$abteilung->id}">{$abteilung->s_name} | {$abteilung->a_name}</option>
+                                <option {if $projekt->a_id == $abteilung->id}selected{/if} value="{$abteilung->id}">{$abteilung->s_name} | {$abteilung->a_name}</option>
                             {/foreach}
                         </select>
                         <label>Wählen Sie eine Abteilung aus, für welches das Projekt durchgeführt wird...</label>
                     </div>
                     <div class="input-field col s12">
                         <select name="reg[leiter]">
-                            <option value="{$prjLeader->id}" disabled selected>{$prjLeader->vorname} {$prjLeader->nachname}</option>
+                            <option disabled selected>Auswählen</option>
                             {foreach from=$mitarbeiter item=arbeiter key=key}
-                                <option value="{$arbeiter->id}">{$arbeiter->vorname} {$arbeiter->nachname}</option>
+                                <option {if $projekt->l_id === $arbeiter->id}selected{/if} value="{$arbeiter->id}">{$arbeiter->vorname} {$arbeiter->nachname}</option>
                             {/foreach}
-
                         </select>
                         <label>Wählen Sie einen zuständigen Projektleiter aus...</label>
                     </div>
@@ -162,21 +161,28 @@
                 <div class="row">
                     <div class="col s12">
                         <table class="highlight" id="tblKapitalwert" name="reg[kapitalwertfelder]">
-                            {foreach from=$kw item=kww key=key}
-                                <tr>
-                                    <td>
-                                        <input disabled type='number'  value="{$kww->jahr}"/>
-                                    </td>
-                                    <td>
-                                        <input type='text' value="{$kww->einzahlung}"/>
-                                    </td>
-                                    <td>
-                                        <input type='text' value="{$kww->auszahlung}"/>
-
-                                    </td>
-                                </tr>
-
-                            {/foreach}
+                            {if isset($kw)}
+                                <thead>
+                                    <tr>
+                                        <th>Jahr</th>
+                                        <th>Ausgaben</th>
+                                        <th>Einnahmen</th>
+                                    </tr>
+                                </thead>
+                                {foreach from=$kw item=kww key=key}
+                                    <tr>
+                                        <td>
+                                            {$kww->jahr}<input type='hidden' name='reg[kapitalwert][" + tableKapitalwertVal + "][Jahr]' value={$kww->jahr} />
+                                        </td>
+                                        <td>
+                                            <input type='number' name='reg[kapitalwert][{$kww->jahr}][Ausg]' value="{$kww->auszahlung}"/>
+                                        </td>
+                                        <td>
+                                            <input type='number' name='reg[kapitalwert][{$kww->jahr}][Ein]' value="{$kww->einzahlung}"/>
+                                        </td>
+                                    </tr>
+                                {/foreach}
+                            {/if}
                         </table>
                     </div>
                 </div>
@@ -205,21 +211,29 @@
                 <div class="row">
                     <div class="col s12">
                         <table class="highlight" id="tblMeilensteine" name="reg[meilensteine]" contenteditable="true">
-                            {foreach from=$ms item=mss key=key}
-                                <tr>
-                                    <td>
-                                        <input disabled type='number'  value="{$mss->ms_nummer}"/>
-                                    </td>
-                                    <td>
-                                        <input type='text' value="{$mss->meilenstein}"/>
-                                    </td>
-                                    <td>
-                                        <input type='checkbox' id="{$mss->ms_nummer}" checked='{$mss->erfuellt}'  />
-
-                                    </td>
-                                </tr>
-
-                            {/foreach}
+                            {if isset($ms)}
+                                <thead>
+                                    <tr>
+                                        <th>Nr</th>
+                                        <th>Meilenstein</th>
+                                        <th>Erledigt</th>
+                                    </tr>
+                                </thead>
+                                {foreach from=$ms item=mss key=key}
+                                    <tr>
+                                        <td>
+                                            <input disabled type='number' value="{$mss->ms_nummer}"/>
+                                        </td>
+                                        <td>
+                                            <input type='text' value="{$mss->meilenstein}"/>
+                                        </td>
+                                        <td>
+                                            <input type='checkbox' name='' id="checkbox{$mss->ms_nummer}" {$mss->erfuellt|checked}  />
+                                            <label for="checkbox{$mss->ms_nummer}"></label>
+                                        </td>
+                                    </tr>
+                                {/foreach}
+                            {/if}         
                         </table>
                     </div>
                 </div>
@@ -255,7 +269,11 @@
 
 
 <script type="text/javascript">
+    {if isset($kww->jahr)}
+    var tableKapitalwertVal = {$kww->jahr} + 1;
+    {else}
     var tableKapitalwertVal = 0;
+    {/if}
 
     //Adds Dynamic Content to the Table
     $('#btnKapitalwert').click(function ()
@@ -285,8 +303,12 @@
         tableLeistungsverrechnungVal++;
     });
 
-    var tableMeilensteine = 0;
 
+    {if isset($mss->ms_nummer)}
+    var tableMeilensteine = {$mss->ms_nummer} + 1;
+    {else}
+    var tableMeilensteine = 0;
+    {/if}
 
     //Adds Dynamic Content to the Table
     $('#btnMeilensteine').click(function ()
@@ -296,7 +318,7 @@
             var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
             $('#tblMeilensteine').append(structureHeader);
         }
-        var structure = "<tr><td><input disabled type='number' name='reg[meilensteine][msNr" + tableMeilensteine + "]' value='" + tableMeilensteine + "'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[meilensteine][msBezeichner" + tableMeilensteine + "]'/></td><td><p><input type='checkbox' class='filled-in' name='reg[meilensteine][chkBx" + tableMeilensteine + "]' checked='checked'  /></p></td></tr>"
+        var structure = "<tr><td>" + tableMeilensteine + "<input type='hidden' name='reg[meilensteine][" + tableMeilensteine + "][nr]' value='" + tableMeilensteine + "'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[meilensteine][msBezeichner" + tableMeilensteine + "]'/></td><td><p><input type='checkbox' class='filled-in' name='reg[meilensteine][chkBx" + tableMeilensteine + "]' checked='checked'  /></p></td></tr>"
         $('#tblMeilensteine').append(structure);
         tableMeilensteine++;
 

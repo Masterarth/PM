@@ -1,8 +1,8 @@
 <?php
-
-echo "hallo";
-
 if (isset($_POST["reg"])) {
+    
+    var_dump($_POST["reg"]);
+    exit;
 
     $result = core()->db()->select("select * from projekt where id ='" . $_POST["reg"]["id"] . "'", "fetch");
     if ($result) {

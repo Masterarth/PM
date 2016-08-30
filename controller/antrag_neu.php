@@ -143,5 +143,5 @@ if (isset($_POST["reg"])) {
     //var_dump($test);
 }
 
-core()->materialize()->addFixedNavElement("/pm/antrag/uebersicht", "Zurück", "call_missed");
+core()->materialize()->addFixedNavElement("/pm/antrag/uebersicht", "Zurück", "call_missed","black");
 core()->materialize()->showFixedNavElement();
