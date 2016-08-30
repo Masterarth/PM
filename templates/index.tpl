@@ -18,6 +18,7 @@
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/GanttPM.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/main.js"></script>
+        <script type="text/javascript" src="/pm/bin/tablefilter/tablefilter.js"></script>
         {* -------  JS End  ------- *}
     </head>
 
