@@ -26,7 +26,7 @@ class pm_projekt {
         $this->id = $id;
     }
 
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
