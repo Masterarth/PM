@@ -104,10 +104,6 @@ function loadProject($id) {
 
         if ($projekt) {
             core()->smarty()->assign("projekt", $projekt);
-            $arbeitspakete = core()->db()->select("select * from arbeitspakete where p_id = " . $projekt->id);
-            if (count($arbeitspakete) > 0) {
-                core()->smarty()->assign("arbeitspakete", $arbeitspakete);
-            }
             $kapitalwerte = core()->db()->select("select * from kapitalwerte where p_id = " . $projekt->id);
             if (count($kapitalwerte) > 0) {
                 core()->smarty()->assign("kw", $kapitalwerte);
