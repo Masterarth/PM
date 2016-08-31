@@ -1,6 +1,6 @@
 {if $showNavButton == TRUE}
     <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-        <a class="btn-floating btn-large red">
+        <a class="btn-floating btn-large teal">
             <i class="large material-icons">menu</i>
         </a>
         <ul>
