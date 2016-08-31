@@ -2,8 +2,10 @@
     <div class="col s12">
         <div class="card">
             <div class="card-content">
+                <strong class="teal-text">Tabellenfilter</strong>
+                
                 {if isset($projekte)}
-                    <table class="highlight responsive-table">
+                    <table class="highlight responsive-table" id="projectTable">
                         <thead>
                             <tr>
                                 <th><strong class="teal-text">Titel</strong></th>
@@ -40,3 +42,20 @@
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    var filtersConfig = {
+        col_1: 'select',
+        col_2: 'select',
+        extensions:[{
+            name: 'sort'
+        }]
+    };
+    
+    var tf = new TableFilter('projectTable',filtersConfig);
+    tf.init();
+    
+    
+    
+</script>
