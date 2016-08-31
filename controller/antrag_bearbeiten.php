@@ -20,42 +20,5 @@ core()->smarty()->assign("mitarbeiter", $mitarbeiter);
 
 if (isset($_POST["reg"])) {
 
-    $projectAntragArray = array(
-        'p_titel' => null,
-        'p_auftraggeber' => null,
-        'bemerkung' => null,
-        'p_ziel1' => null,
-        'p_ziel2' => null,
-        'p_ziel3' => null,
-        'p_ziel4' => null,
-        'nicht_ziel' => null,
-        'amorti_zeit' => null,
-        'genehm_E1' => 0,
-        'genehm_E2' => 0,
-        'genehm_E3' => 0,
-        'rahmbeding' => null,
-        'beschreibung' => null,
-        'nutzen' => null,
-        'tat_sta_datum' => null,
-        'tat_end_datum' => null,
-        'vor_sta_datum' => null,
-        'vor_end_datum' => null,
-        'risiko' => null,
-        'komm_konz' => null,
-        'p_system' => null,
-        'p_erstelldatum' => null,
-        'mon_kosten' => null,
-        'mon_nutzen' => null,
-        'kap_kosten' => null,
-        'e_id' => null,
-        'a_id' => null,
-        'l_id' => null,
-        'mon_kosten' => null,
-        'mon_nutzen' => null,
-        'kap_kosten' => null,
-        'b_id' => null,
-        's_id' => null
-    );
-
-    var_dump($_POST["reg"]);
+    //TODO: UPDATE des Antrags machen !
 }

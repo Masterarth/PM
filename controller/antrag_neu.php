@@ -10,6 +10,9 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
+core()->materialize()->addFixedNavElement("/pm/antrag/uebersicht", "Zurück", "call_missed", "black");
+core()->materialize()->showFixedNavElement();
+
 $abteilungen = core()->db()->select("select * from abteilung");
 $standorte = core()->db()->select("select * from standort");
 
@@ -22,6 +25,20 @@ foreach ($standorte as $standort) {
     }
 }
 core()->smarty()->assign("places", $places);
+
+//$abteilungen = core()->db()->select("select * from abteilung");
+//$teams = core()->db()->select("select * from team");
+//
+//foreach ($abteilungen as $abteilung) {
+//    $places[$abteilung->id]["abteilung"] = $abteilung;
+//    foreach ($teams as $team) {
+//        if ($team->id == $team->a_id) {
+//            $places[$abteilung->id]["teams"][$team->id] = $team;
+//        }
+//    }
+//}
+//core()->smarty()->assign("grp", $grp);
+
 
 //where bedinungen muss noch ausprogrammiert werden:
 //where rolle = teamleiter bzw. höher ? 
@@ -90,7 +107,7 @@ if (isset($_POST["reg"])) {
         }
     }
 
-//Standard Informationen
+    //Standard Informationen
     $projectAntragArray["p_titel"] = $_POST["reg"]["projectname"];
     $projectAntragArray["vor_sta_datum"] = $_POST["reg"]["sollstartdatum"];
     $projectAntragArray["vor_end_datum"] = $_POST["reg"]["sollenddatum"];
@@ -100,22 +117,21 @@ if (isset($_POST["reg"])) {
     $projectAntragArray["nicht_ziel"] = $_POST["reg"]["nichtZiele"];
     $projectAntragArray["p_erstelldatum"] = date("Y-m-d");
 
-
     $projectAntragArray["e_id"] = $_SESSION["user"]->getId();
-    $projectAntragArray["a_id"] = $_POST["reg"]["abteilung"];
-    $projectAntragArray["l_id"] = $_POST["reg"]["leiter"];
+    $projectAntragArray["a_id"] = (isset($_POST["reg"]["abteilung"])) ? $_POST["reg"]["abteilung"] : null;
+    $projectAntragArray["l_id"] = (isset($_POST["reg"]["leiter"])) ? $_POST["reg"]["leiter"] : null;
     $projectAntragArray["s_id"] = 1;
 
-//Zielkreuzmethode
+    //Zielkreuzmethode
     $projectAntragArray["p_ziel1"] = $_POST["reg"]["kreuzwozu"];
     $projectAntragArray["p_ziel2"] = $_POST["reg"]["kreuzwas"];
     $projectAntragArray["p_ziel3"] = $_POST["reg"]["kreuzwiegut"];
     $projectAntragArray["p_ziel4"] = $_POST["reg"]["kreuzfuerwen"];
 
-//Kosten/Nutzen
+    //Kosten/Nutzen
     $projectAntragArray["mon_kosten"] = $_POST["reg"]["sollkosten"];
     $projectAntragArray["mon_nutzen"] = $_POST["reg"]["sollnutzen"];
-    $projectAntragArray["kap_kosten"] = $_POST["reg"]["kostenKapitalwert"];
+    $projectAntragArray["kap_kosten"] = (isset($_POST["reg"]["kapitalwert"]["kosten"])) ? $_POST["reg"]["kapitalwert"]["kosten"] : null;
 
 
     //Nachkalkulation / IstWerte
@@ -127,31 +143,33 @@ if (isset($_POST["reg"])) {
             . "values(:p_titel,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:komm_konz,:risiko,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung,:mon_kosten,:mon_nutzen,:kap_kosten,:e_id, :a_id, :l_id, :b_id,:s_id)", $projectAntragArray);
 
     if (isset($_POST["reg"]["kapitalwert"])) {
-        foreach ($_POST["reg"]["kapitalwert"] as $value) {
+        foreach ($_POST["reg"]["kapitalwert"]["data"] as $value) {
 
-            $data["jahr"] = $value["Jahr"];
-            $data["pid"] = $pid;
-            $data["aus"] = $value["Ausg"];
-            $data["ein"] = $value["Ein"];
-            $data["zins"] = 0;
+            $value["p_id"] = $pid;
+            $value["zins"] = (isset($_POST["reg"]["kapitalwert"]["zins"])) ? $_POST["reg"]["kapitalwert"]["zins"] : null;
 
-            $kid = core()->db()->update("insert into kapitalwerte (p_id,jahr,zinssatz,einzahlung,auszahlung) values (:pid,:jahr,:zins,:ein,:aus)", $data);
+            $kid = core()->db()->update("insert into kapitalwerte (p_id,jahr,zinssatz,einzahlung,auszahlung) values (:p_id,:jahr,:zins,:ein,:aus)", $value);
         }
     }
 
     if (isset($_POST["reg"]["meilensteine"])) {
         foreach ($_POST["reg"]["meilensteine"] as $value) {
-            $mid = core()->db()->update("insert into meilensteine (p_id,ms_nummer,meilenstein,erfüllt)"
-                    . "values(" . $pid . "," . $value[0] . "," . $value[1] . ",0)", null);
+
+            $value["p_id"] = $pid;
+            $value["checked"] = (isset($value["checked"])) ? 1 : 0;
+            $mid = core()->db()->update("insert into meilensteine (p_id,ms_nummer,meilenstein,erfuellt) values(:p_id,:nr,:beschreibung,:checked)", $value);
         }
     }
 
-    header('Location: /pm/antrag/dashboard');
-    exit;
-} else {
-    //$test = core()->db()->select("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'pams' AND TABLE_NAME = 'projekt'", "fetch");
-    //var_dump($test);
-}
+    if (isset($_POST["reg"]["leistung"])) {
+        foreach ($_POST["reg"]["leistung"] as $value) {
+            $value["p_id"] = $pid;
+            if (isset($value["abteilung"])) {
+                $tid = core()->db()->update("insert into projteam (t_id,p_id,stunden) values(:abteilung,:p_id,:wert)", $value);
+            }
+        }
+    }
 
-core()->materialize()->addFixedNavElement("/pm/antrag/uebersicht", "Zurück", "call_missed", "black");
-core()->materialize()->showFixedNavElement();
+    header('Location: /pm/antrag/' . $pid);
+    exit;
+}

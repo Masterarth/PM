@@ -196,7 +196,7 @@
                             </div>
                         </div>
                     </div>
-                    {if isset($projektteam)}
+                    {if isset($pt)}
                         <div class="card">
                             <div class="card-content">
                                 <div class="row">
@@ -204,31 +204,13 @@
                                         <h4 class="light">Projektteams</h4>
                                         <div class="para_content">
                                             <table class="responsive-table highlight">
-                                                {foreach from=$projektteam item=team}
+                                                {foreach from=$pt item=team}
                                                     <tr onclick="window.document.location = '/pm/team/{$team->id}';" style="cursor: pointer;">
                                                         <td>{$team->t_name}</td>
                                                         <td>{$team->stunden|number_format:2:",":"."} h</td>
                                                     </tr>
                                                 {/foreach}
                                             </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {/if}
-                    {if isset($arbeitspakete)}
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="row">
-                                    <div class="col s12">
-                                        <h4 class="light">Arbeitspakete</h4>
-                                        <div class="para_content">
-                                            <ul>
-                                                {foreach from=$arbeitspakete item=paket}
-                                                    <li>{$paket->arbeitspaket}</li>
-                                                    {/foreach}
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
