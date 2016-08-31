@@ -13,220 +13,255 @@ class pm_projekt {
      * @var string 
      */
     private $s_title;
-    
+
     /**
      * Description of the Project
      */
     private $s_description;
-    
+
     /**
      * Added Time
      * @var type 
      */
     private $s_creationDate;
-    
+
     /**
      * Creator of the Project
      * @var string 
      */
     private $s_creator;
-    
+
     /**
      * Database ID
      * @var int 
      */
     private $i_databaseId;
-    
+
     /**
      * Authorization Step 1 
      * @var bool 
      */
     private $b_permitS1;
-    
+
     /**
      * Authorization Step 2
      * @var bool 
      */
     private $b_permitS2;
-    
+
     /**
      * Authorization Step 3 
      * @var bool 
      */
     private $b_permitS3;
-    
+
     /**
      * Target Cross Step 1
      * @var string 
      */
     private $s_targetCross1;
-    
+
     /**
      * Target Cross Step 2
      * @var string 
      */
     private $s_targetCross2;
-    
+
     /**
      * Target Cross Step 3
      * @var string 
      */
     private $s_targetCross3;
-    
+
     /**
      * Target Cross Step 4
      * @var string 
      */
     private $s_targetCross4;
-    
+
     /**
      * Holds No Targes
      * @var string 
      */
     private $s_noTargets;
-    
+
     /**
      * General Conditions
      * @var string 
      */
     private $s_generalConditions;
-    
+
     /**
      * Communication Concept
      * @var string 
      */
     private $s_communicationConcept;
-    
+
     /**
      * System Description
      * @var string
      */
     private $s_systemDescription;
-    
-    
+
     /**
      * Risk for the Project
      * @var string 
      */
     private $s_projectRisk;
-    
+
     /**
      * Costs for the Project
      * @var double 
      */
     private $d_moneyCosts;
-    
+
     /**
      * Earnings for the Project
      * @var double 
      */
     private $d_monesEarnings;
-    
+
     /**
      * Describe the Earnings
      * @var string 
      */
     private $s_earningsString;
-    
-    
+
     /**
      * Date of the Expected Start Time
      * @var string 
      */
     private $s_expectedStartTime;
-    
+
     /**
      * Date of the Expected End Time
      * @var string 
      */
     private $s_expectedEndTime;
-    
+
     /**
      * Date of the Real Start Time
      * @var string 
      */
     private $s_realStartTime;
-    
+
     /**
      * Date of the Real End Time
      * @var string 
      */
     private $s_realEndTime;
-    
+
     /**
      * Real Money Budget
      * @var double 
      */
     private $d_realMoneyBudget;
-    
+
     /**
      * Expected Money Budget
      * @var double 
      */
     private $d_expectedMoneyBudget;
-    
+
     /**
      * Capital Costs for the Capital Value Method
      * @var double 
      */
     private $d_capitalCosts;
-    
+
     /**
      * Creator (Ersteller) ID
      * @var int 
      */
     private $e_id;
-    
+
     /**
      * Department (Abteilungs) ID
      * @var int 
      */
     private $a_id;
-    
+
     /**
      * Project Manager (Projektleiter) ID
      * @var int 
      */
     private $l_id;
-    
+
     /**
      * Arranger (Bearbeiter) ID
      * @var int 
      */
     private $b_id;
-    
+
     /**
      * State (Status) ID
      * @var id 
      */
     private $s_id;
-    
+
     /**
      * Remark for the Project
      * @var string  
      */
     private $s_remark;
-    
+
     /**
      * Amartization Rate
      * @var string 
      */
     private $s_amortizationRate;
-    
-    
-    
+
     /**
      * Constructor for a Project
      */
     public function __construct() {
         
     }
-    
-    public function load($p_id)
-    {
-        
+
+    /**
+     * Loads the Project from the Database
+     * @param int $p_id
+     */
+    public function load($p_id) {
+        $result = core()->db()->select("select * from firma where id ='" . $p_id . "'", "fetch");
+        $this->setTitle($result["titel"]);
+        $this->setDescription($result["beschreibung"]);
+        $this->setEarningsString($result["nutzen"]);
+        $this->setCapitalCosts($result["kap_kosten"]);
+        $this->setMoneyCosts($result["mon_kosten"]);
+        $this->setMonesEarnings($result["mon_nutzen"]);
+        $this->setAmortizationRate($result["amorti_zeit"]);
+        $this->setExpectedEndTime($result["vor_end_term"]);
+        $this->setExpectedStartTime($result["vor_sta_term"]);
+        $this->setRealEndTime($result["tat_end_term"]);
+        $this->setRealStartTime($result["tat_sta_term"]);
+        $this->setTargetCross1($result["p_ziel1"]);
+        $this->setTargetCross2($result["p_ziel2"]);
+        $this->setTargetCross3($result["p_ziel3"]);
+        $this->setTargetCross4($result["p_ziel4"]);
+        $this->setCreationDate($result["erstell_datum"]);
+        $this->setCreator($result["auftraggeber"]);
+        $this->setPermitS1($result["genehmigung_E1"]);
+        $this->setPermitS2($result["genehmigung_E2"]);
+        $this->setPermitS3($result["genehmigung_E3"]);
+        $this->setDatabaseId($result["id"]);
+        $this->setGeneralConditions($result["rahmbeding"]);
+        $this->setNoTargets($result["nicht_ziel"]);
+        $this->setE_id($result["e_id"]);
+        $this->setA_id($result["a_id"]);
+        $this->setL_id($result["l_id"]);
+        $this->setB_id($result["b_id"]);
+        $this->setRemark($result["bemerkung"]);
     }
     
+    /**
+     * Updates the Database
+     */
+    public function update(){
+        $values = array();
+        
+    }
+
     function getTitle() {
         return $this->s_title;
     }
@@ -235,7 +270,7 @@ class pm_projekt {
         return $this->s_description;
     }
 
-    function getCcreationDate() {
+    function getcreationDate() {
         return $this->s_creationDate;
     }
 
@@ -499,6 +534,4 @@ class pm_projekt {
         $this->s_amortizationRate = $s_amortizationRate;
     }
 
-
-    
 }
