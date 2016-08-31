@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Distribute Controller for the Company
  * It's needed becouse of the clean URL
@@ -7,8 +8,6 @@
  * @author Artur Stalbaum
  * @since 08.08.2016
  */
-
-
 $request = core()->request()->getParams();
 
 if (isset($request[2])) {
@@ -76,9 +75,9 @@ if (isset($request[2])) {
 
         core()->materialize()->parallax(true);
 
-        core()->materialize()->addFixedNavElement("/pm/firma/dashboard", "Zurück", "call_missed");
-        core()->materialize()->addFixedNavElement("/pm/firma/budget/" . $request[2], "Budget", "euro_symbol");
-        core()->materialize()->addFixedNavElement("/pm/firma/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
+        core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
+        core()->materialize()->addFixedNavElement("/pm/firma/budget/" . $request[2], "Budget", "euro_symbol", "blue");
+        core()->materialize()->addFixedNavElement("/pm/firma/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit", "green");
         core()->materialize()->addFixedNavElement("/pm/firma/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
         loadCompany($request[2]);

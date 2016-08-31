@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Edits an existing team and updates the changes into the database
  * 
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
 if (isset($_POST["reg"])) {
 
     $mitarbeiter = core()->db()->select("select * from mitarbeiter where concat_ws(' ',vorname,nachname) like '%" . $_POST["reg"]["leiter"] . "%'", "fetch");
@@ -27,5 +27,5 @@ if (isset($_POST["reg"])) {
 }
 
 
-core()->materialize()->addFixedNavElement("/pm/team/" . $request[3], "Zurück", "call_missed");
+core()->materialize()->addFixedNavElement("/pm/team/" . $request[3], "Zurück", "call_missed", "black");
 core()->materialize()->showFixedNavElement();

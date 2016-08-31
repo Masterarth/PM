@@ -2,7 +2,6 @@
     <div class="parallax-container">
         <div class="parallax"><iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?output=embed&amp;q={$standort->plz}+{$standort->ort},{$standort->strasse}+{$standort->hausnummer}&amp;ie=ISO-8859-1&amp;t=m&amp;vpsrc=0"></iframe></div>
     </div>
-
     <div class="section white">
         <div class="row container">
             <h2 class="header">{$standort->s_name}</h2>

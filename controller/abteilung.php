@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Distribute Controller for "Department"
  * It's neeeded becouse of the clean URL
@@ -7,8 +8,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
-
 $request = core()->request()->getParams();
 
 if (isset($request[2])) {
@@ -22,7 +21,7 @@ if (isset($request[2])) {
             core()->page()->loadController("abteilung_dashboard");
             break;
         case "bearbeiten":
-            core()->materialize()->addFixedNavElement("/pm/abteilung/" . $request[3], "Zurück", "call_missed");
+            core()->materialize()->addFixedNavElement("/pm/abteilung/" . $request[3], "Zurück", "call_missed", "black");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("abteilung_bearbeiten");
             if (is_numeric($request[3])) {
@@ -47,7 +46,8 @@ if (isset($request[2])) {
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
-        core()->materialize()->addFixedNavElement("/pm/abteilung/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
+        core()->materialize()->addFixedNavElement("/pm/abteilung/dashboard", "Zurück", "call_missed", "black");
+        core()->materialize()->addFixedNavElement("/pm/abteilung/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit", "green");
         core()->materialize()->addFixedNavElement("/pm/abteilung/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
         loadAbteilung($request[2]);

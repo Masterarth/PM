@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Edit for a Location
  * 1. Get the Location from the Database
@@ -8,8 +9,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
-
 if (isset($_POST["reg"])) {
 
     $result = core()->db()->select("select * from standort where id ='" . $_POST["reg"]["id"] . "'", "fetch");
@@ -28,5 +27,5 @@ if (isset($_POST["reg"])) {
 }
 
 
-core()->materialize()->addFixedNavElement("/pm/standort/" . $request[3], "Zurück", "call_missed");
+core()->materialize()->addFixedNavElement("/pm/standort/" . $request[3], "Zurück", "call_missed", "black");
 core()->materialize()->showFixedNavElement();

@@ -42,8 +42,8 @@ if (isset($request[2])) {
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
-
-        core()->materialize()->addFixedNavElement("/pm/standort/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
+        core()->materialize()->addFixedNavElement("/pm/standort/dashboard", "Zurück", "call_missed", "black");
+        core()->materialize()->addFixedNavElement("/pm/standort/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit", "green");
         core()->materialize()->addFixedNavElement("/pm/standort/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
 

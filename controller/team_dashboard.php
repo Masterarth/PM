@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Dashboard for the teams
  * 1. Read all teams from the Database
@@ -22,7 +23,7 @@ if (isset($_POST["team_search"])) {
 }
 
 
-core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed");
-core()->materialize()->addFixedNavElement("/pm/team/neu", "Team anlegen", "mode_edit");
+core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
+core()->materialize()->addFixedNavElement("/pm/team/neu", "Team anlegen", "mode_edit", "green");
 core()->materialize()->addFixedNavElement("#", "Suche", "search", "button-collapse hide-on-large-only", "data-activates='slide-out'");
 core()->materialize()->showFixedNavElement();

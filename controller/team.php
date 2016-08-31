@@ -53,7 +53,7 @@ if (isset($request[2])) {
             }
             if (is_numeric($request[3])) {
                 core()->smarty()->assign("t_id", $request[3]);
-                core()->materialize()->addFixedNavElement("/pm/team/" . $request[3], "Zurück", "call_missed");
+                core()->materialize()->addFixedNavElement("/pm/team/" . $request[3], "Zurück", "call_missed", "black");
                 $leistung = core()->db()->select("select id from leistung where t_id = " . $request[3], "fetch");
                 if (!$leistung) {
                     core()->page()->loadPage("leistung_neu");
@@ -68,9 +68,9 @@ if (isset($request[2])) {
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
-
-        core()->materialize()->addFixedNavElement("/pm/team/leistung/" . $request[2], "Leistung", "library_add");
-        core()->materialize()->addFixedNavElement("/pm/team/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
+        core()->materialize()->addFixedNavElement("/pm/team/dashboard", "Zurück", "call_missed", "black");
+        core()->materialize()->addFixedNavElement("/pm/team/leistung/" . $request[2], "Leistung", "library_add", "blue");
+        core()->materialize()->addFixedNavElement("/pm/team/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit", "green");
         core()->materialize()->addFixedNavElement("/pm/team/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
 

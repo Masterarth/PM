@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Dashboard for the Departments
  * 1. Shows Up all departments from the Database
@@ -7,7 +8,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
 if (isset($_POST["abteilung_search"])) {
     if (is_numeric($_POST["abteilung_search"])) {
         header('Location: /pm/abteilung/' . $_POST["abteilung_search"]);
@@ -23,6 +23,6 @@ if (count($abteilungen) > 0) {
     core()->smarty()->assign("abteilungen", $abteilungen);
 }
 
-core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed");
-core()->materialize()->addFixedNavElement("/pm/abteilung/neu", "Bereich anlegen", "mode_edit");
+core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
+core()->materialize()->addFixedNavElement("/pm/abteilung/neu", "Bereich anlegen", "mode_edit", "green");
 core()->materialize()->showFixedNavElement();
