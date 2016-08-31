@@ -226,20 +226,6 @@
     </div>
 </form>
 
-<div class="input-field col s12">
-    <select multiple>
-        <optgroup label="team 1">
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-        </optgroup>
-        <optgroup label="team 2">
-            <option value="3">Option 3</option>
-            <option value="4">Option 4</option>
-        </optgroup>
-    </select>
-    <label>Optgroups</label>
-</div>
-
 
 <script type="text/javascript">
     var tableKapitalwertVal = 0;
@@ -267,8 +253,9 @@
             var structureHeader = "<thead><tr><th>Nr</th><th>Abteilung</th><th>Wert</th></tr></thead>";
             $('#tblLeistungsverrechnung').append(structureHeader);
         }
-        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td></td><td></td></tr>"
+        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td><select name='reg[abteilung]'><option disabled selected>Auswählen</option>{foreach from=$places item=standort}<optgroup label='{$standort.standort->s_name}'>{foreach from=$standort.abteilungen item=abteilung}<option value='{$abteilung->id}'>{$abteilung->a_name}</option>{/foreach}</optgroup>{/foreach}</select></td><td></td></tr>"
         $('#tblLeistungsverrechnung').append(structure);
+        $('select').material_select();
         tableLeistungsverrechnungVal++;
     });
 

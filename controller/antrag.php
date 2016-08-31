@@ -23,12 +23,14 @@ if (isset($request[2])) {
             core()->page()->loadController("antrag_neu");
             break;
         case "dashboard":
+            core()->materialize()->addFixedNavElement("/pm/antrag/table", "tabellarische Ansicht", "border_all", "blue");
             core()->materialize()->addFixedNavElement("/pm/antrag/neu", "Antrag anlegen", "mode_edit", "green");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("antrag_dashboard");
             core()->page()->loadController("antrag_dashboard");
             break;
         case "table":
+            core()->materialize()->addFixedNavElement("/pm/antrag/dashboard", "klassiche Ansicht", "dvr", "blue");
             core()->materialize()->addFixedNavElement("/pm/antrag/neu", "Antrag anlegen", "mode_edit", "green");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("antrag_table");

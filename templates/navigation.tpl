@@ -11,7 +11,7 @@
                     <a href="#" data-activates="mobile-demo" class="button-collapse black-text"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li class="{if $controller == 'dashboard'}active{/if}"><a class="teal-text waves-effect waves-light" href="/pm/dashboard">Dashboard</a></li>
-                        <li class="{if $controller == 'antrag'}active{/if}"><a class="dropdown-button teal-text" href="#" data-activates="dropdown1">Anträge<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li class="{if $controller == 'antrag'}active{/if}"><a class="teal-text waves-effect waves-light" href="/pm/antrag/dashboard">Anträge</a></li>
                         <li class="{if $controller == 'stammdaten'}active{/if}"><a class="teal-text waves-effect waves-light" href="/pm/stammdaten">Stammdaten</a></li> 
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
@@ -36,10 +36,5 @@
             </nav>
         </div>
     </nav>
-
-    <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="/pm/antrag/dashboard" class="waves-effect waves-light teal-text">Klassisch</a></li>
-        <li><a href="/pm/antrag/table" class="waves-effect waves-light teal-text">Tabelle</a></li>
-    </ul>
 {/if}
 
