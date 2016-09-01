@@ -32,23 +32,26 @@
             - wie soll die Suche genau funktionieren?
                 @Artur => Sollen wir hier überhautp suchen
     [ ] anlegen
-        [ ] Amortisationsdauer
-        [ ] Bemerkung
+        [X] Amortisationsdauer --> Aber [] Verknüpfung fehlt
+        [X] Bemerkung -> Aber [] Verknüpfung fehlt
         [X] Projektteams
         [X] Arbeitspakete
         [X] Meilensteine
         [x] Kapitalwerte
             - nur noch zinssatz fehlt! Der rest geht...            
     [ ] bearbeiten
-        [ ] update in die DB fehlt
+        [ ] update in die DB fehlt --> @Art Auschecken der Klasse + Bug fixes falls vorhanden 
         [X] Ansicht ist ok
     [ ] Antrag genehmigen / ablehnen
     [ ] Auftraggeber
 .
 -> Zum einen Fehlen die Felder auf der Maske zum Teil 
+    @Artur Felder sind angelegt
 -> Zum anderen müssen dann die Felder im Backend noch richtig abgefangen werden bsp. aber vorhanden
+    @Artur Doing
 -> Könnte bitte jmd diese Felder in die anlege maske mit aufnehmen?! 
     @Artur => Welche Felder?
+    @Artur => Felder sind eingefügt --> Logik verknüpfen --> Greeetz Luki
 
  [X] ! ich bräuchte hilfe bei der Logik also nicht beim programmieren sondern wirklich nur theoretisch:
     - wie ich jetzt die genehmigunskacke handeln soll ... 
@@ -57,21 +60,23 @@
         - wie mache ich das am besten mit den kack stufen? 
         - denn die bisherige auswahl auf dem Dashboard stimmt nicht!!!
         @Artur = Lösung liegt in Document/Projectmanagement/Planung ==> Genehmigungsumsetzung_Artur
-     
+        
+
+        FROM L = Statement für die Genehmigung
+        SELECT * 
+FROM projekt,team,abteilung,mitarbeiter, standort, projstatus
+WHERE (projekt.genehmigung_E1 = 0 AND projekt.a_id = abteilung.id AND abteilung.id = team.a_id AND team.t_leitung = 1 AND projekt.s_id = 1)
+OR ( projekt.genehmigung_E2 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = 1 AND projekt.s_id =1)
+OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_id = standort.id AND standort.s_leitung = 1 AND projekt.s_id = 1)
+
 
 [ ] stammdaten
     [ ] Prioritäten -> Bemerkung LA: Prioritäten sind glaube ich einfach nur hoch, mittel, niedrig?
         [ ] anzeigen
         [ ] für ein projekt vergeben
         - frage: warum ist das prio zeug in den stammdaten ? @Artur => Macht keinen Sinn mehr und kann raus
-    [x] Statistiken
-        - kann jmd nur mal definieren (BITTE GENAU!) was wir hier für Diagramme bzw. Statistiken anzeigen wollen?
-        - bitte in ein seperates doc und dann bescheid geben
-            @Nico => Diagramme ausdenken und hochladen
 
-[X] @NICO       bitte den Text für die Statistik Kachel in den Stammdaten schreiben!!! danke :) gerne :)
-[X] @KARSTEN    bitte mal die ganzen Testfälle wie besprochen fertig machen!!! danke :)
-[X] @KARSTEN        TESTEN TESTEN TESTEN und Bugs in ein bug.md file hier im ordner schreiben danke :)
+
 
 -----
 
@@ -89,3 +94,10 @@
 [ ] @all    -> sowie es aussieht kann man das googlecharts dings nicht offline verwenden sprich das google charts js / google loader.js nicht herrrunterladen und einbinden man brauch immer ne inet verbindung
             -> wir sollten hierzu mal abklären ob das ok ist ? oder der freddy bzw. der pm typ was dagegen haben... 
             -> denn wenn die das offline testen sollten gehen alle charts nicht!
+
+
+[ ] @L --> PHPUnit anfangen
+        > Klassen:
+            1. Projekt
+            2. Kapitalwertmethode
+            3. Userhandler
