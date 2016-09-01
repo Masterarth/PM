@@ -21,12 +21,11 @@ if (isset($_POST["antrag_search"])) {
 }
 
 foreach ($projekte as $key => $projekt) {
-    $data[$key]["projekt"] = $projekt;
-    $data[$key]["pic"] = core()->randomPic()->getPicture($projekt->id, "projekt");
+    $projekte[$key]->pic = core()->randomPic()->getPicture($projekt->id, "projekt");
 }
 
 if ($projekte != null) {
-    core()->smarty()->assign("projekte", $data);
+    core()->smarty()->assign("projekte", $projekte);
 }
 
 

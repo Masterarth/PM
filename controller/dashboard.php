@@ -20,10 +20,9 @@ $meine_projekte = core()->db()->select("select * from projekt where l_id = " . $
 
 if (count($meine_projekte) > 0) {
     foreach ($meine_projekte as $key => $projekt) {
-        $data[$key]["projekt"] = $projekt;
-        $data[$key]["pic"] = core()->randomPic()->getPicture($projekt->id, "projekt");
+        $meine_projekte[$key]->pic = core()->randomPic()->getPicture($projekt->id, "projekt");
     }
-    core()->smarty()->assign("meine_projekte", $data);
+    core()->smarty()->assign("meine_projekte", $meine_projekte);
 }
 
 //$zu_gehnemigen = core()->db()->select("select p.* from projekt p"

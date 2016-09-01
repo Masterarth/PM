@@ -26,16 +26,16 @@
             {foreach from=$projekte item=projekt}
                 <div class="card horizontal hoverable valign-wrapper">
                     <div class="card-image valign">
-                        <img src="{$projekt.pic}">
+                        <img src="{$projekt->pic}">
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <span class="card-title teal-text">{$projekt.projekt->titel}</span>
-                            <p><strong class="teal-text">Standort:</strong> {$projekt.projekt->s_name}</p>
-                            <p><strong class="teal-text">Abteilung:</strong> {$projekt.projekt->a_name}</p>
+                            <span class="card-title teal-text">{$projekt->titel}</span>
+                            <p><strong class="teal-text">Standort:</strong> {$projekt->s_name}</p>
+                            <p><strong class="teal-text">Abteilung:</strong> {$projekt->a_name}</p>
                         </div>
                         <div class="card-action">
-                            <a class="grey-text" href="/pm/antrag/{$projekt.projekt->id}">Öffnen</a>
+                            <a class="grey-text" href="/pm/antrag/{$projekt->id}">Öffnen</a>
                         </div>
                     </div>
                 </div>
