@@ -125,6 +125,20 @@
                         </div>
                     </div>
                 </div>
+                <span class="card-title teal-text">Bemerkung</span>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="bemerkung" name="reg[bemerkung]" type="text" class="validate" placeholder="Bemerkung">
+                    </div>
+                </div>
+                <span class="card-title teal-text">Amortisationsdauer</span>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="amortisation" name="reg[amortisation]" type="text" class="validate" placeholder="Bemerkung">
+                    </div>
+                </div>
             </div>
         </div>
         <div id="kennzahl" class="col s12">

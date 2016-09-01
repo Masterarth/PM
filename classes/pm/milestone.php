@@ -120,5 +120,19 @@ class pm_milestone {
         $updateArray["msDone"] = $this->b_finished;
         core()->db()->update("update meilensteine set ms_nummer=:msNr, meilenstein=:msName, erfuellt=:msDone where id=" . $this->i_id, $updateArray);
     }
+    
+    /**
+     * Returns the Array for the Database Update
+     * @param int $p_id
+     * @return array
+     */
+    public function getArray($p_id){
+        $array = array();
+        $array["p_id"] = $p_id;
+        $array["nr"] = $this->getMilestoneNr();
+        $array["beschreibung"] = $this->getMilestoneName();
+        $array["checked"] = $this->getFinished();
+        return $array;
+    }
 
 }
