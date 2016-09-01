@@ -1,15 +1,15 @@
 {if isset($projekt)}
     <div class="parallax-container">
-        <div class="parallax"><img src="{$pic}"></div>
+        <div class="parallax"><img src="{$projekt->getPicturePath({$projekt->getDatabaseId()})}"></div>
     </div>
     <div class="section white">
         <div class="row container">
             <div class="row">
                 <div class="col s12 m9">
-                    <h2>{$projekt->titel} (#{$projekt->id})</h2>
+                    <h2>{$projekt->getTitle()} (#{$projekt->getDatabaseId()})</h2>
                 </div>
                 <div class="col s12 m3">
-                    <h3 class="teal-text" style="border-left: 10px solid lightblue; padding-left: 20px;">{$projekt->status}</h3>
+                    <h3 class="teal-text" style="border-left: 10px solid lightblue; padding-left: 20px;">{$projekt->getStatus()->getDescription()}</h3>
                 </div>
             </div>
             <div class="row">
@@ -26,19 +26,19 @@
                                 <div class="col s12 m4">
                                     <h4 class="light">Erstelldatum</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->erstell_datum|date_format:"%A, %B %e, %Y"}</span>
+                                        <span>{$projekt->getCreationDate()|date_format:"%A, %B %e, %Y"}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m4">
                                     <h4 class="light">Startdatum</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->vor_sta_term|date_format:"%A, %B %e, %Y"}</span>
+                                        <span>{$projekt->getExpectedStartTime()|date_format:"%A, %B %e, %Y"}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m4">
                                     <h4 class="light">Enddatum</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->vor_end_term|date_format:"%A, %B %e, %Y"}</span>
+                                        <span>{$projekt->getExpectedEndTime()|date_format:"%A, %B %e, %Y"}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m4">

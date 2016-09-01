@@ -69,50 +69,10 @@ if (isset($request[2])) {
         core()->materialize()->addFixedNavElement("/pm/antrag/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit", "green");
         core()->materialize()->addFixedNavElement("/pm/antrag/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
-        loadProject($request[2]);
-    }
-}
 
-/**
- * Load all Project Data Informations
- * @param int $id
- */
-function loadProject($id) {
-
-    if (isset($id)) {
-        $projekt = core()->db()->select("select "
-                . "p.*,"
-                . "ps.status,"
-                . "a.a_name,"
-                . "a.s_id,"
-                . "s.s_name,"
-                . "e.vorname as e_vorname, e.nachname as e_nachname,"
-                . "l.vorname as l_vorname, l.nachname as l_nachname "
-                . "from projekt p "
-                . "left join abteilung a on a.id = p.a_id "
-                . "left join standort s on s.id = a.s_id "
-                . "left join projstatus ps on ps.id = p.s_id "
-                . "left join mitarbeiter e on e.id = p.e_id "
-                . "left join mitarbeiter l on l.id = p.l_id "
-                . "where p.id = " . $id, "fetch");
-
-        if ($projekt) {
-            core()->smarty()->assign("projekt", $projekt);
-            core()->smarty()->assign("pic", core()->randomPic()->getPicture($projekt->id, "projekt"));
-            $kapitalwerte = core()->db()->select("select * from kapitalwerte where p_id = " . $projekt->id . " order by jahr");
-            if (count($kapitalwerte) > 0) {
-                core()->smarty()->assign("kw", $kapitalwerte);
-            }
-            $meilensteine = core()->db()->select("select * from meilensteine where p_id = " . $projekt->id . " order by ms_nummer");
-            if (count($meilensteine) > 0) {
-                core()->smarty()->assign("ms", $meilensteine);
-            }
-            $projektteam = core()->db()->select("select * from projteam p "
-                    . "left join team t on t.id = p.t_id "
-                    . "where p.p_id = " . $projekt->id);
-            if (count($projektteam) > 0) {
-                core()->smarty()->assign("pt", $projektteam);
-            }
-        }
+        $projekt = new pm_projekt();
+        $projekt->load($request[2]);
+//        var_dump($projekt);
+        core()->smarty()->assign("projekt", $projekt);
     }
 }

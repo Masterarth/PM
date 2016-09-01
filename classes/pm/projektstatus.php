@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Description of projektstatus
  *
@@ -9,10 +8,22 @@
 class pm_projektstatus {
 
     private $id;
-    private $status;
-    
-    //Erstelldatum um zu wissen wann der Status gesetzt wurde und wie langer er aktiv war
-    //Sobald ein neuer Status einem Projekt zugewiesen wird kann dadurch die zeitdiverenz ausrechnen
-    private $datum;
+    private $description;
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    public function setDescription($description) {
+        $this->description = $description;
+    }
 
 }
