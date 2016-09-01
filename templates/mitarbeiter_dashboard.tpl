@@ -2,7 +2,7 @@
     <div class="col hide-on-med-and-down l3">
         <ul class="collapsible" data-collapsible="accordion">
             <form action="/pm/mitarbeiter/dashboard" method="post">
-                <div class="input-field search white">
+                <div class="input-field search search-margin">
                     <input id="search" class="sickblue" type="text" name="ma_search">
                     <label for="search">nach Mitarbeiter suchen</label>
                 </div>
@@ -24,7 +24,7 @@
             {foreach from=$users item=user}
                 <div class="card horizontal hoverable valign-wrapper">
                     <div class="card-image valign">
-                        <img src="/pm/bin/custom/images/projekt_2.jpg">
+                        <img src="{$user->pic}">
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">

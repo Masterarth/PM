@@ -1,7 +1,7 @@
 {if isset($abteilung)}
     <div class="parallax-container">
         <div class="parallax">
-            <img class="backgroundImage" src="/pm/bin/custom/images/abteilung.jpg" style="display: block; transform: translate3d(-50%, 328px, 0px);">
+            <img src="{$pic}">
         </div>
     </div>
     <div class="section white">

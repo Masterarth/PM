@@ -24,7 +24,7 @@
             {foreach from=$standorte item=standort}
                 <div class="card horizontal hoverable valign-wrapper">
                     <div class="card-image valign">
-                        <img src="/pm/bin/custom/images/projekt_2.jpg">
+                        <img src="{$standort->pic}">
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">

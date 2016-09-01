@@ -20,6 +20,9 @@ if (isset($_POST["abteilung_search"])) {
 }
 
 if (count($abteilungen) > 0) {
+    foreach ($abteilungen as $key => $abteilung) {
+        $abteilungen[$key]->pic = core()->randomPic()->getPicture($abteilung->id, "abteilung");
+    }
     core()->smarty()->assign("abteilungen", $abteilungen);
 }
 

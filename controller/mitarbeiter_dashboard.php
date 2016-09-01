@@ -18,10 +18,17 @@ if (isset($_POST["ma_search"])) {
 } else {
     $users = core()->userhandler()->getAllUser();
 }
-core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
-core()->materialize()->addFixedNavElement("/pm/mitarbeiter/neu", "Mitarbeiter anlegen", "mode_edit", "green");
-core()->materialize()->showFixedNavElement();
+
+foreach ($users as $key => $user) {
+    $users[$key]->pic = core()->randomPic()->getPicture($user->id, "mitarbeiter");
+}
 
 if (count($users) > 0) {
     core()->smarty()->assign("users", $users);
 }
+
+core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
+core()->materialize()->addFixedNavElement("/pm/mitarbeiter/neu", "Mitarbeiter anlegen", "mode_edit", "green");
+core()->materialize()->showFixedNavElement();
+
+

@@ -33,44 +33,7 @@
         <p><strong>Es sind keine zu genehmigenden Anträge vorhanden</strong></p>
     {/if}
 </div>
-{*<div class="row">
-<div class="col s12 m4">
-<h4 class="teal-text">Mitarbeiter</h4>
-<div id="mitarbeiterChart"></div>
-</div>
-<div class="col s12 m4">
-<h4 class="teal-text">Projekte</h4>
-<div id="projekteChart"></div>
-</div>
-<div class="col s12 m4">
-<h4 class="teal-text">Ressourcen    </h4>
-<div id="ressourcenChart"></div>
-</div>
-</div>*}
 <h4 class="teal-text">Meine Projekte - Ganttplan</h4>
 <div class="section">
     <div id="chart_div"></div>
 </div>
-{if isset($meine_projekte)}
-    <h4 class="teal-text">Meine Projekte</h4>
-    <div class="section">
-        <div class="row">
-            {foreach from=$meine_projekte item=projekt}
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{$projekt->pic}">
-                            <span class="card-title">{$projekt->titel}</span>
-                        </div>
-                        <div class="card-content">
-                            <p>{$projekt->beschreibung}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="/pm/antrag/{$projekt->id}" class="teal-text">Öffnen</a>
-                        </div>
-                    </div> 
-                </div>
-            {/foreach}
-        </div>
-    </div>
-{/if}

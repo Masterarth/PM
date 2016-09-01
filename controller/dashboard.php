@@ -16,21 +16,6 @@ core()->smarty()->assign("anzahl_genehmigte_antraege", $antraege_genehmigt["coun
 $antraege_abgelehnt = core()->db()->select("select count(id) from projekt where e_id = " . $user->getId() . " and s_id = 5 ", "fetch", PDO::FETCH_NAMED);
 core()->smarty()->assign("anzahl_abgelehnter_antraege", $antraege_abgelehnt["count(id)"]);
 
-$meine_projekte = core()->db()->select("select * from projekt where l_id = " . $user->getId() . " or e_id =" . $user->getId() . " and s_id between 1 and 3");
-
-if (count($meine_projekte) > 0) {
-    foreach ($meine_projekte as $key => $projekt) {
-        $meine_projekte[$key]->pic = core()->randomPic()->getPicture($projekt->id, "projekt");
-    }
-    core()->smarty()->assign("meine_projekte", $meine_projekte);
-}
-
-//$zu_gehnemigen = core()->db()->select("select p.* from projekt p"
-//        . " left join abteilung a on a.id = p.a_id and p.genehmigung_E1 = 0"
-//        . " left join standort s on s.id = a.s_id and p.genehmigung_E2 = 0"
-//        . " left join firma f on f.id = s.f_id and p.genehmigung_E3 = 0"
-//        . " where f.f_leitung =" . $user->getId() . " and s.s_leitung =" . $user->getId() . " and a.a_leitung = " . $user->getId() . " and p.s_id = 1");
-
 $zu_gehnemigen = core()->db()->select("select * FROM projekt,team,abteilung,mitarbeiter, standort, projstatus "
         . "WHERE (projekt.genehmigung_E1 = 0 AND projekt.a_id = abteilung.id AND abteilung.id = team.a_id AND team.t_leitung = " . $user->getId() . " AND projekt.s_id = 1) "
         . "OR ( projekt.genehmigung_E2 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1) "

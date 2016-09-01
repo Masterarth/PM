@@ -62,6 +62,8 @@ if (isset($request[2])) {
         $user = core()->userhandler()->createUser($request[2]);
 
         if ($user) {
+            $pic = core()->randomPic()->getPicture($user->getId(), "mitarbeiter");
+            core()->smarty()->assign("pic", $pic);
             core()->smarty()->assign("user", $user);
             $rollen = core()->db()->select("select * from rolle");
             core()->smarty()->assign("rollen", $rollen);

@@ -1,6 +1,6 @@
 {if isset($user)}
     <div class="parallax-container">
-        <div class="parallax"><img src="/pm/bin/custom/images/mitarbeiter_lang.jpg"></div>
+        <div class="parallax"><img src="{$pic}"></div>
     </div>
     <div class="section white">
         <div class="row container">

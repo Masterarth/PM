@@ -17,11 +17,14 @@ if (isset($_POST["standort_search"])) {
     }
 } else {
     $standorte = core()->db()->select("select * from standort");
-    if (count($standorte) > 0) {
-        core()->smarty()->assign("standorte", $standorte);
-    }
 }
 
+if (count($standorte) > 0) {
+    foreach ($standorte as $key => $standort) {
+        $standorte[$key]->pic = core()->randomPic()->getPicture($standort->id, "standort");
+    }
+    core()->smarty()->assign("standorte", $standorte);
+}
 
 core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
 core()->materialize()->addFixedNavElement("/pm/standort/neu", "Standort anlegen", "mode_edit", "green");

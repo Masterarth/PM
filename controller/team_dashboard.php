@@ -17,11 +17,14 @@ if (isset($_POST["team_search"])) {
     }
 } else {
     $teams = core()->db()->select("select * from team t");
-    if (count($teams) > 0) {
-        core()->smarty()->assign("teams", $teams);
-    }
 }
 
+if (count($teams) > 0) {
+    foreach ($teams as $team) {
+        $team->pic = core()->randomPic()->getPicture($team->id, "team");
+    }
+    core()->smarty()->assign("teams", $teams);
+}
 
 core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
 core()->materialize()->addFixedNavElement("/pm/team/neu", "Team anlegen", "mode_edit", "green");

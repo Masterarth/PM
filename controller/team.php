@@ -75,6 +75,7 @@ if (isset($request[2])) {
         core()->materialize()->showFixedNavElement();
 
         loadTeam($request[2]);
+        core()->smarty()->assign("pic", core()->randomPic()->getPicture($request[2], "team"));
     }
 }
 

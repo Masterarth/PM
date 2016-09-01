@@ -51,6 +51,7 @@ if (isset($request[2])) {
         core()->materialize()->addFixedNavElement("/pm/abteilung/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
         loadAbteilung($request[2]);
+        core()->smarty()->assign("pic", core()->randomPic()->getPicture($request[2], "abteilung"));
     }
 }
 
