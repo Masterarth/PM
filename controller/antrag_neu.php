@@ -144,7 +144,7 @@ if (isset($_POST["reg"])) {
 
     if (isset($_POST["reg"]["kapitalwert"])) {
         foreach ($_POST["reg"]["kapitalwert"]["data"] as $value) {
-
+   
             $value["p_id"] = $pid;
             $value["zins"] = (isset($_POST["reg"]["kapitalwert"]["zins"])) ? $_POST["reg"]["kapitalwert"]["zins"] : null;
 

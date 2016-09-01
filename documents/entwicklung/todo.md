@@ -33,8 +33,6 @@
                 @Artur => Sollen wir hier überhautp suchen
     [ ] anlegen
         [ ] Amortisationsdauer
-        [ ] Geplantes Budget
-        [ ] Tatsächliches Budget
         [ ] Bemerkung
         [X] Projektteams
         [X] Arbeitspakete
@@ -78,13 +76,16 @@
 -----
 
 [ ] team ist_stunden aus projekt leistungsshit berechnen ? 
+    -> alles ok
+    -> aber der wert ist ja immer berechnet wenn das irgendwo verwenden möchten müssen wir den immer berechnen ? 
 [ ] @k @n   -> random algo für bilder überall tryen zu coden -> ist unabhänig von allem !?
-[ ] @L      -> wenn du projektklasse fertig hast können wir update von anträgen darüber machen weil ich habe das updaten noch nicht programmiert es wird nur richtig angezeigt felder müssen noch in die db geupdated werden
-[ ] @L      -> wenn du willst kannst du bitte nur die felder im antrag platzieren die noch fehlen siehe oben die noch nicht abgehackt sind. (Amortisationsdauer,Geplantes Budget etc.)
+[X] @L      -> wenn du projektklasse fertig hast können wir update von anträgen darüber machen weil ich habe das updaten noch nicht programmiert es wird nur richtig angezeigt felder müssen noch in die db geupdated werden
+[X] @L      -> wenn du willst kannst du bitte nur die felder im antrag platzieren die noch fehlen siehe oben die noch nicht abgehackt sind. (Amortisationsdauer,Geplantes Budget etc.)
             -> falls die felder fürn arsch sind aus der db werfen! können vllt. ausmissten!
 [ ] Statistik seite ist eigentlich auch nicht schwer vllt. können das die anderen 3 (k,n,t) machen ? 
     -> ist schon viel vorbereitet -> somit nur viel copy paste
     -> außerdem unabhängig von allem wichtigem
+    -> @A  = Vorbereiten der Klasse, damit sie wissen wo gecodet werden muss! + DB Zugriff exemplarisch anlegen
 [ ] @all    -> sowie es aussieht kann man das googlecharts dings nicht offline verwenden sprich das google charts js / google loader.js nicht herrrunterladen und einbinden man brauch immer ne inet verbindung
             -> wir sollten hierzu mal abklären ob das ok ist ? oder der freddy bzw. der pm typ was dagegen haben... 
             -> denn wenn die das offline testen sollten gehen alle charts nicht!
