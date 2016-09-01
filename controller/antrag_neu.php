@@ -93,13 +93,13 @@ if (isset($_POST["reg"])) {
                 $projectAntragArray["genehm_E3"] = 1;
                 break;
             case $kosten <= 25000:
-                $projectAntragArray["genehm_E1"] = 0;
+                $projectAntragArray["genehm_E1"] = 1;
                 $projectAntragArray["genehm_E2"] = 0;
                 $projectAntragArray["genehm_E3"] = 1;
                 break;
             case $kosten <= 50000:
-                $projectAntragArray["genehm_E1"] = 0;
-                $projectAntragArray["genehm_E2"] = 0;
+                $projectAntragArray["genehm_E1"] = 1;
+                $projectAntragArray["genehm_E2"] = 1;
                 $projectAntragArray["genehm_E3"] = 0;
                 break;
             //case > 50000?
