@@ -93,13 +93,13 @@ if (isset($_POST["reg"])) {
                 $projectAntragArray["genehm_E3"] = 1;
                 break;
             case $kosten <= 25000:
-                $projectAntragArray["genehm_E1"] = 0;
+                $projectAntragArray["genehm_E1"] = 1;
                 $projectAntragArray["genehm_E2"] = 0;
                 $projectAntragArray["genehm_E3"] = 1;
                 break;
             case $kosten <= 50000:
-                $projectAntragArray["genehm_E1"] = 0;
-                $projectAntragArray["genehm_E2"] = 0;
+                $projectAntragArray["genehm_E1"] = 1;
+                $projectAntragArray["genehm_E2"] = 1;
                 $projectAntragArray["genehm_E3"] = 0;
                 break;
             //case > 50000?
@@ -144,7 +144,7 @@ if (isset($_POST["reg"])) {
 
     if (isset($_POST["reg"]["kapitalwert"])) {
         foreach ($_POST["reg"]["kapitalwert"]["data"] as $value) {
-
+   
             $value["p_id"] = $pid;
             $value["zins"] = (isset($_POST["reg"]["kapitalwert"]["zins"])) ? $_POST["reg"]["kapitalwert"]["zins"] : null;
 
