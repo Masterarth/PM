@@ -274,14 +274,57 @@ class pm_projekt {
 
         //Adds Milestones to the Project
         $this->getMilestonesInformations($p_id);
+
+        //Adds Capital Values for the Project
+        $this->getCapitalValueInformations($p_id);
+
+        //Adds Involved Teams for the Project
+        $this->getInvolvedTeamsInformations($p_id);
     }
-    
+
+    /**
+     * Gets the Informations for the Involved Teams Informations
+     * @param int $p_id
+     */
+    private function getInvolvedTeamsInformations($p_id) {
+        $resultInvolvedTeams = core()->db()->select("select projteam.*,team.t_name from projteam,team where team.id = projteam.t_id and p_id='" . $p_id . "'");
+        if (count($resultInvolvedTeams) > 0) {
+            foreach ($resultInvolvedTeams as $result) {
+                $it = new pm_projektteam();
+                $it->setDatabaseId($result->id);
+                $it->setTeamName($result->t_name);
+                $it->setProjektName("");
+                $it->setHours($result->stunden);
+                $it->setProjectId($p_id);
+                $it->setTeamId($result->t_id);
+                $this->setInvolvedTeams($it);
+            }
+        }
+    }
+
+    /**
+     * Get the Capitalvalue Informations for a Project
+     * @param int $p_id
+     */
+    private function getCapitalValueInformations($p_id) {
+        $resultCapitalValue = core()->db()->select("select * from kapitalwerte where p_id ='" . $p_id . "'");
+        if (count($resultCapitalValue) > 0) {
+            foreach ($resultCapitalValue as $result) {
+                $cv = new pm_capitalvalue();
+                $cv->setYear($result->jahr);
+                $cv->setInputMoneyVal($result->einzahlung);
+                $cv->setOutputMoneyVal($result->auszahlung);
+                $cv->setRent($result->zinssatz);
+                $this->setCapitalflow($cv);
+            }
+        }
+    }
+
     /**
      * Reads the Milestones for the Project
      * @param int $p_id
      */
-    private function getMilestonesInformations($p_id)
-    {
+    private function getMilestonesInformations($p_id) {
         $resultMilestones = core()->db()->select("select * from meilensteine where p_id ='" . $p_id . "'");
         if (count($resultMilestones) > 0) {
             foreach ($resultMilestones as $result) {
@@ -294,7 +337,6 @@ class pm_projekt {
             }
         }
     }
-    
 
     /**
      * Updates the Project in the Database
@@ -460,6 +502,42 @@ class pm_projekt {
         $pid = core()->db()->update(
                 "insert into projekt (titel,auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2,genehmigung_E3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_term,vor_end_term,nutzen,amorti_zeit,bemerkung,mon_kosten,mon_nutzen,kap_kosten, e_id, a_id, l_id,b_id,s_id) "
                 . "values(:p_titel,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:komm_konz,:risiko,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung,:mon_kosten,:mon_nutzen,:kap_kosten,:e_id, :a_id, :l_id, :b_id,:s_id)", $projectAntragArray);
+    
+        //Inserts Capital Value Stuff
+        $this->insertCapitalValues($p_id);
+        //Inserts the Milestones Stuff
+        $this->insertMilestones($p_id);
+    }
+    
+    /**
+     * Insert into the Database Table
+     * @param int $p_id
+     */
+    public function insertCapitalValues($p_id)
+    {
+        foreach ($this->capitalflow as $flow) {
+                $cid = core()->db()->update("insert into kapitalwerte (p_id,jahr,zinssatz,einzahlung,auszahlung) values (:p_id,:jahr,:zins,:ein,:aus)", $flow->getArray($p_id));     
+        }
+    }
+    
+    /**
+     * Insert into the Database Table
+     * @param int $p_id
+     */
+    public function insertMilestones($p_id){
+        foreach ($this->milestones as $ms){
+            $mid = core()->db()->update("insert into meilensteine (p_id,ms_nummer,meilenstein,erfuellt) values(:p_id,:nr,:beschreibung,:checked)", $ms->getArray($p_id));
+        }
+    }
+    
+    /**
+     * Insert into Involved Teams
+     * @param type $p_id
+     */
+    public function insertInvolvedTeams($p_id){
+        foreach ($this->involvedTeams as $team) {
+            $tid = core()->db()->update("insert into projteam (t_id,p_id,stunden) values(:abteilung,:p_id,:wert)", $team->getArray($p_id));
+        }
     }
 
     /**
@@ -1046,7 +1124,9 @@ class pm_projekt {
      * @param Class Capitalflow $capitalflow
      */
     function setCapitalflow($capitalflow) {
-        $this->capitalflow[] = $capitalflow;
+        if (is_a($capitalflow, 'pm_capitalvalue')) {
+            $this->capitalflow[] = $capitalflow;
+        }
     }
 
     /**
@@ -1054,7 +1134,9 @@ class pm_projekt {
      * @param Class InvolvedTeam $involvedTeams
      */
     function setInvolvedTeams($involvedTeams) {
-        $this->involvedTeams[] = $involvedTeams;
+        if (is_a($involvedTeams, 'pm_projektteam')) {
+            $this->involvedTeams[] = $involvedTeams;
+        }
     }
 
 }
