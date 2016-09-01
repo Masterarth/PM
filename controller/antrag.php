@@ -23,12 +23,14 @@ if (isset($request[2])) {
             core()->page()->loadController("antrag_neu");
             break;
         case "dashboard":
+            core()->materialize()->addFixedNavElement("/pm/antrag/table", "tabellarische Ansicht", "border_all", "blue");
             core()->materialize()->addFixedNavElement("/pm/antrag/neu", "Antrag anlegen", "mode_edit", "green");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("antrag_dashboard");
             core()->page()->loadController("antrag_dashboard");
             break;
         case "table":
+            core()->materialize()->addFixedNavElement("/pm/antrag/dashboard", "klassiche Ansicht", "dvr", "blue");
             core()->materialize()->addFixedNavElement("/pm/antrag/neu", "Antrag anlegen", "mode_edit", "green");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("antrag_table");
@@ -102,15 +104,11 @@ function loadProject($id) {
 
         if ($projekt) {
             core()->smarty()->assign("projekt", $projekt);
-            $arbeitspakete = core()->db()->select("select * from arbeitspakete where p_id = " . $projekt->id);
-            if (count($arbeitspakete) > 0) {
-                core()->smarty()->assign("arbeitspakete", $arbeitspakete);
-            }
-            $kapitalwerte = core()->db()->select("select * from kapitalwerte where p_id = " . $projekt->id);
+            $kapitalwerte = core()->db()->select("select * from kapitalwerte where p_id = " . $projekt->id . " order by jahr");
             if (count($kapitalwerte) > 0) {
                 core()->smarty()->assign("kw", $kapitalwerte);
             }
-            $meilensteine = core()->db()->select("select * from meilensteine where p_id = " . $projekt->id);
+            $meilensteine = core()->db()->select("select * from meilensteine where p_id = " . $projekt->id . " order by ms_nummer");
             if (count($meilensteine) > 0) {
                 core()->smarty()->assign("ms", $meilensteine);
             }
@@ -118,7 +116,7 @@ function loadProject($id) {
                     . "left join team t on t.id = p.t_id "
                     . "where p.p_id = " . $projekt->id);
             if (count($projektteam) > 0) {
-                core()->smarty()->assign("projektteam", $projektteam);
+                core()->smarty()->assign("pt", $projektteam);
             }
         }
     }

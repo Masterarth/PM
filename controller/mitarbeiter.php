@@ -25,7 +25,7 @@ if (isset($request[2])) {
             core()->page()->loadController("mitarbeiter_dashboard");
             break;
         case "bearbeiten":
-            core()->materialize()->addFixedNavElement("/pm/mitarbeiter/" . $request[3], "Zurück", "call_missed");
+            core()->materialize()->addFixedNavElement("/pm/mitarbeiter/" . $request[3], "Zurück", "call_missed", "black");
             core()->materialize()->showFixedNavElement();
             core()->page()->loadPage("mitarbeiter_bearbeiten");
             if (is_numeric($request[3])) {
@@ -54,8 +54,8 @@ if (isset($request[2])) {
     if (is_numeric($request[2])) {
 
         core()->materialize()->parallax(true);
-        core()->materialize()->addFixedNavElement("/pm/mitarbeiter/dashboard", "Zurück", "call_missed");
-        core()->materialize()->addFixedNavElement("/pm/mitarbeiter/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit");
+        core()->materialize()->addFixedNavElement("/pm/mitarbeiter/dashboard", "Zurück", "call_missed", "black");
+        core()->materialize()->addFixedNavElement("/pm/mitarbeiter/bearbeiten/" . $request[2], "Bearbeiten", "mode_edit", "green");
         core()->materialize()->addFixedNavElement("/pm/mitarbeiter/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
 

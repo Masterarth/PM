@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Creates a new Location for a Company
  * 1. Checks if an Locations exists
@@ -8,7 +9,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
 if (isset($_POST["reg"])) {
 
     $result = core()->db()->select("select * from standort where "
@@ -38,5 +38,5 @@ if (isset($_POST["reg"])) {
 }
 
 
-core()->materialize()->addFixedNavElement("/pm/standort/dashboard", "Zurück", "call_missed");
+core()->materialize()->addFixedNavElement("/pm/standort/dashboard", "Zurück", "call_missed", "black");
 core()->materialize()->showFixedNavElement();

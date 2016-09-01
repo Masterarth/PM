@@ -77,7 +77,7 @@
                     </div>
                     <div class="input-field col s12">
                         <select name="reg[leiter]">
-                            <option value="" disabled selected>Auswählen</option>
+                            <option disabled selected>Auswählen</option>
                             {foreach from=$mitarbeiter item=arbeiter key=key}
                                 <option value="{$arbeiter->id}">{$arbeiter->vorname} {$arbeiter->nachname}</option>
                             {/foreach}
@@ -154,11 +154,11 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="kostenKapitalwert" name="reg[kostenKapitalwert]" type="number" placeholder="-I (Kosten)"/>
+                        <input id="kostenKapitalwert" name="reg[kapitalwert][kosten]" type="number" placeholder="-I (Kosten)"/>
                         <label for="kostenKapitalwert">Kosten (I)</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="kapitalwertZins" name="reg[zinsKapitalwert]" type="number" placeholder="Zinssatz Kapitalwert"/>
+                        <input id="kapitalwertZins" name="reg[kapitalwert][zins]" type="number" placeholder="Zinssatz Kapitalwert"/>
                         <label for="kapitalwertZins">Zins(Risikolos + untern. Risiko)</label>
                     </div>
                 </div>
@@ -226,20 +226,6 @@
     </div>
 </form>
 
-<div class="input-field col s12">
-    <select multiple>
-        <optgroup label="team 1">
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-        </optgroup>
-        <optgroup label="team 2">
-            <option value="3">Option 3</option>
-            <option value="4">Option 4</option>
-        </optgroup>
-    </select>
-    <label>Optgroups</label>
-</div>
-
 
 <script type="text/javascript">
     var tableKapitalwertVal = 0;
@@ -252,7 +238,7 @@
             var structureHeader = "<thead><tr><th>Jahr</th><th>Ausgaben</th><th>Einnahmen</th></tr></thead>";
             $('#tblKapitalwert').append(structureHeader);
         }
-        var structure = "<tr><td>" + tableKapitalwertVal + "<input type='hidden' name='reg[kapitalwert][" + tableKapitalwertVal + "][Jahr]' value='" + tableKapitalwertVal + "'/></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][" + tableKapitalwertVal + "][Ausg]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][" + tableKapitalwertVal + "][Ein]'</td></tr>"
+        var structure = "<tr><td>" + tableKapitalwertVal + "<input type='hidden' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][jahr]' value='" + tableKapitalwertVal + "'/></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][aus]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][ein]'</td></tr>"
         $('#tblKapitalwert').append(structure);
         tableKapitalwertVal++;
     });
@@ -264,20 +250,21 @@
     {
         if (tableLeistungsverrechnungVal == 0)
         {
-            var structureHeader = "<thead><tr><th>Nr</th><th>Abteilung</th><th>Wert</th></tr></thead>";
+            var structureHeader = "<thead><tr><th>Nr</th><th>Abteilung</th><th>Stunden</th></tr></thead>";
             $('#tblLeistungsverrechnung').append(structureHeader);
         }
-        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td></td><td></td></tr>"
+        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td><select name='reg[leistung][" + tableLeistungsverrechnungVal + "][abteilung]'><option disabled selected>Auswählen</option>{foreach from=$places item=standort}<optgroup label='{$standort.standort->s_name}'>{foreach from=$standort.abteilungen item=abteilung}<option value='{$abteilung->id}'>{$abteilung->a_name}</option>{/foreach}</optgroup>{/foreach}</select></td><td><input type='number' min=0 name='reg[leistung][" + tableLeistungsverrechnungVal + "][wert]' /></td></tr>"
         $('#tblLeistungsverrechnung').append(structure);
+        $('select').material_select();
         tableLeistungsverrechnungVal++;
     });
 
-    var tableMeilensteine = 0;
+    var tableMeilensteine = 1;
 
     //Adds Dynamic Content to the Table
     $('#btnMeilensteine').click(function ()
     {
-        if (tableMeilensteine == 0)
+        if (tableMeilensteine == 1)
         {
             var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
             $('#tblMeilensteine').append(structureHeader);

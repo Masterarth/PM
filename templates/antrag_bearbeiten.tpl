@@ -155,17 +155,17 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="kostenKapitalwert" name="reg[kostenKapitalwert]" type="number" placeholder="-I (Kosten)" value="{$projekt->kap_kosten}"/>
+                            <input id="kostenKapitalwert" name="reg[kapitalwert][kosten]" type="number" placeholder="-I (Kosten)" value="{$projekt->kap_kosten}"/>
                             <label for="kostenKapitalwert">Kosten (I)</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="kapitalwertZins" name="reg[zinsKapitalwert]" type="number" placeholder="Zinssatz Kapitalwert" value="{$kw[0]->zinssatz}"/>
+                            <input id="kapitalwertZins" name="reg[kapitalwert][zins]" type="number" placeholder="Zinssatz Kapitalwert" value="{$kw[0]->zinssatz}"/>
                             <label for="kapitalwertZins">Zins(Risikolos + untern. Risiko)</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <table class="highlight" id="tblKapitalwert" name="reg[kapitalwertfelder]">
+                            <table class="highlight" id="tblKapitalwert">
                                 {if isset($kw)}
                                     <thead>
                                         <tr>
@@ -201,7 +201,38 @@
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <table class="highlight" id="tblLeistungsverrechnung" name="reg[leistungsverrechnung]">
+                            <table class="highlight" id="tblLeistungsverrechnung">
+                                {if isset($pt)}
+                                    <thead>
+                                        <tr>
+                                            <th>Nr</th>
+                                            <th>Abteilung</th>
+                                            <th>Stunden</th>
+                                        </tr>
+                                    </thead>
+                                    {foreach from=$pt item=team key=ptKey}
+                                        <tr>
+                                            <td>
+                                                {$ptKey}
+                                            </td>
+                                            <td>
+                                                <select name='reg[leistung][{$ptKey}][abteilung]'>
+                                                    <option disabled selected>Auswählen</option>
+                                                    {foreach from=$places item=standort}
+                                                        <optgroup label='{$standort.standort->s_name}'>
+                                                            {foreach from=$standort.abteilungen item=abteilung}
+                                                                <option {if $team->id == $abteilung->id}selected{/if} value='{$abteilung->id}'>{$abteilung->a_name}</option>
+                                                            {/foreach}
+                                                        </optgroup>
+                                                    {/foreach}
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type='number' min=0 name='reg[leistung][{$ptKey}][wert]' value="{$team->stunden}" />
+                                            </td>
+                                        </tr>
+                                    {/foreach}
+                                {/if} 
                             </table>
                         </div>
                     </div>
@@ -215,7 +246,7 @@
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <table class="highlight" id="tblMeilensteine" name="reg[meilensteine]">
+                            <table class="highlight" id="tblMeilensteine">
                                 {if isset($ms)}
                                     <thead>
                                         <tr>
@@ -267,7 +298,7 @@
 
         <div class="row">
             <div class="col s12">
-                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect teal'>Update</button>
+                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect teal'>Ändern</button>
             </div>
         </div>
     </form>
@@ -277,7 +308,6 @@
         <span><a class="btn btn-flat" href="/pm/antrag/dashboard">Zurück zur übersicht</a></span>
     </div>
 {/if}
-
 
 <script type="text/javascript">
     {if isset($kww->jahr)}
@@ -294,37 +324,40 @@
             var structureHeader = "<thead><tr><th>Jahr</th><th>Ausgaben</th><th>Einnahmen</th></tr></thead>";
             $('#tblKapitalwert').append(structureHeader);
         }
-        var structure = "<tr><td>" + tableKapitalwertVal + "<input type='hidden' name='reg[kapitalwert][" + tableKapitalwertVal + "][Jahr]' value='" + tableKapitalwertVal + "'/></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][" + tableKapitalwertVal + "][Ausg]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][" + tableKapitalwertVal + "][Ein]'</td></tr>"
+        var structure = "<tr><td>" + tableKapitalwertVal + "<input type='hidden' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][jahr]' value='" + tableKapitalwertVal + "'/></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][aus]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][ein]'</td></tr>"
         $('#tblKapitalwert').append(structure);
         tableKapitalwertVal++;
     });
 
+    {if isset($ptKey)}
+    var tableLeistungsverrechnungVal = {$ptKey} + 1;
+    {else}
     var tableLeistungsverrechnungVal = 0;
-
+    {/if}
     //Adds Dynamic Content to the Table
     $('#btnLeistungsverrechnung').click(function ()
     {
         if (tableLeistungsverrechnungVal == 0)
         {
-            var structureHeader = "<thead><tr><th>Nr</th><th>Abteilung</th><th>Wert</th></tr></thead>";
+            var structureHeader = "<thead><tr><th>Nr</th><th>Abteilung</th><th>Stunden</th></tr></thead>";
             $('#tblLeistungsverrechnung').append(structureHeader);
         }
-        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td></td><td></td></tr>"
+        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td><select name='reg[leistung][" + tableLeistungsverrechnungVal + "][abteilung]'><option disabled selected>Auswählen</option>{foreach from=$places item=standort}<optgroup label='{$standort.standort->s_name}'>{foreach from=$standort.abteilungen item=abteilung}<option value='{$abteilung->id}'>{$abteilung->a_name}</option>{/foreach}</optgroup>{/foreach}</select></td><td><input type='number' min=0 name='reg[leistung][" + tableLeistungsverrechnungVal + "][wert]' /></td></tr>"
         $('#tblLeistungsverrechnung').append(structure);
+        $('select').material_select();
         tableLeistungsverrechnungVal++;
     });
-
 
     {if isset($mss->ms_nummer)}
     var tableMeilensteine = {$mss->ms_nummer} + 1;
     {else}
-    var tableMeilensteine = 0;
+    var tableMeilensteine = 1;
     {/if}
 
     //Adds Dynamic Content to the Table
     $('#btnMeilensteine').click(function ()
     {
-        if (tableMeilensteine == 0)
+        if (tableMeilensteine == 1)
         {
             var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
             $('#tblMeilensteine').append(structureHeader);

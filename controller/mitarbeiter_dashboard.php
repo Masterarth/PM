@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Shows up all Employees
  * 1. Load all Employee from the Database
@@ -7,7 +8,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
 if (isset($_POST["ma_search"])) {
     if (is_numeric($_POST["ma_search"])) {
         header('Location: /pm/mitarbeiter/' . $_POST["ma_search"]);
@@ -18,8 +18,8 @@ if (isset($_POST["ma_search"])) {
 } else {
     $users = core()->userhandler()->getAllUser();
 }
-core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed");
-core()->materialize()->addFixedNavElement("/pm/mitarbeiter/neu", "Mitarbeiter anlegen", "mode_edit");
+core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
+core()->materialize()->addFixedNavElement("/pm/mitarbeiter/neu", "Mitarbeiter anlegen", "mode_edit", "green");
 core()->materialize()->showFixedNavElement();
 
 if (count($users) > 0) {

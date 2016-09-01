@@ -23,7 +23,7 @@
         echo $query;
 
 [ ] Anträge
-    [ ] dashboard
+    [x] dashboard
         - Der PM Typ will ja ne alternative:
             - bitte herrausfinden was er genau will wie soll die tabelle aufgebaut sein?
             - und was soll die Tabelle alles können ? welche absprungmöglichkeiten, sortiermöglichkeiten etc. 
@@ -64,7 +64,7 @@
         [ ] anzeigen
         [ ] für ein projekt vergeben
         - frage: warum ist das prio zeug in den stammdaten ? @Artur => Macht keinen Sinn mehr und kann raus
-    [X] Statistiken
+    [x] Statistiken
         - kann jmd nur mal definieren (BITTE GENAU!) was wir hier für Diagramme bzw. Statistiken anzeigen wollen?
         - bitte in ein seperates doc und dann bescheid geben
             @Nico => Diagramme ausdenken und hochladen
@@ -72,3 +72,17 @@
 [X] @NICO       bitte den Text für die Statistik Kachel in den Stammdaten schreiben!!! danke :) gerne :)
 [X] @KARSTEN    bitte mal die ganzen Testfälle wie besprochen fertig machen!!! danke :)
 [X] @KARSTEN        TESTEN TESTEN TESTEN und Bugs in ein bug.md file hier im ordner schreiben danke :)
+
+-----
+
+[ ] team ist_stunden aus projekt leistungsshit berechnen ? 
+[ ] @k @n   -> random algo für bilder überall tryen zu coden -> ist unabhänig von allem !?
+[ ] @L      -> wenn du projektklasse fertig hast können wir update von anträgen darüber machen weil ich habe das updaten noch nicht programmiert es wird nur richtig angezeigt felder müssen noch in die db geupdated werden
+[ ] @L      -> wenn du willst kannst du bitte nur die felder im antrag platzieren die noch fehlen siehe oben die noch nicht abgehackt sind. (Amortisationsdauer,Geplantes Budget etc.)
+            -> falls die felder fürn arsch sind aus der db werfen! können vllt. ausmissten!
+[ ] Statistik seite ist eigentlich auch nicht schwer vllt. können das die anderen 3 (k,n,t) machen ? 
+    -> ist schon viel vorbereitet -> somit nur viel copy paste
+    -> außerdem unabhängig von allem wichtigem
+[ ] @all    -> sowie es aussieht kann man das googlecharts dings nicht offline verwenden sprich das google charts js / google loader.js nicht herrrunterladen und einbinden man brauch immer ne inet verbindung
+            -> wir sollten hierzu mal abklären ob das ok ist ? oder der freddy bzw. der pm typ was dagegen haben... 
+            -> denn wenn die das offline testen sollten gehen alle charts nicht!

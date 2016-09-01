@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Controller for the Dashboard of the Locations
  * 1. Read all Locations from the Database
@@ -7,7 +8,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
 if (isset($_POST["standort_search"])) {
     if (is_numeric($_POST["standort_search"])) {
         header('Location: /pm/standort/' . $_POST["standort_search"]);
@@ -23,6 +23,6 @@ if (isset($_POST["standort_search"])) {
 }
 
 
-core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed");
-core()->materialize()->addFixedNavElement("/pm/standort/neu", "Standort anlegen", "mode_edit");
+core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
+core()->materialize()->addFixedNavElement("/pm/standort/neu", "Standort anlegen", "mode_edit", "green");
 core()->materialize()->showFixedNavElement();
