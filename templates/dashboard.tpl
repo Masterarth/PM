@@ -59,14 +59,14 @@
                 <div class="col s12 m6 l4">
                     <div class="card">
                         <div class="card-image">
-                            <img src="/pm/bin/custom/images/projekt_2.jpg">
-                            <span class="card-title">{$projekt->titel}</span>
+                            <img src="{$projekt.pic}">
+                            <span class="card-title">{$projekt.projekt->titel}</span>
                         </div>
                         <div class="card-content">
-                            <p>{$projekt->beschreibung}</p>
+                            <p>{$projekt.projekt->beschreibung}</p>
                         </div>
                         <div class="card-action">
-                            <a href="/pm/antrag/{$projekt->id}" class="teal-text">Öffnen</a>
+                            <a href="/pm/antrag/{$projekt.projekt->id}" class="teal-text">Öffnen</a>
                         </div>
                     </div> 
                 </div>

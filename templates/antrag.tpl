@@ -1,6 +1,6 @@
 {if isset($projekt)}
     <div class="parallax-container">
-        <div class="parallax"><img src="/pm/bin/custom/images/projekte.jpg"></div>
+        <div class="parallax"><img src="{$pic}"></div>
     </div>
     <div class="section white">
         <div class="row container">
@@ -179,18 +179,6 @@
                                     <h4 class="light">Kapital Kosten</h4>
                                     <div class="para_content">
                                         <span>{$projekt->kap_kosten}</span>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6">
-                                    <h4 class="light">Geplantes Budget</h4>
-                                    <div class="para_content">
-                                        <span>{$projekt->plan_budget}</span>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6">
-                                    <h4 class="light">Tatsächliches Budget</h4>
-                                    <div class="para_content">
-                                        <span>{$projekt->tat_budget}</span>
                                     </div>
                                 </div>
                             </div>

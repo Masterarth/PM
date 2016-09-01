@@ -83,10 +83,6 @@ function loadProject($id) {
         $projekt = core()->db()->select("select "
                 . "p.*,"
                 . "ps.status,"
-                . "b1.betrag as tat_budget,"
-                . "b1.aktiv as tat_aktiv,"
-                . "b2.betrag as plan_budget,"
-                . "b2.aktiv as plan_aktiv,"
                 . "a.a_name,"
                 . "a.s_id,"
                 . "s.s_name,"
@@ -96,14 +92,13 @@ function loadProject($id) {
                 . "left join abteilung a on a.id = p.a_id "
                 . "left join standort s on s.id = a.s_id "
                 . "left join projstatus ps on ps.id = p.s_id "
-                . "left join probudget b1 on b1.id = p.tat_budget_id "
-                . "left join probudget b2 on b2.id = p.plan_budget_id "
                 . "left join mitarbeiter e on e.id = p.e_id "
                 . "left join mitarbeiter l on l.id = p.l_id "
                 . "where p.id = " . $id, "fetch");
 
         if ($projekt) {
             core()->smarty()->assign("projekt", $projekt);
+            core()->smarty()->assign("pic", core()->randomPic()->getPicture($projekt->id, "projekt"));
             $kapitalwerte = core()->db()->select("select * from kapitalwerte where p_id = " . $projekt->id . " order by jahr");
             if (count($kapitalwerte) > 0) {
                 core()->smarty()->assign("kw", $kapitalwerte);
