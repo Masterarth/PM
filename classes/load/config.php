@@ -36,6 +36,13 @@ class load_config {
     }
 
     /**
+     * Singelton Pattern
+     */
+    private function __clone() {
+        
+    }
+
+    /**
      * Beim Instanzieren wird die Konfigdatei eingelesen
      */
     private function __construct() {
@@ -43,13 +50,6 @@ class load_config {
         $this->configFilePath = BASEPATH . 'config/';
         $this->configFile = $this->configFilePath . $this->configFile;
         $this->loadConfig();
-    }
-
-    /**
-     * Singelton Pattern
-     */
-    private function __clone() {
-        
     }
 
     /**

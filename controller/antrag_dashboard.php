@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 1. Shows up all Proposals from the Database
  * 2. Search in the Database for Proposals (Filter Functions)
@@ -6,8 +7,6 @@
  * @author Artur Stalbaum
  * @since 15.08.2016
  */
-
-
 if (isset($_POST["antrag_search"])) {
     if (is_numeric($_POST["antrag_search"])) {
         header('Location: /pm/antrag/' . $_POST["antrag_search"]);
@@ -21,8 +20,13 @@ if (isset($_POST["antrag_search"])) {
             . "left join standort as s on s.id = a.s_id");
 }
 
+foreach ($projekte as $key => $projekt) {
+    $data[$key]["projekt"] = $projekt;
+    $data[$key]["pic"] = core()->randomPic()->getPicture($projekt->id, "projekt");
+}
+
 if ($projekte != null) {
-    core()->smarty()->assign("projekte", $projekte);
+    core()->smarty()->assign("projekte", $data);
 }
 
 
