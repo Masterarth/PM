@@ -33,14 +33,23 @@ class pm_randomizer {
     private $s_pictureName;
     
     
+    /**
+     * Standard Constructor
+     */
     function __construct() {
         $this->s_filePath = "bin/custom/images/";
     }
     
+    /**
+     * Returns a Picture
+     * @param int $id
+     * @param String $name ("projekt"/"mitarbeiter"/"budget"/"abteilung"/"standort"/"team");
+     * @return type
+     */
     public function getPicture($id, $name){
         $this->s_randomizerString = $name;
         $i = $id%5;
-        $this->s_pictureName = $this->s_randomizerString.$i.".png";
+        $this->s_pictureName = $this->s_randomizerString."_".$i.".png";
         return $this->s_filePath.$this->s_pictureName;
     }
     
