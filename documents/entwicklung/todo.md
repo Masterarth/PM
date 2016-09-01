@@ -35,13 +35,15 @@
         [ ] Amortisationsdauer
         [ ] Geplantes Budget
         [ ] Tatsächliches Budget
-        [ ] Projektteams
-        [ ] Arbeitspakete
-        [ ] Meilensteine
+        [ ] Bemerkung
+        [X] Projektteams
+        [X] Arbeitspakete
+        [X] Meilensteine
         [x] Kapitalwerte
             - nur noch zinssatz fehlt! Der rest geht...            
-        [ ] Bemerkung
     [ ] bearbeiten
+        [ ] update in die DB fehlt
+        [X] Ansicht ist ok
     [ ] Antrag genehmigen / ablehnen
     [ ] Auftraggeber
 .
