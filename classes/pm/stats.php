@@ -104,7 +104,7 @@ class pm_stats {
      */
     public function getCostsOfAllProjects(){
         $val = core()->db()->select("SELECT SUM(projekt.mon_kosten) FROM projekt","fetch",PDO::FETCH_ASSOC);
-        return $val["SUM(projekt.mon_kosten"];
+        return $val["SUM(projekt.mon_kosten)"];
     }
     
     /**
