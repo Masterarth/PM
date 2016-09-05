@@ -74,21 +74,7 @@
             </div>
         </div>
     </div>
-    <div class="col s12 m6 l4">
-        <div class="card small">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/pm/bin/custom/images/prio.jpg">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator teal-text">Prioritäten<i class="material-icons right">more_vert</i></span>
-                <p><a class="btn btn-block teal" href="#">Öffnen</a></p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title teal-text">Priorität<i class="material-icons right">close</i></span>
-                <p>Hier können die Prioritäten eingeshen und geändert werden.</p>
-            </div>
-        </div>
-    </div>
+   
     <div class="col s12 m6 l4">
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">

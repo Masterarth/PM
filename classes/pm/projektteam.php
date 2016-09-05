@@ -7,7 +7,7 @@
  */
 
 /**
- * Project Team which contains the 
+ * Project Team 
  *
  * @author Lukas Adler
  */
