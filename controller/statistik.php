@@ -10,8 +10,10 @@ $request = core()->request()->getParams();
 if (isset($request[1])) {
     switch ($request[1]) {
         case "statistik":
-            core()->page()->loadPage("statistik");
             core()->page()->loadController("statistik_anzeige");
+            core()->page()->loadPage("statistik");
+            $statistik = pm_stats::getInstance();
+            core()->smarty()->assign("statistik", $statistik);
             core()->materialize()->addFixedNavElement("/pm/stammdaten", "Zurück", "call_missed", "black");
             core()->materialize()->showFixedNavElement();
             break;

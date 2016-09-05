@@ -76,7 +76,7 @@ class pm_stats {
      */
     public function getDifferentTypesAndNumbersOfEmployees(){
         $val = core()->db()->select("SELECT count(*), rolle.rolle FROM mitarbeiter,rolle WHERE mitarbeiter.r_id = rolle.id GROUP BY rolle");
-        return val;
+        return $val;
     }
     
     
