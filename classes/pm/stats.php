@@ -65,8 +65,8 @@ class pm_stats {
      * @return int
      */
     public function getNumberOfEmployees(){
-       $val = core()->db()->select("select count(*) from mitarbeiter" , "fetch");
-       return $val;
+       $val = core()->db()->select("select count(*) from mitarbeiter" , "fetch", PDO::FETCH_ASSOC);
+       return $val["count(*)"];
     }
     
     
@@ -85,8 +85,8 @@ class pm_stats {
      * @return int
      */
     public function getNumberOfProjects(){
-        $val = core()->db()->select("SELECT count(*) from projekt", "fetch");
-        return $val;
+        $val = core()->db()->select("SELECT count(*) from projekt", "fetch",PDO::FETCH_ASSOC);
+        return $val["count(*)"];
     }
     
     /**
@@ -103,8 +103,8 @@ class pm_stats {
      * @return double
      */
     public function getCostsOfAllProjects(){
-        $val = core()->db()->select("SELECT SUM(projekt.mon_kosten) FROM projekt","fetch");
-        return $val;
+        $val = core()->db()->select("SELECT SUM(projekt.mon_kosten) FROM projekt","fetch",PDO::FETCH_ASSOC);
+        return $val["SUM(projekt.mon_kosten"];
     }
     
     /**
@@ -112,8 +112,8 @@ class pm_stats {
      * @return double
      */
     public function getEarningsOfAllProjects(){
-        $val = core()->db()->select("SELECT SUM(projekt.mon_nutzen) FROM projekt","fetch");
-        return $val;
+        $val = core()->db()->select("SELECT SUM(projekt.mon_nutzen) FROM projekt","fetch",PDO::FETCH_ASSOC);
+        return $val["SUM(projekt.mon_nutzen)"];
     }
     
     /**
@@ -121,8 +121,8 @@ class pm_stats {
      * @return double
      */
     public function  getAverageCostsOfAProject(){
-        $val = core()->db()->select("SELECT AVG(projekt.mon_kosten) FROM projekt","fetch");
-        return $val; 
+        $val = core()->db()->select("SELECT AVG(projekt.mon_kosten) FROM projekt","fetch",PDO::FETCH_ASSOC);
+        return $val["AVG(projekt.mon_kosten)"]; 
     }
     
     /**
@@ -130,8 +130,8 @@ class pm_stats {
      * @return double
      */
     public function  getAverageEarningsOfAProject(){
-       $val = core()->db()->select("SELECT AVG(projekt.mon_nutzen) FROM projekt","fetch");
-        return $val;  
+       $val = core()->db()->select("SELECT AVG(projekt.mon_nutzen) FROM projekt","fetch",PDO::FETCH_ASSOC);
+        return $val["AVG(projekt.mon_nutzen)"];  
     }
 
         /**
@@ -139,8 +139,8 @@ class pm_stats {
      * @return double
      */
     public function getAverageTimeOfAProject(){
-        $val = core()->db()->select("SELECT AVG(DATEDIFF(projekt.vor_end_term,projekt.vor_sta_term)) FROM projekt","fetch");
-        return $val;
+        $val = core()->db()->select("SELECT AVG(DATEDIFF(projekt.vor_end_term,projekt.vor_sta_term)) FROM projekt","fetch",PDO::FETCH_ASSOC);
+        return $val["AVG(DATEDIFF(projekt.vor_end_term,projekt.vor_sta_term))"];
     }
     
     
