@@ -1,5 +1,8 @@
 <?php
 
+
+
+define('FPDF_FONTPATH','C:\xampp\htdocs\PM\bin\fpdf\font');
 require 'bin/fpdf/fpdf.php';
 
 /**
@@ -26,12 +29,12 @@ class pm_pdfcreator extends FPDF {
 
         $this->o_project = new pm_projekt();
         $this->o_project->load($i_ppID);
-        $this->o_project->getCapitalValueInformations($i_ppID);
 
         $this->setImage();
         $this->pdfHeadline();
         $this->pdfNormalContent();
         $this->pdfStatsContent();
+        $this->pdfMilestoneContent();
     }
 
     /**
@@ -57,7 +60,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 160, '| Startdatum');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 165, utf8_decode($this->o_project->getExpectedStartTime()));
+        $this->o_fpdf->Text(10, 167, utf8_decode($this->o_project->getExpectedStartTime()));
 
         //Enddatum
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -65,7 +68,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(90, 160, '| Enddatum');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(90, 165, utf8_decode($this->o_project->getExpectedEndTime()));
+        $this->o_fpdf->Text(90, 167, utf8_decode($this->o_project->getExpectedEndTime()));
 
         //Kurzbeschreibung
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -73,7 +76,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 178, '| Kurzbeschreibung');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 182, utf8_decode($this->o_project->getDescription()));
+        $this->o_fpdf->Text(10, 184, utf8_decode($this->o_project->getDescription()));
 
         //Rahmenbedinungen
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -81,7 +84,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 195, '| Rahmenbedingungen');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 200, utf8_decode($this->o_project->getGeneralConditions()));
+        $this->o_fpdf->Text(10, 202, utf8_decode($this->o_project->getGeneralConditions()));
 
         //Kommunikationskonzept
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -89,7 +92,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 213, '| Kommunikationskonzept');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 218, utf8_decode($this->o_project->getCommunicationConcept()));
+        $this->o_fpdf->Text(10, 220, utf8_decode($this->o_project->getCommunicationConcept()));
 
         //Kreuzzielmethode
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -101,28 +104,28 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 236, '| Wozu?');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 241, utf8_decode($this->o_project->getTargetCross1()));
+        $this->o_fpdf->Text(10, 243, utf8_decode($this->o_project->getTargetCross1()));
 
         $this->o_fpdf->SetTextColor(0, 128, 128);
         $this->o_fpdf->SetFont('Arial', '', 12);
         $this->o_fpdf->Text(90, 236, '| Was?');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(90, 241, utf8_decode($this->o_project->getTargetCross2()));
+        $this->o_fpdf->Text(90, 243, utf8_decode($this->o_project->getTargetCross2()));
 
         $this->o_fpdf->SetTextColor(0, 128, 128);
         $this->o_fpdf->SetFont('Arial', '', 12);
         $this->o_fpdf->Text(10, 253, '| Wie gut?');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 258, utf8_decode($this->o_project->getTargetCross3()));
+        $this->o_fpdf->Text(10, 260, utf8_decode($this->o_project->getTargetCross3()));
 
         $this->o_fpdf->SetTextColor(0, 128, 128);
         $this->o_fpdf->SetFont('Arial', '', 12);
         $this->o_fpdf->Text(90, 253, '| Wen?');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(90, 258, utf8_decode($this->o_project->getTargetCross4()));
+        $this->o_fpdf->Text(90, 260, utf8_decode($this->o_project->getTargetCross4()));
     }
 
     /**
@@ -144,15 +147,15 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 35, utf8_decode('| Monetäre Kosten'));
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 40, utf8_decode($this->o_project->getMoneyCosts()));
-
+        $this->o_fpdf->Text(10, 42, utf8_decode($this->o_project->getMoneyCosts()));
+        
         //Monetärer Nutzen
         $this->o_fpdf->SetTextColor(0, 128, 128);
         $this->o_fpdf->SetFont('Arial', 'B', 14);
         $this->o_fpdf->Text(90, 35, utf8_decode('| Monetärer Nutzen'));
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(90, 40, utf8_decode($this->o_project->getMonesEarnings()));
+        $this->o_fpdf->Text(90, 42, utf8_decode($this->o_project->getMonesEarnings()));
 
         //Kapitalwert
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -160,8 +163,11 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 53, utf8_decode('| Kapitalwertmethode'));
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
+        
 
-        $this->capitalFlowMethod(array("Jahr", "Kosten", "Nutzen"), $this->o_project->getCapitalflow());
+        $this->capitalFlowTable(array("Jahr", "Kosten", "Nutzen"), $this->o_project->getCapitalflow());
+        
+        
     }
 
     /**
@@ -169,23 +175,71 @@ class pm_pdfcreator extends FPDF {
      * @param array $header
      * @param CapitalFlow $data
      */
-    function capitalFlowMethod($header, $data) {
+    private function capitalFlowTable($header, $data) {
+        $this->o_fpdf->SetX(10);
+        $this->o_fpdf->SetY(60);
+        
         // Column widths
-        $w = array(40, 35, 40, 45);
+        $w = array(60, 60, 60);
         // Header
         for ($i = 0; $i < count($header); $i++)
-            $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C');
-        $this->Ln();
+            $this->o_fpdf->Cell($w[$i], 7, $header[$i], 1, 0, 'C');
+        $this->o_fpdf->Ln();
         // Data
         foreach ($data as $row) {
-            $this->Cell($w[0], 6, $row->getYear(), 'LR');
-            $this->Cell($w[1], 6, $row->getOutputCash, 'LR');
-            $this->Cell($w[2], 6, $row->getInputCash, 'LR', 0, 'R');
-            $this->Cell($w[3], 6, "", 'LR', 0, 'R');
-            $this->Ln();
+            $this->o_fpdf->Cell($w[0], 6, $row->getYear(), 'LR');
+            $this->o_fpdf->Cell($w[1], 6, $row->getInputMoneyVal(), 'LR', 0, 'R');
+            $this->o_fpdf->Cell($w[2], 6, $row->getOutputMoneyVal(), 'LR', 0, 'R');
+            $this->o_fpdf->Ln();
         }
         // Closure line
-        $this->Cell(array_sum($w), 0, '', 'T');
+        $this->o_fpdf->Cell(array_sum($w), 0, '', 'T');
+    }
+    
+    /**
+     * Adds the Milestones to the PDF
+     */
+    private function pdfMilestoneContent(){
+        $this->o_fpdf->AddPage();
+
+        //HEADLINE
+        $this->o_fpdf->SetTextColor(0, 128, 128);
+        $this->o_fpdf->SetFont('Arial', 'B', 18);
+        $this->o_fpdf->Text(10, 20, "Meilensteine");
+        $this->o_fpdf->Text(10, 23, "________________________________________________________________");
+
+        
+        $this->o_fpdf->SetTextColor(0, 0, 0);
+        $this->o_fpdf->SetFont('Arial', '', 12);
+        $this->milestoneTable(array("MeilensteinNr","Meilensteinname","Erledigt"),  $this->o_project->getMilestones());
+        
+    }
+    
+    
+    /**
+     * Prints the Milestones to the Table
+     * @param type $header
+     * @param type $data
+     */
+    private function milestoneTable($header,$data){
+        $this->o_fpdf->SetX(10);
+        $this->o_fpdf->SetY(30);
+        
+        // Column widths
+        $w = array(60, 60, 60);
+        // Header
+        for ($i = 0; $i < count($header); $i++)
+            $this->o_fpdf->Cell($w[$i], 7, $header[$i], 1, 0, 'C');
+        $this->o_fpdf->Ln();
+        // Data
+        foreach ($data as $row) {
+            $this->o_fpdf->Cell($w[0], 6, $row->getMilestoneNr(), 'LR');
+            $this->o_fpdf->Cell($w[1], 6, $row->getMilestoneName(), 'LR', 0, 'R');
+            $this->o_fpdf->Cell($w[2], 6, $row->getFinished(), 'LR', 0, 'R');
+            $this->o_fpdf->Ln();
+        }
+        // Closure line
+        $this->o_fpdf->Cell(array_sum($w), 0, '', 'T');
     }
 
     /**
