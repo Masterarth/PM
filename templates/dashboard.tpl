@@ -42,3 +42,52 @@
         <p><strong>Es sind keine zu genehmigenden Anträge vorhanden</strong></p>
     {/if}
 </div>
+<h4 class="teal-text">Meine Projekte - Ganttplan</h4>
+<div class="section">
+    <div id="gantt_chart"></div>
+</div>
+
+<script type="text/javascript">
+    {literal}
+        google.charts.load('current', {'packages': ['gantt']});
+    {/literal}
+        google.charts.setOnLoadCallback(ganttChart);
+        function ganttChart() {
+
+            var jsonData = $.ajax({
+                url: "/pm/api/gantt_projekte",
+                dataType: "json",
+                async: false
+            }).responseJSON;
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Task ID');
+            data.addColumn('string', 'Task Name');
+            data.addColumn('string', 'Resource');
+            data.addColumn('date', 'Start Date');
+            data.addColumn('date', 'End Date');
+            data.addColumn('number', 'Duration');
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies');
+
+
+            $.each(jsonData, function (i, jsonData)
+            {
+                data.addRows([[jsonData.taskId, jsonData.taskName, jsonData.resource, new Date(jsonData.startDate), new Date(jsonData.endDate), null, jsonData.complete, null]]);
+            });
+
+            var options = {
+                gantt: {
+                    trackHeight: 35
+                }
+            };
+
+            var chart = new google.visualization.Gantt(document.getElementById('gantt_chart'));
+
+            chart.draw(data, options);
+        }
+
+        $(window).resize(function () {
+            ganttChart();
+        });
+</script>

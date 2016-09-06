@@ -15,6 +15,7 @@ class pm_pdfcreator extends FPDF {
     private $o_fpdf;
     private $o_project;
     private $i_ppID;
+    
 
     /**
      * Constructor 
@@ -30,6 +31,11 @@ class pm_pdfcreator extends FPDF {
         $this->o_project = new pm_projekt();
         $this->o_project->load($i_ppID);
 
+        $this->o_project = new pm_projekt();
+        $this->o_project->load($i_ppID);
+        
+        
+        
         $this->setImage();
         $this->pdfHeadline();
         $this->pdfNormalContent();

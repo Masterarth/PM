@@ -79,5 +79,9 @@ class core_base {
     public function randomPic() {
         return pm_randomizer::getInstance();
     }
+    
+    public function stats(){
+        return pm_stats::getInstance();
+    }
 
 }
