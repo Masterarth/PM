@@ -60,6 +60,54 @@ class pm_stats {
      * @var double 
      */
     private $d_avgTimeProject;
+    
+    /**
+     * Rolls + Numer of Empl.
+     * @var array 
+     */
+    private $rolesAndNumbersOfEmployees=array();
+    
+    /**
+     * Number of Prj
+     * @var int 
+     */
+    private $i_numberProjects;
+    
+    /**
+     * Stats + Number of Prj
+     * @var array 
+     */
+    private $statsAndNumberOfProjects=array();
+    
+    /**
+     * Sum of all Projects (Cost)
+     * @var double 
+     */
+    private $d_costSumProject;
+    
+    /**
+     * Sum of all Projects (Earnings)
+     * @var double 
+     */
+    private $d_earningsSumProject;
+    
+    /**
+     * Average Costs of a Project
+     * @var double 
+     */
+    private $d_avgCostsProject;
+    
+    /**
+     * Average Earnings of a Project
+     * @var double 
+     */
+    private $d_avgEarningsProject;
+    
+    /**
+     * Average Time of a Project
+     * @var double 
+     */
+    private $d_avgTimeProject;
 
     /**
      * Singelton Pattern

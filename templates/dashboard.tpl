@@ -17,8 +17,17 @@
         </div>
     </div>
 </div>
-<h4 class="teal-text">zu genehmigende Projekte</h4>
+
+
 <div class="section">
+    <h4 class="teal-text">Meine Projekte - Ganttplan</h4>
+    <div class="divider"></div>
+    <div id="chart_div"></div>
+</div>
+<div class="section">
+    <h4 class="teal-text">Ausstehende Projekte</h4>
+    <div class="divider"></div>
+
     {if isset($zu_genehmigen)}
         <div class="collection">
             {foreach from=$zu_genehmigen item=projekt}

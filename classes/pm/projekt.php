@@ -352,7 +352,7 @@ class pm_projekt {
      * Get the Capitalvalue Informations for a Project
      * @param int $p_id
      */
-    private function getCapitalValueInformations($p_id) {
+    public function getCapitalValueInformations($p_id) {
         $resultCapitalValue = core()->db()->select("select * from kapitalwerte where p_id ='" . $p_id . "'");
         if (count($resultCapitalValue) > 0) {
             foreach ($resultCapitalValue as $result) {
