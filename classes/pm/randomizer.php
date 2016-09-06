@@ -13,25 +13,7 @@ class pm_randomizer {
      * Singelton Pattern
      * @var Object
      */
-    static private $instance = null;
-
-    /**
-     * Singelton Pattern
-     * @return Object
-     */
-    static public function getInstance() {
-        if (null === self::$instance) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
-
-    /**
-     * Singelton Pattern
-     */
-    private function __clone() {
-        
-    }
+    static private $o_instance = null;
 
     /**
      * For which Basic Informations
@@ -57,6 +39,27 @@ class pm_randomizer {
     function __construct() {
         $this->s_filePath = "/pm/bin/custom/images/";
     }
+    
+    
+    /**
+     * Singelton Pattern
+     */
+    private function __clone() {
+        
+    }
+    
+    /**
+     * Singelton Pattern
+     * @return Object
+     */
+    static public function getInstance() {
+        if (null === self::$o_instance) {
+            self::$o_instance = new self();
+        }
+        return self::$o_instance;
+    }
+
+    
 
     /**
      * Returns a Picture
@@ -71,27 +74,51 @@ class pm_randomizer {
         return $this->s_filePath . $this->s_pictureName;
     }
 
+    /**
+     * Gets the String
+     * @return String
+     */
     function getS_randomizerString() {
         return $this->s_randomizerString;
     }
 
+    /**
+     * Gets the Path of the File
+     * @return String
+     */
     function getS_filePath() {
         return $this->s_filePath;
     }
 
+    /**
+     * Gets the Name of the Picture
+     * @return String
+     */
     function getS_pictureName() {
         return $this->s_pictureName;
     }
 
-    function setS_randomizerString(String $s_randomizerString) {
+    /**
+     * Sets the Random String
+     * @param String $s_randomizerString
+     */
+    function setS_randomizerString($s_randomizerString) {
         $this->s_randomizerString = $s_randomizerString;
     }
 
-    function setS_filePath(String $s_filePath) {
+    /**
+     * Sets the File Path
+     * @param String $s_filePath
+     */
+    function setS_filePath($s_filePath) {
         $this->s_filePath = $s_filePath;
     }
 
-    function setS_pictureName(String $s_pictureName) {
+    /**
+     * Sets the Picture Name
+     * @param String $s_pictureName
+     */
+    function setS_pictureName($s_pictureName) {
         $this->s_pictureName = $s_pictureName;
     }
 

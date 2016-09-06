@@ -12,6 +12,7 @@ class pm_pdfcreator extends FPDF {
     private $o_fpdf;
     private $o_project;
     private $i_ppID;
+    
 
     /**
      * Constructor 
@@ -24,10 +25,15 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->AddPage();
         $this->i_ppID = $i_ppID;
 
-        $this->o_project = core()->db()->select("select p.*, a.a_name, a.s_id, s.s_name from projekt p "
-                . "left join abteilung a on a.id = p.a_id "
-                . "left join standort s on s.id = a.s_id where p.id = " . $i_ppID, "fetch");
+//        $this->o_project = core()->db()->select("select p.*, a.a_name, a.s_id, s.s_name from projekt p "
+//                . "left join abteilung a on a.id = p.a_id "
+//                . "left join standort s on s.id = a.s_id where p.id = " . $i_ppID, "fetch");
 
+        $this->o_project = new pm_projekt();
+        $this->o_project->load($i_ppID);
+        
+        
+        
         $this->setImage();
         $this->pdfHeadline();
         $this->pdfContent();
@@ -42,7 +48,7 @@ class pm_pdfcreator extends FPDF {
         //FONT Einstellung
         $this->o_fpdf->SetTextColor(0, 128, 128);
         $this->o_fpdf->SetFont('Arial', 'B', 18);
-        $this->o_fpdf->Text(10, 148, utf8_decode($this->o_project->titel));
+        $this->o_fpdf->Text(10, 148, utf8_decode($this->o_project->getTitle()));
     }
 
     private function pdfContent() {
@@ -52,7 +58,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 160, '| Startdatum');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 165, utf8_decode($this->o_project->vor_sta_term));
+        $this->o_fpdf->Text(10, 165, utf8_decode($this->o_project->getExpectedStartTime()));
 
         //Enddatum
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -60,7 +66,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(90, 160, '| Enddatum');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(90, 165, utf8_decode($this->o_project->vor_end_term));
+        $this->o_fpdf->Text(90, 165, utf8_decode($this->o_project->getExpectedEndTime()));
 
         //Kurzbeschreibung
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -68,7 +74,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 175, '| Kurzbeschreibung');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 180, utf8_decode($this->o_project->beschreibung));
+        $this->o_fpdf->Text(10, 180, utf8_decode($this->o_project->getDescription()));
 
         //Rahmenbedinungen
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -76,7 +82,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 190, '| Rahmenbedingungen');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 195, utf8_decode($this->o_project->rahmbeding));
+        $this->o_fpdf->Text(10, 195, utf8_decode($this->o_project->getGeneralConditions()));
 
         //Kommunikationskonzept
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -84,7 +90,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 205, '| Kommunikationskonzept');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 210, utf8_decode($this->o_project->komm_konz));
+        $this->o_fpdf->Text(10, 210, utf8_decode($this->o_project->getCommunicationConcept()));
 
         //Kreuzzielmethode
         $this->o_fpdf->SetTextColor(0, 128, 128);
@@ -96,28 +102,28 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 225, '| Wozu?');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 230, utf8_decode($this->o_project->p_ziel1));
+        $this->o_fpdf->Text(10, 230, utf8_decode($this->o_project->getTargetCross1()));
 
         $this->o_fpdf->SetTextColor(0, 128, 128);
         $this->o_fpdf->SetFont('Arial', '', 12);
         $this->o_fpdf->Text(90, 225, '| Was?');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(90, 230, utf8_decode($this->o_project->p_ziel2));
+        $this->o_fpdf->Text(90, 230, utf8_decode($this->o_project->getTargetCross2()));
 
         $this->o_fpdf->SetTextColor(0, 128, 128);
         $this->o_fpdf->SetFont('Arial', '', 12);
         $this->o_fpdf->Text(10, 240, '| Wie gut?');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(10, 245, utf8_decode($this->o_project->p_ziel3));
+        $this->o_fpdf->Text(10, 245, utf8_decode($this->o_project->getTargetCross3()));
 
         $this->o_fpdf->SetTextColor(0, 128, 128);
         $this->o_fpdf->SetFont('Arial', '', 12);
         $this->o_fpdf->Text(90, 240, '| Wen?');
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->o_fpdf->Text(90, 245, utf8_decode($this->o_project->p_ziel4));
+        $this->o_fpdf->Text(90, 245, utf8_decode($this->o_project->getTargetCross4()));
     }
 
     /**
