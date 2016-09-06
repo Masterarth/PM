@@ -22,7 +22,9 @@
 <div class="section">
     <h4 class="teal-text">Meine Projekte - Ganttplan</h4>
     <div class="divider"></div>
-    <div id="chart_div"></div>
+    <div class="section">
+        <div id="gantt_chart"></div>
+    </div>
 </div>
 <div class="section">
     <h4 class="teal-text">Ausstehende Projekte</h4>
@@ -42,11 +44,6 @@
         <p><strong>Es sind keine zu genehmigenden Anträge vorhanden</strong></p>
     {/if}
 </div>
-<h4 class="teal-text">Meine Projekte - Ganttplan</h4>
-<div class="section">
-    <div id="gantt_chart"></div>
-</div>
-
 <script type="text/javascript">
     {literal}
         google.charts.load('current', {'packages': ['gantt']});
