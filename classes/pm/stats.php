@@ -8,14 +8,58 @@
  */
 class pm_stats {
     
+    /**
+     * Number of Empl.
+     * @var int 
+     */
     private $i_numberEmployees;
+    
+    /**
+     * Rolls + Numer of Empl.
+     * @var array 
+     */
     private $rolesAndNumbersOfEmployees=array();
+    
+    /**
+     * Number of Prj
+     * @var int 
+     */
     private $i_numberProjects;
+    
+    /**
+     * Stats + Number of Prj
+     * @var array 
+     */
     private $statsAndNumberOfProjects=array();
+    
+    /**
+     * Sum of all Projects (Cost)
+     * @var double 
+     */
     private $d_costSumProject;
+    
+    /**
+     * Sum of all Projects (Earnings)
+     * @var double 
+     */
     private $d_earningsSumProject;
+    
+    /**
+     * Average Costs of a Project
+     * @var double 
+     */
     private $d_avgCostsProject;
+    
+    /**
+     * Average Earnings of a Project
+     * @var double 
+     */
     private $d_avgEarningsProject;
+    
+    /**
+     * Average Time of a Project
+     * @var double 
+     */
     private $d_avgTimeProject;
     
     /**
@@ -143,11 +187,19 @@ class pm_stats {
         return $val["AVG(DATEDIFF(projekt.vor_end_term,projekt.vor_sta_term))"];
     }
     
+    /**
+     * Returns Teams and Hours (Expected Hours)
+     * @return object
+     */
     public function getTeamsAndHours(){
         $val = core()->db()->select("SELECT team.t_name, leistung.max_stunden FROM team, leistung WHERE team.id = leistung.t_id");
         return $val;
     }
     
+    /**
+     * Returns Teams and Hours (Done Hours)
+     * @return object
+     */
     public function getTeamsAndActualHours(){
         $val = core()->db()->select("SELECT team.t_name, SUM(projteam.stunden) FROM projteam, team WHERE projteam.t_id = team.id GROUP BY team.t_name");
         return $val;

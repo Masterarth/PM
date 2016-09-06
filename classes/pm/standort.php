@@ -4,80 +4,187 @@
  * Description of standort
  *
  * @author Arth
+ * 
+ * Adding Codeing Guidelines and other Stuff
+ * @since 06.09.2016
+ * @author Lukas Adler
  */
 class pm_standort {
 
-    private $id;
-    private $name;
-    private $strasse;
-    private $hausnummer;
-    private $plz;
-    private $ort;
-    private $leitung;
-    private $firma;
+    /**
+     * ID of a Location
+     * @var int 
+     */
+    private $i_id;
+    
+    /**
+     * Name of a Location
+     * @var String 
+     */
+    private $s_name;
+    
+    /**
+     * Street of the Location
+     * @var String 
+     */
+    private $s_street;
+    
+    /**
+     * House Number of the Location
+     * @var int 
+     */
+    private $i_houseNumber;
+    
+    /**
+     * Postal Code of the Location
+     * @var int 
+     */
+    private $i_postalcode;
+    
+    /**
+     * City of the Location
+     * @var String 
+     */
+    private $s_city;
+    
+    /**
+     * ID of the Leader of a Location
+     * @var type 
+     */
+    private $id_leader;
+    
+    /**
+     * Name of the Company
+     * @var String 
+     */
+    private $id_company;
 
+    /**
+     * Get Database ID
+     * @return int
+     */
     public function getId() {
-        return $this->id;
+        return $this->i_id;
     }
 
+    /**
+     * Get Name of the Location
+     * @return String
+     */
     public function getName() {
-        return $this->name;
+        return $this->s_name;
     }
 
-    public function getStrasse() {
-        return $this->strasse;
+    /**
+     * Get Street of the Location
+     * @return String
+     */
+    public function getStreet() {
+        return $this->s_street;
     }
 
-    public function getHausnummer() {
-        return $this->hausnummer;
+    /**
+     * Get House Number of a Location
+     * @return int
+     */
+    public function getHouseNumber() {
+        return $this->i_houseNumber;
     }
 
-    public function getPlz() {
-        return $this->plz;
+    /**
+     * Get Postal Code of a Location
+     * @return int
+     */
+    public function getPostalCode() {
+        return $this->i_postalcode;
     }
 
-    public function getOrt() {
-        return $this->ort;
+    /**
+     * Get Village of a Location
+     * @return String
+     */
+    public function getPlace() {
+        return $this->s_city;
     }
 
-    public function getLeitung() {
-        return $this->leitung;
+    /**
+     * Get ID of the Leader of a Location
+     * @return int
+     */
+    public function getLeader() {
+        return $this->id_leader;
+    }
+    
+    /**
+     * Gets Database ID of the Company
+     * @return int
+     */
+    public function getCompany() {
+        return $this->id_company;
     }
 
-    public function getFirma() {
-        return $this->firma;
-    }
-
+    /**
+     * Sets Database ID
+     * @param int $id
+     */
     public function setId($id) {
-        $this->id = $id;
+        $this->i_id = $id;
     }
 
+    /**
+     * Sets Name 
+     * @param String $name
+     */
     public function setName($name) {
-        $this->name = $name;
+        $this->s_name = $name;
     }
 
-    public function setStrasse($strasse) {
-        $this->strasse = $strasse;
+    /**
+     * Sets Name
+     * @param String $strasse
+     */
+    public function setStreet($strasse) {
+        $this->s_street = $strasse;
     }
 
-    public function setHausnummer($hausnummer) {
-        $this->hausnummer = $hausnummer;
+    /**
+     * Sets House Number
+     * @param int $hausnummer
+     */
+    public function setHouseNumber($hausnummer) {
+        $this->i_houseNumber = $hausnummer;
     }
 
-    public function setPlz($plz) {
-        $this->plz = $plz;
+    /**
+     * Sets Postal Code
+     * @param int $plz
+     */
+    public function setPostalCode($plz) {
+        $this->i_postalcode = $plz;
     }
 
-    public function setOrt($ort) {
-        $this->ort = $ort;
+    /**
+     * Sets the Place of a Location
+     * @param String $ort
+     */
+    public function setPlace($ort) {
+        $this->s_city = $ort;
     }
 
-    public function setLeitung($leitung) {
-        $this->leitung = $leitung;
+    /**
+     * Sets the Leader ID 
+     * @param int $leitung
+     */
+    public function setLeader($leitung) {
+        $this->id_leader = $leitung;
     }
 
-    public function setFirma($firma) {
-        $this->firma = $firma;
+    /**
+     * Sets the Company ID
+     * @param int $firma
+     */
+    public function setCompany($firma) {
+        $this->id_company = $firma;
     }
 
 }

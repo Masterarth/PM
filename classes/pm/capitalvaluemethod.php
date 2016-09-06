@@ -7,13 +7,46 @@
  */
 class pm_capitalvaluemethod {
     
-    
+    /**
+     * Capital Value
+     * @var double 
+     */
     private $d_capitalValue;
+    
+    /**
+     * Money Output
+     * @var double 
+     */
     private $d_payingOut;
+    
+    /**
+     * How many Years?
+     * @var int 
+     */
     private $i_years;
+    
+    /**
+     * Zins for the Risk
+     * @var it 
+     */
     private $i_riskZins;
+    
+    /**
+     * Empty Risk Zins
+     * @var int 
+     */
     private $i_emptyRiskZins;
+    
+    /**
+     * Inflation Object
+     * @var PM_Inflation 
+     */
     private $o_inflation;
+    
+    /**
+     * Capital Flows
+     * @var Array 
+     */
     private $o_capitalflows = array();
    
     /**
@@ -76,6 +109,10 @@ class pm_capitalvaluemethod {
         return $this->d_capitalValue;
     }
     
+    /**
+     * Get the Capital Flows (Array)
+     * @return Array Capital Flow
+     */
     function getO_capitalflows() {
         return $this->o_capitalflows;
     }

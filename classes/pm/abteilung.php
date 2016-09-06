@@ -11,41 +11,92 @@
  */
 class pm_abteilung {
 
-    private $id;
-    private $standort;
-    private $name;
-    private $leitung;
+    /**
+     * Database ID
+     * @var int 
+     */
+    private $i_id;
+    
+    /**
+     * Location String
+     * @var String 
+     */
+    private $s_location;
+    
+    /**
+     * Name of a String
+     * @var String 
+     */
+    private $s_name;
+    
+    /**
+     * Leader of the Department
+     * @var int 
+     */
+    private $id_leader;
 
+    /**
+     * Gets the Database ID
+     * @return int
+     */
     public function getId() {
-        return $this->id;
+        return $this->i_id;
     }
 
-    public function getStandort() {
-        return $this->standort;
+    /**
+     * Gets the Location
+     * @return String
+     */
+    public function getLocation() {
+        return $this->s_location;
     }
 
+    /**
+     * Returns the Name
+     * @return String
+     */
     public function getName() {
-        return $this->name;
+        return $this->s_name;
     }
 
-    public function getLeitung() {
-        return $this->leitung;
+    /**
+     * Returns the Leader ID
+     * @return int
+     */
+    public function getLeader() {
+        return $this->id_leader;
     }
 
+    /**
+     * Sets the Database ID of a Department
+     * @param int $id
+     */
     public function setId($id) {
-        $this->id = $id;
+        $this->i_id = $id;
     }
 
-    public function setStandort($standort) {
-        $this->standort = $standort;
+    /**
+     * Sets the Location ID
+     * @param int $standort
+     */
+    public function setLocation($standort) {
+        $this->s_location = $standort;
     }
 
+    /**
+     * Sets the Name 
+     * @param String $name
+     */
     public function setName($name) {
-        $this->name = $name;
+        $this->s_name = $name;
     }
 
-    public function setLeitung($leitung) {
-        $this->leitung = $leitung;
+    /**
+     * Sets the Leader
+     * @param int $leitung
+     */
+    public function setLeader($leitung) {
+        $this->id_leader = $leitung;
     }
 
 }

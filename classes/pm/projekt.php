@@ -384,6 +384,10 @@ class pm_projekt {
         }
     }
 
+    /**
+     * Gets the Status Informations
+     * @param StatusID $s_id
+     */
     private function getStatusInformation($s_id) {
         $resultStatus = core()->db()->select("select * from projstatus where id= " . $s_id, "fetch");
         $status = new pm_projektstatus();
@@ -392,48 +396,64 @@ class pm_projekt {
         $this->setStatus($status);
     }
 
+    /**
+     * Gets the Project Leader Informations
+     * @param type $l_id
+     */
     private function getProjectLeaderInformation($l_id) {
         $user = core()->userhandler()->createUser($l_id);
         $this->setProjectLeader($user);
     }
 
+    /**
+     * Gets the Project Creator Informations
+     * @param type $e_id
+     */
     private function getProjectCreatorInformation($e_id) {
         $user = core()->userhandler()->createUser($e_id);
         $this->setProjectCreator($user);
     }
 
+    /**
+     * Gets the Arranger Informations
+     * @param type $b_id
+     */
     private function getProjectArrangerInforomation($b_id) {
         $user = core()->userhandler()->createUser($b_id);
         $this->setArranger($user);
     }
 
+    /**
+     * Gets the Department Informations
+     * @param DepartmentID $a_id
+     */
     private function getDepartmentInformation($a_id) {
         $department = new pm_abteilung();
         $r_department = core()->db()->select("select * from abteilung where id = " . $a_id, "fetch");
         $r_standort = core()->db()->select("select * from standort where id = " . $r_department->s_id, "fetch");
         $r_firma = core()->db()->select("select * from firma where id = " . $r_standort->f_id, "fetch");
-        $department->setLeitung($r_department->a_leitung);
+        $department->setLeader($r_department->a_leitung);
         $department->setName($r_department->a_name);
         $department->setId($r_department->id);
 
         $standort = new pm_standort();
         $standort->setId($r_standort->id);
-        $standort->setHausnummer($r_standort->hausnummer);
+        $standort->setHouseNumber($r_standort->hausnummer);
         $standort->setName($r_standort->s_name);
-        $standort->setOrt($r_standort->ort);
-        $standort->setPlz($r_standort->plz);
-        $standort->setStrasse($r_standort->strasse);
+        $standort->setPlace($r_standort->ort);
+        $standort->setPostalCode($r_standort->plz);
+        $standort->setStreet($r_standort->strasse);
 
         $firma = new pm_firma();
         $firma->setId($r_firma->id);
-        $firma->setLeitung(core()->userhandler()->createUser($r_firma->f_leitung));
+        $firma->setLeader(core()->userhandler()->createUser($r_firma->f_leitung));
         $firma->setName($r_firma->f_name);
 
-        $standort->setFirma($firma);
-        $standort->setLeitung(core()->userhandler()->createUser($r_standort->s_leitung));
+        $standort->setCompany($firma);
+        $standort->setLeader(core()->userhandler()->createUser($r_standort->s_leitung));
 
-        $department->setStandort($standort);
-        $department->setLeitung(core()->userhandler()->createUser($r_department->a_leitung));
+        $department->setLocation($standort);
+        $department->setLeader(core()->userhandler()->createUser($r_department->a_leitung));
 
         $this->setDepartment($department);
     }
@@ -952,22 +972,42 @@ class pm_projekt {
         return $this->status;
     }
 
+    /**
+     * Gets the Project Leader
+     * @return type
+     */
     public function getProjectLeader() {
         return $this->projectLeader;
     }
 
+    /**
+     * Gets the Project Creator
+     * @return type
+     */
     public function getProjectCreator() {
         return $this->projectCreator;
     }
 
+    /**
+     * Gets the Department
+     * @return type
+     */
     public function getDepartment() {
         return $this->department;
     }
 
+    /**
+     * Gets the Arranger
+     * @return type
+     */
     public function getArranger() {
         return $this->arranger;
     }
 
+    /**
+     * Sets the Department
+     * @param type $department
+     */
     public function setDepartment($department) {
         $this->department = $department;
     }
@@ -984,10 +1024,18 @@ class pm_projekt {
         $this->status = $status;
     }
 
+    /**
+     * Sets the Project Leader
+     * @param pm_user $user
+     */
     public function setProjectLeader(pm_user $user) {
         $this->projectLeader = $user;
     }
 
+    /**
+     * Sets the Project Creator
+     * @param pm_user $user
+     */
     public function setProjectCreator(pm_user $user) {
         $this->projectCreator = $user;
     }
