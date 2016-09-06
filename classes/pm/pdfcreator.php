@@ -167,10 +167,15 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
 
-        $this->ImprovedTable(array("Jahr", "Kosten", "Nutzen"), $this->o_project->getCapitalflow());
+        $this->capitalFlowMethod(array("Jahr", "Kosten", "Nutzen"), $this->o_project->getCapitalflow());
     }
 
-    function ImprovedTable($header, $data) {
+    /**
+     * Table Creator for the Capital Flow Method
+     * @param array $header
+     * @param CapitalFlow $data
+     */
+    function capitalFlowMethod($header, $data) {
         // Column widths
         $w = array(40, 35, 40, 45);
         // Header
