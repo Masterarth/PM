@@ -50,5 +50,6 @@ return array(
     "leistung_neu" => array("admin"),
     "leistung_bearbeiten" => array("admin"),
     "antrag_bearbeiten" => array("all"),
-    "antrag_table" => array("all")
+    "antrag_table" => array("all"),
+    "statistik" => array("admin")
 );
