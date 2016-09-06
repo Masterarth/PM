@@ -1,6 +1,4 @@
 <?php
-//C:\xampp\php\pear\PHPUnit
-//use xampp\php\pear\PHPUnit\Framework\TestCase;
 
 require '../classes/pm/capitalflow.php';
 

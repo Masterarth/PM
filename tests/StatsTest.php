@@ -1,12 +1,11 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 
 /**
- * Description of StatsTest
+ * Test Class for the Stats Stuff
  *
  * @author Lukas Adler
  */
-class StatsTest extends TestCase{
-    //put your code here
+class StatsTest extends \PHPUnit_Framework_TestCase{
+    
 }
