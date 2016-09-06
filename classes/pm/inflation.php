@@ -17,6 +17,11 @@ class pm_inflation{
      * @param int $i_year
      */
     public function __construct($i_year) {
+        
+        if(is_nan($i_year)){
+            throw new InvalidArgumentException('Not an Int Value (Param)');
+        }
+        
         $this->setInflationRate($this->getInflationFromAPI($i_year, 'germany'));
     }
     

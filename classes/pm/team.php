@@ -8,7 +8,7 @@
  * @since 24.07.2016
  * @author Lukas
  */
-class team {
+class pm_team {
 
     /**
      * ID of the Team
