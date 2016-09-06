@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Description of bereich
  *
@@ -11,44 +10,42 @@
  * @author Lukas
  */
 class pm_abteilung {
-    
+
     private $id;
-    private $s_id;
-    private $a_name;
-    private $a_leitung;
-    
+    private $standort;
+    private $name;
+    private $leitung;
+
     public function getId() {
         return $this->id;
     }
 
-    public function getS_id() {
-        return $this->s_id;
+    public function getStandort() {
+        return $this->standort;
     }
 
-    public function getA_name() {
-        return $this->a_name;
+    public function getName() {
+        return $this->name;
     }
 
-    public function getA_leitung() {
-        return $this->a_leitung;
+    public function getLeitung() {
+        return $this->leitung;
     }
 
     public function setId($id) {
         $this->id = $id;
     }
 
-    public function setS_id($s_id) {
-        $this->s_id = $s_id;
+    public function setStandort($standort) {
+        $this->standort = $standort;
     }
 
-    public function setA_name($a_name) {
-        $this->a_name = $a_name;
+    public function setName($name) {
+        $this->name = $name;
     }
 
-    public function setA_leitung($a_leitung) {
-        $this->a_leitung = $a_leitung;
+    public function setLeitung($leitung) {
+        $this->leitung = $leitung;
     }
-
-
 
 }

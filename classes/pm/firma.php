@@ -17,76 +17,32 @@
  */
 class pm_firma {
 
-    /**
-     * ID of the Company
-     * @var int ID
-     */
-    private $i_id;
-    
-    /**
-     * Name of the Company
-     * @var string Name 
-     */
-    private $s_name;
-    
-    /**
-     * Budget of the Company
-     * @var double Budget 
-     */
-    private $d_budget;
-    
-    /**
-     * Sets the Id of the Company
-     * @param int $i_id
-     */
-    public function setId($i_id)
-    {
-        $this->i_id = $i_id;
+    private $id;
+    private $name;
+    private $leitung;
+
+    public function getId() {
+        return $this->id;
     }
-    
-    /**
-     * Sets the Name of the Company
-     * @param string $s_name
-     */
-    public function setName($s_name)
-    {
-        $this->s_name = $s_name;
+
+    public function getName() {
+        return $this->name;
     }
-    
-    /**
-     * Sets the Budget of the Company for Projects
-     * @param double $d_budget
-     */
-    public function setBudget($d_budget)
-    {
-        $this->d_budget = $d_budget;
+
+    public function getLeitung() {
+        return $this->leitung;
     }
-    
-    /**
-     * Returns the ID of the Company
-     * @return int ID
-     */
-    public function getId()
-    {
-        return $this->i_id;
+
+    public function setId($id) {
+        $this->id = $id;
     }
-    
-    /**
-     * Returns the Name of the Company
-     * @return string Name
-     */
-    public function getName()
-    {
-        return $this->s_name;
+
+    public function setName($name) {
+        $this->name = $name;
     }
-    
-    /**
-     * Returns the Budget of the Company
-     * @return double Budget
-     */
-    public function getBudget()
-    {
-        return $this->d_budget;
+
+    public function setLeitung($leitung) {
+        $this->leitung = $leitung;
     }
 
 }

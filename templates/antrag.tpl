@@ -44,19 +44,19 @@
                                 <div class="col s12 m4">
                                     <h4 class="light">Ersteller</h4>
                                     <div class="para_content">
-                                        <span><a href="/pm/mitarbeiter/{$projekt->e_id}">{$projekt->e_vorname} {$projekt->e_nachname}</a></span>
+                                        <span><a href="/pm/mitarbeiter/{$projekt->getProjectCreator()->getId()}">{$projekt->getProjectCreator()->getVorname()} {$projekt->getProjectCreator()->getNachname()}</a></span>
                                     </div>
                                 </div>
                                 <div class="col s12 m4">
                                     <h4 class="light">Standort</h4>
                                     <div class="para_content">
-                                        <span><a href="/pm/standort/{$projekt->s_id}">{$projekt->s_name}</a></span>
+                                        <span><a href="/pm/standort/{$projekt->getDepartment()->getStandort()->getId()}">{$projekt->getDepartment()->getStandort()->getName()}</a></span>
                                     </div>
                                 </div>
                                 <div class="col s12 m4">
                                     <h4 class="light">Abteilung</h4>
                                     <div class="para_content">
-                                        <span><a href="/pm/abteilung/{$projekt->a_id}">{$projekt->a_name}</a></span>
+                                        <span><a href="/pm/abteilung/{$projekt->getDepartment()->getId()}">{$projekt->getDepartment()->getName()}</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -68,13 +68,13 @@
                                 <div class="col s12 m6">
                                     <h4 class="light">Kosten</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->mon_kosten|number_format:2:",":"."} €</span>
+                                        <span>{$projekt->getMoneyCosts()|number_format:2:",":"."} €</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Nutzen</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->mon_nutzen|number_format:2:",":"."} €</span>
+                                        <span>{$projekt->getMonesEarnings()|number_format:2:",":"."} €</span>
                                     </div>
                                 </div>
                             </div>
@@ -86,37 +86,37 @@
                                 <div class="col s12 m6">
                                     <h4 class="light">Auftraggeber</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->auftraggeber}</span>
+                                        <span>{$projekt->getCreator()}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Projektleiter</h4>
                                     <div class="para_content">
-                                        <span><a href="/pm/mitarbeiter/{$projekt->l_id}">{$projekt->l_vorname} {$projekt->l_nachname}</a></span>
+                                        <span><a href="/pm/mitarbeiter/{$projekt->getProjectLeader()->getId()}">{$projekt->getProjectLeader()->getVorname()} {$projekt->getProjectLeader()->getNachname()}</a></span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Wozu?</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->p_ziel1}</span>
+                                        <span>{$projekt->getTargetCross1()}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Was?</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->p_ziel2}</span>
+                                        <span>{$projekt->getTargetCross2()}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Wie gut?</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->p_ziel3}</span>
+                                        <span>{$projekt->getTargetCross3()}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Für wen?</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->p_ziel4}</span>
+                                        <span>{$projekt->getTargetCross4()}</span>
                                     </div>
                                 </div>
                             </div>
@@ -128,25 +128,25 @@
                                 <div class="col s12 m6">
                                     <h4 class="light">Kurzbeschreibung</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->beschreibung}</span>
+                                        <span>{$projekt->getDescription()}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Rahmenbedingungen</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->rahmbeding}</span>
+                                        <span>{$projekt->getGeneralConditions()}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Kommunikation</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->komm_konz}</span>
+                                        <span>{$projekt->getCommunicationConcept()}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Nicht Ziele</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->nicht_ziel}</span>
+                                        <span>{$projekt->getNoTargets()}</span>
                                     </div>
                                 </div>
                             </div>
@@ -158,7 +158,7 @@
                                 <div class="col s12">
                                     <h4 class="light">Bemerkung</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->bemerkung}</span>
+                                        <span>--!!!gibts noch nicht!!!--</span>
                                     </div>
                                 </div>
                             </div>
@@ -172,19 +172,19 @@
                                 <div class="col s12 m6">
                                     <h4 class="light">Amortisationsdauer</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->amorti_zeit}</span>
+                                        <span>{$projekt->getAmortizationRate()}</span>
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
                                     <h4 class="light">Kapital Kosten</h4>
                                     <div class="para_content">
-                                        <span>{$projekt->kap_kosten}</span>
+                                        <span>{$projekt->getCapitalCosts()}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {if isset($pt)}
+                    {if count($projekt->getInvolvedTeams()) > 0}
                         <div class="card">
                             <div class="card-content">
                                 <div class="row">
@@ -192,10 +192,10 @@
                                         <h4 class="light">Projektteams</h4>
                                         <div class="para_content">
                                             <table class="responsive-table highlight">
-                                                {foreach from=$pt item=team}
+                                                {foreach from=$projekt->getInvolvedTeams() item=team}
                                                     <tr onclick="window.document.location = '/pm/team/{$team->id}';" style="cursor: pointer;">
-                                                        <td>{$team->t_name}</td>
-                                                        <td>{$team->stunden|number_format:2:",":"."} h</td>
+                                                        <td>{$team->getTeamName()}</td>
+                                                        <td>{$team->getHours()|number_format:2:",":"."} h</td>
                                                     </tr>
                                                 {/foreach}
                                             </table>
@@ -205,7 +205,7 @@
                             </div>
                         </div>
                     {/if}
-                    {if isset($ms)}
+                    {if count($projekt->getMilestones()) > 0 }
                         <div class="card">
                             <div class="card-content">
                                 <div class="row">
@@ -218,10 +218,10 @@
                                                 <th>Erfüllt</th>
                                                 </thead>
                                                 <tbody>
-                                                    {foreach from=$ms item=meilenstein}
+                                                    {foreach from=$projekt->getMilestones() item=meilenstein}
                                                         <tr>
-                                                            <td>{$meilenstein->meilenstein}</td>
-                                                            <td>{if $meilenstein->erfuellt == 1}<i class="material-icons green-text">done</i>{else}<i class="material-icons red-text">clear</i>{/if}</td>
+                                                            <td>{$meilenstein->getMilestoneName()}</td>
+                                                            <td>{if $meilenstein->getFinished() == 1}<i class="material-icons green-text">done</i>{else}<i class="material-icons red-text">clear</i>{/if}</td>
                                                         </tr>
                                                     {/foreach}
                                                 </tbody>
@@ -232,7 +232,7 @@
                             </div>
                         </div>
                     {/if}
-                    {if isset($kw)}
+                    {if count($projekt->getCapitalflow()) > 0}
                         <div class="card">
                             <div class="card-content">
                                 <div class="row">
@@ -247,12 +247,12 @@
                                                 <th>Auszahlung</th>
                                                 </thead>
                                                 <tbody>
-                                                    {foreach from=$kw item=kapitalwert}
+                                                    {foreach from=$projekt->getCapitalflow() item=kapitalwert}
                                                         <tr>
-                                                            <td>{$kapitalwert->jahr}</td>
-                                                            <td>{$kapitalwert->zinssatz}</td>
-                                                            <td>{$kapitalwert->einzahlung}</td>
-                                                            <td>{$kapitalwert->auszahlung}</td>
+                                                            <td>{$kapitalwert->getYear()}</td>
+                                                            <td>{$kapitalwert->getRent()}</td>
+                                                            <td>{$kapitalwert->getInputMoneyVal()}</td>
+                                                            <td>{$kapitalwert->getOutputMoneyVal()}</td>
                                                         </tr>
                                                     {/foreach}
                                                 </tbody>

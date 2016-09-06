@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Description of standort
  *
@@ -10,46 +9,75 @@ class pm_standort {
 
     private $id;
     private $name;
-    private $adresse;
-    private $firma_id;
-    
-    function __construct() {
-        
-    }
-    
-    function getId() {
+    private $strasse;
+    private $hausnummer;
+    private $plz;
+    private $ort;
+    private $leitung;
+    private $firma;
+
+    public function getId() {
         return $this->id;
     }
 
-    function getName() {
+    public function getName() {
         return $this->name;
     }
 
-    function getAdresse() {
-        return $this->adresse;
+    public function getStrasse() {
+        return $this->strasse;
     }
 
-    function getFirma_id() {
-        return $this->firma_id;
+    public function getHausnummer() {
+        return $this->hausnummer;
     }
 
-    function setId($id) {
+    public function getPlz() {
+        return $this->plz;
+    }
+
+    public function getOrt() {
+        return $this->ort;
+    }
+
+    public function getLeitung() {
+        return $this->leitung;
+    }
+
+    public function getFirma() {
+        return $this->firma;
+    }
+
+    public function setId($id) {
         $this->id = $id;
     }
 
-    function setName($name) {
+    public function setName($name) {
         $this->name = $name;
     }
 
-    function setAdresse($adresse) {
-        $this->adresse = $adresse;
+    public function setStrasse($strasse) {
+        $this->strasse = $strasse;
     }
 
-    function setFirma_id($firma_id) {
-        $this->firma_id = $firma_id;
+    public function setHausnummer($hausnummer) {
+        $this->hausnummer = $hausnummer;
     }
 
+    public function setPlz($plz) {
+        $this->plz = $plz;
+    }
 
+    public function setOrt($ort) {
+        $this->ort = $ort;
+    }
 
+    public function setLeitung($leitung) {
+        $this->leitung = $leitung;
+    }
+
+    public function setFirma($firma) {
+        $this->firma = $firma;
+    }
 
 }

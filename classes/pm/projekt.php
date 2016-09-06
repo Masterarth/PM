@@ -234,9 +234,29 @@ class pm_projekt {
      * @var pm_projektstatus
      */
     private $status;
+
+    /**
+     * Leader (Projekt Leiter)
+     * @var pm_user 
+     */
     private $projectLeader;
+
+    /**
+     * Creator (Ersteller)
+     * @var pm_user 
+     */
     private $projectCreator;
+
+    /**
+     * Department (Abteilung
+     * @var pm_abteilung
+     */
     private $department;
+
+    /**
+     * Arranger (Bearbeiter)
+     * @var pm_user 
+     */
     private $arranger;
 
     /**
@@ -281,6 +301,7 @@ class pm_projekt {
         $this->setL_id($result->l_id);
         $this->setB_id($result->b_id);
         $this->setRemark($result->bemerkung);
+        $this->setCommunicationConcept($result->komm_konz);
 
         //Adds Milestones to the Project
         $this->getMilestonesInformations($p_id);
@@ -296,9 +317,15 @@ class pm_projekt {
 
         //Adds Leaderinformation
         $this->getProjectLeaderInformation($result->l_id);
-        
+
         //Adds Creatorinformation
         $this->getProjectCreatorInformation($result->e_id);
+
+        //Adds ArrangerInformation
+        $this->getProjectArrangerInforomation($result->b_id);
+
+        //Adds DepartmentInformation
+        $this->getDepartmentInformation($result->a_id);
     }
 
     /**
@@ -365,14 +392,50 @@ class pm_projekt {
         $this->setStatus($status);
     }
 
-    private function getProjectLeaderInformation($id) {
-        $user = core()->userhandler()->createUser($id);
+    private function getProjectLeaderInformation($l_id) {
+        $user = core()->userhandler()->createUser($l_id);
         $this->setProjectLeader($user);
     }
 
-    private function getProjectCreatorInformation($id) {
-        $user = core()->userhandler()->createUser($id);
+    private function getProjectCreatorInformation($e_id) {
+        $user = core()->userhandler()->createUser($e_id);
         $this->setProjectCreator($user);
+    }
+
+    private function getProjectArrangerInforomation($b_id) {
+        $user = core()->userhandler()->createUser($b_id);
+        $this->setArranger($user);
+    }
+
+    private function getDepartmentInformation($a_id) {
+        $department = new pm_abteilung();
+        $r_department = core()->db()->select("select * from abteilung where id = " . $a_id, "fetch");
+        $r_standort = core()->db()->select("select * from standort where id = " . $r_department->s_id, "fetch");
+        $r_firma = core()->db()->select("select * from firma where id = " . $r_standort->f_id, "fetch");
+        $department->setLeitung($r_department->a_leitung);
+        $department->setName($r_department->a_name);
+        $department->setId($r_department->id);
+
+        $standort = new pm_standort();
+        $standort->setId($r_standort->id);
+        $standort->setHausnummer($r_standort->hausnummer);
+        $standort->setName($r_standort->s_name);
+        $standort->setOrt($r_standort->ort);
+        $standort->setPlz($r_standort->plz);
+        $standort->setStrasse($r_standort->strasse);
+
+        $firma = new pm_firma();
+        $firma->setId($r_firma->id);
+        $firma->setLeitung(core()->userhandler()->createUser($r_firma->f_leitung));
+        $firma->setName($r_firma->f_name);
+
+        $standort->setFirma($firma);
+        $standort->setLeitung(core()->userhandler()->createUser($r_standort->s_leitung));
+
+        $department->setStandort($standort);
+        $department->setLeitung(core()->userhandler()->createUser($r_department->a_leitung));
+
+        $this->setDepartment($department);
     }
 
     /**
@@ -896,6 +959,7 @@ class pm_projekt {
     public function getProjectCreator() {
         return $this->projectCreator;
     }
+
     public function getDepartment() {
         return $this->department;
     }
@@ -911,7 +975,7 @@ class pm_projekt {
     public function setArranger($arranger) {
         $this->arranger = $arranger;
     }
-    
+
     /**
      * 
      * @param pm_projektstatus $status
