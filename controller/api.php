@@ -14,8 +14,8 @@ if (isset($request[2])) {
                 exit;
             }
             break;
-        case "stats_mitarbeiter":
-            $users = core()->db()->select("select count(r.rolle) as anzahl, r.rolle from mitarbeiter m left join rolle r on m.r_id = r.id group by r.rolle");
+        case "stats_rollen":
+            $users = core()->stats()->getRolesAndNumbersOfEmployees();
             foreach ($users as $user) {
                 $data[] = array("rolle" => $user->rolle, "anzahl" => $user->anzahl);
             }
@@ -23,17 +23,9 @@ if (isset($request[2])) {
             exit;
             break;
         case "stats_projekte":
-            $users = core()->db()->select("select count(r.rolle) as anzahl, r.rolle from mitarbeiter m left join rolle r on m.r_id = r.id group by r.rolle");
-            foreach ($users as $user) {
-                $data[] = array("rolle" => $user->rolle, "anzahl" => $user->anzahl);
-            }
-            echo json_encode($data, JSON_NUMERIC_CHECK);
-            exit;
-            break;
-        case "stats_ressourcen":
-            $users = core()->db()->select("select m.*,count(p.id) as projekte from mitarbeiter m left join projekt p on p.l_id = m.id where m.r_id = 3 group by m.id");
-            foreach ($users as $user) {
-                $data[] = array("name" => $user->vorname . " " . $user->nachname, "anzahl" => $user->projekte);
+            $projekte = core()->stats()->getNumberAndStatusOfProjects();
+            foreach ($projekte as $projekt) {
+                $data[] = array("status" => $projekt->status, "anzahl" => $projekt->anzahl);
             }
             echo json_encode($data, JSON_NUMERIC_CHECK);
             exit;

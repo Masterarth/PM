@@ -16,7 +16,6 @@
         <script type="text/javascript" src="/pm/bin/jquery/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="/pm/bin/materialize/js/materialize.min.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript" src="/pm/bin/custom/js/GanttPM.js"></script>
         <script type="text/javascript" src="/pm/bin/custom/js/main.js"></script>
         <script type="text/javascript" src="/pm/bin/tablefilter/tablefilter.js"></script>
         {* -------  JS End  ------- *}
