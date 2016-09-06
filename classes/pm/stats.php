@@ -143,6 +143,16 @@ class pm_stats {
         return $val["AVG(DATEDIFF(projekt.vor_end_term,projekt.vor_sta_term))"];
     }
     
+    public function getTeamsAndHours(){
+        $val = core()->db()->select("SELECT team.t_name, leistung.max_stunden FROM team, leistung WHERE team.id = leistung.t_id");
+        return $val;
+    }
+    
+    public function getTeamsAndActualHours(){
+        $val = core()->db()->select("SELECT team.t_name, SUM(projteam.stunden) FROM projteam, team WHERE projteam.t_id = team.id GROUP BY team.t_name");
+        return $val;
+    }
+    
     
     
     /*
