@@ -34,6 +34,12 @@ class pm_capitalflow {
      * @param double $d_outputCash
      */
     public function __construct($i_year, $d_inputCash, $d_outputCash) {
+        
+        if (!is_int($i_year)) {
+            throw new InvalidArgumentException('Params must be an Double / Int Value');
+        }
+        
+        
         $this->i_year = $i_year;
         $this->d_inputCash = $d_inputCash;
         $this->d_outputCash = $d_outputCash;
@@ -85,6 +91,25 @@ class pm_capitalflow {
      */
     public function getYear() {
         return $this->i_year;
+    }
+    
+    /**
+     * Subtract the Input and Output Money Value
+     * @return double
+     */
+    public function getDifferentsInOut(){
+        return ($this->d_inputCash-$this->d_outputCash);
+    }
+    
+    /**
+     * Is the Capitalflow > 0
+     * @return boolean
+     */
+    public function posCapitalFlow(){
+        if($this->d_inputCash>$this->d_outputCash){
+            return true;
+        }
+        return false;
     }
 
 }
