@@ -1,4 +1,4 @@
-<?php
+<?php //
 
 /**
  * Page for tests
@@ -15,6 +15,11 @@
 //
 //
 //echo "\n\n <h1>--------------------</h1>";
+
+//require '../classes/pm/capitalflow.php';
+//require '../classes/pm/capitalvaluemethod.php';
+//require '../classes/pm/inflation.php';
+//
 //$c1 = new pm_capitalflow(0,400,100);
 //var_dump($c1);
 //
@@ -30,7 +35,7 @@
 //
 //$capitalvalmeth = new pm_capitalvaluemethod(2,0.01,0.01,200,$arr);
 //var_dump($capitalvalmeth);
-//$capitalvalmeth->calculateCapitalValue();
+//echo "<h1>".$capitalvalmeth->calculateCapitalValue()."</h1>";
 //
 //echo "<h1>---------------------------</h1>";
 //var_dump($capitalvalmeth);
