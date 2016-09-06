@@ -72,7 +72,7 @@ if (isset($request[2])) {
 
         $projekt = new pm_projekt();
         $projekt->load($request[2]);
-//        var_dump($projekt);
+        var_dump($projekt);
         core()->smarty()->assign("projekt", $projekt);
     }
 }

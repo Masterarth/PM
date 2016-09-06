@@ -11,125 +11,44 @@
  * @author Lukas
  */
 class pm_abteilung {
+    
+    private $id;
+    private $s_id;
+    private $a_name;
+    private $a_leitung;
+    
+    public function getId() {
+        return $this->id;
+    }
 
-    /**
-     * ID of the Section
-     * @var int 
-     */
-    private $i_id;
-    
-    /**
-     * Number of Employees
-     * @var ing 
-     */
-    private $i_mitarbeiteranzahl;
-    
-    /**
-     * Budget of the Section
-     * @var double 
-     */
-    private $d_budget;
-    
-    /**
-     * Name of the Section
-     * @var string 
-     */
-    private $s_name;
-    
-    /**
-     * ID of the Location of the Section
-     * @var int 
-     */
-    private $i_standort_id;
-    
-    /**
-     * Sets the ID of the Section
-     * @param int ID
-     */
-    public function setId($i_id)
-    {
-        $this->i_id = $i_id;
+    public function getS_id() {
+        return $this->s_id;
     }
-    
-    /**
-     * Sets the Number of Employees of the Section
-     * @param int Anzahl Mitarbeiter
-     */
-    public function setEmployeeNumber($i_zahl)
-    {
-        $this->i_mitarbeiteranzahl = $i_zahl;
+
+    public function getA_name() {
+        return $this->a_name;
     }
-    
-    /**
-     * Sets the Name of the Section
-     * @param string Name
-     */
-    public function setName($s_abteilungsName)
-    {
-        $this->s_name = $s_abteilungsName;
+
+    public function getA_leitung() {
+        return $this->a_leitung;
     }
-    
-    /**
-     * Sets the Budget of a Section
-     * @param double $d_budget
-     */
-    public function setBudget($d_budget)
-    {
-        $this->d_budget = $d_budget;
+
+    public function setId($id) {
+        $this->id = $id;
     }
-    
-    /**
-     * Sets the ID of the Location of the Section
-     * @param int BereichsID
-     */
-    public function setLocationId($i_standortID)
-    {
-        $this->i_standort_id = $i_standortID;
+
+    public function setS_id($s_id) {
+        $this->s_id = $s_id;
     }
-    
-    /**
-     * Returns the Section ID
-     * @return int ID
-     */
-    public function getId()
-    {
-        return $this->i_id;
+
+    public function setA_name($a_name) {
+        $this->a_name = $a_name;
     }
-    
-    /**
-     * Returns the Budget Values
-     * @return double Budget
-     */
-    public function getBudget()
-    {
-        return $this->d_budget;
+
+    public function setA_leitung($a_leitung) {
+        $this->a_leitung = $a_leitung;
     }
-    
-    /**
-     * Returns Number of Employees
-     * @return int Number of Employees
-     */
-    public function getMitarbeiterZahl()
-    {
-        return $this->i_mitarbeiteranzahl;
-    }
-    
-    /**
-     * Returns the Name of the Section
-     * @return string Name
-     */
-    public function getName()
-    {
-        return $this->s_name;
-    }
-    
-    /**
-     * Returns the Location ID of the Section
-     * @return int Location ID
-     */
-    public function getLocationId()
-    {
-        return $this->i_standort_id;
-    }
+
+
 
 }

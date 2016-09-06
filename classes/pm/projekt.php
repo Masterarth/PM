@@ -234,6 +234,10 @@ class pm_projekt {
      * @var pm_projektstatus
      */
     private $status;
+    private $projectLeader;
+    private $projectCreator;
+    private $department;
+    private $arranger;
 
     /**
      * Constructor for a Project
@@ -289,6 +293,12 @@ class pm_projekt {
 
         //Adds Statusinformation
         $this->getStatusInformation($result->s_id);
+
+        //Adds Leaderinformation
+        $this->getProjectLeaderInformation($result->l_id);
+        
+        //Adds Creatorinformation
+        $this->getProjectCreatorInformation($result->e_id);
     }
 
     /**
@@ -353,6 +363,16 @@ class pm_projekt {
         $status->setId($resultStatus->id);
         $status->setDescription($resultStatus->status);
         $this->setStatus($status);
+    }
+
+    private function getProjectLeaderInformation($id) {
+        $user = core()->userhandler()->createUser($id);
+        $this->setProjectLeader($user);
+    }
+
+    private function getProjectCreatorInformation($id) {
+        $user = core()->userhandler()->createUser($id);
+        $this->setProjectCreator($user);
     }
 
     /**
@@ -869,12 +889,43 @@ class pm_projekt {
         return $this->status;
     }
 
+    public function getProjectLeader() {
+        return $this->projectLeader;
+    }
+
+    public function getProjectCreator() {
+        return $this->projectCreator;
+    }
+    public function getDepartment() {
+        return $this->department;
+    }
+
+    public function getArranger() {
+        return $this->arranger;
+    }
+
+    public function setDepartment($department) {
+        $this->department = $department;
+    }
+
+    public function setArranger($arranger) {
+        $this->arranger = $arranger;
+    }
+    
     /**
      * 
      * @param pm_projektstatus $status
      */
     public function setStatus(pm_projektstatus $status) {
         $this->status = $status;
+    }
+
+    public function setProjectLeader(pm_user $user) {
+        $this->projectLeader = $user;
+    }
+
+    public function setProjectCreator(pm_user $user) {
+        $this->projectCreator = $user;
     }
 
     /**
