@@ -65,7 +65,8 @@ if (isset($request[2])) {
             }
             if (is_numeric($request[3])) {
                 core()->smarty()->assign("f_id", $request[3]);
-                core()->materialize()->addFixedNavElement("/pm/firma/" . $request[3], "Zurück", "call_missed");
+                core()->materialize()->addFixedNavElement("/pm/firma/" . $request[3], "Zurück", "call_missed", "black");
+                core()->materialize()->showFixedNavElement();
                 core()->page()->loadPage("budget_neu");
                 core()->page()->loadController("budget_neu");
             }

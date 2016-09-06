@@ -33,6 +33,7 @@ return array(
     "mitarbeiter_dashboard" => array('admin'),
     "mitarbeiter_neu" => array('admin'),
     "mitarbeiter_update_aktiv" => array('admin'),
+    "mitarbeiter_update_rolle" => array("admin"),
     "reg" => array('admin'),
     "registrierung" => array('admin'),
     "stammdaten" => array('admin'),

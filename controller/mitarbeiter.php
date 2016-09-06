@@ -42,6 +42,7 @@ if (isset($request[2])) {
             core()->page()->loadPage("mitarbeiter_loeschen");
             break;
         case "update":
+            
             switch ($request[3]) {
                 case "aktiv":
                     core()->page()->loadController("mitarbeiter_update_aktiv");
@@ -50,6 +51,7 @@ if (isset($request[2])) {
                     core()->page()->loadController("mitarbeiter_update_rolle");
                     break;
             }
+            break;
     }
     if (is_numeric($request[2])) {
 

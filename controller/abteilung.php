@@ -56,8 +56,7 @@ if (isset($request[2])) {
 }
 
 function loadAbteilung($id) {
-    $abteilung = core()->db()->select("select a.*, m.vorname, m.nachname, s.s_name from abteilung a, mitarbeiter m, standort s where a.id = " . $id . " and a.a_leitung = m.id and a.s_id = s.id", "fetch");
-
+    $abteilung = core()->db()->select("select a.*, m.vorname, m.nachname, s.s_name from abteilung a left join mitarbeiter m on m.id = a.a_leitung left join standort s on s.id = a.s_id where a.id = " . $id, "fetch");
     if ($abteilung) {
         core()->smarty()->assign("abteilung", $abteilung);
     }

@@ -75,6 +75,7 @@ class load_page {
         if ($controller) {
             if (isset($_SESSION["user"]) && !core()->permission()->checkGrp($_SESSION["user"], $controller) && !$this->defaultPage($controller)) {
                 $controller = "401";
+                $this->loadPage($controller);
             }
             $_SESSION["page"] = $controller;
             $controllerpath = BASEPATH . 'controller/' . $controller . '.php';
@@ -88,6 +89,7 @@ class load_page {
     public function loadPage($page) {
         if (isset($_SESSION["user"]) && !core()->permission()->checkGrp($_SESSION["user"], $page) && !$this->defaultPage($page)) {
             $page = "401";
+            $this->loadController($page);
         }
         $page_path = BASEPATH . 'templates/' . $page . '.tpl';
         $page_path = realpath($page_path);

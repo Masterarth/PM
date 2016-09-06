@@ -34,6 +34,7 @@ if (isset($request[2])) {
         case "loeschen":
             if (is_numeric($request[3])) {
                 $result = core()->db()->select("select * from team where id = '" . $request[3] . "'", "fetch");
+                var_dump($result);
                 if ($result) {
                     $id = core()->db()->delete("delete from team where id = " . $request[3]);
                     header('Location: /pm/team/dashboard');

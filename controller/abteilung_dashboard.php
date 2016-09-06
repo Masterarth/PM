@@ -16,7 +16,7 @@ if (isset($_POST["abteilung_search"])) {
         $abteilungen = core()->db()->select("select * from abteilung where concat_ws(' ',b_name,b_leitung) like '%" . $_POST["abteilung_search"] . "%'");
     }
 } else {
-    $abteilungen = core()->db()->select("select a.*, m.vorname, m.nachname, s.s_name from abteilung a, mitarbeiter m, standort s where a.s_id = s.id and a.a_leitung = m.id");
+    $abteilungen = core()->db()->select("select a.*, m.vorname, m.nachname, s.s_name from abteilung a left join mitarbeiter m on m.id = a.a_leitung left join standort s on s.id = a.s_id");
 }
 
 if (count($abteilungen) > 0) {
