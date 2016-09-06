@@ -50,7 +50,7 @@
                                 <div class="col s12 m4">
                                     <h4 class="light">Standort</h4>
                                     <div class="para_content">
-                                        <span><a href="/pm/standort/{$projekt->getDepartment()->getStandort()->getId()}">{$projekt->getDepartment()->getStandort()->getName()}</a></span>
+                                        <span><a href="/pm/standort/{$projekt->getDepartment()->getLocation()->getId()}">{$projekt->getDepartment()->getLocation()->getName()}</a></span>
                                     </div>
                                 </div>
                                 <div class="col s12 m4">
