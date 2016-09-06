@@ -22,6 +22,11 @@ class pm_capitalvaluemethod {
      * @param double $d_payoutMoney
      */
     function __construct($i_years,$i_emptyRiskZins, $i_riskZins, $d_payoutMoney, $o_arrayCapitalflow) {
+        
+        if(is_nan($i_years)){
+            throw new InvalidArgumentException('Params must be an Number Value');
+        }
+        
         $this->o_inflation = new pm_inflation(2016);
         $this->i_years = $i_years;
         $this->d_payingOut = $d_payoutMoney;
@@ -70,6 +75,12 @@ class pm_capitalvaluemethod {
     {
         return $this->d_capitalValue;
     }
+    
+    function getO_capitalflows() {
+        return $this->o_capitalflows;
+    }
+
+
     
     
 }
