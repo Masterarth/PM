@@ -1,8 +1,6 @@
 <?php
 
-
-
-define('FPDF_FONTPATH','C:\xampp\htdocs\PM\bin\fpdf\font');
+define('FPDF_FONTPATH', 'bin\fpdf\font');
 require 'bin/fpdf/fpdf.php';
 
 /**
@@ -15,7 +13,6 @@ class pm_pdfcreator extends FPDF {
     private $o_fpdf;
     private $o_project;
     private $i_ppID;
-    
 
     /**
      * Constructor 
@@ -33,9 +30,9 @@ class pm_pdfcreator extends FPDF {
 
         $this->o_project = new pm_projekt();
         $this->o_project->load($i_ppID);
-        
-        
-        
+
+
+
         $this->setImage();
         $this->pdfHeadline();
         $this->pdfNormalContent();
@@ -154,7 +151,7 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
         $this->o_fpdf->Text(10, 42, utf8_decode($this->o_project->getMoneyCosts()));
-        
+
         //Monetärer Nutzen
         $this->o_fpdf->SetTextColor(0, 128, 128);
         $this->o_fpdf->SetFont('Arial', 'B', 14);
@@ -169,11 +166,9 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 53, utf8_decode('| Kapitalwertmethode'));
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        
+
 
         $this->capitalFlowTable(array("Jahr", "Kosten", "Nutzen"), $this->o_project->getCapitalflow());
-        
-        
     }
 
     /**
@@ -184,7 +179,7 @@ class pm_pdfcreator extends FPDF {
     private function capitalFlowTable($header, $data) {
         $this->o_fpdf->SetX(10);
         $this->o_fpdf->SetY(60);
-        
+
         // Column widths
         $w = array(60, 60, 60);
         // Header
@@ -201,11 +196,11 @@ class pm_pdfcreator extends FPDF {
         // Closure line
         $this->o_fpdf->Cell(array_sum($w), 0, '', 'T');
     }
-    
+
     /**
      * Adds the Milestones to the PDF
      */
-    private function pdfMilestoneContent(){
+    private function pdfMilestoneContent() {
         $this->o_fpdf->AddPage();
 
         //HEADLINE
@@ -214,23 +209,21 @@ class pm_pdfcreator extends FPDF {
         $this->o_fpdf->Text(10, 20, "Meilensteine");
         $this->o_fpdf->Text(10, 23, "________________________________________________________________");
 
-        
+
         $this->o_fpdf->SetTextColor(0, 0, 0);
         $this->o_fpdf->SetFont('Arial', '', 12);
-        $this->milestoneTable(array("MeilensteinNr","Meilensteinname","Erledigt"),  $this->o_project->getMilestones());
-        
+        $this->milestoneTable(array("MeilensteinNr", "Meilensteinname", "Erledigt"), $this->o_project->getMilestones());
     }
-    
-    
+
     /**
      * Prints the Milestones to the Table
      * @param type $header
      * @param type $data
      */
-    private function milestoneTable($header,$data){
+    private function milestoneTable($header, $data) {
         $this->o_fpdf->SetX(10);
         $this->o_fpdf->SetY(30);
-        
+
         // Column widths
         $w = array(60, 60, 60);
         // Header
@@ -241,7 +234,7 @@ class pm_pdfcreator extends FPDF {
         foreach ($data as $row) {
             $this->o_fpdf->Cell($w[0], 6, $row->getMilestoneNr(), 'LR');
             $this->o_fpdf->Cell($w[1], 6, $row->getMilestoneName(), 'LR', 0, 'R');
-            $this->o_fpdf->Cell($w[2], 6, $row->getFinished(), 'LR', 0, 'R');
+            $this->o_fpdf->Cell($w[2], 6, $this->boolConverter($row->getFinished()), 'LR', 0, 'R');
             $this->o_fpdf->Ln();
         }
         // Closure line
@@ -261,6 +254,10 @@ class pm_pdfcreator extends FPDF {
      */
     public function createPdf() {
         $this->o_fpdf->Output();
+    }
+
+    private function boolConverter($bool) {
+        return ($bool = true) ? "Ja" : "Nein";
     }
 
 }

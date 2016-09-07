@@ -42,8 +42,8 @@
     [ ] bearbeiten
         [ ] update in die DB fehlt --> @Art Auschecken der Klasse + Bug fixes falls vorhanden 
         [X] Ansicht ist ok
-    [ ] Antrag genehmigen / ablehnen
-    [ ] Auftraggeber
+    [x] Antrag genehmigen / ablehnen
+    [x] Auftraggeber
 .
 -> Zum einen Fehlen die Felder auf der Maske zum Teil 
     @Artur Felder sind angelegt
@@ -69,25 +69,22 @@ WHERE (projekt.genehmigung_E1 = 0 AND projekt.a_id = abteilung.id AND abteilung.
 OR ( projekt.genehmigung_E2 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = 1 AND projekt.s_id =1)
 OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_id = standort.id AND standort.s_leitung = 1 AND projekt.s_id = 1)
 
-
-[ ] stammdaten
-    [ ] Prioritäten -> Bemerkung LA: Prioritäten sind glaube ich einfach nur hoch, mittel, niedrig?
-        [ ] anzeigen
-        [ ] für ein projekt vergeben
+[x] stammdaten
+    [x] Prioritäten -> Bemerkung LA: Prioritäten sind glaube ich einfach nur hoch, mittel, niedrig?
+        [x] anzeigen
+        [x] für ein projekt vergeben
         - frage: warum ist das prio zeug in den stammdaten ? @Artur => Macht keinen Sinn mehr und kann raus
-
-
 
 -----
 
 [ ] team ist_stunden aus projekt leistungsshit berechnen ? 
     -> alles ok
     -> aber der wert ist ja immer berechnet wenn das irgendwo verwenden möchten müssen wir den immer berechnen ? 
-[ ] @k @n   -> random algo für bilder überall tryen zu coden -> ist unabhänig von allem !?
+[x] @k @n   -> random algo für bilder überall tryen zu coden -> ist unabhänig von allem !?
 [X] @L      -> wenn du projektklasse fertig hast können wir update von anträgen darüber machen weil ich habe das updaten noch nicht programmiert es wird nur richtig angezeigt felder müssen noch in die db geupdated werden
 [X] @L      -> wenn du willst kannst du bitte nur die felder im antrag platzieren die noch fehlen siehe oben die noch nicht abgehackt sind. (Amortisationsdauer,Geplantes Budget etc.)
             -> falls die felder fürn arsch sind aus der db werfen! können vllt. ausmissten!
-[ ] Statistik seite ist eigentlich auch nicht schwer vllt. können das die anderen 3 (k,n,t) machen ? 
+[x] Statistik seite ist eigentlich auch nicht schwer vllt. können das die anderen 3 (k,n,t) machen ? 
     -> ist schon viel vorbereitet -> somit nur viel copy paste
     -> außerdem unabhängig von allem wichtigem
     -> @A  = Vorbereiten der Klasse, damit sie wissen wo gecodet werden muss! + DB Zugriff exemplarisch anlegen
@@ -95,8 +92,7 @@ OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_
             -> wir sollten hierzu mal abklären ob das ok ist ? oder der freddy bzw. der pm typ was dagegen haben... 
             -> denn wenn die das offline testen sollten gehen alle charts nicht!
 
-
-[ ] @L --> PHPUnit anfangen
+[x] @L --> PHPUnit anfangen
         > Klassen:
             1. Projekt
             2. Kapitalwertmethode

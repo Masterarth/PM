@@ -5,13 +5,19 @@
     <div class="section white">
         <div class="row container">
             <div class="row">
-                <div class="col s12 m9">
+                <div class="col s12 m8">
                     <h2>{$projekt->getTitle()} (#{$projekt->getDatabaseId()})</h2>
                 </div>
-                <div class="col s12 m3">
+                <div class="col s12 m4">
                     <h3 class="teal-text" style="border-left: 10px solid lightblue; padding-left: 20px;">{$projekt->getStatus()->getDescription()}</h3>
                 </div>
             </div>
+            {if $zuGenehmigen == true}
+                <div class="row">
+                    <div class="col s12 m6"><a href="/pm/antrag/genehmigen/{$projekt->getDatabaseId()}" class="btn btn-block green">Genehmigen</a></div>
+                    <div class="col s12 m6"><a href="/pm/antrag/ablehnen/{$projekt->getDatabaseId()}" class="btn btn-block red">Ablehnen</a></div>
+                </div>
+            {/if}
             <div class="row">
                 <div class="col s12">
                     <ul class="tabs">

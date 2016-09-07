@@ -62,7 +62,7 @@
                 <h4>{$statistik->getI_numberEmployees()}</h4>
             </div>
             <div class="col s12 m6">
-                <h4 class="teal-text">Projektstatus verteilung</h4>
+                <h4 class="teal-text">Benutzerrollen Verteilung</h4>
                 <div class="section">
                     <div id="rollenchart" style="height: 500px;"></div>
                 </div>

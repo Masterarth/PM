@@ -1336,4 +1336,8 @@ class pm_projekt {
         $this->involvedTeams[] = $involvedTeams;
     }
 
+    function getCapitalRent() {
+        return array_values($this->getCapitalflow())[0]->getRent();
+    }
+
 }
