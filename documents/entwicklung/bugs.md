@@ -15,14 +15,14 @@
 [ ] Wird nach ID sortiert und nicht nach Datum. Ist das richtig so?
     -> arth: muss lukas entscheiden und dann entsprechend im sql select statement abändern
 [x] Funktion des Löschen-Buttons? Er macht bei mir nichts.
-    -> foreign key... siehe standort oder team löschung beschreibung
+    -> arth: foreign key... siehe standort oder team löschung beschreibung
 [x] Kein Zurück-Button bei Budget-Erstellung
 
 ## STANDORT
 [ ] Standortleiter kann nicht ausgewählt werden
 [x] Button Löschen nutzlos
-    -> weil team noch in einer anderen tabelle verwendet wird ... foreignkey prüfung!
-    -> siehe team lösung erklärung!
+    -> arth: weil team noch in einer anderen tabelle verwendet wird ... foreignkey prüfung!
+    -> arth: siehe team lösung erklärung!
 [ ] Wenn Adresse nicht gefunden wird, wird alles mit Fehlermeldungen zugespammt, aber nicht gespeichert.
     Auszug:
             Notice: Undefined offset: 3 in D:\Xampp\htdocs\PM\controller\standort.php on line 25
@@ -36,15 +36,16 @@
 ## ABTEILUNG
 [x] Wird ein Abteilungsleiter eingegeben, der nicht existiert, so existiert die ganze Abteilung nicht mehr (a_leitung wird NULL gesetzt und Abteilung nicht mehr angezeigt
 [x] Unterscheidung verschiedener Personen mit gleichem Namen?
-    -> wurde schon bedacht aber da keine richtig lösung möglich ist nehmen wir das in kauf!
+    -> arth: wurde schon bedacht aber da keine richtig lösung möglich ist nehmen wir das in kauf!
 
 ## TEAM
 [x] Leistung ist nur einmalig zu erfassen. Keine Leistung 2016 und 2017 möglich?
-    -> man update die leistung
-    -> sprich wenn man das 2 mal auf den button leistung klickt können die daten geändert werden.
-    -> ist so weil das im db model nicht anders möglich ist
+    -> arth: man update die leistung
+    -> arth: sprich wenn man das 2 mal auf den button leistung klickt können die daten geändert werden.
+    -> arth: ist so weil das im db model nicht anders möglich ist
+    -> karh: erkläre mir das bitte, es gibt eine Leistungstabelle welche per 1:n Beziehung verknüpft werden kann inklusive Jahr. Wieso ist es im DB-Model nicht anders möglich?
 [x] Löschen nicht möglich 
-    arth: weil team noch in einer anderen tabelle verwendet wird ... foreignkey prüfung!
+    -> arth: weil team noch in einer anderen tabelle verwendet wird ... foreignkey prüfung!
           wenn team nirgends verwendet wird kann team gelöscht werden..
           falls das trotzdem gewollt ist muss man das am db model ändern wie bei projekt kann man veranlassen das alle verbindungen zum team mit gelöscht werden
           also ist eine lösung falls gewünscht schon vorhanden.
