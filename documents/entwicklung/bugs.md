@@ -30,6 +30,7 @@
             <br /><b>Notice</b>:  Undefined index: standort in <b>D:\Xampp\htdocs\PM\bin\smarty\templates_c\990af5aca8b8d07048c0c410c4b18a99961fdd54_0.file.standort_bearbeiten.tpl.php</b> on line <b>31</b><br /><br /><b>Notice</b>:  Trying to get property of non-object in <b>D:\Xampp\htdocs\PM\bin\smarty\templates_c\990af5aca8b8d07048c0c410c4b18a99961fdd54_0.file.standort_bearbeiten.tpl.php</b> on line <b>31</b><br /><br /><b>Notice</b>:  Trying to get property of non-object in <b>D:\Xampp\htdocs\PM\bin\smarty\templates_c\990af5aca8b8d07048c0c410c4b18a99961fdd54_0.file.standort_bearbeiten.tpl.php</b> on line <b>31</b><br />
             Standortname
     -> arth: bitte mir mal genau zeigen was ihr da eingebt
+    -> karh: Die Strasse auf sapufnwiuefbpwf ändern und versuchen zu speichern.
 
 
 ## ABTEILUNG
