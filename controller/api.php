@@ -35,7 +35,7 @@ if (isset($request[2])) {
                 $user = $_SESSION["user"];
                 //$projekte = core()->db()->select("select p.* from projekt p, abteilung a where  p.a_id = a.id and (a.a_leitung = " . $user->getId() . " or p.e_id = " . $user->getId() . " or p.l_id =" . $user->getId() . ") and p.s_id between 2 and 4");
                 $projekte = core()->db()->select("SELECT p.* from projekt p, abteilung a, standort s where ((p.e_id =" . $user->getId() . ") or (p.a_id = a.id and a.a_leitung = " . $user->getId() . ") or (p.a_id = a.id and a.s_id = s.id and s.s_leitung = " . $user->getId() . ") or (p.l_id = " . $user->getId() . ")) and p.s_id BETWEEN 2 and 4 GROUP BY p.id");
-                var_dump($projekte);
+                //var_dump($projekte);
                 
             } elseif ((isset($request[3]) && $request[3] == "all") || !isset($_SESSION["user"])) {
                 $projekte = core()->db()->select("select * from projekt where s_id between 2 and 4");
