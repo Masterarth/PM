@@ -471,34 +471,9 @@ class pm_projekt {
      * --> Updates the Project "ID"
      */
     public function update() {
-
-        if ($this->getMoneyCosts() >= 0) {
-            $kosten = $this->getMoneyCosts();
-            switch ($kosten) {
-                case $kosten <= 5000:
-                    $this->setPermitS1(0);
-                    $this->setPermitS2(1);
-                    $this->setPermitS3(1);
-                    break;
-                case $kosten <= 25000:
-                    $this->setPermitS1(1);
-                    $this->setPermitS2(0);
-                    $this->setPermitS3(1);
-                    break;
-                case $kosten <= 50000:
-                    $this->setPermitS1(1);
-                    $this->setPermitS2(1);
-                    $this->setPermitS3(0);
-                    break;
-            }
-        }
-
         $values = array();
         $values["title"] = $this->getTitle();
         $values["creator"] = $this->getCreator();
-        $values["e1"] = $this->getPermitS1();
-        $values["e2"] = $this->getPermitS2();
-        $values["e3"] = $this->getPermitS3();
         $values["z1"] = $this->getTargetCross1();
         $values["z2"] = $this->getTargetCross2();
         $values["z3"] = $this->getTargetCross3();
@@ -510,7 +485,6 @@ class pm_projekt {
         $values["aid"] = $this->getA_id();
         $values["lid"] = $this->getL_id();
         $values["bid"] = $this->getB_id();
-        $values["sid"] = $this->getS_id();
         $values["vst"] = $this->getExpectedStartTime();
         $values["vet"] = $this->getExpectedEndTime();
         $values["desc"] = $this->getDescription();
@@ -519,13 +493,10 @@ class pm_projekt {
         $values["monCosts"] = $this->getMoneyCosts();
         $values["monEarnings"] = $this->getMonesEarnings();
         $values["capCosts"] = $this->getCapitalCosts();
-        
+
         core()->db()->update("update projekt set "
                 . "titel=:title,"
                 . "auftraggeber=:creator,"
-                . "genehmigung_E1=:e1,"
-                . "genehmigung_E2=:e2,"
-                . "genehmigung_E3=:e3,"
                 . "p_ziel1=:z1,"
                 . "p_ziel2=:z2,"
                 . "p_ziel3=:z3,"
@@ -537,7 +508,6 @@ class pm_projekt {
                 . "a_id=:aid,"
                 . "l_id=:lid,"
                 . "b_id=:bid,"
-                . "s_id=:sid,"
                 . "vor_sta_term=:vst,"
                 . "vor_end_term=:vet,"
                 . "beschreibung=:desc,"

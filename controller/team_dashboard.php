@@ -13,7 +13,7 @@ if (isset($_POST["team_search"])) {
         header('Location: /pm/team/' . $_POST["team_search"]);
         exit;
     } else {
-        $teams = core()->db()->select("select * from team where concat_ws(' ',a_name,id) like '%" . $_POST["team_search"] . "%'");
+        $teams = core()->db()->select("select * from team where concat_ws(' ',t_name) like '%" . $_POST["team_search"] . "%'");
     }
 } else {
     $teams = core()->db()->select("select * from team t");

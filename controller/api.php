@@ -44,13 +44,22 @@ if (isset($request[2])) {
                     "startDate" => date("Y,m,d", strtotime($projekt->vor_sta_term)),
                     "endDate" => date("Y,m,d", strtotime($projekt->vor_end_term)),
                     "duration" => null,
-                    "complete" => rand(0, 100),
+                    "complete" => calcComplete($projekt->id),
                     "resource" => generateRandomString());
             }
             echo json_encode($data, JSON_NUMERIC_CHECK);
             exit;
             break;
     }
+}
+
+function calcComplete($pid) {
+    $milestones = core()->db()->select("select * from meilensteine where p_id=" . $pid);
+    $milestones_checked = core()->db()->select("select * from meilensteine where p_id=" . $pid . " and erfuellt = 1");
+    if (count($milestones) > 0) {
+        return ((100 / count($milestones)) * count($milestones_checked));
+    }
+    return 100;
 }
 
 function generateRandomString($length = 10) {

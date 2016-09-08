@@ -7,19 +7,6 @@
                     <label for="search">nach Abteilung suchen</label>
                 </div>
             </form>
-            <li>
-                <div class="collapsible-header">Standorte</div>
-                <div class="collapsible-body">
-                    <div class="row">
-                        <input type="text" value="Test">
-                    </div>
-                    <input type="checkbox" value="Das ist ein Text">    
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header">irgendwas</div>
-                <div class="collapsible-body"></div>
-            </li>
         </ul>
     </div>
     <div class="col s12 l9">

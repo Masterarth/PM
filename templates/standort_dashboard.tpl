@@ -3,20 +3,10 @@
         <ul class="collapsible" data-collapsible="accordion">
             <form action="/pm/standort/dashboard" method="post">
                 <div class="input-field search search-margin">
-                    <input id="search" class="sickblue" type="text" name="ma_search">
+                    <input id="search" class="sickblue" type="text" name="standort_search">
                     <label for="search">nach Standort suchen</label>
                 </div>
             </form>
-            <li>
-                <div class="collapsible-header">Standorte</div>
-                <div class="collapsible-body">
-                    <input type="checkbox" value="Das ist ein Text">    
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header">Abteilungen</div>
-                <div class="collapsible-body"><p>hier sind abteilungen aufgelistet</p></div>
-            </li>
         </ul>
     </div>
     <div class="col s12 l9">

@@ -7,16 +7,6 @@
                     <label for="search">nach Mitarbeiter suchen</label>
                 </div>
             </form>
-            <li>
-                <div class="collapsible-header">Standorte</div>
-                <div class="collapsible-body">
-                    <input type="checkbox" value="Das ist ein Text">    
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header">Abteilungen</div>
-                <div class="collapsible-body"><p>hier sind abteilungen aufgelistet</p></div>
-            </li>
         </ul>
     </div>
     <div class="col s12 l9">
@@ -30,7 +20,7 @@
                         <div class="card-content">
                             <span class="card-title teal-text">{$user->vorname} {$user->nachname}</span>
                             <p><strong class="teal-text">Accountname:</strong> {$user->l_name}</p>
-                            <p><strong class="teal-text">Mitglied seit:</strong> {$user->reg_datum}</p>
+                            {*<p><strong class="teal-text">Mitglied seit:</strong> {$user->reg_datum}</p>*}
                         </div>
                         <div class="card-action">
                             <a class="grey-text" href="/pm/mitarbeiter/{$user->u_id}">Öffnen</a>

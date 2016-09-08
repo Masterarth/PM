@@ -29,7 +29,7 @@
                             </div>
                         </li>
                         <li class="{if $controller == 'dashboard'}active{/if}"><a class="teal-text waves-effect waves-light" href="/pm/dashboard">Dashboard</a></li>
-                        <li class="{if $controller == 'antrag'}active{/if}"><a class="dropdown-button teal-text" href="#" data-activates="viewSwitch">Anträge<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li class="{if $controller == 'antrag'}active{/if}"><a class="teal-text waves-effect waves-light" href="/pm/antrag/dashboard">Anträge</a></li>
                         <li class="{if $controller == 'stammdaten'}active{/if}"><a class="teal-text waves-effect waves-light" href="/pm/stammdaten">Stammdaten</a></li> 
                     </ul>
                 </div>

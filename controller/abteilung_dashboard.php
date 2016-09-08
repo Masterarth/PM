@@ -13,7 +13,7 @@ if (isset($_POST["abteilung_search"])) {
         header('Location: /pm/abteilung/' . $_POST["abteilung_search"]);
         exit;
     } else {
-        $abteilungen = core()->db()->select("select * from abteilung where concat_ws(' ',b_name,b_leitung) like '%" . $_POST["abteilung_search"] . "%'");
+        $abteilungen = core()->db()->select("select a.*, m.vorname, m.nachname,s.s_name from abteilung a left join mitarbeiter m on m.id = a.a_leitung left join standort s on s.id = a.s_id where concat_ws(' ',a_name) like '%" . $_POST["abteilung_search"] . "%'");
     }
 } else {
     $abteilungen = core()->db()->select("select a.*, m.vorname, m.nachname, s.s_name from abteilung a left join mitarbeiter m on m.id = a.a_leitung left join standort s on s.id = a.s_id");
