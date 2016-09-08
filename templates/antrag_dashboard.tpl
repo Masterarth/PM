@@ -1,25 +1,28 @@
 <div class="row">
     <div class="col hide-on-med-and-down l3">
-        <ul class="collapsible" data-collapsible="accordion">
-            <li>
-                <div class="input-field search radioRow">
-                    <input id="search" type="text" name="search" name="antrag_search">
-                    <label for="search" >Suche</label>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header">Abteilungen</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
-            <li>
-                <div class="collapsible-header">Standort</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
-            <li>
-                <div class="collapsible-header">Zeitraum</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
-        </ul>
+        <form method="post" action="/pm/antrag/dashboard" >
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="input-field search radioRow">
+                        <input id="search" type="text" name="antrag_search" value="{$smarty.session.antrag_search}">
+                        <label for="search" >Suche</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header active">Projekte filtern</div>
+                    <div class="collapsible-body">
+                        <p>
+                            <input class="with-gap" name="projectFilter" type="radio" id="ownProjects" value="ownProjects" onchange="this.form.submit();" {if $smarty.session.antragFilter == "ownProjects"}checked{/if} />
+                            <label for="ownProjects">Eigene Projekte</label>
+                        </p>
+                        <p>
+                            <input class="with-gap" name="projectFilter" type="radio" id="allProjects" value="allProjects" onchange="this.form.submit();" {if $smarty.session.antragFilter == "allProjects"}checked{/if} />
+                            <label for="allProjects">Alle Projekte</label>
+                        </p>
+                    </div>
+                </li>
+            </ul> 
+        </form>
     </div>
     <div class="col s12 l9">
         {if isset($projekte)}

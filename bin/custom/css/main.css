@@ -101,3 +101,8 @@ i.bigger{
 a{
     color: #009688;
 }
+
+/*override*/
+.collapsible-body p{
+    padding: 15px 15px 15px 15px;
+}
