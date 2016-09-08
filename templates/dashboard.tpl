@@ -17,15 +17,6 @@
         </div>
     </div>
 </div>
-
-
-<div class="section">
-    <h4 class="teal-text">Meine Projekte - Ganttplan</h4>
-    <div class="divider"></div>
-    <div class="section">
-        <div id="gantt_chart"></div>
-    </div>
-</div>
 <div class="section">
     <h4 class="teal-text">Ausstehende Projekte</h4>
     <div class="divider"></div>
@@ -43,6 +34,13 @@
     {else}
         <p><strong>Es sind keine zu genehmigenden Anträge vorhanden</strong></p>
     {/if}
+</div>
+<div class="section">
+    <h4 class="teal-text">Meine Projekte - Ganttplan</h4>
+    <div class="divider"></div>
+    <div class="section">
+        <div id="gantt_chart"></div>
+    </div>
 </div>
 <script type="text/javascript">
     {literal}
