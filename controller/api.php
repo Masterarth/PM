@@ -37,6 +37,7 @@ if (isset($request[2])) {
             } elseif ((isset($request[3]) && $request[3] == "all") || !isset($_SESSION["user"])) {
                 $projekte = core()->db()->select("select * from projekt where s_id between 2 and 4");
             }
+            $data = array();
             foreach ($projekte as $projekt) {
                 $data[] = array(
                     "taskId" => "Projekt " . $projekt->id,
