@@ -8,7 +8,7 @@
 # PROJEKTANTRAG
 [x] Bei geöffnetem Antrag wird der Button unten rechts nicht angezeigt
 [x] Daten des Antrages werden nicht angezeigt
-[] Wenn ich in vorhandenem Projektantrag etwas bearbeite, dann verschwindet der Button unten rechts wenn der Antrag aufgerufen wird. Zusätzlich werden nicht alle Daten angezeigt.
+[x] Wenn ich in vorhandenem Projektantrag etwas bearbeite, dann verschwindet der Button unten rechts wenn der Antrag aufgerufen wird. Zusätzlich werden nicht alle Daten angezeigt.
 
 # STAMMDATEN
 

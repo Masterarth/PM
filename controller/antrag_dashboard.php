@@ -9,6 +9,8 @@
  */
 //Default: own projects
 $_SESSION["antragFilter"] = "ownProjects";
+$_SESSION["antrag_search"] = null;
+
 $user = $_SESSION["user"];
 if (isset($_POST["antrag_search"])) {
     if (is_numeric($_POST["antrag_search"])) {

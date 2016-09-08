@@ -38,11 +38,17 @@ if (isset($request[2])) {
             }
             break;
         case "loeschen":
-            core()->page()->loadController("mitarbeiter_loeschen");
-            core()->page()->loadPage("mitarbeiter_loeschen");
+            if (is_numeric($request[3])) {
+                $result = core()->db()->select("select * from mitarbeiter where id =" . $request[3], "fetch");
+                if ($result) {
+                    core()->db()->delete("delete from mitarbeiter where id=" . $result->id);
+                    core()->db()->delete("delete from users where id=" . $result->u_id);
+                    header('Location: /pm/mitarbeiter/dashboard');
+                    exit;
+                }
+            }
             break;
         case "update":
-            
             switch ($request[3]) {
                 case "aktiv":
                     core()->page()->loadController("mitarbeiter_update_aktiv");

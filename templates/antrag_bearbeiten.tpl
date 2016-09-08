@@ -85,7 +85,7 @@
                             <select name="reg[leiter]">
                                 <option disabled selected>Auswählen</option>
                                 {foreach from=$mitarbeiter item=arbeiter key=key}
-                                    <option {if $projekt->getL_id() === $arbeiter->id}selected{/if} value="{$arbeiter->id}">{$arbeiter->vorname} {$arbeiter->nachname}</option>
+                                    <option {if $projekt->getL_id() == $arbeiter->id}selected{/if} value="{$arbeiter->id}">{$arbeiter->vorname} {$arbeiter->nachname}</option>
                                 {/foreach}
                             </select>
                             <label>Wählen Sie einen zuständigen Projektleiter aus...</label>
