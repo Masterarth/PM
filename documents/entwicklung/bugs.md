@@ -1,4 +1,4 @@
-[ ] Wenn ein String in einem Feld eingegeben wird, in dem eine Zahl erwartet wird, wird dies nicht abgefangen. fetchAll()-Fehlermeldung
+[x] Wenn ein String in einem Feld eingegeben wird, in dem eine Zahl erwartet wird, wird dies nicht abgefangen. fetchAll()-Fehlermeldung
 
 # DASHBOARD
 [x] Direktauswahl eines Projektes über die zu genehmigenden Projekte funktioniert nicht
@@ -13,14 +13,14 @@
 # STAMMDATEN
 
 ## BUDGET
-[ ] Wird nach ID sortiert und nicht nach Datum. Ist das richtig so?
+[x] Wird nach ID sortiert und nicht nach Datum. Ist das richtig so?
     -> arth: muss lukas entscheiden und dann entsprechend im sql select statement abändern
 [x] Funktion des Löschen-Buttons? Er macht bei mir nichts.
     -> arth: foreign key... siehe standort oder team löschung beschreibung
 [x] Kein Zurück-Button bei Budget-Erstellung
 
 ## STANDORT
-[ ] Standortleiter kann nicht ausgewählt werden
+[x] Standortleiter kann nicht ausgewählt werden
 [x] Button Löschen nutzlos
     -> arth: weil team noch in einer anderen tabelle verwendet wird ... foreignkey prüfung!
     -> arth: siehe team lösung erklärung!
@@ -58,4 +58,4 @@
 
 ## MITARBEITER
 [x] Ändern der Rolle nicht möglich "Der Benutzer konnte nicht gefunden werden"
-[] Neu erstellter Mitarbeiter kann nicht gelöscht werden. Dürfte kein Zuordnungsproblem sein? Connection time out after 30 sec
+[x] Neu erstellter Mitarbeiter kann nicht gelöscht werden. Dürfte kein Zuordnungsproblem sein? Connection time out after 30 sec

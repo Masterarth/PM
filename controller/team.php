@@ -91,5 +91,7 @@ function loadTeam($id) {
         if ($team) {
             core()->smarty()->assign("team", $team);
         }
+        $leistung = core()->db()->select("select sum(p.stunden) from projteam p WHERE p.t_id=" . $team->id, "fetch", PDO::FETCH_ASSOC);
+        core()->smarty()->assign("leistung", ($leistung["sum(p.stunden)"] > 0) ? $leistung["sum(p.stunden)"] : 0);
     }
 }

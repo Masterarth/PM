@@ -1,6 +1,6 @@
 #TODO´s 
 
-[ ] Filter bei allen dashboards...
+[x] Filter bei allen dashboards...
     - sollen wir die wirklich einbauen ? 
     - und wenn ja wie ? fertige statements ? 
     - BITTE hierzu mal gedanken machen ...
@@ -22,7 +22,7 @@
 
         echo $query;
 
-[ ] Anträge
+[x] Anträge
     [x] dashboard
         - Der PM Typ will ja ne alternative:
             - bitte herrausfinden was er genau will wie soll die tabelle aufgebaut sein?
@@ -31,7 +31,7 @@
         [ ] suche
             - wie soll die Suche genau funktionieren?
                 @Artur => Sollen wir hier überhautp suchen
-    [ ] anlegen
+    [x] anlegen
         [X] Amortisationsdauer --> Aber [] Verknüpfung fehlt
         [X] Bemerkung -> Aber [] Verknüpfung fehlt
         [X] Projektteams
@@ -39,8 +39,8 @@
         [X] Meilensteine
         [x] Kapitalwerte
             - nur noch zinssatz fehlt! Der rest geht...            
-    [ ] bearbeiten
-        [ ] update in die DB fehlt --> @Art Auschecken der Klasse + Bug fixes falls vorhanden 
+    [x] bearbeiten
+        [x] update in die DB fehlt --> @Art Auschecken der Klasse + Bug fixes falls vorhanden 
         [X] Ansicht ist ok
     [x] Antrag genehmigen / ablehnen
     [x] Auftraggeber

@@ -36,7 +36,7 @@
             <div class="col s4">
                 <h4 class="light">Ist Stunden</h4>
                 <div class="para_content">
-                    <p>{if $team->jahr != null}{$team->ist_stunden}{else}nicht verfügbar{/if}</p>
+                    <p>{if $team->jahr != null}{$leistung}{else}nicht verfügbar{/if}</p>
                 </div>
             </div>
             <div class="col s4">
