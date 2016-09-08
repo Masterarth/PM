@@ -8,6 +8,7 @@
 # PROJEKTANTRAG
 [x] Bei geöffnetem Antrag wird der Button unten rechts nicht angezeigt
 [x] Daten des Antrages werden nicht angezeigt
+[] Wenn ich in vorhandenem Projektantrag etwas bearbeite, dann verschwindet der Button unten rechts wenn der Antrag aufgerufen wird. Zusätzlich werden nicht alle Daten angezeigt.
 
 # STAMMDATEN
 
@@ -57,3 +58,4 @@
 
 ## MITARBEITER
 [x] Ändern der Rolle nicht möglich "Der Benutzer konnte nicht gefunden werden"
+[] Neu erstellter Mitarbeiter kann nicht gelöscht werden. Dürfte kein Zuordnungsproblem sein? Connection time out after 30 sec
