@@ -97,3 +97,15 @@ OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_
             1. Projekt
             2. Kapitalwertmethode
             3. Userhandler
+
+
+----------------------------
+
+## Antrag
+
+Folgende Felder werden nicht benutzt:
+    - Risiko
+    - p_stem
+    - tat_sta_term
+    - tat_end_term
+    - nutzen (string!)

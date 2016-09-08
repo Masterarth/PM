@@ -60,7 +60,6 @@ class pm_capitalvalue {
      * @param int $p_id
      */
     public function getArray($p_id) {
-
         $array = array();
         $array['p_id'] = $p_id;
         $array['jahr'] = $this->getYear();

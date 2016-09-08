@@ -164,7 +164,7 @@
                                 <div class="col s12">
                                     <h4 class="light">Bemerkung</h4>
                                     <div class="para_content">
-                                        <span>--!!!gibts noch nicht!!!--</span>
+                                        <span>{$projekt->getRemark()}</span>
                                     </div>
                                 </div>
                             </div>

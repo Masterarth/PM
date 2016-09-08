@@ -3,7 +3,7 @@
 }
 
 .para_content{
-    border-left: 10px lightblue solid;
+    border-left: 10px #009688 solid;
 }
 
 .para_content p {
@@ -95,4 +95,9 @@ i.bigger{
 
 .btn-wrapper .btn-floating{
     margin-right: 20px;
+}
+
+/*override*/
+a{
+    color: #009688;
 }

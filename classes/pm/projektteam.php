@@ -12,50 +12,50 @@
  * @author Lukas Adler
  */
 class pm_projektteam {
-    
+
     /**
      * Database Team ID
      * @var int 
      */
     private $i_teamId;
-    
+
     /**
      * Database Project ID
      * @var int 
      */
     private $i_projectId;
-    
+
     /**
      * Database ID of the Projectteam
      * @var int 
      */
     private $i_databaseId;
-    
+
     /**
      * Hours of the Projectteam for a Project
      * @var int 
      */
     private $i_hours;
-    
+
     /**
      * Name of the Project
      * @var String 
      */
     private $s_projectName;
-    
+
     /**
      * Name of the Team
      * @var String 
      */
     private $s_teamName;
-    
+
     /**
      * Creats a Involved Team Object for a Project
      */
     function __construct() {
         
     }
-    
+
     /**
      * Returns Database Team ID
      * @return int
@@ -103,18 +103,26 @@ class pm_projektteam {
     function getTeamName() {
         return $this->s_teamName;
     }
-    
+
     /**
      * Returns an Array
      * @param int $p_id
      * @return array Val
      */
-    public function getArray($p_id)
-    {
+    public function getArray($p_id) {
         $array = array();
         $array['abteilung'] = $this->getTeamId();
         $array['p_id'] = $p_id;
         $array['wert'] = $this->getHours();
+        return $array;
+    }
+
+    public function getUpdateArray($p_id) {
+        $array = array();
+        $array['abteilung'] = $this->getTeamId();
+        $array['p_id'] = $p_id;
+        $array['wert'] = $this->getHours();
+        $array["id"] = $this->getDatabaseId();
         return $array;
     }
 

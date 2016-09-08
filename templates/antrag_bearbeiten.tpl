@@ -6,7 +6,7 @@
                     <li class="tab col s3"><a class="active teal-text" href="#basis">Basis</a></li>
                     <li class="tab col s3"><a class="teal-text" href="#zusatz">Zusatz</a></li>
                     <li class="tab col s3"><a class="teal-text" href="#kennzahl">Kennzahl</a></li>
-                    <li class="tab col s3 disabled"><a class="grey-text" href="#IstZahl">Ist-Werte</a></li>
+                        {*<li class="tab col s3 disabled"><a class="grey-text" href="#IstZahl">Ist-Werte</a></li>*}
                 </ul>
             </div>
         </div>
@@ -22,6 +22,11 @@
                             <i class="material-icons prefix">mode_edit</i>
                             <input id="projektname" name="reg[projectname]" type="text" required="" class="validate" placeholder="Projektname" value="{$projekt->getTitle()}">
                             <label for="projektname">Projektname</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">person</i>
+                            <input id="projektname" name="reg[auftraggeber]" type="text" class="validate" placeholder="Auftraggeber" value="{$projekt->getCreator()}">
+                            <label for="auftraggeber">Auftraggeber</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">query_builder</i>
@@ -126,6 +131,20 @@
                             </div>
                         </div>
                     </div>
+                    <span class="card-title teal-text">Bemerkung</span>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="bemerkung" name="reg[bemerkung]" class="materialize-textarea" placeholder="Bemerkung"  class="validate">{$projekt->getRemark()}</textarea>
+                        </div>
+                    </div>
+                    <span class="card-title teal-text">Amortisationsdauer</span>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="amortisation" name="reg[amortisation]" type="text" class="validate" placeholder="Amortisationsdauer" value="{$projekt->getAmortizationRate()}">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="kennzahl" class="col s12">
@@ -149,9 +168,9 @@
                         <div class="col s10 teal-text valign-wrapper">
                             <p class="valign">Kapitalwertmethode</p>
                         </div>
-                        <div class="col s1 teal-text right">
-                            <a id="btnKapitalwert" class="btn-floating teal tooltipped" data-position="left" data-delay="50" data-tooltip="Datensatz hinzufügen"><i class="material-icons">add</i></a>
-                        </div>
+                        {*<div class="col s1 teal-text right">
+                        <a id="btnKapitalwert" class="btn-floating teal tooltipped" data-position="left" data-delay="50" data-tooltip="Datensatz hinzufügen"><i class="material-icons">add</i></a>
+                        </div>*}
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
@@ -177,13 +196,13 @@
                                     {foreach from=$projekt->getCapitalFlow() item=kww key=key}
                                         <tr>
                                             <td>
-                                                {$kww->getYear()}<input type='hidden' name='reg[kapitalwert][" + tableKapitalwertVal + "][Jahr]' value={$kww->getYear()} />
+                                                {$kww->getYear()}<input type='hidden' name='reg[kapitalwert][data][{$kww->getYear()}][jahr]' value={$kww->getYear()} />
                                             </td>
                                             <td>
-                                                <input type='number' name='reg[kapitalwert][{$kww->getYear()}][Ausg]' value="{$kww->getOutputMoneyVal()}"/>
+                                                <input type='number' name='reg[kapitalwert][data][{$kww->getYear()}][aus]' value="{$kww->getOutputMoneyVal()}"/>
                                             </td>
                                             <td>
-                                                <input type='number' name='reg[kapitalwert][{$kww->getYear()}][Ein]' value="{$kww->getInputMoneyVal()}"/>
+                                                <input type='number' name='reg[kapitalwert][data][{$kww->getYear()}][ein]' value="{$kww->getInputMoneyVal()}"/>
                                             </td>
                                         </tr>
                                     {/foreach}
@@ -195,9 +214,9 @@
                         <div class="col s10 teal-text valign-wrapper">
                             <p class="valign">Leistungsverrechnung</p>
                         </div>
-                        <div class="col s1 teal-text right">
-                            <a id="btnLeistungsverrechnung" class="btn-floating teal tooltipped" data-position="left" data-delay="50" data-tooltip="Leistung hinzufügen"><i class="material-icons">add</i></a>
-                        </div>
+                        {*<div class="col s1 teal-text right">
+                        <a id="btnLeistungsverrechnung" class="btn-floating teal tooltipped" data-position="left" data-delay="50" data-tooltip="Leistung hinzufügen"><i class="material-icons">add</i></a>
+                        </div>*}
                     </div>
                     <div class="row">
                         <div class="col s12">
@@ -206,24 +225,20 @@
                                     <thead>
                                         <tr>
                                             <th>Nr</th>
-                                            <th>Abteilung</th>
+                                            <th>Team</th>
                                             <th>Stunden</th>
                                         </tr>
                                     </thead>
                                     {foreach from=$projekt->getInvolvedTeams() item=team key=ptKey}
                                         <tr>
                                             <td>
-                                                {$ptKey}
+                                                {$team->getDatabaseId()} <input type="hidden" name="reg[leistung][{$ptKey}][id]" value="{$team->getDatabaseId()}" />
                                             </td>
                                             <td>
                                                 <select name='reg[leistung][{$ptKey}][abteilung]'>
                                                     <option disabled selected>Auswählen</option>
-                                                    {foreach from=$places item=standort}
-                                                        <optgroup label='{$standort.standort->s_name}'>
-                                                            {foreach from=$standort.abteilungen item=abteilung}
-                                                                <option {if $team->getTeamId() == $abteilung->id}selected{/if} value='{$abteilung->id}'>{$abteilung->a_name}</option>
-                                                            {/foreach}
-                                                        </optgroup>
+                                                    {foreach from=$teams item=value}
+                                                        <option {if $team->getTeamId() == $value->id}selected{/if} value='{$value->id}'>{$value->t_name}</option>
                                                     {/foreach}
                                                 </select>
                                             </td>
@@ -240,9 +255,9 @@
                         <div class="col s10 teal-text valign-wrapper">
                             <p class="valign">Meilensteine</p>
                         </div>
-                        <div class="col s1 teal-text right">
-                            <a id="btnMeilensteine" class="btn-floating teal tooltipped" data-position="left" data-delay="50" data-tooltip="Meilenstein hinzufügen"><i class="material-icons">add</i></a>
-                        </div>
+                        {*<div class="col s1 teal-text right">
+                        <a id="btnMeilensteine" class="btn-floating teal tooltipped" data-position="left" data-delay="50" data-tooltip="Meilenstein hinzufügen"><i class="material-icons">add</i></a>
+                        </div>*}
                     </div>
                     <div class="row">
                         <div class="col s12">
@@ -275,27 +290,27 @@
                     </div>
                 </div>
             </div>
-            <div id="IstZahl" class="col s12">
-                <div class="card-content">
-                    <span class="card-title teal-text">Nachkalkulation</span>
-                    <div class="divider"></div>
-                    <br/>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">query_builder</i>
-                            <input id="iststartdatum" name="reg[iststartdatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
-                            <label for="iststartdatum">Ist - Startdatum</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">query_builder</i>
-                            <input id="istenddatum" name="reg[istenddatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
-                            <label for="istenddatum">Ist - Enddatum</label>
-                        </div>
-                    </div>
-                </div>
+            {*<div id="IstZahl" class="col s12">
+            <div class="card-content">
+            <span class="card-title teal-text">Nachkalkulation</span>
+            <div class="divider"></div>
+            <br/>
+            <div class="row">
+            <div class="input-field col s6">
+            <i class="material-icons prefix">query_builder</i>
+            <input id="iststartdatum" name="reg[iststartdatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
+            <label for="iststartdatum">Ist - Startdatum</label>
             </div>
+            <div class="input-field col s6">
+            <i class="material-icons prefix">query_builder</i>
+            <input id="istenddatum" name="reg[istenddatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
+            <label for="istenddatum">Ist - Enddatum</label>
+            </div>
+            </div>
+            </div>
+            </div>*}
         </div>
-
+        <input type="hidden" value="{$projekt->getDatabaseId()}" name="reg[pid]" />
         <div class="row">
             <div class="col s12">
                 <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect teal'>Ändern</button>
@@ -309,63 +324,65 @@
     </div>
 {/if}
 
+{*
 <script type="text/javascript">
-    {if $kww->getYear()}
-    var tableKapitalwertVal = {$kww->getYear()} + 1;
-    {else}
-    var tableKapitalwertVal = 0;
-    {/if}
+{if $kww->getYear() == 0}
+var tableKapitalwertVal = {$kww->getYear()} + 1;
+{else}
+var tableKapitalwertVal = 0;
+{/if}
 
-    //Adds Dynamic Content to the Table
-    $('#btnKapitalwert').click(function ()
-    {
-        if (tableKapitalwertVal == 0)
-        {
-            var structureHeader = "<thead><tr><th>Jahr</th><th>Ausgaben</th><th>Einnahmen</th></tr></thead>";
-            $('#tblKapitalwert').append(structureHeader);
-        }
-        var structure = "<tr><td>" + tableKapitalwertVal + "<input type='hidden' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][jahr]' value='" + tableKapitalwertVal + "'/></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][aus]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][ein]'</td></tr>"
-        $('#tblKapitalwert').append(structure);
-        tableKapitalwertVal++;
-    });
+//Adds Dynamic Content to the Table
+$('#btnKapitalwert').click(function ()
+{
+if (tableKapitalwertVal == 0)
+{
+var structureHeader = "<thead><tr><th>Jahr</th><th>Ausgaben</th><th>Einnahmen</th></tr></thead>";
+$('#tblKapitalwert').append(structureHeader);
+}
+var structure = "<tr><td>" + tableKapitalwertVal + "<input type='hidden' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][jahr]' value='" + tableKapitalwertVal + "'/></td><td><input type='number' placeholder='Ausgaben' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][aus]'/></td><td><input type='number' placeholder='Einnahmen' name='reg[kapitalwert][data][" + tableKapitalwertVal + "][ein]'</td></tr>"
+$('#tblKapitalwert').append(structure);
+tableKapitalwertVal++;
+});
 
-    {if isset($ptKey)}
-    var tableLeistungsverrechnungVal = {$ptKey} + 1;
-    {else}
-    var tableLeistungsverrechnungVal = 0;
-    {/if}
-    //Adds Dynamic Content to the Table
-    $('#btnLeistungsverrechnung').click(function ()
-    {
-        if (tableLeistungsverrechnungVal == 0)
-        {
-            var structureHeader = "<thead><tr><th>Nr</th><th>Abteilung</th><th>Stunden</th></tr></thead>";
-            $('#tblLeistungsverrechnung').append(structureHeader);
-        }
-        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td><select name='reg[leistung][" + tableLeistungsverrechnungVal + "][abteilung]'><option disabled selected>Auswählen</option>{foreach from=$places item=standort}<optgroup label='{$standort.standort->s_name}'>{foreach from=$standort.abteilungen item=abteilung}<option value='{$abteilung->id}'>{$abteilung->a_name}</option>{/foreach}</optgroup>{/foreach}</select></td><td><input type='number' min=0 name='reg[leistung][" + tableLeistungsverrechnungVal + "][wert]' /></td></tr>"
-        $('#tblLeistungsverrechnung').append(structure);
-        $('select').material_select();
-        tableLeistungsverrechnungVal++;
-    });
+{if isset($ptKey)}
+var tableLeistungsverrechnungVal = {$ptKey} + 1;
+{else}
+var tableLeistungsverrechnungVal = 0;
+{/if}
+//Adds Dynamic Content to the Table
+$('#btnLeistungsverrechnung').click(function ()
+{
+if (tableLeistungsverrechnungVal == 0)
+{
+var structureHeader = "<thead><tr><th>Nr</th><th>Abteilung</th><th>Stunden</th></tr></thead>";
+$('#tblLeistungsverrechnung').append(structureHeader);
+}
+var structure = "<tr><td>" + tableLeistungsverrechnungVal + "<input type='hidden' name='reg[leistung]["+ tableLeistungsverrechnungVal +"][id]' value='"+ tableLeistungsverrechnungVal +"' /></td><td><select name='reg[leistung][" + tableLeistungsverrechnungVal + "][abteilung]'><option disabled selected>Auswählen</option>{foreach from=$places item=standort}<optgroup label='{$standort.standort->s_name}'>{foreach from=$standort.abteilungen item=abteilung}<option value='{$abteilung->id}'>{$abteilung->a_name}</option>{/foreach}</optgroup>{/foreach}</select></td><td><input type='number' min=0 name='reg[leistung][" + tableLeistungsverrechnungVal + "][wert]' /></td></tr>"
+$('#tblLeistungsverrechnung').append(structure);
+$('select').material_select();
+tableLeistungsverrechnungVal++;
+});
 
-    {if $mss->getMilestoneNr()}
-    var tableMeilensteine = {$mss->getMilestoneNr()} + 1;
-    {else}
-    var tableMeilensteine = 1;
-    {/if}
+{if $mss->getMilestoneNr()}
+var tableMeilensteine = {$mss->getMilestoneNr()} + 1;
+{else}
+var tableMeilensteine = 1;
+{/if}
 
-    //Adds Dynamic Content to the Table
-    $('#btnMeilensteine').click(function ()
-    {
-        if (tableMeilensteine == 1)
-        {
-            var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
-            $('#tblMeilensteine').append(structureHeader);
-        }
-        var structure = "<tr><td>" + tableMeilensteine + "<input type='hidden' name='reg[meilensteine][" + tableMeilensteine + "][nr]' value='" + tableMeilensteine + "'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[meilensteine][" + tableMeilensteine + "][beschreibung]'/></td><td><input type='checkbox' id='checkbox" + tableMeilensteine + "' name='reg[meilensteine][" + tableMeilensteine + "][checked]' /><label for='checkbox" + tableMeilensteine + "'></label></td></tr>"
-        $('#tblMeilensteine').append(structure);
-        tableMeilensteine++;
+//Adds Dynamic Content to the Table
+$('#btnMeilensteine').click(function ()
+{
+if (tableMeilensteine == 1)
+{
+var structureHeader = "<thead><tr><th>Nr</th><th>Meilenstein</th><th>Erledigt</th></tr></thead>";
+$('#tblMeilensteine').append(structureHeader);
+}
+var structure = "<tr><td>" + tableMeilensteine + "<input type='hidden' name='reg[meilensteine][" + tableMeilensteine + "][nr]' value='" + tableMeilensteine + "'/></td><td><input type='text' placeholder='Meilensteinname' name='reg[meilensteine][" + tableMeilensteine + "][beschreibung]'/></td><td><input type='checkbox' id='checkbox" + tableMeilensteine + "' name='reg[meilensteine][" + tableMeilensteine + "][checked]' /><label for='checkbox" + tableMeilensteine + "'></label></td></tr>"
+$('#tblMeilensteine').append(structure);
+tableMeilensteine++;
 
-    });
+});
 
 </script>
+*}

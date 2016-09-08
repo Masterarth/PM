@@ -248,7 +248,7 @@ class pm_projekt {
     private $projectCreator;
 
     /**
-     * Department (Abteilung
+     * Department (Abteilung)
      * @var pm_abteilung
      */
     private $department;
@@ -389,11 +389,13 @@ class pm_projekt {
      * @param StatusID $s_id
      */
     private function getStatusInformation($s_id) {
-        $resultStatus = core()->db()->select("select * from projstatus where id= " . $s_id, "fetch");
-        $status = new pm_projektstatus();
-        $status->setId($resultStatus->id);
-        $status->setDescription($resultStatus->status);
-        $this->setStatus($status);
+        if ($s_id) {
+            $resultStatus = core()->db()->select("select * from projstatus where id= " . $s_id, "fetch");
+            $status = new pm_projektstatus();
+            $status->setId($resultStatus->id);
+            $status->setDescription($resultStatus->status);
+            $this->setStatus($status);
+        }
     }
 
     /**
@@ -401,8 +403,10 @@ class pm_projekt {
      * @param type $l_id
      */
     private function getProjectLeaderInformation($l_id) {
-        $user = core()->userhandler()->createUser($l_id);
-        $this->setProjectLeader($user);
+        if ($l_id) {
+            $user = core()->userhandler()->createUser($l_id);
+            $this->setProjectLeader($user);
+        }
     }
 
     /**
@@ -410,8 +414,10 @@ class pm_projekt {
      * @param type $e_id
      */
     private function getProjectCreatorInformation($e_id) {
-        $user = core()->userhandler()->createUser($e_id);
-        $this->setProjectCreator($user);
+        if ($e_id) {
+            $user = core()->userhandler()->createUser($e_id);
+            $this->setProjectCreator($user);
+        }
     }
 
     /**
@@ -419,8 +425,10 @@ class pm_projekt {
      * @param type $b_id
      */
     private function getProjectArrangerInforomation($b_id) {
-        $user = core()->userhandler()->createUser($b_id);
-        $this->setArranger($user);
+        if ($b_id) {
+            $user = core()->userhandler()->createUser($b_id);
+            $this->setArranger($user);
+        }
     }
 
     /**
@@ -463,9 +471,31 @@ class pm_projekt {
      * --> Updates the Project "ID"
      */
     public function update() {
+
+        if ($this->getMoneyCosts() >= 0) {
+            $kosten = $this->getMoneyCosts();
+            switch ($kosten) {
+                case $kosten <= 5000:
+                    $this->setPermitS1(0);
+                    $this->setPermitS2(1);
+                    $this->setPermitS3(1);
+                    break;
+                case $kosten <= 25000:
+                    $this->setPermitS1(1);
+                    $this->setPermitS2(0);
+                    $this->setPermitS3(1);
+                    break;
+                case $kosten <= 50000:
+                    $this->setPermitS1(1);
+                    $this->setPermitS2(1);
+                    $this->setPermitS3(0);
+                    break;
+            }
+        }
+
         $values = array();
+        $values["title"] = $this->getTitle();
         $values["creator"] = $this->getCreator();
-        $values["creationDate"] = $this->getcreationDate();
         $values["e1"] = $this->getPermitS1();
         $values["e2"] = $this->getPermitS2();
         $values["e3"] = $this->getPermitS3();
@@ -475,30 +505,24 @@ class pm_projekt {
         $values["z4"] = $this->getTargetCross4();
         $values["noTarget"] = $this->getNoTargets();
         $values["generalConditions"] = $this->getGeneralConditions();
-        $values["system"] = $this->getSystemDescription();
         $values["communication"] = $this->getCommunicationConcept();
-        $values["risk"] = $this->getProjectRisk();
         $values["eid"] = $this->getE_id();
         $values["aid"] = $this->getA_id();
         $values["lid"] = $this->getL_id();
         $values["bid"] = $this->getB_id();
-        $values["tBudget"] = $this->getRealMoneyBudget();
-        $values["pBudget"] = $this->getExpectedMoneyBudget();
         $values["sid"] = $this->getS_id();
         $values["vst"] = $this->getExpectedStartTime();
         $values["vet"] = $this->getExpectedEndTime();
-        $values["tst"] = $this->getRealStartTime();
-        $values["tet"] = $this->getRealEndTime();
         $values["desc"] = $this->getDescription();
-        $values["nutzen"] = $this->getEarningsString();
         $values["amorti"] = $this->getAmortizationRate();
         $values["remark"] = $this->getRemark();
         $values["monCosts"] = $this->getMoneyCosts();
         $values["monEarnings"] = $this->getMonesEarnings();
         $values["capCosts"] = $this->getCapitalCosts();
-        core()->db()->update("update projekt set titel=:title,"
+        
+        core()->db()->update("update projekt set "
+                . "titel=:title,"
                 . "auftraggeber=:creator,"
-                . "erstell_datum=:creationDate,"
                 . "genehmigung_E1=:e1,"
                 . "genehmigung_E2=:e2,"
                 . "genehmigung_E3=:e3,"
@@ -508,27 +532,24 @@ class pm_projekt {
                 . "p_ziel4=:z4,"
                 . "nicht_ziel=:noTarget,"
                 . "rahmbeding=:generalConditions,"
-                . "p_system=:system,"
                 . "komm_konz=:communication,"
-                . "risiko=:risk,"
                 . "e_id=:eid,"
                 . "a_id=:aid,"
                 . "l_id=:lid,"
                 . "b_id=:bid,"
-                . "tat_budget_id=:tBudget,"
-                . "plan_budget_id=:pBudget,"
                 . "s_id=:sid,"
                 . "vor_sta_term=:vst,"
                 . "vor_end_term=:vet,"
-                . "tat_sta_term=:tst,"
-                . "tat_end_term=:tet,"
                 . "beschreibung=:desc,"
-                . "nutzen=:nutzen,"
                 . "amorti_zeit=:amorti,"
                 . "bemerkung=:remark,"
                 . "mon_kosten=:monCosts,"
                 . "mon_nutzen=:monEarnings,"
                 . "kap_kosten=:capCosts where id=" . $this->getDatabaseId(), $values);
+
+        $this->updateCapitalValues($this->getDatabaseId());
+        $this->updateInvolvedTeams($this->getDatabaseId());
+        $this->updateMilestones($this->getDatabaseId());
     }
 
     /**
@@ -602,10 +623,15 @@ class pm_projekt {
         $projectAntragArray["nicht_ziel"] = $this->getNoTargets();
         $projectAntragArray["p_erstelldatum"] = date("Y-m-d");
 
+        $projectAntragArray["bemerkung"] = $this->getRemark();
+        $projectAntragArray["amorti_zeit"] = $this->getAmortizationRate();
+        $projectAntragArray["p_auftraggeber"] = $this->getCreator();
+
         $projectAntragArray["e_id"] = $this->getE_id();
         $projectAntragArray["a_id"] = $this->getA_id();
         $projectAntragArray["l_id"] = $this->getL_id();
         $projectAntragArray["s_id"] = $this->getS_id();
+        $projectAntragArray["b_id"] = $this->getB_id();
 
         $projectAntragArray["p_ziel1"] = $this->getTargetCross1();
         $projectAntragArray["p_ziel2"] = $this->getTargetCross2();
@@ -623,10 +649,14 @@ class pm_projekt {
                 "insert into projekt (titel,auftraggeber,erstell_datum,genehmigung_E1,genehmigung_E2,genehmigung_E3,p_ziel1,p_ziel2,p_ziel3,p_ziel4,nicht_ziel,rahmbeding,p_system,komm_konz,risiko,beschreibung,tat_sta_term,tat_end_term,vor_sta_term,vor_end_term,nutzen,amorti_zeit,bemerkung,mon_kosten,mon_nutzen,kap_kosten, e_id, a_id, l_id,b_id,s_id) "
                 . "values(:p_titel,:p_auftraggeber,:p_erstelldatum,:genehm_E1,:genehm_E2,:genehm_E3,:p_ziel1,:p_ziel2,:p_ziel3,:p_ziel4,:nicht_ziel,:rahmbeding,:p_system,:komm_konz,:risiko,:beschreibung,:tat_sta_datum,:tat_end_datum,:vor_sta_datum,:vor_end_datum,:nutzen,:amorti_zeit,:bemerkung,:mon_kosten,:mon_nutzen,:kap_kosten,:e_id, :a_id, :l_id, :b_id,:s_id)", $projectAntragArray);
 
+        $this->setDatabaseId($pid);
+
         //Inserts Capital Value Stuff
-        $this->insertCapitalValues($p_id);
+        $this->insertCapitalValues($this->getDatabaseId());
         //Inserts the Milestones Stuff
-        $this->insertMilestones($p_id);
+        $this->insertMilestones($this->getDatabaseId());
+        //Inserts the Involved Teams
+        $this->insertInvolvedTeams($this->getDatabaseId());
     }
 
     /**
@@ -656,6 +686,36 @@ class pm_projekt {
     public function insertInvolvedTeams($p_id) {
         foreach ($this->involvedTeams as $team) {
             $tid = core()->db()->update("insert into projteam (t_id,p_id,stunden) values(:abteilung,:p_id,:wert)", $team->getArray($p_id));
+        }
+    }
+
+    /**
+     * Update the Database Table
+     * @param int $p_id
+     */
+    public function updateCapitalValues($p_id) {
+        foreach ($this->capitalflow as $flow) {
+            $cid = core()->db()->update("update kapitalwerte set zinssatz=:zins,einzahlung=:ein,auszahlung=:aus where p_id=:p_id and jahr=:jahr", $flow->getArray($p_id));
+        }
+    }
+
+    /**
+     * Update the Database Table
+     * @param int $p_id
+     */
+    public function updateMilestones($p_id) {
+        foreach ($this->milestones as $ms) {
+            $mid = core()->db()->update("update meilensteine set meilenstein=:beschreibung,erfuellt=:checked where p_id=:p_id and ms_nummer=:nr", $ms->getArray($p_id));
+        }
+    }
+
+    /**
+     * Update Involved Teams
+     * @param type $p_id
+     */
+    public function updateInvolvedTeams($p_id) {
+        foreach ($this->involvedTeams as $team) {
+            $tid = core()->db()->update("update projteam set t_id=:abteilung, stunden=:wert where p_id=:p_id and id=:id", $team->getUpdateArray($p_id));
         }
     }
 
@@ -1292,7 +1352,7 @@ class pm_projekt {
      * 
      * @param int $s_id
      */
-    public function setS_id(id $s_id) {
+    public function setS_id($s_id) {
         $this->s_id = $s_id;
     }
 

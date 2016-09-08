@@ -5,7 +5,7 @@
                 <li class="tab col s3"><a class="active teal-text" href="#basis">Basis</a></li>
                 <li class="tab col s3"><a class="teal-text" href="#zusatz">Zusatz</a></li>
                 <li class="tab col s3"><a class="teal-text" href="#kennzahl">Kennzahl</a></li>
-                <li class="tab col s3 disabled"><a class="grey-text" href="#IstZahl">Ist-Werte</a></li>
+                    {*<li class="tab col s3 disabled"><a class="grey-text" href="#IstZahl">Ist-Werte</a></li>*}
             </ul>
         </div>
     </div>
@@ -21,6 +21,11 @@
                         <i class="material-icons prefix">mode_edit</i>
                         <input id="projektname" name="reg[projectname]" type="text" required="" class="validate" placeholder="Projektname">
                         <label for="projektname">Projektname</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person</i>
+                        <input id="projektname" name="reg[auftraggeber]" type="text" class="validate" placeholder="Auftraggeber">
+                        <label for="auftraggeber">Auftraggeber</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">query_builder</i>
@@ -129,14 +134,14 @@
                 <div class="divider"></div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="bemerkung" name="reg[bemerkung]" type="text" class="validate" placeholder="Bemerkung">
+                        <textarea id="bemerkung" name="reg[bemerkung]" class="materialize-textarea" placeholder="Bemerkung"  class="validate"></textarea>
                     </div>
                 </div>
                 <span class="card-title teal-text">Amortisationsdauer</span>
                 <div class="divider"></div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="amortisation" name="reg[amortisation]" type="text" class="validate" placeholder="Bemerkung">
+                        <input id="amortisation" name="reg[amortisation]" type="text" class="validate" placeholder="Amortisationsdauer">
                     </div>
                 </div>
             </div>
@@ -212,25 +217,25 @@
                 </div>
             </div>
         </div>
-        <div id="IstZahl" class="col s12">
-            <div class="card-content">
-                <span class="card-title teal-text">Nachkalkulation</span>
-                <div class="divider"></div>
-                <br/>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">query_builder</i>
-                        <input id="iststartdatum" name="reg[iststartdatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
-                        <label for="iststartdatum">Ist - Startdatum</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">query_builder</i>
-                        <input id="istenddatum" name="reg[istenddatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
-                        <label for="istenddatum">Ist - Enddatum</label>
-                    </div>
-                </div>
-            </div>
+        {*<div id="IstZahl" class="col s12">
+        <div class="card-content">
+        <span class="card-title teal-text">Nachkalkulation</span>
+        <div class="divider"></div>
+        <br/>
+        <div class="row">
+        <div class="input-field col s6">
+        <i class="material-icons prefix">query_builder</i>
+        <input id="iststartdatum" name="reg[iststartdatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
+        <label for="iststartdatum">Ist - Startdatum</label>
         </div>
+        <div class="input-field col s6">
+        <i class="material-icons prefix">query_builder</i>
+        <input id="istenddatum" name="reg[istenddatum]" type="date" required="" class="datepicker validate" placeholder="TT.MM.YYYY">
+        <label for="istenddatum">Ist - Enddatum</label>
+        </div>
+        </div>
+        </div>
+        </div>*}
     </div>
 
     <div class="row">
@@ -257,17 +262,17 @@
         tableKapitalwertVal++;
     });
 
-    var tableLeistungsverrechnungVal = 0;
+    var tableLeistungsverrechnungVal = 1;
 
     //Adds Dynamic Content to the Table
     $('#btnLeistungsverrechnung').click(function ()
     {
-        if (tableLeistungsverrechnungVal == 0)
+        if (tableLeistungsverrechnungVal == 1)
         {
             var structureHeader = "<thead><tr><th>Nr</th><th>Abteilung</th><th>Stunden</th></tr></thead>";
             $('#tblLeistungsverrechnung').append(structureHeader);
         }
-        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td><select name='reg[leistung][" + tableLeistungsverrechnungVal + "][abteilung]'><option disabled selected>Auswählen</option>{foreach from=$places item=standort}<optgroup label='{$standort.standort->s_name}'>{foreach from=$standort.abteilungen item=abteilung}<option value='{$abteilung->id}'>{$abteilung->a_name}</option>{/foreach}</optgroup>{/foreach}</select></td><td><input type='number' min=0 name='reg[leistung][" + tableLeistungsverrechnungVal + "][wert]' /></td></tr>"
+        var structure = "<tr><td>" + tableLeistungsverrechnungVal + "</td><td><select name='reg[leistung][" + tableLeistungsverrechnungVal + "][abteilung]'><option disabled selected>Auswählen</option>{foreach from=$teams item=value}<option value='{$value->id}'>{$value->t_name}</option>{/foreach}</select></td><td><input type='number' min=0 name='reg[leistung][" + tableLeistungsverrechnungVal + "][wert]' /></td></tr>"
         $('#tblLeistungsverrechnung').append(structure);
         $('select').material_select();
         tableLeistungsverrechnungVal++;

@@ -62,26 +62,26 @@ if (isset($request[2])) {
             }
             break;
         case "genehmigen":
-            if (isset($request[3])) {
+            if (isset($request[3]) && check($request[3])) {
                 $data["e1"] = true;
                 $data["e2"] = true;
                 $data["e3"] = true;
                 $data["status"] = 3;
                 core()->db()->update("update projekt set genehmigung_E1=:e1, genehmigung_E2=:e2, genehmigung_E3=:e3, s_id=:status  where id = " . $request[3], $data);
-                header("Location: /pm/antrag/" . $request[3]);
-                exit;
             }
+            header("Location: /pm/antrag/" . $request[3]);
+            exit;
             break;
         case "ablehnen":
-            if (isset($request[3])) {
+            if (isset($request[3]) && check($request[3])) {
                 $data["e1"] = false;
                 $data["e2"] = false;
                 $data["e3"] = false;
                 $data["status"] = 5;
                 core()->db()->update("update projekt set genehmigung_E1=:e1, genehmigung_E2=:e2, genehmigung_E3=:e3, s_id=:status  where id = " . $request[3], $data);
-                header("Location: /pm/antrag/" . $request[3]);
-                exit;
             }
+            header("Location: /pm/antrag/" . $request[3]);
+            exit;
             break;
     }
     if (is_numeric($request[2])) {
@@ -92,13 +92,7 @@ if (isset($request[2])) {
         core()->materialize()->addFixedNavElement("/pm/antrag/loeschen/" . $request[2], "Löschen", "delete");
         core()->materialize()->showFixedNavElement();
 
-        $user = $_SESSION["user"];
-        $zu_gehnemigen = core()->db()->select("select projekt.id FROM projekt,team,abteilung,mitarbeiter, standort, projstatus "
-                . "WHERE (projekt.genehmigung_E1 = 0 AND projekt.a_id = abteilung.id AND abteilung.id = team.a_id AND team.t_leitung = " . $user->getId() . " AND projekt.s_id = 1 AND projekt.id = " . $request[2] . ") "
-                . "OR ( projekt.genehmigung_E2 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1 AND projekt.id = " . $request[2] . ") "
-                . "OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_id = standort.id AND standort.s_leitung = " . $user->getId() . " AND projekt.s_id = 1 AND projekt.id = " . $request[2] . ") group by projekt.id", "fetch");
-
-        ($zu_gehnemigen) ? $genehmigen = true : $genehmigen = false;
+        (check($request[2])) ? $genehmigen = true : $genehmigen = false;
 
         loadProject($request[2]);
         core()->smarty()->assign("zuGenehmigen", $genehmigen);
@@ -109,4 +103,13 @@ function loadProject($id) {
     $projekt = new pm_projekt();
     $projekt->load($id);
     core()->smarty()->assign("projekt", $projekt);
+}
+
+function check($pid) {
+    $user = $_SESSION["user"];
+    $zu_gehnemigen = core()->db()->select("select projekt.id FROM projekt,team,abteilung,mitarbeiter, standort, projstatus "
+            . "WHERE (projekt.genehmigung_E1 = 0 AND projekt.a_id = abteilung.id AND abteilung.id = team.a_id AND team.t_leitung = " . $user->getId() . " AND projekt.s_id = 1 AND projekt.id = " . $pid . ") "
+            . "OR ( projekt.genehmigung_E2 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1 AND projekt.id = " . $pid . ") "
+            . "OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_id = standort.id AND standort.s_leitung = " . $user->getId() . " AND projekt.s_id = 1 AND projekt.id = " . $pid . ") group by projekt.id", "fetch");
+    return $zu_gehnemigen;
 }
