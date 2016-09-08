@@ -27,19 +27,11 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <br />
-            <center>
-                <div class='row'>
+            <div class='row'>
+                <div class="col s12">
                     <button type='submit' class='col s12 btn btn-large waves-effect blue-grey darken-3'>Anlegen</button>
                 </div>
-            </center>
+            </div>
         </form>
     </div>
-</div> 
-
-{if isset($toast)}
-    {$toast}
-{/if}
+</div>

@@ -20,15 +20,16 @@ if (isset($_POST["reg"])) {
     );
     if (count($result) <= 0) {
 
+        $mitarbeiter = core()->db()->select("select * from mitarbeiter where concat_ws(' ',vorname,nachname) like '%" . $_POST["reg"]["leiter"] . "%'", "fetch");
+
         $standort["s_name"] = $_POST["reg"]["s_name"];
         $standort["plz"] = $_POST["reg"]["plz"];
         $standort["ort"] = $_POST["reg"]["ort"];
         $standort["strasse"] = $_POST["reg"]["strasse"];
         $standort["hausnummer"] = $_POST["reg"]["hausnr"];
+        $standort["leiter"] = $mitarbeiter->id;
 
-        var_dump($standort);
-
-        $uid = core()->db()->update("insert into standort (s_name, plz, ort, strasse, hausnummer) values (:s_name,:plz,:ort,:strasse,:hausnummer)", $standort);
+        $uid = core()->db()->update("insert into standort (s_name, plz, ort, strasse, hausnummer, s_leitung) values (:s_name,:plz,:ort,:strasse,:hausnummer,:leiter)", $standort);
 
         header('Location: /pm/standort/dashboard');
         exit;

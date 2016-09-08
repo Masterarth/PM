@@ -16,7 +16,7 @@
     </div>
 {else}
     <div class="center">
-        <h4>Der Benutzer konnte nicht gefunden werden</h4>
+        <h4>Der Standort konnte nicht gefunden werden</h4>
         <p><a class="btn btn-flat" href="/pm/standort/dashboard">Zurück zur übersicht</a></p>
     </div>
 {/if}

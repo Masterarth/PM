@@ -21,10 +21,15 @@ if (isset($request[2])) {
             core()->page()->loadController("standort_dashboard");
             break;
         case "bearbeiten":
-            core()->page()->loadPage("standort_bearbeiten");
-            if (is_numeric($request[3])) {
-                loadStandort($request[3]);
+            if (isset($request[3])) {
+                core()->materialize()->addFixedNavElement("/pm/standort/" . $request[3], "Zurück", "call_missed", "black");
+                core()->materialize()->showFixedNavElement();
+                core()->page()->loadPage("standort_bearbeiten");
+                if (is_numeric($request[3])) {
+                    loadStandort($request[3]);
+                }
             } else {
+
                 core()->page()->loadController("standort_bearbeiten");
             }
             break;
@@ -53,7 +58,7 @@ if (isset($request[2])) {
 
 function loadStandort($id) {
     if ($id) {
-        $standort = core()->db()->select("select * from standort s left join mitarbeiter m on m.id = s.s_leitung where s.id = " . $id, "fetch");
+        $standort = core()->db()->select("select s.*,m.nachname, m.vorname from standort s left join mitarbeiter m on m.id = s.s_leitung where s.id = " . $id, "fetch");
         if ($standort) {
             core()->smarty()->assign("standort", $standort);
         }
