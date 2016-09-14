@@ -25,8 +25,8 @@
         <div id="gantt_chart"></div>
     </div>
 </div>        
-        
-        
+
+
 <div class="section">
     <h4 class="teal-text">Ausstehende Projekte</h4>
     <div class="divider"></div>
@@ -73,8 +73,12 @@
             {
                 data.addRows([[jsonData.taskId, jsonData.taskName, jsonData.resource, new Date(jsonData.startDate), new Date(jsonData.endDate), null, jsonData.complete, null]]);
             });
-            
-            var calcHeight = jsonData.length * 35;
+
+            var calcHeight = 180;
+
+            if (jsonData.length >= 3) {
+                calcHeight = jsonData.length * 35;
+            }
 
             var options = {
                 height: calcHeight,
