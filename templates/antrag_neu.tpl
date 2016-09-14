@@ -68,7 +68,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <select name="reg[abteilung]">
+                        <select name="reg[abteilung]" required="" class="validate">
                             <option value="" disabled selected>Auswählen</option>
                             {foreach from=$places item=standort}
                                 <optgroup label="{$standort.standort->s_name}">
@@ -81,7 +81,7 @@
                         <label>Wählen Sie eine Abteilung aus, für welches das Projekt durchgeführt wird...</label>
                     </div>
                     <div class="input-field col s12">
-                        <select name="reg[leiter]">
+                        <select name="reg[leiter]" required="" class="validate">
                             <option disabled selected>Auswählen</option>
                             {foreach from=$mitarbeiter item=arbeiter key=key}
                                 <option value="{$arbeiter->id}">{$arbeiter->vorname} {$arbeiter->nachname}</option>

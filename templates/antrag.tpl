@@ -21,8 +21,9 @@
             <div class="row">
                 <div class="col s12">
                     <ul class="tabs">
-                        <li class="tab col s6"><a class="teal-text" href="#basis">Basis Daten</a></li>
-                        <li class="tab col s6"><a class="teal-text" href="#addon">Zusatz Daten</a></li>
+                        <li class="tab col s4"><a class="teal-text" href="#basis">Basis Daten</a></li>
+                        <li class="tab col s4"><a class="teal-text" href="#addon">Zusatz Daten</a></li>
+                        <li class="tab col s4" id="test"><a class="teal-text" href="#capital">Kapitalwertmethode</a>
                     </ul>
                 </div>
                 <div id="basis" class="col s12">
@@ -98,7 +99,9 @@
                                 <div class="col s12 m6">
                                     <h4 class="light">Projektleiter</h4>
                                     <div class="para_content">
-                                        <span><a href="/pm/mitarbeiter/{$projekt->getProjectLeader()->getId()}">{$projekt->getProjectLeader()->getVorname()} {$projekt->getProjectLeader()->getNachname()}</a></span>
+                                        {if $projekt->getProjectLeader() != null}
+                                            <span><a href="/pm/mitarbeiter/{$projekt->getProjectLeader()->getId()}">{$projekt->getProjectLeader()->getVorname()} {$projekt->getProjectLeader()->getNachname()}</a></span>
+                                        {/if}
                                     </div>
                                 </div>
                                 <div class="col s12 m6">
@@ -270,6 +273,23 @@
                         </div>
                     {/if}
                 </div>
+                <div id="capital" class="col s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row" id="capitalmethod">
+                                <div class="col s12 m2">
+                                    <h4 class="light">Kapitalwert</h4>
+                                    <div class="para_content">
+                                        <span>{$capitalMethod->calculateCapitalValue()|number_format:2:",":"."} €</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m10">
+                                    <div id="line_top_x"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -279,3 +299,49 @@
         <span><a class="btn btn-flat" href="/pm/antrag/dashboard">Zurück zur übersicht</a></span>
     </div>
 {/if}
+
+<script type="text/javascript">
+    {literal}
+        google.charts.load('current', {'packages': ['line']});
+    {/literal}
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+            var jsonData = $.ajax({
+                url: "/pm/antrag/capitalmethod/{$projekt->getDatabaseId()}",
+                dataType: "json",
+                async: false
+            }).responseJSON;
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Jahr');
+            data.addColumn('number', 'Auszahlung');
+            data.addColumn('number', 'Einzahlung');
+
+            $.each(jsonData, function (i, jsonData)
+            {
+                data.addRows([[jsonData.jahr, jsonData.aus, jsonData.ein]]);
+            });
+
+    {literal}
+            var options = {
+                axes: {
+                    x: {
+                        0: {side: 'bottom'}
+                    }
+                }
+            };
+    {/literal}
+            var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+            chart.draw(data, options);
+        }
+
+        $(window).resize(function () {
+            drawChart();
+        });
+
+        $('ul.tabs').click(function (event) {
+            drawChart();
+        });
+</script>

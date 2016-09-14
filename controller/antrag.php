@@ -48,7 +48,8 @@ if (isset($request[2])) {
             break;
         case "bearbeiten":
             if (isset($request[3])) {
-                loadProject($request[3]);
+                $projekt = loadProject($request[3]);
+                core()->smarty()->assign("projekt", $projekt);
                 core()->materialize()->addFixedNavElement("/pm/antrag/" . $request[3], "Zurück", "call_missed", "black");
                 core()->materialize()->showFixedNavElement();
             }
@@ -83,6 +84,16 @@ if (isset($request[2])) {
             header("Location: /pm/antrag/" . $request[3]);
             exit;
             break;
+        case "capitalmethod":
+            if (is_numeric($request[3])) {
+                $projekt = loadProject($request[3]);
+                foreach ($projekt->getCapitalflow() as $capitalValue) {
+                    $data[] = $capitalValue->getArray($request[3]);
+                }
+                echo json_encode($data, JSON_NUMERIC_CHECK);
+                exit;
+            }
+            break;
     }
     if (is_numeric($request[2])) {
         core()->materialize()->parallax(true);
@@ -94,7 +105,10 @@ if (isset($request[2])) {
 
         (check($request[2])) ? $genehmigen = true : $genehmigen = false;
 
-        loadProject($request[2]);
+        $projekt = loadProject($request[2]);
+        $capitalMethod = new pm_capitalvaluemethod(count($projekt->getCapitalflow()), null, $projekt->getCapitalRent(), $projekt->getMonesEarnings(), $projekt->getCapitalflow());
+        core()->smarty()->assign("capitalMethod", $capitalMethod);
+        core()->smarty()->assign("projekt", $projekt);
         core()->smarty()->assign("zuGenehmigen", $genehmigen);
     }
 }
@@ -102,7 +116,7 @@ if (isset($request[2])) {
 function loadProject($id) {
     $projekt = new pm_projekt();
     $projekt->load($id);
-    core()->smarty()->assign("projekt", $projekt);
+    return $projekt;
 }
 
 function check($pid) {
