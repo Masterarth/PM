@@ -1367,7 +1367,11 @@ class pm_projekt {
     }
 
     function getCapitalRent() {
-        return array_values($this->getCapitalflow())[0]->getRent();
+        $capitalFlow = $this->getCapitalflow();
+        if ($capitalFlow) {
+            return $capitalFlow[0]->getRent();
+        }
+        return null;
     }
 
 }
