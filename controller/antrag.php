@@ -121,9 +121,9 @@ function loadProject($id) {
 
 function check($pid) {
     $user = $_SESSION["user"];
-    $zu_gehnemigen = core()->db()->select("select projekt.id FROM projekt,team,abteilung,mitarbeiter, standort, projstatus "
-            . "WHERE (projekt.genehmigung_E1 = 0 AND projekt.a_id = abteilung.id AND abteilung.id = team.a_id AND team.t_leitung = " . $user->getId() . " AND projekt.s_id = 1 AND projekt.id = " . $pid . ") "
-            . "OR ( projekt.genehmigung_E2 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1 AND projekt.id = " . $pid . ") "
-            . "OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_id = standort.id AND standort.s_leitung = " . $user->getId() . " AND projekt.s_id = 1 AND projekt.id = " . $pid . ") group by projekt.id", "fetch");
+    $zu_gehnemigen = core()->db()->select("select projekt.id, projekt.titel FROM projekt,team,abteilung,mitarbeiter, standort, projstatus "
+            . "WHERE (projekt.genehmigung_E1 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1) "
+            . "OR ( projekt.genehmigung_E2 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1) "
+            . "OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_id = standort.id AND standort.s_leitung = " . $user->getId() . " AND projekt.s_id = 1) GROUP BY projekt.id", "fetch");
     return $zu_gehnemigen;
 }
