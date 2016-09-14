@@ -77,7 +77,7 @@
             var calcHeight = 180;
 
             if (jsonData.length >= 3) {
-                calcHeight = jsonData.length * 35;
+                calcHeight = jsonData.length * 40;
             }
 
             var options = {
