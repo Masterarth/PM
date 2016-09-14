@@ -87,8 +87,12 @@ if (isset($request[2])) {
         case "capitalmethod":
             if (is_numeric($request[3])) {
                 $projekt = loadProject($request[3]);
-                foreach ($projekt->getCapitalflow() as $capitalValue) {
-                    $data[] = $capitalValue->getArray($request[3]);
+                foreach ($projekt->getCapitalflow() as $key => $capitalValue) {
+                    $data[$key] = $capitalValue->getArray($request[3]);
+                    if ($key > 0) {
+                        $data[$key]["ein"] = $data[$key]["ein"] + $data[$key - 1]["ein"];
+                        $data[$key]["aus"] = $data[$key]["aus"] + $data[$key - 1]["aus"];
+                    }
                 }
                 echo json_encode($data, JSON_NUMERIC_CHECK);
                 exit;
@@ -122,8 +126,8 @@ function loadProject($id) {
 function check($pid) {
     $user = $_SESSION["user"];
     $zu_gehnemigen = core()->db()->select("select projekt.id, projekt.titel FROM projekt,team,abteilung,mitarbeiter, standort, projstatus "
-            . "WHERE (projekt.genehmigung_E1 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1) "
-            . "OR ( projekt.genehmigung_E2 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1) "
-            . "OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_id = standort.id AND standort.s_leitung = " . $user->getId() . " AND projekt.s_id = 1) GROUP BY projekt.id", "fetch");
+            . "WHERE (projekt.genehmigung_E1 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1 and projekt.id =" . $pid . ") "
+            . "OR ( projekt.genehmigung_E2 = 0 AND projekt.a_id = abteilung.id AND abteilung.a_leitung = " . $user->getId() . " AND projekt.s_id =1 and projekt.id =" . $pid . ") "
+            . "OR ( projekt.genehmigung_E3 = 0 AND projekt.a_id = abteilung.id AND abteilung.s_id = standort.id AND standort.s_leitung = " . $user->getId() . " AND projekt.s_id = 1 and projekt.id =" . $pid . ") GROUP BY projekt.id", "fetch");
     return $zu_gehnemigen;
 }
