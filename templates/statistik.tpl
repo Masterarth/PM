@@ -63,7 +63,7 @@
         <div class="card-content">
             <div class="row valign-wrapper">
                 <div class="col s12 m6 center valign">
-                    <i class="material-icons bigger teal-text">assignment</i>
+                    <i class="material-icons bigger teal-text">person</i>
                     <h5>Anzahl Benutzer</h5>
                     <h4>{$statistik->getI_numberEmployees()}</h4>
                 </div>
