@@ -333,7 +333,7 @@ class pm_projekt {
      * @param int $p_id
      */
     private function getInvolvedTeamsInformations($p_id) {
-        $resultInvolvedTeams = core()->db()->select("select projteam.*,team.t_name from projteam,team where team.id = projteam.t_id and p_id='" . $p_id . "'");
+        $resultInvolvedTeams = core()->db()->select("select projteam.*,team.t_name from projteam,team where team.id = projteam.t_id and p_id=" . $p_id);
         if (count($resultInvolvedTeams) > 0) {
             foreach ($resultInvolvedTeams as $result) {
                 $it = new pm_projektteam();
@@ -353,7 +353,7 @@ class pm_projekt {
      * @param int $p_id
      */
     public function getCapitalValueInformations($p_id) {
-        $resultCapitalValue = core()->db()->select("select * from kapitalwerte where p_id ='" . $p_id . "'");
+        $resultCapitalValue = core()->db()->select("select * from kapitalwerte where p_id =" . $p_id . " order by jahr");
         if (count($resultCapitalValue) > 0) {
             foreach ($resultCapitalValue as $result) {
                 $cv = new pm_capitalvalue();
@@ -371,7 +371,7 @@ class pm_projekt {
      * @param int $p_id
      */
     private function getMilestonesInformations($p_id) {
-        $resultMilestones = core()->db()->select("select * from meilensteine where p_id ='" . $p_id . "'");
+        $resultMilestones = core()->db()->select("select * from meilensteine where p_id =" . $p_id . " order by ms_nummer");
         if (count($resultMilestones) > 0) {
             foreach ($resultMilestones as $result) {
                 $ms = new pm_milestone();
